@@ -5,6 +5,43 @@ var webComponentConfig = {
             path:'/web-component/jb-input/lib/JBInput.js',
             outputPath:'/web-component/jb-input/dist/JBInput.js'
         },
+        {
+            name:'jb-button',
+            path:'/web-component/jb-button/lib/JBButton.js',
+            outputPath:'/web-component/jb-button/dist/JBButton.js'
+        },
+        {
+            name:'jb-calendar',
+            path:'/web-component/jb-calendar/lib/JBCalendar.js',
+            outputPath:'/web-component/jb-calendar/dist/JBCalendar.js',
+            external:['dayjs','jalaliday']
+        },
+        {
+            name:'jb-date-input',
+            path:'/web-component/jb-date-input/lib/JBDateInput.js',
+            outputPath:'/web-component/jb-date-input/dist/JBDateInput.js',
+            external:['dayjs','jalaliday','jb-calendar']
+        },
+        {
+            name:'jb-file-input',
+            path:'/web-component/jb-file-input/lib/JBFileInput.js',
+            outputPath:'/web-component/jb-file-input/dist/JBFileInput.js'
+        },
+        {
+            name:'jb-image-input',
+            path:'/web-component/jb-image-input/lib/JBImageInput.js',
+            outputPath:'/web-component/jb-image-input/dist/JBImageInput.js'
+        },
+        {
+            name:'jb-select',
+            path:'/web-component/jb-select/lib/JBSelect.js',
+            outputPath:'/web-component/jb-select/dist/JBSelect.js'
+        },
+        {
+            name:'jb-text-area',
+            path:'/web-component/jb-textarea/lib/JBTextarea.js',
+            outputPath:'/web-component/jb-textarea/dist/JBTextarea.js'
+        },
     ]
 }
 export {webComponentConfig}

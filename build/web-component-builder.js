@@ -17,7 +17,10 @@ class WebComponentBuilder{
         console.log('web-component-builder-initiated'.yellow);
     }
     build(){
-        this.buildComponent(webComponentConfig.webComponents[0])
+        webComponentConfig.webComponents.forEach((webComponent)=>{
+            this.buildComponent(webComponent);
+        })
+       
     }
     buildComponent(component){
         console.log(`start building ${component.name}`);
