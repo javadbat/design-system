@@ -1,3 +1,24 @@
 [submodule "web-component/jb-input"]
 	path = web-component/jb-input
 	url = https://github.com/javadbat/jb-input.git
+[submodule "web-component/jb-button"]
+	path = web-component/jb-button
+	url = https://github.com/javadbat/jb-button.git
+[submodule "web-component/jb-select"]
+	path = web-component/jb-select
+	url = https://github.com/javadbat/jb-select.git
+[submodule "web-component/jb-textarea"]
+	path = web-component/jb-textarea
+	url = https://github.com/javadbat/jb-textarea.git
+[submodule "web-component/jb-file-input"]
+	path = web-component/jb-file-input
+	url = https://github.com/javadbat/jb-file-input.git
+[submodule "web-component/jb-image-input"]
+	path = web-component/jb-image-input
+	url = https://github.com/javadbat/jb-image-input.git
+[submodule "web-component/jb-date-input"]
+	path = web-component/jb-date-input
+	url = https://github.com/javadbat/jb-date-input.git
+[submodule "web-component/jb-calendar"]
+	path = web-component/jb-calendar
+	url = https://github.com/javadbat/jb-calendar.git
