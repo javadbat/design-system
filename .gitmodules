@@ -1,0 +1,3 @@
+[submodule "web-component/jb-input"]
+	path = web-component/jb-input
+	url = https://github.com/javadbat/jb-input.git
