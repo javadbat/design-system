@@ -19,7 +19,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "serve": "node serve/serve.js"
   },
   "repository": {
     "type": "git",

@@ -11,7 +11,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import rollupReplace from '@rollup/plugin-replace';
 //config
 import { webComponentConfig } from '../config/build-config.js';
-import generalConfig from '../config/GeneralConfigServer.js';
+import generalConfig from '../config/general-config.js';
 class WebComponentBuilder{
     constructor(){
         console.log('web-component-builder-initiated'.yellow);
