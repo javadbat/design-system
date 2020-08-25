@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Button } from './Button';
+import JBButton from '../../../react-component/jb-button/JBButton';
 import './header.css';
 
 export const Header = ({ user, onLogin, onLogout, onCreateAccount }) => (
@@ -28,11 +28,11 @@ export const Header = ({ user, onLogin, onLogout, onCreateAccount }) => (
       </div>
       <div>
         {user ? (
-          <Button size="small" onClick={onLogout} label="Log out" />
+          <JBButton size="small" onClick={onLogout} label="Log out" />
         ) : (
           <>
-            <Button size="small" onClick={onLogin} label="Log in" />
-            <Button primary size="small" onClick={onCreateAccount} label="Sign up" />
+            <JBButton size="small" onClick={onLogin} label="Log in" />
+            <JBButton primary size="small" onClick={onCreateAccount} label="Sign up" />
           </>
         )}
       </div>

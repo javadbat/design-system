@@ -11,6 +11,8 @@
     "@rollup/plugin-node-resolve": "^9.0.0",
     "@rollup/plugin-replace": "^2.3.3",
     "colors": "^1.4.0",
+    "dayjs": "^1.8.31",
+    "jalaliday": "^2.3.0",
     "node-sass": "^4.14.1",
     "prop-types": "^15.7.2",
     "rollup": "^2.26.5",
