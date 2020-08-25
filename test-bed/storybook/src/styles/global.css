@@ -1,0 +1,10 @@
+@font-face { 
+  font-family: "dana";
+  src: url("danawebGX.woff");
+}
+.sb-wrapper{
+    font-family: "dana", tahoma, Arial, Helvetica, sans-serif;
+}
+#root{
+  font-family: "dana", tahoma, Arial, Helvetica, sans-serif;
+}
