@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../web-component/jb-calendar'
+import '../../../web-component/jb-calendar'
 function JBCalendar() {
     return (
         <div>

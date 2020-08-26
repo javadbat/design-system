@@ -3,35 +3,26 @@ import path from 'path'
 import fs from 'fs'
 //rollup
 import * as rollup from 'rollup';
-import html from 'rollup-plugin-html';
+import rollupBabel from '@rollup/plugin-babel';
 import postcss from 'rollup-plugin-postcss';
 import commonjs from '@rollup/plugin-commonjs';
 import rollupJson from '@rollup/plugin-json';
 import resolve from '@rollup/plugin-node-resolve';
 import rollupReplace from '@rollup/plugin-replace';
 //config
-import { webComponentConfig } from '../config/build-config.js';
+import { reactComponentConfig } from '../config/build-config.js';
 import generalConfig from '../config/general-config.js';
-class WebComponentBuilder {
-    constructor() {
-        console.log('web-component-builder-initiated'.yellow);
+class ReactComponentBuilder{
+    constructor(){
+        console.log('react-component-builder-initiated'.yellow);
     }
-    build() {
-        return new Promise((resolve, reject) => {
-            const promiseArray = []
-            webComponentConfig.webComponents.forEach((webComponent) => {
-                const componentPromise = this.buildComponent(webComponent);
-                promiseArray.push(componentPromise);
-            });
-            Promise.all(promiseArray).then(()=>{
-                resolve();
-            }).catch((err)=>{
-                reject(err);
-            })
-        });
-
+    build(){
+        reactComponentConfig.reactComponents.forEach((reactComponent)=>{
+            this.buildComponent(reactComponent);
+        })
+       
     }
-    buildComponent(component) {
+    buildComponent(component){
         console.log(`start building ${component.name}`);
         const inputOptions = this._getInputOption(component);
         const outputOptions = this._getOutputOption(component);
@@ -45,33 +36,42 @@ class WebComponentBuilder {
             bundle.write(outputOptions).then(function (output) {
                 console.log(output.output[0].facadeModuleId.green);
             });
-        }).catch((e) => {
+        }).catch((e)=>{
             console.log(e)
         })
         return bundlePromise;
     }
     _getInputOption(module) {
         let plugins = [
-            html({
-                include: '**/*.html'
+            rollupReplace({
+                'process.env.NODE_ENV': `"${generalConfig.env}"`,
             }),
             postcss({
                 extensions: ['.css', '.pcss', 'scss'],
                 inject: false,
                 sourceMap: true
             }),
+            rollupBabel.default({
+                exclude: ['node_modules/**',...module.external],
+                babelrc: false,
+                babelHelpers:'runtime',
+                presets: [
+                    "@babel/preset-env",
+                    "@babel/preset-react",
+                ],
+                plugins:[
+                    ["@babel/plugin-proposal-decorators",{ "legacy": true }],
+                    ["@babel/plugin-proposal-class-properties", { loose: true }],
+                    "@babel/plugin-syntax-dynamic-import",
+                    "@babel/plugin-proposal-nullish-coalescing-operator",
+                    "@babel/plugin-external-helpers",
+                    "@babel/plugin-transform-runtime"
+                ]
+            }),
             resolve({
                 preferBuiltins: true,
                 mainFields: ['browser'],
                 jsnext: true,
-            }),
-            rollupReplace({
-                'process.env.NODE_ENV': `"${generalConfig.env}"`,
-            }),
-            commonjs({
-                include: ["./index.js", "node_modules/**"],
-                ignoreGlobal: false,
-                sourceMap: true
             }),
             rollupJson()
         ]
@@ -94,4 +94,4 @@ class WebComponentBuilder {
         return outputOptions;
     }
 }
-export default WebComponentBuilder;
+export default ReactComponentBuilder;

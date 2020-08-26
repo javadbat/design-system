@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import '../../web-component/jb-button/dist/JBButton'
+import '../../../web-component/jb-button/dist/JBButton'
 function JBButton(props) {
     const buttonElement = useRef();
     useEffect(() => {

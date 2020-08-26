@@ -1,6 +1,6 @@
 import React, {useRef, useEffect} from 'react'
 import PropTypes from 'prop-types'
-import '../../web-component/jb-input'
+import '../../../web-component/jb-input'
 // eslint-disable-next-line react/display-name
 const JBInput = React.forwardRef((props, ref)=>{
     let element;
