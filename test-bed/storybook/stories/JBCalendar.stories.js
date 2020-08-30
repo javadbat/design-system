@@ -1,5 +1,5 @@
 import React from 'react';
-import JBCalendar from '../../../react-component/jb-calendar/JBCalendar'
+import JBCalendar from '../../../react-component/jb-calendar'
 export default {
     title: 'Example/JBCalendar',
     component: JBCalendar
