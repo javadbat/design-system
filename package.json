@@ -24,7 +24,7 @@
     "colors": "^1.4.0",
     "dayjs": "^1.8.31",
     "jalaliday": "^2.3.0",
-    "jb-calendar": "^1.0.0",
+    "jb-calendar": "^1.0.1",
     "mobx": "^5.15.6",
     "node-sass": "^4.14.1",
     "prop-types": "^15.7.2",

@@ -27,7 +27,7 @@
     "babel-plugin-add-module-exports": "^1.0.2",
     "babel-plugin-react-docgen": "^4.1.0",
     "css-loader": "^4.2.2",
-    "jb-calendar": "^1.0.0",
+    "jb-calendar": "^1.0.1",
     "mobx": "^5.15.6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
