@@ -69,6 +69,12 @@ const reactComponentConfig = {
             path: '/react-component/jb-calendar/lib/JBCalendar.js',
             outputPath: '/react-component/jb-calendar/dist/JBCalendar.js',
             external: ['dayjs', 'jalaliday', '../../../web-component/jb-calendar', 'prop-types', 'react']
+        },
+        {
+            name: 'jb-checkbox',
+            path: '/react-component/jb-checkbox/lib/JBCheckbox.js',
+            outputPath: '/react-component/jb-checkbox/dist/JBCheckbox.js',
+            external: ['prop-types', 'react']
         }
     ]
 }

@@ -48,7 +48,7 @@ class ReactComponentBuilder{
             }),
             postcss({
                 extensions: ['.css', '.pcss', 'scss'],
-                inject: false,
+                inject: true,
                 sourceMap: true
             }),
             rollupBabel.default({
