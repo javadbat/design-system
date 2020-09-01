@@ -25,3 +25,6 @@
 [submodule "modules/jb-message"]
 	path = modules/jb-message
 	url = https://github.com/javadbat/jb-message.git
+[submodule "react-component/jb-checkbox"]
+	path = react-component/jb-checkbox
+	url = https://github.com/javadbat/jb-checkbox-react.git
