@@ -22,3 +22,6 @@
 [submodule "web-component/jb-calendar"]
 	path = web-component/jb-calendar
 	url = https://github.com/javadbat/jb-calendar.git
+[submodule "modules/jb-message"]
+	path = modules/jb-message
+	url = https://github.com/javadbat/jb-message.git

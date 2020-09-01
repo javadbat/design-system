@@ -41,10 +41,16 @@ var webComponentConfig = {
             name: 'jb-text-area',
             path: '/web-component/jb-textarea/lib/JBTextarea.js',
             outputPath: '/web-component/jb-textarea/dist/JBTextarea.js'
+        },
+        {
+            name: 'jb-message',
+            path: '/modules/jb-message/lib/JBMessage.js',
+            outputPath: '/modules/jb-message/dist/JBMessage.js'
         }
+
     ],
 }
-export const reactComponentConfig = {
+const reactComponentConfig = {
     reactComponents: [
         {
             name: 'jb-input',
@@ -66,4 +72,4 @@ export const reactComponentConfig = {
         }
     ]
 }
-export { webComponentConfig }
+export { webComponentConfig , reactComponentConfig }
