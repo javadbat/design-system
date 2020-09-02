@@ -75,6 +75,12 @@ const reactComponentConfig = {
             path: '/react-component/jb-checkbox/lib/JBCheckbox.js',
             outputPath: '/react-component/jb-checkbox/dist/JBCheckbox.js',
             external: ['prop-types', 'react']
+        },
+        {
+            name: 'jb-switch',
+            path: '/react-component/jb-switch/lib/JBSwitch.js',
+            outputPath: '/react-component/jb-switch/dist/JBSwitch.js',
+            external: ['prop-types', 'react']
         }
     ]
 }

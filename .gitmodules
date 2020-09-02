@@ -28,3 +28,9 @@
 [submodule "react-component/jb-checkbox"]
 	path = react-component/jb-checkbox
 	url = https://github.com/javadbat/jb-checkbox-react.git
+[submodule "react-component/jb-switch"]
+	path = react-component/jb-switch
+	url = https://github.com/javadbat/jb-switch-react.git
+[submodule "react-component/jb-searchbar"]
+	path = react-component/jb-searchbar
+	url = https://github.com/javadbat/jb-searchbar-react.git

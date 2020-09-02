@@ -46,6 +46,7 @@ class ReactComponentBuilder{
             rollupReplace({
                 'process.env.NODE_ENV': `"${generalConfig.env}"`,
             }),
+            commonjs({include: "node_modules/**"}),
             postcss({
                 extensions: ['.css', '.pcss', 'scss'],
                 inject: true,
