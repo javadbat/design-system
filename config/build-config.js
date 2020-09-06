@@ -46,6 +46,10 @@ var webComponentConfig = {
             name: 'jb-message',
             path: '/modules/jb-message/lib/JBMessage.js',
             outputPath: '/modules/jb-message/dist/JBMessage.js'
+        },{
+            name: 'jb-searchbar',
+            path: '/web-component/jb-searchbar/lib/JBSearchbar.js',
+            outputPath:'/web-component/jb-searchbar/dist/JBSearchbar.js'
         }
 
     ],

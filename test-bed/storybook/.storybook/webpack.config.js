@@ -12,7 +12,7 @@ module.exports = async ({ config }) => {
         }
       }
     ],
-    include: path.resolve(__dirname, '../')
+    include: path.resolve(__dirname, '../src/styles')
   });
 
   return config;

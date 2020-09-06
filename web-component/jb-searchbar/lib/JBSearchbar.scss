@@ -1,0 +1,76 @@
+.jb-searchbar-web-component{
+    width: 100%;
+    height: auto;
+    min-height: 48px;
+    background-color: #fff;
+    direction: rtl;
+    display: flex;
+    border-bottom: 4px solid #000;
+    .search-dynamic-wrapper{
+        width: calc(100% - 48px );
+        height: auto;
+        min-height: 48px;
+        .filter-list-section{
+            display: inline-block;
+            .filter-item{
+                display: inline-block;
+                margin:0 4px;
+                padding: 2px 8px;
+                background-color: red;
+                color:#fff;
+                border-radius: 36px;
+            }
+        }
+        .filter-input-section{
+            --jb-select-margin: 0 0;
+            --jb-select-border-radius: 0px;
+            --jb-select-border-color: transparent;
+            --jb-select-border-color-selected: transparent;
+            --jb-select-bgcolor: #fff;
+            display: inline-block;
+            .column-select-wrapper{
+                width: 240px;
+                &.--hide{
+                    display: none;
+                }
+            }
+            .intent-wrapper{
+                display: flex;
+                align-items: center;
+                .intent-input-wrapper{
+                    --jb-input-margin: 0 0;
+                    --jb-input-border-radius: 0px;
+                    --jb-input-border-color: transparent;
+                    --jb-input-border-color-focus: transparent;
+                    --jb-input-bgcolor: #fff;
+                    
+                }
+                .intent-submit-button{
+                    width: 32px;
+                    height: 32px;
+                    float: right;
+                    padding: 4px 0 4px 0;
+                    cursor: not-allowed;
+                    &.--active{
+                        cursor: pointer;
+                        svg{
+                            fill:#28BD48;
+                        }
+                    }
+                    svg{
+                        fill:#929292;
+                    }
+                }
+                &.--hide{
+                    display: none;
+                }
+            }
+        }
+    }
+    .search-button-wrapper{
+        width: 48px;
+        background-color: burlywood;
+        height: auto;
+        min-height: 48px;
+    }
+}
