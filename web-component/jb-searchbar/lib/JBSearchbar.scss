@@ -19,6 +19,24 @@
                 background-color: red;
                 color:#fff;
                 border-radius: 36px;
+                .delete-btn{
+                    cursor: pointer;
+                    display: block;
+                    padding: 4px 8px 0px 8px;
+                    float: right;
+                    box-sizing: border-box;
+                    svg{
+                        fill:#fff;
+                        width: 12px;
+                        height: 12px;
+                    }
+                }
+                .filter-label{
+                    display: block;
+                    float: right;
+                    padding: 2px 0 0 0;
+                    box-sizing: border-box;
+                }
             }
         }
         .filter-input-section{

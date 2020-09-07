@@ -54,15 +54,36 @@ class JBSearchbarWebComponent extends HTMLElement {
     }
     createFilterList(){
         const flProxy = new Proxy([],{
-            get:(target, property)=>{
+            get:(target, property,receiver)=>{
+                if(property == "splice"){
+                    const origMethod = target[property];
+                    const customSplice = (...args)=>{
+                        this._elements.filterListWrapper.children[args[0]].remove();
+                        //becuase we apply function like this the get wont call again in proxy
+                        //we apply into proxy not orginal obj so setter hooks for splice in setter do their job
+                        return origMethod.apply(receiver,args);
+                    }
+                    return customSplice;
+                }
                 return target[property];
             },
             set:(target, property, value, receiver)=>{
-                target[property] = value;
                 if(!(property == "length")){
-                    const dom = this.createFilterDOM(value)
-                    this._elements.filterListWrapper.appendChild(dom);
+                    if( parseInt(property) == target.length){
+                        //when push
+                        const dom = this.createFilterDOM(value);
+                        value.dom = dom;
+                        this._elements.filterListWrapper.appendChild(dom);
+                    }
+                    debugger;
+                    if(!isNaN(property) && parseInt(property) < target.length){
+                        debugger;
+                        //when splice
+                        //we do dom delete in proxy getter
+                        value.dom.filterIndex = parseInt(property);
+                    }
                 }
+                target[property] = value;
                 return true;
 
             }
@@ -72,9 +93,25 @@ class JBSearchbarWebComponent extends HTMLElement {
     createFilterDOM({label,column}){
         const dom= document.createElement('div')
         dom.classList.add('filter-item');
-        dom.innerHTML = `${column.label}: ${label}`;
+        const deleteButtonDom = document.createElement('div');
+        deleteButtonDom.classList.add('delete-btn');
+        deleteButtonDom.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 298.667 298.667" style="enable-background:new 0 0 298.667 298.667;" xml:space="preserve"><g><polygon points="298.667,30.187 268.48,0 149.333,119.147 30.187,0 0,30.187 119.147,149.333 0,268.48 30.187,298.667     149.333,179.52 268.48,298.667 298.667,268.48 179.52,149.333   "/></g></svg>`
+        const labelDom = document.createElement('div');
+        labelDom.classList.add('filter-label');
+        labelDom.innerHTML = `${column.label}: ${label}`;
+        const filterIndex = this.filterList.length;
+        dom.filterIndex = filterIndex;
+        deleteButtonDom.addEventListener('click',(e)=>{
+            this.deleteFilter(e.currentTarget.parentElement.filterIndex)
+        });
+        dom.appendChild(deleteButtonDom);
+        dom.appendChild(labelDom);
         return dom;
         
+    }
+    deleteFilter(filterIndex){
+        debugger;
+        this.filterList.splice(filterIndex,1);
     }
     connectedCallback() {
         // standard web component event that called when all of dom is binded
