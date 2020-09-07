@@ -19,6 +19,7 @@ class JBSearchbarWebComponent extends HTMLElement {
     }
     set inputState(value){
         if(value == "SELECT_COLUMN"){
+            this._elements.columnSelect.value = null;
             this._elements.intent.wrapper.classList.add('--hide');
             this._elements.columnSelect.parentElement.classList.remove('--hide');
         }else if(value == "FILL_VALUE"){
@@ -68,10 +69,10 @@ class JBSearchbarWebComponent extends HTMLElement {
         });
         return flProxy;
     }
-    createFilterDOM({label}){
+    createFilterDOM({label,column}){
         const dom= document.createElement('div')
         dom.classList.add('filter-item');
-        dom.innerHTML = label;
+        dom.innerHTML = `${column.label}: ${label}`;
         return dom;
         
     }
