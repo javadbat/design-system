@@ -10,6 +10,8 @@
         width: calc(100% - 48px );
         height: auto;
         min-height: 48px;
+        display: inline-flex;
+        flex-wrap: wrap;
         .filter-list-section{
             display: inline-block;
             .filter-item{

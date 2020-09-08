@@ -22,6 +22,7 @@ class JBSearchbarWebComponent extends HTMLElement {
             this._elements.columnSelect.value = null;
             this._elements.intent.wrapper.classList.add('--hide');
             this._elements.columnSelect.parentElement.classList.remove('--hide');
+            this._elements.columnSelect.focus();
         }else if(value == "FILL_VALUE"){
             this._elements.intent.wrapper.classList.remove('--hide');
             this._elements.intent.input.wrapper.innerHTML = "";
@@ -37,9 +38,12 @@ class JBSearchbarWebComponent extends HTMLElement {
         this.initWebComponent();
     }
     registerEventListener() {
-        this._elements.columnSelect.addEventListener('init',this.setColumnList.bind(this));
         this._elements.columnSelect.addEventListener('change',this.onColumnSelected.bind(this));
         this._elements.intent.submitButton.addEventListener('click',this.onIntentSubmited.bind(this));
+        this._elements.columnSelect.addEventListener('init',()=>{
+            this.setColumnList();
+            this._elements.columnSelect.focus();
+        });
 
     }
     initProp() {
@@ -75,9 +79,7 @@ class JBSearchbarWebComponent extends HTMLElement {
                         value.dom = dom;
                         this._elements.filterListWrapper.appendChild(dom);
                     }
-                    debugger;
                     if(!isNaN(property) && parseInt(property) < target.length){
-                        debugger;
                         //when splice
                         //we do dom delete in proxy getter
                         value.dom.filterIndex = parseInt(property);
@@ -110,13 +112,13 @@ class JBSearchbarWebComponent extends HTMLElement {
         
     }
     deleteFilter(filterIndex){
-        debugger;
         this.filterList.splice(filterIndex,1);
     }
     connectedCallback() {
         // standard web component event that called when all of dom is binded
         this.callOnLoadEvent();
         this.initProp();
+        
     }
     callOnLoadEvent() {
         var event = new CustomEvent('load', { bubbles: true, composed: true });
@@ -208,6 +210,9 @@ class JBSearchbarWebComponent extends HTMLElement {
                     setIntentActive(false); 
                 }
             });
+            input.addEventListener('init',()=>{
+                input.focus();
+            })
             return input;
         }
         switch(column.type){
