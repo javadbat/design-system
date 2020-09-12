@@ -20,6 +20,9 @@ const JBInput = React.forwardRef((props, ref)=>{
         }
         element.current.value = value;
     }, [props.value]);
+    useEffect(() => {
+        element.current.setAttribute('type',props.type);
+    }, [props.type])
     useEffect(()=>{
         element.current.validationList = props.validationList || [];
     },[props.validationList])
@@ -31,6 +34,7 @@ const JBInput = React.forwardRef((props, ref)=>{
 JBInput.propTypes = {
     label: PropTypes.string,
     value: PropTypes.string,
+    type: PropTypes.string,
     onChange: PropTypes.func,
     className: PropTypes.string,
     validationList: PropTypes.array

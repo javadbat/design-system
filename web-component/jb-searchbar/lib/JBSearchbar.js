@@ -2,16 +2,16 @@ import HTML from './JBSearchbar.html';
 import CSS from './JBSearchbar.scss';
 import '../../jb-select/lib/JBSelect';
 import '../../jb-input/lib/JBInput';
+import '../../jb-date-input/lib/JBDateInput'
+import { InputFactory } from './InputFactory';
 class JBSearchbarWebComponent extends HTMLElement {
     get isLoading() {
         return this._isLoading
     }
     set isLoading(value) {
         this._isLoading = value;
-        if (value == true) {
-            this._element.searchButton.classList.add('--loading');
-        } else {
-            this._element.searchButton.classList.remove('--loading');
+        if(value){
+            this.playSearchIconAnimation();
         }
     }
     get inputState(){
@@ -33,9 +33,17 @@ class JBSearchbarWebComponent extends HTMLElement {
     get value(){
         return this.filterList
     }
+    get columnList(){
+        return this._columnList;
+    }
+    set columnList(value){
+        //TODO: check validation of column to be array ind has neccessary prop
+        this.setColumnList(value);
+    }
     constructor() {
         super();
         this.initWebComponent();
+        this._inputFactory = new InputFactory();
     }
     registerEventListener() {
         this._elements.columnSelect.addEventListener('change',this.onColumnSelected.bind(this));
@@ -44,14 +52,17 @@ class JBSearchbarWebComponent extends HTMLElement {
             this.setColumnList();
             this._elements.columnSelect.focus();
         });
+        this._elements.searchButton.wrapper.addEventListener('click',this.search.bind(this));
 
     }
     initProp() {
         this.intentColumn = {
             column:null,
             value:null,
+            label:null,
             active:false
         }
+        this._columnList = [];
         this._inputState = "SELECT_COLUMN";
         this.filterList = this.createFilterList();
 
@@ -113,6 +124,7 @@ class JBSearchbarWebComponent extends HTMLElement {
     }
     deleteFilter(filterIndex){
         this.filterList.splice(filterIndex,1);
+        this.setColumnListSelectOptionList();
     }
     connectedCallback() {
         // standard web component event that called when all of dom is binded
@@ -132,7 +144,14 @@ class JBSearchbarWebComponent extends HTMLElement {
         this._shadowRoot.appendChild(this._element.content.cloneNode(true));
         this._elements = {
             filterListWrapper: this._shadowRoot.querySelector('.filter-list-section'),
-            searchButton: this._shadowRoot.querySelector('.search-button-wrapper'),
+            searchButton:{
+                wrapper: this._shadowRoot.querySelector('.search-button-wrapper'),
+                svg:{
+                    spinnerLine:this._shadowRoot.querySelector('.search-button-wrapper .convertable-line'),
+                    spinnerBox:this._shadowRoot.querySelector('.search-button-wrapper .spin-line-group')
+                }
+            },
+
             columnSelect: this._shadowRoot.querySelector('.column-select'),
             intent:{
                 column:this._shadowRoot.querySelector('.intent-wrapper .intent-column'),
@@ -157,25 +176,25 @@ class JBSearchbarWebComponent extends HTMLElement {
         switch (name) {
         }
     }
-    setColumnList(){
+    setColumnList(columnList){
+        this._columnList = columnList
+        this.setColumnListSelectOptionList()
+
+    }
+    setColumnListSelectOptionList(){
+        const currentFilterKeys = this.filterList.map((filter)=>{
+            return filter.column.key
+        });
+        const columnList = this.columnList.filter((column)=>{
+            const maxUsageCount = column.maxUsageCount || 1;
+            const usedCount = currentFilterKeys.filter(key=>key==column.key).length;
+            if(usedCount >= maxUsageCount){
+                return false
+            }
+            return true;
+        });
         this._elements.columnSelect.callbacks.getOptionTitle = (column)=>{return column.label};
-        this._elements.columnSelect.optionList = [
-            {
-                key:'name',
-                label:'نام',
-                type:'TEXT'
-            },
-            {
-                key:'age',
-                label:'سن',
-                type:'TEXT'
-            },
-            {
-                key:'fromDate',
-                label:'از تاریخ',
-                type:'TEXT'
-            },
-        ]
+        this._elements.columnSelect.optionList = columnList;
     }
     onColumnSelected(e){
        const column = e.target.value;
@@ -195,57 +214,91 @@ class JBSearchbarWebComponent extends HTMLElement {
                 this._elements.intent.submitButton.classList.remove('--active');  
             }
         }
-        const createTextInput = ()=>{
-            const input = document.createElement('jb-input');
-            input.addEventListener('keydown',(e)=>{
-               if(e.keyCode == 13 && e.target.value.trim()!= ""){
-                    this.onIntentSubmited();
-               }
-            });
-            input.addEventListener('keyup',(e)=>{
-                this.intentColumn.value = e.target.value;
-                if(e.target.value.length>0){
-                    setIntentActive(true);
-                }else{
-                    setIntentActive(false); 
-                }
-            });
-            input.addEventListener('init',()=>{
-                input.focus();
-            })
-            return input;
+        const setIntentColumnValue = (value, label)=>{
+            this.intentColumn.value = value;
+            this.intentColumn.label = label;
         }
         switch(column.type){
             case 'TEXT':
-                return createTextInput();
+                return this._inputFactory.createTextInput({onIntentSubmited:this.onIntentSubmited.bind(this), setIntentActive:setIntentActive, setIntentColumnValue});
                 break;
+            case 'SELECT':
+                return this._inputFactory.createSelectInput({column,onIntentSubmited:this.onIntentSubmited.bind(this), setIntentActive:setIntentActive, setIntentColumnValue});
+            case 'DATE':
+                return this._inputFactory.createDateInput({column,onIntentSubmited:this.onIntentSubmited.bind(this), setIntentActive:setIntentActive, setIntentColumnValue});
         }
     }
     onIntentSubmited(){
         if(this.intentColumn.active){
-            this.submitIntent(this.intentColumn.column,this.intentColumn.value);
+            this.submitIntent(this.intentColumn.column,this.intentColumn.value, this.intentColumn.label);
             this.inputState = "SELECT_COLUMN";
             this.intentColumn = {
                 column:null,
                 value:null,
+                label:null,
                 active:false
             }
+            this._elements.intent.submitButton.classList.remove('--active');
 
         }
     }
-    submitIntent(column, value){
-        let label = "";
-        switch(column.type){
-            case 'TEXT':
-                label = value;
-        }
+    submitIntent(column, value, label){
         this.filterList.push({
             column: column,
             value: value,
             label: label
         });
+        this.setColumnListSelectOptionList();
     }
+    playSearchIconAnimation(){
+        const spinnerLine = this._elements.searchButton.svg.spinnerLine;
+        const spinnerBox = this._elements.searchButton.svg.spinnerBox;
+        var context = this;
+        var ShrinkLineAnimation = spinnerLine.animate([{ d: 'path("M400 400 L 450 450")' }, { d: 'path("M410 410 L 415 415")' }], {id:'ShrinkLine',duration:400});
+        ShrinkLineAnimation.cancel();
+        var shrinkLineFunction = function(animation){
+            spinnerLine.setAttribute("d","M 407.82484150097946 413.25475607450323 A 220 220 0 0 0 413.25475607450323 407.8248415009794");
+            curveLineAnimation.play();
+        }
+        ShrinkLineAnimation.onfinish = shrinkLineFunction
+        var curveLineAnimation = spinnerLine.animate([{ d: 'path("M 407.82484150097946 413.25475607450323 A 220 220 0 0 0 413.25475607450323 407.8248415009794")' }, { d: 'path("M 255 475 A 220 220 0 0 0 475 255")' }], {id:'CurveLine',duration:400});
+        curveLineAnimation.cancel();
+        var curveLineFunction = function(animation){
+            spinnerLine.setAttribute("d","M 255 475 A 220 220 0 0 0 475 255");
+            spinAnimation.play();
+        }
+        curveLineAnimation.onfinish = curveLineFunction;
+        var spinAnimation = spinnerBox.animate([{transform:'rotate(0deg)'},{transform:'rotate(180deg)'},{transform:'rotate(360deg)'}], {id:'Spin',duration:1000,iterations: 1})
+        spinAnimation.cancel();
+        var spinFunction= function(animation){
+            if(context.isLoading == true){
+                spinAnimation.play();
+            }else{
+                ReversecurveLineAnimation.play();
+            }
+        }
+        spinAnimation.onfinish = spinFunction;
+        var growLineAnimation = spinnerLine.animate([{ d:'path("M410 410 L 415 415")'  }, { d: 'path("M400 400 L 450 450")' }], {id:'GrowLine',uration:400});
+        growLineAnimation.cancel();
+        var growLineFunction = function(animation){
+            spinnerLine.setAttribute("d","M400 400 L 450 450");
+        }
+        growLineAnimation.onfinish = growLineFunction
 
+        var ReversecurveLineAnimation = spinnerLine.animate([{ d: 'path("M 255 475 A 220 220 0 0 0 475 255")' }, { d: 'path("M 407.82484150097946 413.25475607450323 A 220 220 0 0 0 413.25475607450323 407.8248415009794")' }], {id:'ReverseCurveLine',duration:400});
+        ReversecurveLineAnimation.cancel();
+            var ReversecurveLineFunction = function(animation){
+            spinnerLine.setAttribute("d","M410 410 L 415 415");
+            growLineAnimation.play();
+        }
+        ReversecurveLineAnimation.onfinish = ReversecurveLineFunction;
+        ShrinkLineAnimation.play();
+    }
+    search(){
+        if(!this.isLoading){
+            this.isLoading = true;
+        }
+    }
 }
 const myElementNotExists = !customElements.get('jb-searchbar');
 if(myElementNotExists){

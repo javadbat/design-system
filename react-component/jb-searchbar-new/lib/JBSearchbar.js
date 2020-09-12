@@ -1,8 +1,12 @@
-import React from 'react'
+import React, {useEffect, useRef} from 'react'
 import '../../../web-component/jb-searchbar'
-function JBSearchBar() {
+function JBSearchBar(props) {
+    const element = useRef();
+    useEffect(() => {
+      element.current.columnList = props.columnList;  
+    },[props.columnList])
     return (
-        <jb-searchbar></jb-searchbar>
+        <jb-searchbar ref={element}></jb-searchbar>
     )
 }
 

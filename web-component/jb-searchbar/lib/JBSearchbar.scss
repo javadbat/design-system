@@ -5,7 +5,6 @@
     background-color: #fff;
     direction: rtl;
     display: flex;
-    border-bottom: 4px solid #000;
     .search-dynamic-wrapper{
         width: calc(100% - 48px );
         height: auto;
@@ -58,12 +57,24 @@
                 display: flex;
                 align-items: center;
                 .intent-input-wrapper{
+                    width: 180px;
                     --jb-input-margin: 0 0;
                     --jb-input-border-radius: 0px;
                     --jb-input-border-color: transparent;
                     --jb-input-border-color-focus: transparent;
                     --jb-input-bgcolor: #fff;
-                    
+                    //jb-select
+                    --jb-select-margin: 0 0;
+                    --jb-select-border-radius: 0px;
+                    --jb-select-border-color: transparent;
+                    --jb-select-border-color-selected: transparent;
+                    --jb-select-bgcolor: #fff;
+                    //jb-date-input
+                    --jb-date-input-margin: 0 0;
+                    --jb-date-input-border-radius: 0px;
+                    --jb-date-input-border-color: transparent;
+                    --jb-date-input-border-color-focus: transparent;
+                    --jb-date-input-bgcolor: #fff;
                 }
                 .intent-submit-button{
                     width: 32px;
@@ -89,8 +100,36 @@
     }
     .search-button-wrapper{
         width: 48px;
-        background-color: burlywood;
+        background-color: #fff;
         height: auto;
         min-height: 48px;
+        svg{
+            width: 36px;
+            height: 36px;
+            margin: 4px 8px;
+            box-sizing: border-box;
+            background-color: transparent;
+            circle{
+                stroke: #7b7b7b;
+                fill: white;
+                stroke-width: 25px;
+            }
+            .spin-line-group {
+                transform-origin: center;
+                fill: transparent;
+                rect {
+                    fill: transparent;
+                }
+                path {
+                    fill: none;
+                    stroke: #9b9b9b;
+                    stroke-linecap: round;
+                    stroke-linejoin: round;
+                    transition: 0.2s;
+                    stroke-width: 35px;
+                    transform-origin: center;
+                }
+            }
+        }
     }
 }

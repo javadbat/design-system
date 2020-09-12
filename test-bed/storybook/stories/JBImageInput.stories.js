@@ -7,4 +7,5 @@ export default {
   const Template = (args) => <JBImageInput {...args}></JBImageInput>;
   export const Normal = Template.bind({});
   Normal.args = {
+    acceptTypes:"image/jpeg,image/jpg,image/png,image/svg+xml"
 };

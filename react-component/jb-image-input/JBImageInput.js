@@ -46,6 +46,9 @@ const JBImageInput = React.forwardRef((props, ref) => {
             element.current.selectImageByFile(props.file);
         }
     },[props.file])
+    useEffect(() => {
+       element.current.acceptTypes = props.acceptTypes;
+    }, [props.acceptTypes])
     return (
         <jb-image-input ref={element} class={props.className || ''} placeholder-title={props.placeholderTitle} upload-type={props.uploadType || 'AUTO'} required={props.required}></jb-image-input>
     )
@@ -61,7 +64,8 @@ JBImageInput.propTypes = {
     onImageSelected: PropTypes.func,
     bridge: PropTypes.object,
     multiple: PropTypes.bool,
-    file: PropTypes.object
+    file: PropTypes.object,
+    acceptTypes: PropTypes.string
 }
 export default JBImageInput
 

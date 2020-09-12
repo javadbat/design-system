@@ -24,6 +24,9 @@ var JBInput = /*#__PURE__*/React.forwardRef(function (props, ref) {
     element.current.value = value;
   }, [props.value]);
   useEffect(function () {
+    element.current.setAttribute('type', props.type);
+  }, [props.type]);
+  useEffect(function () {
     element.current.validationList = props.validationList || [];
   }, [props.validationList]);
   return /*#__PURE__*/React.createElement("jb-input", {
@@ -36,6 +39,7 @@ var JBInput = /*#__PURE__*/React.forwardRef(function (props, ref) {
 JBInput.propTypes = {
   label: PropTypes.string,
   value: PropTypes.string,
+  type: PropTypes.string,
   onChange: PropTypes.func,
   className: PropTypes.string,
   validationList: PropTypes.array
