@@ -1,0 +1,148 @@
+.jb-search-bar-component{
+    height: auto;
+    min-height: 48px;
+    .filter-dynamic-wrapper{
+        height: 100%;
+        width: calc(100% - 45px);
+        float: right;
+        .filter-list-section{
+            display: inline;
+            .item{
+                float: right;
+                background-color: #039be5;
+                margin: 6px 4px;
+                padding: 2px 8px 2px 16px;
+                border-radius: 22px;
+                color: #fff;
+                height: 32px;
+                font-size: 12px;
+                span{
+                    display: block;
+                    float: right;
+                    padding: 8px 0;
+                }
+                .close-icon{
+                    /* padding-top: 49px; */
+                    margin-top: 0px;
+                    /* width: 13px; */
+                    box-sizing: border-box;
+                    width: 24px;
+                    height: 13px;
+
+                    svg{
+                        width: 20px;
+                        height: 15px;
+                        fill: #2c3039;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        .filter-input-section{
+            display: inline-block;
+            height: 45px;
+        }
+    }
+    .filter-input-section{
+        float: right;
+        .column-list-wrapper{
+            float: right;
+            height: 100%;
+        }
+        .intent-wrapper{
+            float: right; 
+            .intent-column{
+                float: right;
+                display: inline-block;
+                font-size: 18px;
+                margin: 12px 8px 12px 8px;
+                color: #585858;
+                font-weight: 600;
+            }
+            .input-field-wrapper{
+                float: right;
+                height: 45px;
+                .list-input{
+                    height: 100%;
+                }
+                .text-input{
+                    input{
+                        height: 45px;
+                        background: #ffffff;
+                        border: none;
+                        box-sizing: border-box;
+                        border-bottom: 3px solid #e0e0e0;
+                        font-size: 14px;
+                        outline: none;
+                        font-family: inherit;
+                    }
+                }
+                .date-input{
+                    border:none;
+                    .jb-date-input-component{
+                        height: 45px;
+                    }
+                }
+            }
+            .confirm-btn{
+                width: 32px;
+                float: right;
+                padding: 5px 0 3px 0;
+                &.active{
+                    cursor: pointer;
+                    svg{
+                        fill:green;
+                    }
+                }
+                svg{
+                    fill:#e2e2e2;
+                }
+            }
+            .cancel-btn{
+                width: 12px;
+                float: right;
+                margin: 16px 8px 0px 0px;
+                cursor: pointer;
+            }
+         }
+    }
+    
+    .filter-btn{
+        height: 45px;
+        width: 45px;
+        float: left;
+        &:hover{
+            
+        }
+        svg{
+            width: 36px;
+            height: 36px;
+            margin: 4px 8px;
+            box-sizing: border-box;
+            circle{
+                stroke: #7b7b7b;
+                fill: white;
+                stroke-width: 25px;
+            }
+            g.spin-line-group {
+                transform-origin: center;
+            }
+            g.spin-line-group rect {
+                fill: transparent;
+            }
+            path {
+                fill: none;
+                stroke: #9b9b9b;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                transition: 0.2s;
+                stroke-width: 35px;
+                transform-origin: center;
+            }
+        }
+    }
+    .filter-btn{
+        cursor: pointer;
+    }
+    
+}

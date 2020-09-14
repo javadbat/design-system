@@ -166,7 +166,7 @@ class JBSearchbarWebComponent extends HTMLElement {
         this.registerEventListener();
     }
     static get observedAttributes() {
-        return [];
+        return ['placeholder'];
     }
     attributeChangedCallback(name, oldValue, newValue) {
         // do something when an attribute has changed
@@ -174,6 +174,9 @@ class JBSearchbarWebComponent extends HTMLElement {
     }
     onAttributeChange(name, value) {
         switch (name) {
+            case 'placeholder':
+                this._elements.columnSelect.setAttribute('placeholder',value);
+                break;
         }
     }
     setColumnList(columnList){

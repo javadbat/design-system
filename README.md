@@ -7,7 +7,7 @@ micro front-end with storybook testbed
 
 ## usage
 
-clone r=the project with submodules (all component are putted in project with submodule)
+clone the project with submodules (all component are putted in project with submodule)
 ```cmd
 
 git clone --recurse-submodules -j8 https://github.com/javadbat/design-system.git
@@ -18,7 +18,7 @@ install packages
 
 ```cmd
 npm i
-cd test-bed/srorybook
+cd test-bed/storybook
 npm i
 ```
 build packages in project root directory

@@ -85,6 +85,18 @@ const reactComponentConfig = {
             path: '/react-component/jb-switch/lib/JBSwitch.js',
             outputPath: '/react-component/jb-switch/dist/JBSwitch.js',
             external: ['prop-types', 'react']
+        },
+        {
+            name: 'jb-searchbar',
+            path: '/react-component/jb-searchbar/lib/JBSearchbar.js',
+            outputPath: '/react-component/jb-searchbar/dist/JBSearchbar.js',
+            external: ['prop-types', 'react']
+        },
+        {
+            name: 'jb-grid',
+            path: '/react-component/jb-grid/lib/JBGrid.js',
+            outputPath:'/react-component/jb-grid/dist/JBGrid.js',
+            external:['mobx-react', 'react', 'mobx', 'prop-types']
         }
     ]
 }

@@ -34,3 +34,6 @@
 # [submodule "react-component/jb-searchbar"]
 # 	path = react-component/jb-searchbar
 # 	url = https://github.com/javadbat/jb-searchbar-react.git
+[submodule "react-component/jb-grid"]
+	path = react-component/jb-grid
+	url = https://github.com/javadbat/jb-grid-react.git
