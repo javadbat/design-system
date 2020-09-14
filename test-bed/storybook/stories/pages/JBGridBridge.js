@@ -1,24 +1,26 @@
+import Axios from "axios";
 
 class JBGridBridge {
     //public
     mapServerResponseDataToGridData(data) {
         //convert server response data to grid standard data
-        if (!data.content.length > -1 || !data.size || !data.numberOfElements) {
+        if (!(data.content.length > -1) || !(data.totalItem !== null || data.totalItem !== undefined) || !(data.pageIndex !== null || data.pageIndex !== undefined) || !data.pageSize) {
             console.error('we cant set meta data');
+            return false;
         }
         var bridgeData = {};
         //the content array contain data we want to show
         bridgeData.content = data.content;
         //current list start index to show to user exp:20-35 its 20
-        bridgeData.startItemIndex = data.size * data.number + 1;
+        bridgeData.startItemIndex = data.pageSize * (data.pageIndex + 1);
         //last index of current loaded list
-        bridgeData.endItemIndex = data.size * data.number + data.numberOfElements;
+        bridgeData.endItemIndex = data.pageSize * data.pageIndex + data.totalItem;
         //all item count for example if we had 500  user its 500
-        bridgeData.totalItemsCount = data.totalElements;
+        bridgeData.totalItemsCount = data.totalItem;
         //how many page we have
-        bridgeData.totalPages = data.totalPages;
+        bridgeData.totalPages = Math.floor(data.totalItem / data.pageSize);
         //current loaded page index
-        bridgeData.pageIndex = data.number + 1;//our server page start index from 0
+        bridgeData.pageIndex = data.pageIndex + 1;//our server page start index from 0
         return bridgeData;
     }
     //public
@@ -42,15 +44,13 @@ class JBGridBridge {
     }
     getData(configData, requestBody) {
         return new Promise((resolve, reject) => {
-            var request = new RequestData({
+            var request = Axios({
                 url: configData.url,
                 method: configData.method,
-                body: requestBody
-            });
-            fetch(request.request).then(fetchResponseHandler(request)).then((data) => {
-                resolve(data);
+                data: requestBody
+            }).then((res)=>{
+                resolve(res.data);
             }).catch((err) => {
-                fetchErrorHandler(err);
                 reject(err);
             });
         });
