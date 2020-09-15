@@ -5,6 +5,26 @@ class JBGridTestViewModel{
 
     @observable
     jbGridConfig = new JBGridData();
+    @observable
+    filterConfig = {
+        columnList: [
+            {
+                key: 'title',
+                label: 'تیتر',
+                type: 'TEXT'
+            },
+            {
+                key: 'fromDate',
+                label: 'از تاریخ',
+                type: 'DATE'
+            },
+            {
+                key: 'toDate',
+                label: 'تا تاریخ',
+                type: 'DATE'
+            }
+        ]
+    }
     constructor(){
         this.initGrid();
     }

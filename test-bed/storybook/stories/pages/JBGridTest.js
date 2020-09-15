@@ -20,12 +20,12 @@ class JBGridTest extends Component {
         const { vm } = this;
         return (
             <div className="grid-wrapper">
-                <JBGrid config={vm.jbGridConfig} bridge={JBGridBridge} title="لیست کاربران">
+                <JBGrid config={vm.jbGridConfig} bridge={JBGridBridge} title="لیست کاربران" searchbarConfig={vm.filterConfig}>
                     {
                         vm.jbGridConfig.data.data.map(
                             (item) => {
                                 return (
-                                    <Row key={item.serviceId} style={{ gridTemplateColumns: vm.jbGridConfig.styles.table.generalCols.gridTemplateColumns }}>
+                                    <Row key={item.id} style={{ gridTemplateColumns: vm.jbGridConfig.styles.table.generalCols.gridTemplateColumns }}>
                                         <Cell>{item.name}</Cell>
                                         <Cell>{item.age}</Cell>
                                     </Row>

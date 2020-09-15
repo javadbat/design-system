@@ -1,7 +1,6 @@
 import React from 'react';
 import JBGrid from '../../../react-component/jb-grid';
 import JBGridData from '../../../react-component/jb-grid/lib/JBGridData';
-import JBGridBridge from './pages/JBGridBridge';
 import JBGridTest from './pages/JBGridTest';
 export default {
     title: 'Example/JBGrid',
