@@ -1,35 +1,35 @@
-import React, {useRef, useEffect} from 'react'
-import PropTypes from 'prop-types'
-import '../../../web-component/jb-input'
+import React, {useRef, useEffect} from 'react';
+import PropTypes from 'prop-types';
+import '../../../web-component/jb-input';
 // eslint-disable-next-line react/display-name
 const JBInput = React.forwardRef((props, ref)=>{
     let element;
     if(ref){
         element = ref;
     }else{
-        element =  useRef();
+        element = useRef();
     }
     
     useEffect(()=>{
-        element.current.addEventListener('change',props.onChange)
-    },[])
+        element.current.addEventListener('change',props.onChange);
+    },[]);
     useEffect(() => {
-        let value = props.value
+        let value = props.value;
         if(props.value == null || props.value === undefined){
-            value = ''
+            value = '';
         }
         element.current.value = value;
     }, [props.value]);
     useEffect(() => {
         element.current.setAttribute('type',props.type);
-    }, [props.type])
+    }, [props.type]);
     useEffect(()=>{
         element.current.validationList = props.validationList || [];
-    },[props.validationList])
+    },[props.validationList]);
     return (
         <jb-input class={props.className} ref={element} label={props.label} message={props.message}></jb-input>
-    )
-})
+    );
+});
 
 JBInput.propTypes = {
     label: PropTypes.string,
@@ -38,7 +38,7 @@ JBInput.propTypes = {
     onChange: PropTypes.func,
     className: PropTypes.string,
     validationList: PropTypes.array
-}
+};
 
-export default JBInput
+export default JBInput;
 
