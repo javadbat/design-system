@@ -17,6 +17,7 @@ function JBButton(props) {
   }, [props.isLoading]);
   return /*#__PURE__*/React.createElement("jb-button", {
     ref: buttonElement,
+    "loading-text": props.loadingText ? props.loadingText : '',
     type: props.type ? props.type : 'primary',
     "class": props.className
   }, props.children);
@@ -26,7 +27,8 @@ JBButton.propTypes = {
   type: PropTypes.string,
   onClick: PropTypes.func,
   isLoading: PropTypes.bool,
-  className: PropTypes.string
+  className: PropTypes.string,
+  loadingText: PropTypes.string
 };
 
 export default JBButton;
