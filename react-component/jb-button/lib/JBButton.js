@@ -9,20 +9,21 @@ function JBButton(props) {
         }
         return () => {
             ()=>buttonElement.current.removeEventListener('click',props.onClick,);
-        }
-    }, [])
+        };
+    }, []);
     useEffect(()=>{
-        buttonElement.current.isLoading = props.isLoading
-    },[props.isLoading])
+        buttonElement.current.isLoading = props.isLoading;
+    },[props.isLoading]);
     return (
-        <jb-button ref={buttonElement} type={props.type ? props.type : 'primary'} class={props.className}>{props.children}</jb-button>
-    )
+        <jb-button ref={buttonElement} loading-text={props.loadingText ? props.loadingText : ''} type={props.type ? props.type : 'primary'} class={props.className}>{props.children}</jb-button>
+    );
 }
 JBButton.propTypes = {
     type: PropTypes.string,
     onClick: PropTypes.func,
     isLoading:PropTypes.bool,
-    className: PropTypes.string
-}
-export default JBButton
+    className: PropTypes.string,
+    loadingText: PropTypes.string
+};
+export default JBButton;
 
