@@ -29,17 +29,17 @@ class JBGridBridge {
 
         var requestBody = {};
         //به خاطر اینکه صفحه بندی سرور از صفر شروع میشده
-        requestBody.page = pageObj.index - 1;
-        requestBody.size = pageObj.size;
+        requestBody.pageIndex = pageObj.index - 1;
+        requestBody.pageSize = pageObj.size;
         /* implement grid filter */
-        if (filterObj) {
-            var bodyFilterObject = this._mapJBSearchBarFilterObjectToServerFilterObject(filterObj);
-            if (bodyFilterObject.length > 0) {
-                requestBody.criteria = bodyFilterObject
-            }
-        }
+        // if (filterObj) {
+        //     var bodyFilterObject = this._mapJBSearchBarFilterObjectToServerFilterObject(filterObj);
+        //     if (bodyFilterObject.length > 0) {
+        //         requestBody.criteria = bodyFilterObject
+        //     }
+        // }
         //implement user sort config to request body
-        this._implementSortToRequestBody(sortColumn, requestBody);
+        //this._implementSortToRequestBody(sortColumn, requestBody);
         return requestBody;
     }
     getData(configData, requestBody) {

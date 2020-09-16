@@ -15,7 +15,7 @@ class MockServer{
         this.app.get('/',(request,response)=>{
             response.send('design system mock service');
         });
-        this.app.get('/grid/user-list',this.getUserListForGrid.bind(this));
+        this.app.post('/grid/user-list',this.getUserListForGrid.bind(this));
     }
     getUserListForGrid(request, response){
         const content = [];
@@ -30,8 +30,8 @@ class MockServer{
         }
         const data = {
             content,
-            pageIndex:0,
-            pageSize:20,
+            pageIndex:request.body.pageIndex,
+            pageSize:request.body.pageSize,
             totalItem:100
         };
         response.status(200).send(data);
