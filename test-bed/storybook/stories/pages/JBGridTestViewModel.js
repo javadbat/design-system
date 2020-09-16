@@ -33,7 +33,7 @@ class JBGridTestViewModel{
             {
                 id: 1,
                 name: 'name',
-                caption: 'نام سرویس',
+                caption: 'نام',
                 sortable: false,
                 width: '1fr'
             },
