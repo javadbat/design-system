@@ -46,7 +46,7 @@ class JBGridTestViewModel{
             }
         ];
         this.jbGridConfig.data.url = "http://localhost:3200/grid/user-list",
-        this.jbGridConfig.data.method = "GET";
+        this.jbGridConfig.data.method = "POST";
     }
 }
 export default JBGridTestViewModel;

@@ -31,7 +31,7 @@ class JBSearchbarWebComponent extends HTMLElement {
         this._inputState = value;
     }
     get value(){
-        return this.filterList
+        return this.filterList.map(x=>({column:x.column,value:x.value}));
     }
     get columnList(){
         return this._columnList;
@@ -61,7 +61,7 @@ class JBSearchbarWebComponent extends HTMLElement {
             value:null,
             label:null,
             active:false
-        }
+        };
         this._columnList = [];
         this._inputState = "SELECT_COLUMN";
         this.filterList = this.createFilterList();
@@ -77,7 +77,7 @@ class JBSearchbarWebComponent extends HTMLElement {
                         //becuase we apply function like this the get wont call again in proxy
                         //we apply into proxy not orginal obj so setter hooks for splice in setter do their job
                         return origMethod.apply(receiver,args);
-                    }
+                    };
                     return customSplice;
                 }
                 return target[property];
@@ -104,7 +104,7 @@ class JBSearchbarWebComponent extends HTMLElement {
         return flProxy;
     }
     createFilterDOM({label,column}){
-        const dom= document.createElement('div')
+        const dom= document.createElement('div');
         dom.classList.add('filter-item');
         const deleteButtonDom = document.createElement('div');
         deleteButtonDom.classList.add('delete-btn');
@@ -115,7 +115,7 @@ class JBSearchbarWebComponent extends HTMLElement {
         const filterIndex = this.filterList.length;
         dom.filterIndex = filterIndex;
         deleteButtonDom.addEventListener('click',(e)=>{
-            this.deleteFilter(e.currentTarget.parentElement.filterIndex)
+            this.deleteFilter(e.currentTarget.parentElement.filterIndex);
         });
         dom.appendChild(deleteButtonDom);
         dom.appendChild(labelDom);
@@ -290,17 +290,16 @@ class JBSearchbarWebComponent extends HTMLElement {
 
         var ReversecurveLineAnimation = spinnerLine.animate([{ d: 'path("M 255 475 A 220 220 0 0 0 475 255")' }, { d: 'path("M 407.82484150097946 413.25475607450323 A 220 220 0 0 0 413.25475607450323 407.8248415009794")' }], {id:'ReverseCurveLine',duration:400});
         ReversecurveLineAnimation.cancel();
-            var ReversecurveLineFunction = function(animation){
+        let ReversecurveLineFunction = function(animation){
             spinnerLine.setAttribute("d","M410 410 L 415 415");
             growLineAnimation.play();
-        }
+        };
         ReversecurveLineAnimation.onfinish = ReversecurveLineFunction;
         ShrinkLineAnimation.play();
     }
     search(){
-        if(!this.isLoading){
-            this.isLoading = true;
-        }
+        const event = new CustomEvent('search');
+        this.dispatchEvent(event);
     }
 }
 const myElementNotExists = !customElements.get('jb-searchbar');
