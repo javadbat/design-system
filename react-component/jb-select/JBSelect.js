@@ -1,7 +1,7 @@
 /* eslint-disable react/display-name */
-import React, {useEffect, useRef} from 'react'
-import '../../web-component/jb-select'
-import PropTypes from 'prop-types'
+import React, {useEffect, useRef} from 'react';
+import '../../web-component/jb-select';
+import PropTypes from 'prop-types';
 import { toJS } from 'mobx';
 
 const JBSelect = React.forwardRef((props, ref)=>{
@@ -9,12 +9,12 @@ const JBSelect = React.forwardRef((props, ref)=>{
     if(ref){
         element = ref;
     }else{
-        element =  useRef();
+        element = useRef();
     }
    
     useEffect(() => {
         element.current.value = props.value ;
-    }, [props.value])
+    }, [props.value]);
     useEffect(() => {
         element.current.callbacks.getOptionTitle = props.getOptionTitle;
     }, [props.getOptionTitle]);
@@ -26,11 +26,11 @@ const JBSelect = React.forwardRef((props, ref)=>{
     }, [props.optionList]);
     useEffect(() => {
         element.current.addEventListener('change',props.onChange);
-    }, [])
+    }, []);
     return (
         <jb-select label={props.label} ref={element} required={props.required||false}></jb-select>
-    )
-})
+    );
+});
 
 
 JBSelect.propTypes = {
@@ -41,7 +41,7 @@ JBSelect.propTypes = {
     value: PropTypes.any,
     onChange: PropTypes.func,
     required: PropTypes.bool,
-}
+};
 
-export default JBSelect
+export default JBSelect;
 
