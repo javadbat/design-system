@@ -180,19 +180,19 @@ class JBSearchbarWebComponent extends HTMLElement {
         }
     }
     setColumnList(columnList){
-        this._columnList = columnList
-        this.setColumnListSelectOptionList()
+        this._columnList = columnList;
+        this.setColumnListSelectOptionList();
 
     }
     setColumnListSelectOptionList(){
         const currentFilterKeys = this.filterList.map((filter)=>{
-            return filter.column.key
+            return filter.column.key;
         });
         const columnList = this.columnList.filter((column)=>{
             const maxUsageCount = column.maxUsageCount || 1;
             const usedCount = currentFilterKeys.filter(key=>key==column.key).length;
             if(usedCount >= maxUsageCount){
-                return false
+                return false;
             }
             return true;
         });
@@ -200,11 +200,11 @@ class JBSearchbarWebComponent extends HTMLElement {
         this._elements.columnSelect.optionList = columnList;
     }
     onColumnSelected(e){
-       const column = e.target.value;
+        const column = e.target.value;
         this.intentColumn.column = column;
         this.inputState = "FILL_VALUE";
         this._elements.intent.column.innerHTML = column.label;
-        const inputDom =  this.createIntentInputDom(column);
+        const inputDom = this.createIntentInputDom(column);
         this._elements.intent.input.input = inputDom;
         this._elements.intent.input.wrapper.appendChild(inputDom);
     }
@@ -216,15 +216,16 @@ class JBSearchbarWebComponent extends HTMLElement {
             }else{
                 this._elements.intent.submitButton.classList.remove('--active');  
             }
-        }
+        };
         const setIntentColumnValue = (value, label)=>{
             this.intentColumn.value = value;
             this.intentColumn.label = label;
-        }
+        };
         switch(column.type){
             case 'TEXT':
                 return this._inputFactory.createTextInput({onIntentSubmited:this.onIntentSubmited.bind(this), setIntentActive:setIntentActive, setIntentColumnValue});
-                break;
+            case 'NUMBER':
+                return this._inputFactory.createNumberInput({onIntentSubmited:this.onIntentSubmited.bind(this), setIntentActive:setIntentActive, setIntentColumnValue});
             case 'SELECT':
                 return this._inputFactory.createSelectInput({column,onIntentSubmited:this.onIntentSubmited.bind(this), setIntentActive:setIntentActive, setIntentColumnValue});
             case 'DATE':

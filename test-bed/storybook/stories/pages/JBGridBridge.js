@@ -26,20 +26,11 @@ class JBGridBridge {
     //public
     createRequestBody(pageObj, filterObj, sortColumn) {
         //create body of request to send to the server
-
         var requestBody = {};
         //به خاطر اینکه صفحه بندی سرور از صفر شروع میشده
         requestBody.pageIndex = pageObj.index - 1;
         requestBody.pageSize = pageObj.size;
-        /* implement grid filter */
-        // if (filterObj) {
-        //     var bodyFilterObject = this._mapJBSearchBarFilterObjectToServerFilterObject(filterObj);
-        //     if (bodyFilterObject.length > 0) {
-        //         requestBody.criteria = bodyFilterObject
-        //     }
-        // }
-        //implement user sort config to request body
-        //this._implementSortToRequestBody(sortColumn, requestBody);
+        requestBody.filter = this._createServerFilterObject(filterObj);
         return requestBody;
     }
     getData(configData, requestBody) {
@@ -55,35 +46,21 @@ class JBGridBridge {
             });
         });
     }
-    //private . not need for jb grid bridge
-    _mapJBSearchBarFilterObjectToServerFilterObject(JBSearchBarFilterObject) {
-        var filterList = [];
-        JBSearchBarFilterObject.forEach((filter, index) => {
-            var value = filter.value.value;
-            var key = filter.column.name;
-            if (!filter.column.operation) {
-                filter.column.operation = "EQUALITY"
+    _createServerFilterObject(filterObject){
+        // server filter object = sfo
+        const sfo = {};
+        filterObject.forEach((filter)=>{
+            if(filter.column.maxUsageCount>1){
+                if(sfo[filter.column.key]){
+                    sfo[filter.column.key].push(filter.value);
+                }else{
+                    sfo[filter.column.key] = [filter.value];
+                }
+            }else{
+                sfo[filter.column.key] = filter.value;
             }
-            filterList.push({
-                "key": key,
-                "operation": filter.column.operation,
-                "value": value
-            });
         });
-        return filterList;
-    }
-    //private
-    _implementSortToRequestBody(sortColumn, requestBody) {
-        if (sortColumn) {
-            if (!requestBody.criteria) {
-                requestBody.criteria = [];
-            }
-            requestBody.criteria.push({
-                "key": sortColumn.name,
-                "operation": 'SORT_BY',
-                "value": sortColumn.sort.toUpperCase()
-            });
-        }
+        return sfo;
     }
 }
 export default JBGridBridge;

@@ -12,7 +12,7 @@ class JBGridTest extends Component {
         prop: PropTypes
     }
     constructor(props) {
-        super(props)
+        super(props);
         this.vm = new JBGridTestViewModel();
     }
 

@@ -14,6 +14,17 @@ class JBGridTestViewModel{
                 type: 'TEXT'
             },
             {
+                key: 'name',
+                label: 'نام',
+                type: 'TEXT',
+                maxUsageCount:3
+            },
+            {
+                key:'age',
+                label: 'سن',
+                type: 'NUMBER',
+            },
+            {
                 key: 'fromDate',
                 label: 'از تاریخ',
                 type: 'DATE'
