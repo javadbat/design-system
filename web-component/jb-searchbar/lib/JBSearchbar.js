@@ -283,11 +283,11 @@ class JBSearchbarWebComponent extends HTMLElement {
             }
         }
         spinAnimation.onfinish = spinFunction;
-        var growLineAnimation = spinnerLine.animate([{ d:'path("M410 410 L 415 415")'  }, { d: 'path("M400 400 L 450 450")' }], {id:'GrowLine',uration:400});
+        var growLineAnimation = spinnerLine.animate([{ d:'path("M410 410 L 415 415")' }, { d: 'path("M400 400 L 450 450")' }], {id:'GrowLine',uration:400});
         growLineAnimation.cancel();
         var growLineFunction = function(animation){
             spinnerLine.setAttribute("d","M400 400 L 450 450");
-        }
+        };
         growLineAnimation.onfinish = growLineFunction
 
         var ReversecurveLineAnimation = spinnerLine.animate([{ d: 'path("M 255 475 A 220 220 0 0 0 475 255")' }, { d: 'path("M 407.82484150097946 413.25475607450323 A 220 220 0 0 0 413.25475607450323 407.8248415009794")' }], {id:'ReverseCurveLine',duration:400});
