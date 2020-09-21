@@ -12,5 +12,5 @@ export const Normal = Template.bind({});
 Normal.args = {
     label:'چک',
     value:false,
-    onChange:(e)=>{action('onChange')(e);}
+    onChange:(e)=>{action('onChange')(e.target.value)}
 };
