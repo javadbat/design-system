@@ -16,10 +16,14 @@ const JBSelect = React.forwardRef((props, ref)=>{
         element.current.value = props.value ;
     }, [props.value]);
     useEffect(() => {
-        element.current.callbacks.getOptionTitle = props.getOptionTitle;
+        if(typeof props.getOptionTitle =="function"){
+            element.current.callbacks.getOptionTitle = props.getOptionTitle;
+        }
     }, [props.getOptionTitle]);
     useEffect(() => {
-        element.current.callbacks.getOptionValue = props.getOptionValue;
+        if(typeof props.getOptionValue =="function"){
+            element.current.callbacks.getOptionValue = props.getOptionValue;
+        }
     }, [props.getOptionValue]);
     useEffect(() => {
         element.current.optionList = toJS(props.optionList) ;

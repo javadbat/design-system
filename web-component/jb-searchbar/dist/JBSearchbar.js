@@ -83,11 +83,11 @@ class JBSelectWebComponent extends HTMLElement {
         this._inputElement.addEventListener('blur', this.onInputBlur.bind(this));
     }
     initProp() {
-        this.textValue = '';
         this.callbacks = {
             getOptionTitle: (option) => { return option; },
             getOptionValue: (option) => { return option; }
         };
+        this.textValue = '';
         this.value = this.getAttribute('value') || null;
         // if user set value and current option list is not contain the option. 
         // we hold it in _notFindedValue and select value when option value get updated
