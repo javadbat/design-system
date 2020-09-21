@@ -23,8 +23,8 @@ class MockServer{
             content.push(
                 {
                     id:i,
-                    name: `نام ${i}`,
-                    age:`${i}`
+                    name: `نام ${i}-${request.body.pageIndex}`,
+                    age:`${i}`,
                 }
             );
         }
