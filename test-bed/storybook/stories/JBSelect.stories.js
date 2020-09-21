@@ -32,7 +32,7 @@ OptionObject.args = {
     getOptionValue:(option)=>{
         return option.userId;
     },
-    onChange:(e)=>{action('onChange')(e.target.value)}
+    onChange:(e)=>{action('onChange')(e.target.value);}
 };
 const StyleTestTemplate = (args) => <JBSelectStyleTest label={args.label}></JBSelectStyleTest>;
 export const StyleTest = StyleTestTemplate.bind({});
