@@ -26,16 +26,17 @@ example:
 
 ```jsx
 render(){
-    const obj = [{name:'reza',family:'asadi',userId:1},{name:'peter',family:'peterson',userId:2}]
+    const obj = [{name:'reza',family:'asadi',userId:1},{name:'peter',family:'peterson',userId:2}];
+    getOptionTitle:(option)=>{
+        return `${option.name} ${option.family}`;
+    },
+    getOptionValue:(option)=>{
+        return option.userId;
+    }
+    return(
+        <JBInput label='your label name' optionList={obj} getOptionTitle={getOptionTitle} getOptionValue={getOptionValue}></JBSelect>;
+    );
 }
-<JBInput label='your label name' optionList={obj} getOptionTitle={getOptionTitle} getOptionValue={getOptionValue}></JBSelect>;
-
-getOptionTitle:(option)=>{
-    return `${option.name} ${option.family}`;
-},
-getOptionValue:(option)=>{
-    return option.userId;
-},
 ```
 
 ### set custom style
