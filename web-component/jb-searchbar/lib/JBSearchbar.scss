@@ -13,11 +13,14 @@
         .filter-list-section{
             display: inline-flex;
             align-items: center;
+            flex-wrap: wrap;
+            row-gap: 8px;
+            column-gap: 8px;
             .filter-item{
                 display: inline-block;
-                margin:0 4px;
+                margin:0px 0px;
                 padding: 4px 8px;
-                background-color: red;
+                background-color: #408cff;
                 color:#fff;
                 border-radius: 36px;
                 .delete-btn{

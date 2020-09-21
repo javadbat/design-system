@@ -6,13 +6,14 @@ import '../../jb-date-input/lib/JBDateInput'
 import { InputFactory } from './InputFactory';
 class JBSearchbarWebComponent extends HTMLElement {
     get isLoading() {
-        return this._isLoading
+        return this._isLoading;
     }
     set isLoading(value) {
-        this._isLoading = value;
-        if(value){
+        if((!this._isLoading) && value){
             this.playSearchIconAnimation();
         }
+        this._isLoading = value;
+        
     }
     get inputState(){
         return this._inputState;
