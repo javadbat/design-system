@@ -10,7 +10,7 @@ const Template = (args) => <JBCheckbox label={args.label} value={args.value} onC
 
 export const Normal = Template.bind({});
 Normal.args = {
-  label:'چک',
-  value:false,
-  onChange:(e)=>{action('onChange')(e)}
+    label:'چک',
+    value:false,
+    onChange:(e)=>{action('onChange')(e.target.value)}
 };
