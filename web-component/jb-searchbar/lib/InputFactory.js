@@ -11,11 +11,20 @@ class InputFactory {
         });
         input.addEventListener('keyup', (e) => {
             setIntentColumnValue(e.target.value, e.target.value);
-            if (e.target.value.length > 0) {
+            if (e.target.validation.isValid) {
                 setIntentActive(true);
             } else {
-                setIntentActive(false);
+                setIntentActive(false,e.target.validation.message);
             }
+        });
+        input.addEventListener('init', () => {
+            input.focus();
+            input.validationList = [
+                {
+                    validator: /.{1}/g,
+                    message: 'پر کردن فیلد اجباری است'
+                },
+            ];
         });
         input.addEventListener('init', () => {
             input.focus();
@@ -36,7 +45,7 @@ class InputFactory {
             if (e.target.validation.isValid) {
                 setIntentActive(true);
             } else {
-                setIntentActive(false);
+                setIntentActive(false,e.target.validation.message);
             }
         });
         input.addEventListener('init', () => {
@@ -81,10 +90,10 @@ class InputFactory {
             if (e.target.validation.isValid) {
                 setIntentActive(true);
                 const value = e.target.value;
-                const label = e.target.inputValue
+                const label = e.target.inputValue;
                 setIntentColumnValue(value, label);
             } else {
-                setIntentActive(false);
+                setIntentActive(false,e.target.validation.message);
             }
         });
         dateInput.addEventListener('select', (e) => {

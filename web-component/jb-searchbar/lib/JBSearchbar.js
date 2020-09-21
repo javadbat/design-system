@@ -210,12 +210,14 @@ class JBSearchbarWebComponent extends HTMLElement {
         this._elements.intent.input.wrapper.appendChild(inputDom);
     }
     createIntentInputDom(column){
-        const setIntentActive = (value)=>{
+        const setIntentActive = (value,err="")=>{
             this.intentColumn.active = value;
             if(value){
                 this._elements.intent.submitButton.classList.add('--active');
+                this._elements.intent.submitButton.setAttribute('title','ثبت فیلتر');
             }else{
                 this._elements.intent.submitButton.classList.remove('--active');  
+                this._elements.intent.submitButton.setAttribute('title',err);
             }
         };
         const setIntentColumnValue = (value, label)=>{
@@ -242,7 +244,7 @@ class JBSearchbarWebComponent extends HTMLElement {
                 value:null,
                 label:null,
                 active:false
-            }
+            };
             this._elements.intent.submitButton.classList.remove('--active');
 
         }
@@ -264,14 +266,14 @@ class JBSearchbarWebComponent extends HTMLElement {
         var shrinkLineFunction = function(animation){
             spinnerLine.setAttribute("d","M 407.82484150097946 413.25475607450323 A 220 220 0 0 0 413.25475607450323 407.8248415009794");
             curveLineAnimation.play();
-        }
+        };
         ShrinkLineAnimation.onfinish = shrinkLineFunction
         var curveLineAnimation = spinnerLine.animate([{ d: 'path("M 407.82484150097946 413.25475607450323 A 220 220 0 0 0 413.25475607450323 407.8248415009794")' }, { d: 'path("M 255 475 A 220 220 0 0 0 475 255")' }], {id:'CurveLine',duration:400});
         curveLineAnimation.cancel();
         var curveLineFunction = function(animation){
             spinnerLine.setAttribute("d","M 255 475 A 220 220 0 0 0 475 255");
             spinAnimation.play();
-        }
+        };
         curveLineAnimation.onfinish = curveLineFunction;
         var spinAnimation = spinnerBox.animate([{transform:'rotate(0deg)'},{transform:'rotate(180deg)'},{transform:'rotate(360deg)'}], {id:'Spin',duration:1000,iterations: 1})
         spinAnimation.cancel();
@@ -281,14 +283,14 @@ class JBSearchbarWebComponent extends HTMLElement {
             }else{
                 ReversecurveLineAnimation.play();
             }
-        }
+        };
         spinAnimation.onfinish = spinFunction;
         var growLineAnimation = spinnerLine.animate([{ d:'path("M410 410 L 415 415")' }, { d: 'path("M400 400 L 450 450")' }], {id:'GrowLine',uration:400});
         growLineAnimation.cancel();
         var growLineFunction = function(animation){
             spinnerLine.setAttribute("d","M400 400 L 450 450");
         };
-        growLineAnimation.onfinish = growLineFunction
+        growLineAnimation.onfinish = growLineFunction;
 
         var ReversecurveLineAnimation = spinnerLine.animate([{ d: 'path("M 255 475 A 220 220 0 0 0 475 255")' }, { d: 'path("M 407.82484150097946 413.25475607450323 A 220 220 0 0 0 413.25475607450323 407.8248415009794")' }], {id:'ReverseCurveLine',duration:400});
         ReversecurveLineAnimation.cancel();
