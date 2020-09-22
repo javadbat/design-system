@@ -13,14 +13,7 @@ var JBCalendar = /*#__PURE__*/React.forwardRef(function (props, ref) {
 
   useEffect(function () {
     element.current.addEventListener('select', props.onSelect);
-  }, []); // useEffect(() => {
-  //     let value = props.value;
-  //     if(props.value == null || props.value === undefined){
-  //         value = '';
-  //     }
-  //     element.current.value = value;
-  // }, [props.value]);
-
+  }, []);
   return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("jb-calendar", {
     ref: element
   }));
