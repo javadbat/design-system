@@ -49,11 +49,12 @@ var webComponentConfig = {
         },{
             name: 'jb-searchbar',
             path: '/web-component/jb-searchbar/lib/JBSearchbar.js',
-            outputPath:'/web-component/jb-searchbar/dist/JBSearchbar.js'
+            outputPath:'/web-component/jb-searchbar/dist/JBSearchbar.js',
+            external: ['jb-input', 'jb-select', 'jb-date-input']
         }
 
     ],
-}
+};
 const reactComponentConfig = {
     reactComponents: [
         {
@@ -90,14 +91,14 @@ const reactComponentConfig = {
             name: 'jb-searchbar',
             path: '/react-component/jb-searchbar/lib/JBSearchbar.js',
             outputPath: '/react-component/jb-searchbar/dist/JBSearchbar.js',
-            external: ['prop-types', 'react']
+            external: ['prop-types', 'react', 'jb-input', 'jb-select', 'jb-date-input']
         },
         {
             name: 'jb-grid',
             path: '/react-component/jb-grid/lib/JBGrid.js',
             outputPath:'/react-component/jb-grid/dist/JBGrid.js',
-            external:['mobx-react', 'react', 'mobx', 'prop-types']
+            external:['mobx-react', 'react', 'mobx', 'prop-types', 'jb-searchbar']
         }
     ]
-}
+};
 export { webComponentConfig , reactComponentConfig }
