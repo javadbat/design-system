@@ -7,6 +7,9 @@ function JBDateInput(props) {
         element.current.addEventListener('change',props.onChange);
         element.current.addEventListener('change',props.onKeyup);
     },[]);
+    useEffect(()=>{
+        element.current.addEventListener('select',props.onSelect);
+    },[]);
     return (
         <jb-date-input label={props.label} min={props.min} max={props.max} ref={element}></jb-date-input>
     );
@@ -16,6 +19,7 @@ JBDateInput.propTypes = {
     min: PropTypes.string,
     max:PropTypes.string,
     onKeyup: PropTypes.func,
-    onChange: PropTypes.func
+    onChange: PropTypes.func,
+    onSelect: PropTypes.func
 };
 export default JBDateInput;
