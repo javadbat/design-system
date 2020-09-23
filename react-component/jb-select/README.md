@@ -45,8 +45,8 @@ in some cases in your project you need to change defualt style of the component 
 if you want to set a custom style to this component all you need is to set css variable.
 | css variable name                   | description                                                                                   |
 | -------------                       | -------------                                                                                 |
-| --jb-select-margin                  | web-component margin defualt is `0 12px`                                                      |
-| --jb-select-border-radius           | web-component border-radius defualt is `16px`                                                 |
+| --jb-select-margin                  | react-component margin defualt is `0 12px`                                                      |
+| --jb-select-border-radius           | react-component border-radius defualt is `16px`                                                 |
 | --jb-select-border-color            | border color of select in normal mode                                                         |
 | --jb-select-border-color-selected   | border color when user select a value from list                                               |
 | --jb-select-bgcolor                 | background color of input                                                                     |
