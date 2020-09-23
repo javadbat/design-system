@@ -11,15 +11,16 @@ function JBDateInput(props) {
         element.current.addEventListener('select',props.onSelect);
     },[]);
     return (
-        <jb-date-input label={props.label} min={props.min} max={props.max} ref={element}></jb-date-input>
+        <jb-date-input label={props.label} value-type={props.valueType?props.valueType:'GREGORIAN'} min={props.min} max={props.max} ref={element} ></jb-date-input>
     );
 }
 JBDateInput.propTypes = {
     label: PropTypes.string,
     min: PropTypes.string,
-    max:PropTypes.string,
+    max: PropTypes.string,
     onKeyup: PropTypes.func,
     onChange: PropTypes.func,
-    onSelect: PropTypes.func
+    onSelect: PropTypes.func,
+    valueType: PropTypes.string
 };
 export default JBDateInput;
