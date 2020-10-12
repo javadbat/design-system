@@ -46,11 +46,18 @@ var webComponentConfig = {
             name: 'jb-message',
             path: '/modules/jb-message/lib/JBMessage.js',
             outputPath: '/modules/jb-message/dist/JBMessage.js'
-        },{
+        },
+        {
             name: 'jb-searchbar',
             path: '/web-component/jb-searchbar/lib/JBSearchbar.js',
             outputPath:'/web-component/jb-searchbar/dist/JBSearchbar.js',
             external: ['jb-input', 'jb-select', 'jb-date-input']
+        },
+        {
+            name: 'jb-editor',
+            path: '/web-component/jb-editor/lib/JBEditor.js',
+            outputPath:'/web-component/jb-editor/dist/JBEditor.js',
+            external: []
         }
 
     ],
