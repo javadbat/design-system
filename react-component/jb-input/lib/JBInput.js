@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import '../../../web-component/jb-input/dist/JBInput';
 // eslint-disable-next-line react/display-name
 const JBInput = React.forwardRef((props, ref)=>{
-    const element = useRef(ref.current);
+    const element = useRef();
     useImperativeHandle(
         ref,
-        () => (element.current),
+        () => (element?element.current:{}),
         [element],
     );
     function onChange(e){
