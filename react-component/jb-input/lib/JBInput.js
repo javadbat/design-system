@@ -1,17 +1,27 @@
-import React, {useRef, useEffect} from 'react';
+import React, {useRef, useEffect, useImperativeHandle} from 'react';
 import PropTypes from 'prop-types';
-import '../../../web-component/jb-input';
+import '../../../web-component/jb-input/dist/JBInput';
 // eslint-disable-next-line react/display-name
 const JBInput = React.forwardRef((props, ref)=>{
-    let element;
-    if(ref){
-        element = ref;
-    }else{
-        element = useRef();
+    const element = useRef(ref.current);
+    useImperativeHandle(
+        ref,
+        () => (element.current),
+        [element],
+    );
+    function onChange(e){
+        if(props.onChange){
+            props.onChange(e);
+        }
     }
-    
+    function onKeyUp(e){
+        if(props.onKeyUp){
+            props.onKeyUp(e);
+        }
+    }
     useEffect(()=>{
-        element.current.addEventListener('change',props.onChange);
+        element.current.addEventListener('change',onChange);
+        element.current.addEventListener('keyup',onKeyUp);
     },[]);
     useEffect(() => {
         let value = props.value;
@@ -27,7 +37,7 @@ const JBInput = React.forwardRef((props, ref)=>{
         element.current.validationList = props.validationList || [];
     },[props.validationList]);
     return (
-        <jb-input class={props.className} ref={element} label={props.label} message={props.message}></jb-input>
+        <jb-input ref={element} class={props.className} label={props.label} message={props.message}></jb-input>
     );
 });
 
@@ -36,6 +46,7 @@ JBInput.propTypes = {
     value: PropTypes.string,
     type: PropTypes.string,
     onChange: PropTypes.func,
+    onKeyUp: PropTypes.func,
     className: PropTypes.string,
     validationList: PropTypes.array
 };

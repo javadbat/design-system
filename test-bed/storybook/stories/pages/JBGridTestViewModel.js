@@ -1,6 +1,6 @@
-import { observable } from "mobx";
+import { action, makeObservable, observable } from "mobx";
 
-import JBGridData from '../../../../react-component/jb-grid/lib/JBGridData';
+import {JBGridData} from '../../../../react-component/jb-grid';
 class JBGridTestViewModel{
 
     @observable
@@ -37,8 +37,10 @@ class JBGridTestViewModel{
         ]
     }
     constructor(){
+        makeObservable(this);
         this.initGrid();
     }
+    @action
     initGrid(){
         this.jbGridConfig.table.columns = [
             {
