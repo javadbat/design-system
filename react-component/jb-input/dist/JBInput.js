@@ -565,12 +565,8 @@ if (myElementNotExists) {
 var JBInput = /*#__PURE__*/React.forwardRef(function (props, ref) {
   var element = useRef(ref.current);
   useImperativeHandle(ref, function () {
-    return {
-      focus: function focus() {
-        element.current.focus();
-      }
-    };
-  }, []);
+    return element.current;
+  }, [element]);
 
   function onChange(e) {
     if (props.onChange) {
@@ -595,7 +591,6 @@ var JBInput = /*#__PURE__*/React.forwardRef(function (props, ref) {
       value = '';
     }
 
-    debugger;
     element.current.value = value;
   }, [props.value]);
   useEffect(function () {
