@@ -21,9 +21,15 @@ const JBTextarea = React.forwardRef((props, ref)=>{
             }
             element.current.value = value;
         }, [props.value]);
+
         useEffect(()=>{
             element.current.validationList = props.validationList || [];
         },[props.validationList]);
+
+        useEffect(()=>{
+            element.current.autoHeight = props.autoHeight;
+        },[props.autoHeight]);
+        
         return (
             <jb-textarea placeholder={props.placeholder} class={props.className} ref={element} label={props.label} message={props.message}></jb-textarea>
         );
@@ -36,7 +42,8 @@ JBTextarea.propTypes = {
     onChange: PropTypes.func,
     placeholder: PropTypes.string,
     className: PropTypes.string,
-    validationList: PropTypes.array
+    validationList: PropTypes.array,
+    autoHeight: PropTypes.bool
 };
 
 export default JBTextarea;
