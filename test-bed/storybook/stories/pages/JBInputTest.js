@@ -6,7 +6,6 @@ function JBInputTest() {
     const [value, setValue] = useState('09');
     useEffect(()=>{
         input.current.focus();
-        debugger;
     },[]);
     return (
         <div>

@@ -563,9 +563,9 @@ if (myElementNotExists) {
 }
 
 var JBInput = /*#__PURE__*/React.forwardRef(function (props, ref) {
-  var element = useRef(ref.current);
+  var element = useRef();
   useImperativeHandle(ref, function () {
-    return element.current;
+    return element ? element.current : {};
   }, [element]);
 
   function onChange(e) {
