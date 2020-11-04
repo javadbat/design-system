@@ -228,6 +228,15 @@ var JBInputWebComponent = /*#__PURE__*/function (_HTMLElement) {
 
       this._shadowRoot.querySelector('.input-box input').value = value;
     }
+  }, {
+    key: "validationList",
+    get: function get() {
+      return this._validationList;
+    },
+    set: function set(value) {
+      this._validationList = value;
+      this.triggerInputValidation(false);
+    }
   }], [{
     key: "formAssociated",
     get: function get() {
@@ -304,7 +313,7 @@ var JBInputWebComponent = /*#__PURE__*/function (_HTMLElement) {
   }, {
     key: "initProp",
     value: function initProp() {
-      this.validationList = [];
+      this._validationList = [];
       this.value = this.getAttribute('value') || '';
       this.validation = {
         isValid: null,
@@ -355,6 +364,10 @@ var JBInputWebComponent = /*#__PURE__*/function (_HTMLElement) {
 
         case 'autocomplete':
           this.inputElement.setAttribute('autocomplete', value);
+          break;
+
+        case 'placeholder':
+          this.inputElement.placeholder = value;
           break;
       }
     }
@@ -549,7 +562,7 @@ var JBInputWebComponent = /*#__PURE__*/function (_HTMLElement) {
   }], [{
     key: "observedAttributes",
     get: function get() {
-      return ['label', 'type', 'message', 'value', 'name', 'autocomplete'];
+      return ['label', 'type', 'message', 'value', 'name', 'autocomplete', 'placeholder'];
     }
   }]);
 
@@ -600,6 +613,7 @@ var JBInput = /*#__PURE__*/React.forwardRef(function (props, ref) {
     element.current.validationList = props.validationList || [];
   }, [props.validationList]);
   return /*#__PURE__*/React.createElement("jb-input", {
+    placeholder: props.placeholder,
     ref: element,
     "class": props.className,
     label: props.label,
@@ -613,7 +627,8 @@ JBInput.propTypes = {
   onChange: PropTypes.func,
   onKeyUp: PropTypes.func,
   className: PropTypes.string,
-  validationList: PropTypes.array
+  validationList: PropTypes.array,
+  placeholder: PropTypes.string
 };
 
 export default JBInput;

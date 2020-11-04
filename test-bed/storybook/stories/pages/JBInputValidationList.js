@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import JBInput from '../../../../react-component/jb-input';
-import PropTypes from 'prop-types';
+import PropTypes, { func } from 'prop-types';
 function JBInputValidationList(props) {
     var inputValidation=[
         {
@@ -26,12 +26,17 @@ function JBInputValidationList(props) {
             message: props.mobileMessage
         }
     ];
+    const passwordInputDom = useRef();
+    function onButtonClicked(){
+        console.log(passwordInputDom.current.validation);   
+    }
     return (
         <div>
             <JBInput label='ورودی' validationList={inputValidation}></JBInput>
-            <JBInput label='رمز' validationList={passwordValidation}></JBInput>
+            <JBInput ref={passwordInputDom} label='رمز' validationList={passwordValidation}></JBInput>
             <JBInput label='ایمیل' validationList={emailValidation}></JBInput>
             <JBInput label='شماره موبایل' validationList={mobileValidation}></JBInput>
+            <button onClick={onButtonClicked}>check password validation</button>
         </div>
     );
 }

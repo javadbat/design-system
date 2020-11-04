@@ -37,7 +37,7 @@ const JBInput = React.forwardRef((props, ref)=>{
         element.current.validationList = props.validationList || [];
     },[props.validationList]);
     return (
-        <jb-input ref={element} class={props.className} label={props.label} message={props.message}></jb-input>
+        <jb-input placeholder={props.placeholder} ref={element} class={props.className} label={props.label} message={props.message}></jb-input>
     );
 });
 
@@ -48,7 +48,8 @@ JBInput.propTypes = {
     onChange: PropTypes.func,
     onKeyUp: PropTypes.func,
     className: PropTypes.string,
-    validationList: PropTypes.array
+    validationList: PropTypes.array,
+    placeholder: PropTypes.string
 };
 
 export default JBInput;
