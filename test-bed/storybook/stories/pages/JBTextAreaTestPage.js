@@ -15,6 +15,8 @@ function JBTextAreaTestPage(props) {
             <h3>test value binding to state</h3>
             <JBTextarea value={textVal} onChange={(e)=>{textValSetter(e.target.value);}} label="مشاهده در پایین"></JBTextarea>
             <p>{textVal}</p>
+            <h3>test events (check console log)</h3>
+            <JBTextarea onFocus={(e)=>{console.log(e);}} onBlur={(e)=>{console.log(e);}} label="مشاهده در پایین"></JBTextarea>
         </div>
     );
 }
