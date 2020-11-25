@@ -4,10 +4,13 @@ import JBTextarea from '../../../../react-component/jb-textarea/JBTextarea';
 import './JBTextAreaTestPage.css';
 function JBTextAreaTestPage(props) {
     const [textVal, textValSetter] = useState('');
+    const [autoGrowtextVal, autoGrowtextValSetter] = useState('');
     return (
         <div>
             <h2>test grow ability</h2>
-            <JBTextarea label="type to grow" autoHeight={true}></JBTextarea>
+            <JBTextarea value={autoGrowtextVal} onChange={(e)=>{autoGrowtextValSetter(e.target.value);}} label="type to grow" autoHeight={true}></JBTextarea>
+            <button onClick={()=>{autoGrowtextValSetter('');}}>clean</button>
+            <button onClick={()=>{autoGrowtextValSetter('sss eeee ggggg'.repeat(200));}}>longText</button>
             <h3>grow with min and max height</h3>
             <div className="grow-with-custom-limit">
                 <JBTextarea label="48 to 120" autoHeight={true}></JBTextarea>
