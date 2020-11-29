@@ -5,6 +5,9 @@ import './JBTextAreaTestPage.css';
 function JBTextAreaTestPage(props) {
     const [textVal, textValSetter] = useState('');
     const [autoGrowtextVal, autoGrowtextValSetter] = useState('');
+    function onTextAreaKeydown(e){
+        e.preventDefault();
+    }
     return (
         <div>
             <h2>test grow ability</h2>
@@ -19,7 +22,7 @@ function JBTextAreaTestPage(props) {
             <JBTextarea value={textVal} onChange={(e)=>{textValSetter(e.target.value);}} label="مشاهده در پایین"></JBTextarea>
             <p>{textVal}</p>
             <h3>test events (check console log)</h3>
-            <JBTextarea onFocus={(e)=>{console.log(e);}} onBlur={(e)=>{console.log(e);}} label="مشاهده در پایین"></JBTextarea>
+            <JBTextarea onKeydown={onTextAreaKeydown} onFocus={(e)=>{console.log(e);}} onBlur={(e)=>{console.log(e);}} label="مشاهده در پایین"></JBTextarea>
         </div>
     );
 }
