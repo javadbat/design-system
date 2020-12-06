@@ -12,6 +12,8 @@ function JBInputTest() {
             <JBInput ref={input} value={value} onKeyUp={e=>setValue(e.target.value)} label="تست تایپ"></JBInput>
             <span>value:</span>
             <input value={value} onChange={e=>setValue(e.target.value)} />
+            <h3>test events</h3>
+            <JBInput onEnter={()=>{alert('you press Enter');}} label="تست تایپ"></JBInput>
         </div>
     )
 }
