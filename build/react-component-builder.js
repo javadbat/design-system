@@ -1,6 +1,6 @@
-import colors from 'colors'
-import path from 'path'
-import fs from 'fs'
+import colors from 'colors';
+import path from 'path';
+import fs from 'fs';
 //rollup
 import * as rollup from 'rollup';
 import rollupBabel from '@rollup/plugin-babel';
@@ -19,7 +19,7 @@ class ReactComponentBuilder{
     build(){
         reactComponentConfig.reactComponents.forEach((reactComponent)=>{
             this.buildComponent(reactComponent);
-        })
+        });
        
     }
     buildComponent(component){
@@ -38,7 +38,7 @@ class ReactComponentBuilder{
             });
         }).catch((e)=>{
             console.log(e)
-        })
+        });
         return bundlePromise;
     }
     _getInputOption(module) {
@@ -73,9 +73,12 @@ class ReactComponentBuilder{
                 preferBuiltins: true,
                 mainFields: ['browser'],
                 jsnext: true,
+                alias: {
+                    'jb-input': path.resolve(generalConfig.basePath, 'web-component', 'dist', 'JBInput.js')
+                }
             }),
             rollupJson()
-        ]
+        ];
         let inputOptions = {
             input: path.join(...module.path.split('/')),
             external: module.external || [],
@@ -91,7 +94,7 @@ class ReactComponentBuilder{
             file: path.join(...module.outputPath.split('/')),
             format: 'es', //es for native code , system for systemjs known module
             //dir: 'App/dist',
-        }
+        };
         return outputOptions;
     }
 }

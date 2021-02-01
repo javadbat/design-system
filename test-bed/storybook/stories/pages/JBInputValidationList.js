@@ -31,7 +31,7 @@ function JBInputValidationList(props) {
         console.log(passwordInputDom.current.validation);   
     }
     return (
-        <div>
+        <div style={{direction:'rtl'}}>
             <JBInput label='ورودی' validationList={inputValidation}></JBInput>
             <JBInput ref={passwordInputDom} label='رمز' validationList={passwordValidation}></JBInput>
             <JBInput label='ایمیل' validationList={emailValidation}></JBInput>

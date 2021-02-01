@@ -46,8 +46,8 @@ class WebComponentBuilder {
                 console.log(output.output[0].facadeModuleId.green);
             });
         }).catch((e) => {
-            console.log(e)
-        })
+            console.log(e);
+        });
         return bundlePromise;
     }
     _getInputOption(module) {

@@ -7,7 +7,8 @@ function JBMessageTest() {
         message.show({ message: 'completed successfully', type: 'success' });
     }
     function showErrorMessage() {
-        message.show({ message: 'operation failed', type: 'error' });
+        const errorMessage = message.show({ message: 'operation failed', type: 'error' });
+        errorMessage.dom.addEventListener('close',(e)=>{console.log('errorClosed',e);});
     }
     function showWarningMessage() {
         message.show({ message: 'operation is not safe', type: 'warning' });
@@ -25,4 +26,4 @@ function JBMessageTest() {
     )
 }
 
-export default JBMessageTest
+export default JBMessageTest;

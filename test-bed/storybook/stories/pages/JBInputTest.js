@@ -8,7 +8,7 @@ function JBInputTest() {
         input.current.focus();
     },[]);
     return (
-        <div>
+        <div style={{direction:'rtl'}}>
             <JBInput ref={input} value={value} onKeyUp={e=>setValue(e.target.value)} label="تست تایپ"></JBInput>
             <span>value:</span>
             <input value={value} onChange={e=>setValue(e.target.value)} />

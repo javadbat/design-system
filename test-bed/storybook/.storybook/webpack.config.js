@@ -12,8 +12,14 @@ module.exports = async ({ config }) => {
         }
       }
     ],
-    include: path.resolve(__dirname, '../src/styles')
+    include: path.resolve(__dirname, '../src/styles'),
   });
-
+  config.resolve = {
+    ...config.resolve,
+    alias:{
+      ...config.resolve.alias,
+      'jb-input': path.resolve(__dirname, '..','..', '..', 'web-component','jb-input', 'dist', 'JBInput.js')
+    }
+  }
   return config;
 };

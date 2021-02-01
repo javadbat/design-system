@@ -12,5 +12,5 @@ class GeneralConfig{
         };
     }
 }
-const generalConfig = new GeneralConfig(process.env.NODE_ENV)
-export default generalConfig
+const generalConfig = new GeneralConfig(process.env.NODE_ENV);
+export default generalConfig;
