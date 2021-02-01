@@ -57,6 +57,9 @@ const JBInput = React.forwardRef((props, ref)=>{
     useEffect(()=>{
         element.current.validationList = props.validationList || [];
     },[props.validationList]);
+    useEffect(()=>{
+        element.current.setAttribute('direction',props.direction);
+    },[props.direction]);
     useEvent(element.current, 'change', onChange);
     useEvent(element.current, 'keydown', onKeydown);
     useEvent(element.current, 'keyup', onKeyup);
@@ -77,7 +80,8 @@ JBInput.propTypes = {
     onEnter: PropTypes.func,
     className: PropTypes.string,
     validationList: PropTypes.array,
-    placeholder: PropTypes.string
+    placeholder: PropTypes.string,
+    direction: PropTypes.string
 };
 
 export default JBInput;

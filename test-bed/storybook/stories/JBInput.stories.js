@@ -6,12 +6,12 @@ export default {
     title: 'Example/JBInput',
     component: JBInput
 };
-const Template = (args) => <JBInput label={args.label} message={args.message} type={args.type} validationList={args.validationList} placeholder={args.placeholder}></JBInput>;
+const Template = (args) => <JBInput direction='ltr' label={args.label} message={args.message} type={args.type} validationList={args.validationList} placeholder={args.placeholder}></JBInput>;
 export const Normal = Template.bind({});
 Normal.args = {
-    label:'متن ساده',
-    message:'متن ثابت زیر کادر متن',
-    placeholder: 'تایپ کنید'
+    label:'label',
+    message:'static text under input show all the time',
+    placeholder: 'place holder'
 };
 export const Large = Template.bind({});
 Large.args = {

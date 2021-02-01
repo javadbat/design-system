@@ -36,6 +36,7 @@ function JBInputValidationList(props) {
             <JBInput ref={passwordInputDom} label='رمز' validationList={passwordValidation}></JBInput>
             <JBInput label='ایمیل' validationList={emailValidation}></JBInput>
             <JBInput label='شماره موبایل' validationList={mobileValidation}></JBInput>
+            <JBInput label='پسورد' validationList={mobileValidation} type="password"></JBInput>
             <button onClick={onButtonClicked}>check password validation</button>
         </div>
     );
