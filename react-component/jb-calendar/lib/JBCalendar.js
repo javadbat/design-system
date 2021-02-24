@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState, useImperativeHandle } from 'react';
-import '../../../web-component/jb-calendar/dist/JBCalendar';
+import 'jb-calendar';
 import { useEvent } from '../../custom-hooks/UseEvent';
 import PropTypes from 'prop-types';
 // eslint-disable-next-line react/display-name
