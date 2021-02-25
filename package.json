@@ -27,7 +27,6 @@
     "dayjs": "^1.8.36",
     "eslint-plugin-import": "^2.22.0",
     "jalaliday": "^2.3.0",
-    "jb-calendar": "^1.0.5",
     "jb-date-input": "^1.0.4",
     "jb-input": "^1.0.4",
     "jb-searchbar": "^1.0.2",

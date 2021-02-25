@@ -11,13 +11,16 @@ export default {
 const Template = (args) => <JBDateInput {...args}></JBDateInput>;
 export const Normal = Template.bind({});
 Normal.args = {
-    label:'تاریخ'
+    label:'تاریخ',
+    valueType:"GREGORIAN",
+    inputType:"JALALI"
 };
-const GregorianTestTemplate = (args) => <JBDateInputGregorianTest label={args.label} min={args.min} max={args.max} valueType={args.valueType}></JBDateInputGregorianTest>;
+const GregorianTestTemplate = (args) => <JBDateInputGregorianTest {...args}></JBDateInputGregorianTest>;
 export const GregorianTest = GregorianTestTemplate.bind({});
 GregorianTest.args = {
     label:'تاریخ',
     valueType:"GREGORIAN",
+    inputType:'GREGORIAN'
 };
 export const GregorianMinMaxTest = GregorianTestTemplate.bind({});
 GregorianMinMaxTest.args = {
@@ -25,6 +28,7 @@ GregorianMinMaxTest.args = {
     valueType:"GREGORIAN",
     min:"2020-09-05T08:51:23.176Z",
     max:"2020-10-15T08:51:23.176Z",
+    inputType:'JALALI'
 };
 const JalaliTestTemplate = (args) => <JBDateInputJalaliTest label={args.label} min={args.min} max={args.max} valueType={args.valueType}></JBDateInputJalaliTest>;
 export const JalaliTest = JalaliTestTemplate.bind({});
@@ -51,4 +55,11 @@ TimeStampMinMaxTest.args = {
     valueType:"TIME_STAMP",
     min:"1596291030322",
     max:"1696291030322",
+};
+
+export const GregorianInputTest = Template.bind({});
+GregorianInputTest.args = {
+    label:'تاریخ',
+    valueType:"GREGORIAN",
+    inputType:"GREGORIAN"
 };
