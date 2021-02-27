@@ -5,7 +5,7 @@ export default {
     title: 'Example/JBCalendar',
     component: JBCalendar
 };
-const Template = (args) => <JBCalendar {...args}></JBCalendar>;
+const Template = (args) =><JBCalendar direction="ltr" {...args}></JBCalendar>;
 export const Normal = Template.bind({});
 Normal.args = {
     inputType:'JALALI'
@@ -16,5 +16,10 @@ Test.args = {
 };
 export const Gregorian = Template.bind({});
 Gregorian.args = {
+    inputType:'GREGORIAN'
+};
+const rtlTemplate = (args) =>(<div style={{direction: 'rtl'}}><JBCalendar {...args}></JBCalendar></div>);
+export const RTLGregorian = rtlTemplate.bind({});
+RTLGregorian.args = {
     inputType:'GREGORIAN'
 };

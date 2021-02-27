@@ -19,6 +19,9 @@ const JBCalendar = React.forwardRef((props, ref) => {
             element.current.inputType = props.inputType;
         }
     }, [props.inputType]);
+    useEffect(()=>{
+        element.current.setAttribute('direction', props.direction);
+    },[props.direction]);
     function onSelect(e) {
         if (props.onSelect && e instanceof FocusEvent) {
             props.onSelect(e);
