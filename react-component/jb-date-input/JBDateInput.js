@@ -16,6 +16,12 @@ function JBDateInput(props) {
             element.current.setAttribute('format',props.format);
         }
     },[props.format]);
+    useEffect(()=>{
+        if(props.direction){
+            element.current.setAttribute('direction', props.direction);
+        }
+    },
+    [props.direction]);
     return (
         <jb-date-input label={props.label} value-type={props.valueType?props.valueType:'GREGORIAN'} min={props.min} max={props.max} ref={element} input-type={props.inputType?props.inputType:'JALALI'}></jb-date-input>
     );
@@ -29,6 +35,7 @@ JBDateInput.propTypes = {
     onChange: PropTypes.func,
     onSelect: PropTypes.func,
     valueType: PropTypes.oneOf(['GREGORIAN','JALALI','TIME_STAMP']),
-    inputType: PropTypes.oneOf(['GREGORIAN','JALALI'])
+    inputType: PropTypes.oneOf(['GREGORIAN','JALALI']),
+    direction: PropTypes.oneOf(['ltr','rtl'])
 };
 export default JBDateInput;
