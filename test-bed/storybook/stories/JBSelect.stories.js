@@ -9,7 +9,7 @@ export default {
 const Template = (args) => <JBSelect label={args.label} onChange={args.onChange} optionList={args.optionList} getOptionTitle={args.getOptionTitle} getOptionValue={args.getOptionValue}></JBSelect>;
 export const Normal = Template.bind({});
 Normal.args = {
-    label:'از منو انتخاب کنید',
+    label:'select from menu',
     optionList:['1','2','3']
 };
 export const OptionObject = Template.bind({});
@@ -33,6 +33,11 @@ OptionObject.args = {
         return option.userId;
     },
     onChange:(e)=>{action('onChange')(e.target.value);}
+};
+export const RTLTemplate = (args) => <div style={{direction:'rtl'}}><JBSelect label={args.label} onChange={args.onChange} optionList={args.optionList} getOptionTitle={args.getOptionTitle} getOptionValue={args.getOptionValue}></JBSelect></div>;
+RTLTemplate.args = {
+    label:'از منو انتخاب کنید',
+    optionList:['1','2','3']
 };
 const StyleTestTemplate = (args) => <JBSelectStyleTest label={args.label}></JBSelectStyleTest>;
 export const StyleTest = StyleTestTemplate.bind({});
