@@ -10,15 +10,16 @@ import rollupJson from '@rollup/plugin-json';
 import resolve from '@rollup/plugin-node-resolve';
 import rollupReplace from '@rollup/plugin-replace';
 //config
-import { webComponentConfig } from '../config/build-config.js';
-import generalConfig from '../config/general-config.js';
+import { webComponentConfig } from '../../config/build-config.js';
+import generalConfig from '../../config/general-config.js';
+import chalk from 'chalk';
 class WebComponentBuilder {
     constructor() {
         console.log('web-component-builder-initiated'.yellow);
     }
     build() {
         return new Promise((resolve, reject) => {
-            const promiseArray = []
+            const promiseArray = [];
             webComponentConfig.webComponents.forEach((webComponent) => {
                 const componentPromise = this.buildComponent(webComponent);
                 promiseArray.push(componentPromise);
@@ -27,7 +28,7 @@ class WebComponentBuilder {
                 resolve();
             }).catch((err)=>{
                 reject(err);
-            })
+            });
         });
 
     }
@@ -43,7 +44,7 @@ class WebComponentBuilder {
         let bundlePromise = rollup.rollup(inputOptions);
         bundlePromise.then(function (bundle) {
             bundle.write(outputOptions).then(function (output) {
-                console.log(output.output[0].facadeModuleId.green);
+                console.log(chalk.greenBright(output.output[0].facadeModuleId),' ',chalk.bgMagenta(' DONE '));
             });
         }).catch((e) => {
             console.log(e);

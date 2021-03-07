@@ -1,4 +1,5 @@
 # design-system
+
 design-system for jb-web-component and react component
 
 ## architecture
@@ -24,15 +25,20 @@ npm i
 cd test-bed/storybook
 npm i
 ```
+
 build packages in project root directory
-```cmd
 
+```cmd
+# build all module
 npm run build
-
+# build only named module
+npm run build jb-input
 ```
+
 serve testbeds
+
 ```cmd
-
 npm run serve
-
+# or
+npm start
 ```

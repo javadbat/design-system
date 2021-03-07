@@ -65,37 +65,37 @@ var webComponentConfig = {
 const reactComponentConfig = {
     reactComponents: [
         {
-            name: 'jb-input',
+            name: 'jb-input-react',
             path: '/react-component/jb-input/lib/JBInput.js',
             outputPath: '/react-component/jb-input/dist/JBInput.js',
             external: ['../../../web-component/jb-input', 'prop-types', 'react']
         },
         {
-            name: 'jb-button',
+            name: 'jb-button-react',
             path: '/react-component/jb-button/lib/JBButton.js',
             outputPath: '/react-component/jb-button/dist/JBButton.js',
             external: ['../../../web-component/jb-button/dist/JBButton', 'prop-types', 'react']
         },
         {
-            name: 'jb-calendar',
+            name: 'jb-calendar-react',
             path: '/react-component/jb-calendar/lib/JBCalendar.js',
             outputPath: '/react-component/jb-calendar/dist/JBCalendar.js',
             external: ['dayjs', 'jalaliday', 'jb-calendar', 'prop-types', 'react']
         },
         {
-            name: 'jb-checkbox',
+            name: 'jb-checkbox-react',
             path: '/react-component/jb-checkbox/lib/JBCheckbox.js',
             outputPath: '/react-component/jb-checkbox/dist/JBCheckbox.js',
             external: ['prop-types', 'react']
         },
         {
-            name: 'jb-switch',
+            name: 'jb-switch-react',
             path: '/react-component/jb-switch/lib/JBSwitch.js',
             outputPath: '/react-component/jb-switch/dist/JBSwitch.js',
             external: ['prop-types', 'react']
         },
         {
-            name: 'jb-searchbar',
+            name: 'jb-searchbar-react',
             path: '/react-component/jb-searchbar/lib/JBSearchbar.js',
             outputPath: '/react-component/jb-searchbar/dist/JBSearchbar.js',
             external: ['prop-types', 'react', 'jb-input', 'jb-select', 'jb-date-input']

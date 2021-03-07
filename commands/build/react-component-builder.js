@@ -10,8 +10,9 @@ import rollupJson from '@rollup/plugin-json';
 import resolve from '@rollup/plugin-node-resolve';
 import rollupReplace from '@rollup/plugin-replace';
 //config
-import { reactComponentConfig } from '../config/build-config.js';
-import generalConfig from '../config/general-config.js';
+import { reactComponentConfig } from '../../config/build-config.js';
+import generalConfig from '../../config/general-config.js';
+import chalk from 'chalk';
 class ReactComponentBuilder{
     constructor(){
         console.log('react-component-builder-initiated'.yellow);
@@ -34,10 +35,10 @@ class ReactComponentBuilder{
         let bundlePromise = rollup.rollup(inputOptions);
         bundlePromise.then(function (bundle) {
             bundle.write(outputOptions).then(function (output) {
-                console.log(output.output[0].facadeModuleId.green);
+                console.log(chalk.greenBright(output.output[0].facadeModuleId), ' ', chalk.bgMagenta(' DONE '));
             });
         }).catch((e)=>{
-            console.log(e)
+            console.log(e);
         });
         return bundlePromise;
     }

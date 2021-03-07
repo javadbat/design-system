@@ -1,4 +1,4 @@
-import generalConfig from '../config/general-config.js';
+import generalConfig from '../../config/general-config.js';
 import {exec, spawn} from "child_process";
 import process from 'process';
 process.env.MOCK_SERVICE_PORT = generalConfig.port.mockService;
