@@ -58,6 +58,12 @@ var webComponentConfig = {
             path: '/web-component/jb-editor/lib/JBEditor.js',
             outputPath:'/web-component/jb-editor/dist/JBEditor.js',
             external: []
+        },
+        {
+            name: 'jb-time-input',
+            path: '/web-component/jb-time-input/lib/JBTimeInput.js',
+            outputPath:'/web-component/jb-time-input/dist/JBTimeInput.js',
+            external: []
         }
 
     ],
