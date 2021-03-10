@@ -42,3 +42,9 @@ npm run serve
 # or
 npm start
 ```
+
+## add new submodule
+
+```command
+git   submodule  add -f  https://github.com/user/repo.git web-component/web-component-name 
+```
