@@ -1,18 +1,16 @@
 import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-import 'jb-time-input';
+import JBTimeInput from 'jb-time-input-react';
 function JBTimeInputEventTestPage(props) {
     const element = useRef();
     const [value, setValue] = useState();
-    useEffect(()=>{
-        if(element.current){
-            element.current.addEventListener("change",(e)=>{setValue(e.target.value);});
-        }
-    },[element.current]);
     return (
         <div>
-            <jb-time-input ref={element} label="date"></jb-time-input>
+            <JBTimeInput ref={element} label="date" value={value} onChange={(e)=>setValue(e.target.value)}></JBTimeInput>
             <span>value:{value}</span>
+            <br></br>
+            <button onClick={()=>setValue('12:48:00')}>set value to 12:48</button>
+            <button onClick={()=>setValue('00:00:00')}>set value to 00:00</button>
         </div>
     );
 }

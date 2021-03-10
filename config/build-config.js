@@ -111,6 +111,12 @@ const reactComponentConfig = {
             path: '/react-component/jb-grid/lib/JBGrid.js',
             outputPath:'/react-component/jb-grid/dist/JBGrid.js',
             external:['mobx-react', 'react', 'mobx', 'prop-types', 'jb-searchbar']
+        },
+        {
+            name: 'jb-time-input-react',
+            path: '/react-component/jb-time-input/lib/JBTimeInput.js',
+            outputPath:'/react-component/jb-time-input/dist/JBTimeInput.js',
+            external:[ 'react', 'prop-types', 'jb-time-input']
         }
     ]
 };
