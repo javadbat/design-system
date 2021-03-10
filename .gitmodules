@@ -37,3 +37,6 @@
 [submodule "web-component/jb-searchbar"]
 	path = web-component/jb-searchbar
 	url = https://github.com/javadbat/search-bar.git
+[submodule "web-component/jb-time-input"]
+	path = web-component/jb-time-input
+	url = https://github.com/javadbat/jb-time-input.git
