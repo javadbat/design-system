@@ -54,6 +54,9 @@ const JBTimeInput = React.forwardRef((props, ref)=>{
     useEffect(()=>{
         element.current.setAttribute('direction',props.direction);
     },[props.direction]);
+    useEffect(()=>{
+        element.current.validationList = props.validationList;
+    },[props.validationList]);
     useEvent(element.current, 'change', onChange);
     useEvent(element.current, 'keydown', onKeydown);
     useEvent(element.current, 'keyup', onKeyup);
@@ -73,7 +76,8 @@ JBTimeInput.propTypes = {
     onEnter: PropTypes.func,
     className: PropTypes.string,
     placeholder: PropTypes.string,
-    direction: PropTypes.string
+    direction: PropTypes.string,
+    validationList: PropTypes.array
 };
 
 export default JBTimeInput;

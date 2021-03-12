@@ -21,3 +21,15 @@ export const WebComponentEventTestPage = EventWebComponentTestPageTemplate.bind(
 
 const EventTestPageTemplate = ()=> <JBTimeInputEventTestPage></JBTimeInputEventTestPage>;
 export const EventTestPage = EventTestPageTemplate.bind({});
+
+const validationSampleTemplate = (args) => <div style={{direction:'rtl'}}><JBTimeInput {...args}></JBTimeInput></div>;
+export const ValidationSample = validationSampleTemplate.bind({});
+ValidationSample.args = {
+    label:'زمان',
+    validationList: [
+        {
+            validator: /^[1][1234].*$/g,
+            message:"ساعت انخابی شما میتواند بین 11 تا 14 باشد"
+        }
+    ]
+};
