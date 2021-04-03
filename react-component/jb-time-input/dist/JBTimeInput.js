@@ -144,7 +144,7 @@ var JBTimeInput = /*#__PURE__*/React.forwardRef(function (props, ref) {
     var value = props.value;
 
     if (props.value == null || props.value === undefined) {
-      value = '';
+      value = '00:00:00';
     }
 
     element.current.value = value;
@@ -152,6 +152,9 @@ var JBTimeInput = /*#__PURE__*/React.forwardRef(function (props, ref) {
   useEffect(function () {
     element.current.setAttribute('direction', props.direction);
   }, [props.direction]);
+  useEffect(function () {
+    element.current.validationList = props.validationList;
+  }, [props.validationList]);
   useEvent(element.current, 'change', onChange);
   useEvent(element.current, 'keydown', onKeydown);
   useEvent(element.current, 'keyup', onKeyup);
@@ -174,7 +177,8 @@ JBTimeInput.propTypes = {
   onEnter: PropTypes.func,
   className: PropTypes.string,
   placeholder: PropTypes.string,
-  direction: PropTypes.string
+  direction: PropTypes.string,
+  validationList: PropTypes.array
 };
 
 export default JBTimeInput;

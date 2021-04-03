@@ -64,6 +64,12 @@ var webComponentConfig = {
             path: '/web-component/jb-time-input/lib/JBTimeInput.js',
             outputPath:'/web-component/jb-time-input/dist/JBTimeInput.js',
             external: []
+        },
+        {
+            name: 'jb-time-picker',
+            path: '/web-component/jb-time-picker/lib/JBTimePicker.js',
+            outputPath:'/web-component/jb-time-picker/dist/JBTimePicker.js',
+            external: []
         }
 
     ],
