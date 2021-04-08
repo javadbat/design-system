@@ -1,5 +1,6 @@
 import React from 'react';
-import '../../../web-component/jb-time-picker/dist/JBTimePicker';
+import 'jb-time-picker';
+import JBTimePickerValueTest from './pages/JBTimePickerValueTest';
 export default {
     title: 'Example/JBTimePicker',
     // component:
@@ -11,4 +12,11 @@ Normal.args = {
 const RTLTemplate = (args) => <div style={{direction:'rtl'}}><jb-time-picker {...args}></jb-time-picker></div>;
 export const RTLSample = RTLTemplate.bind({});
 RTLSample.args = {
+};
+const ValueTestTemplate = (args) => <JBTimePickerValueTest {...args}></JBTimePickerValueTest>;
+export const ValueTest = ValueTestTemplate.bind({});
+Normal.args = {
+    hour:0,
+    minute:0,
+    second:0
 };
