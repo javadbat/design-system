@@ -38,7 +38,7 @@ var webComponentConfig = {
             outputPath: '/web-component/jb-select/dist/JBSelect.js'
         },
         {
-            name: 'jb-text-area',
+            name: 'jb-textarea',
             path: '/web-component/jb-textarea/lib/JBTextarea.js',
             outputPath: '/web-component/jb-textarea/dist/JBTextarea.js'
         },
