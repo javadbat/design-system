@@ -7,6 +7,64 @@ export default {
 const Template = (args) => <JBSearchbar {...args}></JBSearchbar>;
 export const Normal = Template.bind({});
 Normal.args = {
+    placeholder:'select filter',
+    columnList: [
+        {
+            key: 'title',
+            label: 'title',
+            type: 'TEXT'
+        },
+        {
+            key: 'name',
+            label: 'name',
+            type: 'TEXT',
+            maxUsageCount: 3
+        },
+        {
+            key: 'age',
+            label: 'age',
+            type: 'TEXT'
+        },
+        {
+            key: 'fromDate',
+            label: 'from date',
+            type: 'DATE'
+        },
+        {
+            key: 'GENDER',
+            label: 'gender',
+            type: 'SELECT',
+            config: {
+                optionList: [
+                    {
+                        title: 'male',
+                        value: 'MALE'
+                    },
+                    {
+                        title: 'female',
+                        value: 'FEMALE'
+                    }
+                ],
+                getOptionTitle: (option) => {
+                    return option.title;
+                },
+                getOptionValue: (option) => {
+                    return option.value;
+                }
+            }
+
+        },
+        {
+            key: 'fromDate',
+            label: 'to date',
+            type: 'DATE'
+        }
+    ]
+};
+const RTLTemplate = (args) => <div style={{'direction':'rtl'}}><JBSearchbar {...args}></JBSearchbar></div>;
+export const RTLSample = RTLTemplate.bind({});
+RTLSample.args = {
+    placeholder:'نوع فیلتر را انتخاب کنید',
     columnList: [
         {
             key: 'title',
@@ -45,10 +103,10 @@ Normal.args = {
                     }
                 ],
                 getOptionTitle: (option) => {
-                    return option.title
+                    return option.title;
                 },
                 getOptionValue: (option) => {
-                    return option.value
+                    return option.value;
                 }
             }
 
