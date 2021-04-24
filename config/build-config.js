@@ -80,49 +80,81 @@ const reactComponentConfig = {
             name: 'jb-input-react',
             path: '/react-component/jb-input/lib/JBInput.js',
             outputPath: '/react-component/jb-input/dist/JBInput.js',
-            external: ['../../../web-component/jb-input', 'prop-types', 'react']
+            external: ['../../../web-component/jb-input', 'prop-types', 'react'],
+            globals:{
+                'react':'React',
+                'prop-types':'PropTypes'
+            }
         },
         {
             name: 'jb-button-react',
             path: '/react-component/jb-button/lib/JBButton.js',
             outputPath: '/react-component/jb-button/dist/JBButton.js',
-            external: ['../../../web-component/jb-button/dist/JBButton', 'prop-types', 'react']
+            external: ['../../../web-component/jb-button/dist/JBButton', 'prop-types', 'react'],
+            globals:{
+                'react':'React',
+                'prop-types':'PropTypes'
+            }
         },
         {
             name: 'jb-calendar-react',
             path: '/react-component/jb-calendar/lib/JBCalendar.js',
             outputPath: '/react-component/jb-calendar/dist/JBCalendar.js',
-            external: ['dayjs', 'jalaliday', 'jb-calendar', 'prop-types', 'react']
+            external: ['dayjs', 'jalaliday', 'jb-calendar', 'prop-types', 'react'],
+            globals:{
+                'react':'React',
+                'prop-types':'PropTypes'
+            }
         },
         {
             name: 'jb-checkbox-react',
             path: '/react-component/jb-checkbox/lib/JBCheckbox.js',
             outputPath: '/react-component/jb-checkbox/dist/JBCheckbox.js',
-            external: ['prop-types', 'react']
+            external: ['prop-types', 'react'],
+            globals:{
+                'react':'React',
+                'prop-types':'PropTypes'
+            }
         },
         {
             name: 'jb-switch-react',
             path: '/react-component/jb-switch/lib/JBSwitch.js',
             outputPath: '/react-component/jb-switch/dist/JBSwitch.js',
-            external: ['prop-types', 'react']
+            external: ['prop-types', 'react'],
+            globals:{
+                'react':'React',
+                'prop-types':'PropTypes'
+            }
         },
         {
             name: 'jb-searchbar-react',
             path: '/react-component/jb-searchbar/lib/JBSearchbar.js',
             outputPath: '/react-component/jb-searchbar/dist/JBSearchbar.js',
-            external: ['prop-types', 'react', 'jb-input', 'jb-select', 'jb-date-input']
+            external: ['prop-types', 'react', 'jb-input', 'jb-select', 'jb-date-input'],
+            globals:{
+                'react':'React',
+                'prop-types':'PropTypes'
+            }
         },
         {
             name: 'jb-grid',
             path: '/react-component/jb-grid/lib/JBGrid.js',
             outputPath:'/react-component/jb-grid/dist/JBGrid.js',
-            external:['mobx-react', 'react', 'mobx', 'prop-types', 'jb-searchbar']
+            external:['mobx-react', 'react', 'mobx', 'prop-types', 'jb-searchbar'],
+            globals:{
+                'react':'React',
+                'prop-types':'PropTypes'
+            }
         },
         {
             name: 'jb-time-input-react',
             path: '/react-component/jb-time-input/lib/JBTimeInput.js',
             outputPath:'/react-component/jb-time-input/dist/JBTimeInput.js',
-            external:[ 'react', 'prop-types', 'jb-time-input']
+            external:[ 'react', 'prop-types', 'jb-time-input'],
+            globals:{
+                'react':'React',
+                'prop-types':'PropTypes'
+            }
         }
     ]
 };

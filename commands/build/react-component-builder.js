@@ -1,5 +1,5 @@
 import colors from 'colors';
-import path from 'path';
+import path, { format } from 'path';
 import fs from 'fs';
 //rollup
 import * as rollup from 'rollup';
@@ -26,8 +26,11 @@ class ReactComponentBuilder{
     buildComponent(component){
         console.log(`start building ${component.name}`);
         const inputOptions = this._getInputOption(component);
-        const outputOptions = this._getOutputOption(component);
-        return this.buildModule(inputOptions, outputOptions);
+        const esOutputOptions = this._getOutputOption(component,'es');
+        const umdOutputOptions = this._getOutputOption(component,'umd');
+        const esBuildPromise = this.buildModule(inputOptions, esOutputOptions);
+        const umdBuildPromise = this.buildModule(inputOptions,umdOutputOptions);
+        return Promise.all([esBuildPromise,umdBuildPromise]);
 
     }
     buildModule(inputOptions, outputOptions) {
@@ -74,9 +77,6 @@ class ReactComponentBuilder{
                 preferBuiltins: true,
                 mainFields: ['browser'],
                 jsnext: true,
-                alias: {
-                    'jb-input': path.resolve(generalConfig.basePath, 'web-component', 'dist', 'JBInput.js')
-                }
             }),
             rollupJson()
         ];
@@ -85,17 +85,27 @@ class ReactComponentBuilder{
             external: module.external || [],
             plugins: plugins,
             //manualChunks: config.chuncks
-        }
+        };
         return inputOptions;
     }
-    _getOutputOption(module) {
+    _getOutputOption(module,format) {
+        const pathArr = module.outputPath.split('/');
+        const fullFileName = pathArr[pathArr.length - 1];
+        const fileName = path.parse(fullFileName).name;
+        const fileExtention = path.parse(fullFileName).ext;
+        const outputFileName = `${fileName}${format == 'es'?'':('.'+format)}${fileExtention}`;
+        const dir =pathArr.slice(0,pathArr.length - 1);
         let outputOptions = {
             // core output options
             sourcemap: true,
-            file: path.join(...module.outputPath.split('/')),
-            format: 'es', //es for native code , system for systemjs known module
-            //dir: 'App/dist',
+            dir:path.join(...dir),
+            entryFileNames: outputFileName,
+            format: format, //es for native code , system for systemjs known module
         };
+        if(format == 'umd'){
+            outputOptions.name = fileName;
+            outputOptions.globals = module.globals || {};
+        }
         return outputOptions;
     }
 }
