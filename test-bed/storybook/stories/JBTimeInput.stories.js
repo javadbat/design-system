@@ -15,6 +15,7 @@ const RTLTemplate = (args) => <div style={{direction:'rtl'}}><JBTimeInput {...ar
 export const RTLSample = RTLTemplate.bind({});
 RTLSample.args = {
     label:'زمان',
+    closeButtonText:'بستن'
 };
 const EventWebComponentTestPageTemplate = ()=> <JBTimeInputWebComponentEventTestPage></JBTimeInputWebComponentEventTestPage>;
 export const WebComponentEventTestPage = EventWebComponentTestPageTemplate.bind({});

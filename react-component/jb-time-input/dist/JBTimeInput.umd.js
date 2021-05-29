@@ -173,11 +173,13 @@
       ref: element,
       "class": props.className,
       label: props.label,
-      message: props.message
+      message: props.message,
+      "close-button-text": props.closeButtonText
     });
   });
   JBTimeInput.propTypes = {
     label: PropTypes__default['default'].string,
+    closeButtonText: PropTypes__default['default'].string,
     value: PropTypes__default['default'].string,
     onChange: PropTypes__default['default'].func,
     onKeyUp: PropTypes__default['default'].func,

@@ -64,12 +64,13 @@ const JBTimeInput = React.forwardRef((props, ref)=>{
     useEvent(element.current, 'blur', onBlur);
     useEvent(element.current, 'enter', onEnter);
     return (
-        <jb-time-input placeholder={props.placeholder} ref={element} class={props.className} label={props.label} message={props.message}></jb-time-input>
+        <jb-time-input placeholder={props.placeholder} ref={element} class={props.className} label={props.label} message={props.message} close-button-text={props.closeButtonText}></jb-time-input>
     );
 });
 
 JBTimeInput.propTypes = {
     label: PropTypes.string,
+    closeButtonText: PropTypes.string,
     value: PropTypes.string,
     onChange: PropTypes.func,
     onKeyUp: PropTypes.func,

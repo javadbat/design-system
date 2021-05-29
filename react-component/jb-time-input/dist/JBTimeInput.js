@@ -166,11 +166,13 @@ var JBTimeInput = /*#__PURE__*/React.forwardRef(function (props, ref) {
     ref: element,
     "class": props.className,
     label: props.label,
-    message: props.message
+    message: props.message,
+    "close-button-text": props.closeButtonText
   });
 });
 JBTimeInput.propTypes = {
   label: PropTypes.string,
+  closeButtonText: PropTypes.string,
   value: PropTypes.string,
   onChange: PropTypes.func,
   onKeyUp: PropTypes.func,
