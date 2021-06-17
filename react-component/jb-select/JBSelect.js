@@ -1,17 +1,21 @@
 /* eslint-disable react/display-name */
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useRef, useState, useImperativeHandle} from 'react';
 import '../../web-component/jb-select';
 import PropTypes from 'prop-types';
 import { toJS } from 'mobx';
+import { useEvent } from '../custom-hooks/UseEvent';
 
 const JBSelect = React.forwardRef((props, ref)=>{
-    let element;
-    if(ref){
-        element = ref;
-    }else{
-        element = useRef();
-    }
-   
+    let element = useRef();
+    const [refChangeCount, refChangeCountSetter] = useState(0);
+    useImperativeHandle(
+        ref,
+        () => (element?element.current:{}),
+        [element],
+    );
+    useEffect(() => {
+        refChangeCountSetter(refChangeCount + 1);
+    }, [element.current]);
     useEffect(() => {
         element.current.value = props.value ;
     }, [props.value]);
@@ -28,9 +32,18 @@ const JBSelect = React.forwardRef((props, ref)=>{
     useEffect(() => {
         element.current.optionList = toJS(props.optionList) ;
     }, [props.optionList]);
-    useEffect(() => {
-        element.current.addEventListener('change',props.onChange);
-    }, []);
+    function onKeyup(e) {
+        if (props.onKeyup) {
+            props.onKeyup(e);
+        }
+    }
+    function onChange(e) {
+        if (props.onChange) {
+            props.onChange(e);
+        }
+    }
+    useEvent(element.current,'keyup',onKeyup);
+    useEvent(element.current,'change',onChange);
     return (
         <jb-select label={props.label} ref={element} required={props.required||false}></jb-select>
     );
@@ -44,6 +57,7 @@ JBSelect.propTypes = {
     getOptionValue: PropTypes.func,
     value: PropTypes.any,
     onChange: PropTypes.func,
+    onKeyup: PropTypes.func,
     required: PropTypes.bool,
 };
 
