@@ -40,6 +40,7 @@
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-html": "^0.2.1",
     "rollup-plugin-postcss": "^3.1.8",
+    "sass": "^1.35.1",
     "style-loader": "^1.2.1"
   },
   "devDependencies": {
