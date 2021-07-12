@@ -2,7 +2,6 @@
 import React, {useEffect, useRef, useState, useImperativeHandle} from 'react';
 import '../../web-component/jb-select';
 import PropTypes from 'prop-types';
-import { toJS } from 'mobx';
 import { useEvent } from '../custom-hooks/UseEvent';
 
 const JBSelect = React.forwardRef((props, ref)=>{
@@ -30,7 +29,7 @@ const JBSelect = React.forwardRef((props, ref)=>{
         }
     }, [props.getOptionValue]);
     useEffect(() => {
-        element.current.optionList = toJS(props.optionList) ;
+        element.current.optionList = props.optionList;
     }, [props.optionList]);
     function onKeyup(e) {
         if (props.onKeyup) {

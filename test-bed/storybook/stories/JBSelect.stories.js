@@ -2,6 +2,7 @@ import React from 'react';
 import JBSelect from '../../../react-component/jb-select/JBSelect';
 import JBSelectStyleTest from '../stories/pages/JBSelectStyleTestPage';
 import { action } from '@storybook/addon-actions';
+import JBSelectDynamicList from './pages/JBSelectDynamicList';
 export default {
     title: 'Example/JBSelect',
     component: JBSelect
@@ -50,3 +51,6 @@ export const StyleTest = StyleTestTemplate.bind({});
 StyleTest.args = {
     label:'از منو انتخاب کنید',
 };
+//when user type and want to change text
+const DynamicListTemplate = (args) => <JBSelectDynamicList></JBSelectDynamicList>;
+export const DynamicList = DynamicListTemplate.bind({});
