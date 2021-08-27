@@ -70,6 +70,12 @@ var webComponentConfig = {
             path: '/web-component/jb-time-picker/lib/JBTimePicker.js',
             outputPath:'/web-component/jb-time-picker/dist/JBTimePicker.js',
             external: []
+        },
+        {
+            name: 'jb-loading',
+            path: '/web-component/jb-loading/lib/JBLoading.js',
+            outputPath:'/web-component/jb-loading/dist/JBLoading.js',
+            external: []
         }
 
     ],
