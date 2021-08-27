@@ -43,3 +43,6 @@
 [submodule "web-component/jb-time-picker"]
 	path = web-component/jb-time-picker
 	url = https://github.com/javadbat/jb-time-picker.git
+[submodule "web-component/jb-loading"]
+	path = web-component/jb-loading
+	url = https://github.com/javadbat/jb-loading.git
