@@ -24,7 +24,12 @@ Password.args = {
     message:'متن ثابت زیر کادر متن',
     type:'password'
 };
-
+export const Number = Template.bind({});
+Number.args = {
+    label:'تعداد به عدد',
+    message:'متن ثابت زیر کادر متن',
+    type:'number'
+};
 const testActionsTemplate = () =><JBInputTest></JBInputTest>;
 export const testActions = testActionsTemplate.bind({});
 
