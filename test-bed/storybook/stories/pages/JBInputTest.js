@@ -14,8 +14,11 @@ function JBInputTest() {
             <input value={value} onChange={e=>setValue(e.target.value)} />
             <h3>test events</h3>
             <JBInput onEnter={()=>{alert('you press Enter');}} label="تست تایپ"></JBInput>
+            <h3>number input test</h3>
+            <h4>step:2, Decimalpecission:4</h4>
+            <JBInput type="number" label="عدد اغشاری" numberFieldParameter={{step:2,decimalPrecision:4,invalidNumberReplacement:""}}></JBInput>
         </div>
-    )
+    );
 }
 
 export default JBInputTest;

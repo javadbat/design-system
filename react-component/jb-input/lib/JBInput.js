@@ -60,6 +60,11 @@ const JBInput = React.forwardRef((props, ref)=>{
     useEffect(()=>{
         element.current.setAttribute('direction',props.direction);
     },[props.direction]);
+    useEffect(()=>{
+        if(typeof props.numberFieldParameter == "object"){
+            element.current.setNumberFieldParameter(props.numberFieldParameter);
+        }
+    },[props.NumberFieldParameter]);
     useEvent(element.current, 'change', onChange);
     useEvent(element.current, 'keydown', onKeydown);
     useEvent(element.current, 'keyup', onKeyup);
@@ -81,8 +86,9 @@ JBInput.propTypes = {
     className: PropTypes.string,
     validationList: PropTypes.array,
     placeholder: PropTypes.string,
-    direction: PropTypes.string
+    direction: PropTypes.string,
+    numberFieldParameter: PropTypes.string
 };
-
+JBInput.displayName = "JBInput";
 export default JBInput;
 
