@@ -1,5 +1,6 @@
 import React from 'react';
 import JBInput from '../../../react-component/jb-input';
+import JBInputStylingTest from './pages/JBInput/JBInputStylingTest';
 import JBInputTest from './pages/JBInputTest';
 import JBInputValidationList from './pages/JBInputValidationList';
 export default {
@@ -32,6 +33,9 @@ Number.args = {
 };
 const testActionsTemplate = () =><JBInputTest></JBInputTest>;
 export const testActions = testActionsTemplate.bind({});
+
+const testStyleTemplate = () =><JBInputStylingTest></JBInputStylingTest>;
+export const testStyles = testStyleTemplate.bind({});
 
 const ValidationTemplate = (args) => <JBInputValidationList inputRegex={args.inputRegex} inputMessage={args.inputMessage} passwordRegex={args.passwordRegex} passwordMessage={args.passwordMessage} emailRegex={args.emailRegex} emailMessage={args.emailMessage} mobileRegex={args.mobileRegex} mobileMessage={args.mobileMessage}></JBInputValidationList>;
 export const ValidationList = ValidationTemplate.bind({});
