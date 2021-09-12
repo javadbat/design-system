@@ -1,16 +1,16 @@
 import React, {useState} from 'react';
 import JBDateInput from '../../../../react-component/jb-date-input/JBDateInput';
 function JBDateInputJalaliTest(props) {
-    const [setValue, setValueSetter] = useState("");
+    const [value, valueSetter] = useState("");
     return (
         <div>
-            <JBDateInput label={props.label} min={props.min} max={props.max} valueType={props.valueType} onSelect={e => {setValueSetter(e.target.value);}}></JBDateInput>
+            <JBDateInput value={value} label={props.label} min={props.min} max={props.max} valueType={props.valueType} onSelect={e => {valueSetter(e.target.value);}}></JBDateInput>
             <div>
                 <br /><br />valueType is {props.valueType}
                 <br /><br />Min date is: {props.min? props.min:"Unlimited"}
                 <br /><br />Max date is: {props.max? props.max:"Unlimited"}
-                <br /><br />Your chosen date is: {setValue}
-                <button>set </button>
+                <br /><br />Your chosen date is: {value}
+                <br /><button onClick={()=>{valueSetter("1400-06-18T00:00:00.000Z");}}>set value to 1400-06-18T00:00:00.000Z</button>
             </div>
         </div>
     );

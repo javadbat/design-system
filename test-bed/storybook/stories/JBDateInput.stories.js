@@ -41,7 +41,7 @@ JalaliMinMaxTest.args = {
     label:'تاریخ',
     valueType:"JALALI",
     min:"1399-05-01T12:05:39.530Z",
-    max:"1399-07-01T12:05:39.530Z",
+    max:"1400-07-01T12:05:39.530Z",
 };
 const TimeStampTestTemplate = (args) => <JBDateInputTimeStampTest label={args.label} min={args.min} max={args.max} valueType={args.valueType}></JBDateInputTimeStampTest>;
 export const TimeStampTest = TimeStampTestTemplate.bind({});

@@ -22,7 +22,7 @@ const JBDateInput = React.forwardRef((props, ref)=>{
         }
     },[props.format]);
     useEffect(()=>{
-        if(props.format){
+        if(props.value){
             element.current.value = props.value;
         }
     },[props.value]);
