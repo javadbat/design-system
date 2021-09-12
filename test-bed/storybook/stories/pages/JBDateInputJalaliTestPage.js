@@ -10,6 +10,7 @@ function JBDateInputJalaliTest(props) {
                 <br /><br />Min date is: {props.min? props.min:"Unlimited"}
                 <br /><br />Max date is: {props.max? props.max:"Unlimited"}
                 <br /><br />Your chosen date is: {setValue}
+                <button>set </button>
             </div>
         </div>
     );

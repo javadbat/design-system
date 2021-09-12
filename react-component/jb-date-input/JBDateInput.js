@@ -1,10 +1,15 @@
-import React , {useEffect, useRef, useState} from 'react';
+import React , {useEffect, useRef, useState, useImperativeHandle} from 'react';
 import PropTypes from 'prop-types';
 import 'jb-date-input';
 import { useEvent } from '../custom-hooks/UseEvent';
-function JBDateInput(props) {
+const JBDateInput = React.forwardRef((props, ref)=>{
     const element = useRef();
     const [refChangeCount, refChangeCountSetter] = useState(0);
+    useImperativeHandle(
+        ref,
+        () => (element?element.current:{}),
+        [element],
+    );
     useEffect(() => {
         refChangeCountSetter(refChangeCount + 1);
     }, [element.current]);
@@ -17,6 +22,11 @@ function JBDateInput(props) {
         }
     },[props.format]);
     useEffect(()=>{
+        if(props.format){
+            element.current.value = props.value;
+        }
+    },[props.value]);
+    useEffect(()=>{
         if(props.direction){
             element.current.setAttribute('direction', props.direction);
         }
@@ -25,7 +35,8 @@ function JBDateInput(props) {
     return (
         <jb-date-input label={props.label} value-type={props.valueType?props.valueType:'GREGORIAN'} min={props.min} max={props.max} ref={element} input-type={props.inputType?props.inputType:'JALALI'}></jb-date-input>
     );
-}
+});
+JBDateInput.displayName = "JBDateInput";
 JBDateInput.propTypes = {
     label: PropTypes.string,
     min: PropTypes.string,
@@ -36,6 +47,7 @@ JBDateInput.propTypes = {
     onSelect: PropTypes.func,
     valueType: PropTypes.oneOf(['GREGORIAN','JALALI','TIME_STAMP']),
     inputType: PropTypes.oneOf(['GREGORIAN','JALALI']),
-    direction: PropTypes.oneOf(['ltr','rtl'])
+    direction: PropTypes.oneOf(['ltr','rtl']),
+    value: PropTypes.string
 };
 export default JBDateInput;

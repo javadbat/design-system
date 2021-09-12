@@ -59,6 +59,6 @@ JBSelect.propTypes = {
     onKeyup: PropTypes.func,
     required: PropTypes.bool,
 };
-
+JBSelect.displayName = 'JBSelect';
 export default JBSelect;
 
