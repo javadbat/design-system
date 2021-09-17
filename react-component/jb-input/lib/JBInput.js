@@ -78,7 +78,7 @@ const JBInput = React.forwardRef((props, ref)=>{
 
 JBInput.propTypes = {
     label: PropTypes.string,
-    value: PropTypes.string,
+    value: PropTypes.oneOfType([PropTypes.string,PropTypes.number]) ,
     type: PropTypes.string,
     onChange: PropTypes.func,
     onKeyUp: PropTypes.func,
