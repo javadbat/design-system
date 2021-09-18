@@ -12,6 +12,10 @@ function JBDateInputJalaliTest(props) {
                 <br /><br />Your chosen date is: {value}
                 <br /><button onClick={()=>{valueSetter("1400-06-18T00:00:00.000Z");}}>set value to 1400-06-18T00:00:00.000Z</button>
             </div>
+            <h3>Center Aligned</h3>
+            <div style={{'--jb-date-input-text-align':'center'}}>
+                <JBDateInput></JBDateInput>
+            </div>
         </div>
     );
 }
