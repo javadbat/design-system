@@ -4,7 +4,7 @@ function JBDateInputJalaliTest(props) {
     const [value, valueSetter] = useState("");
     return (
         <div>
-            <JBDateInput value={value} label={props.label} min={props.min} max={props.max} valueType={props.valueType} onSelect={e => {valueSetter(e.target.value);}}></JBDateInput>
+            <JBDateInput value={value} label={props.label} min={props.min} max={props.max} valueType={props.valueType} onSelect={e => {valueSetter(e.target.value);}} format={props.format}></JBDateInput>
             <div>
                 <br /><br />valueType is {props.valueType}
                 <br /><br />Min date is: {props.min? props.min:"Unlimited"}

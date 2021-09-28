@@ -15,6 +15,13 @@ Normal.args = {
     valueType:"GREGORIAN",
     inputType:"JALALI"
 };
+export const CustomFormat = Template.bind({});
+CustomFormat.args = {
+    label:'تاریخ',
+    valueType:"GREGORIAN",
+    inputType:"JALALI",
+    format:"YYYY/MM/DD"
+};
 const GregorianTestTemplate = (args) => <JBDateInputGregorianTest {...args}></JBDateInputGregorianTest>;
 export const GregorianTest = GregorianTestTemplate.bind({});
 GregorianTest.args = {
@@ -30,7 +37,7 @@ GregorianMinMaxTest.args = {
     max:"2020-10-15T08:51:23.176Z",
     inputType:'JALALI'
 };
-const JalaliTestTemplate = (args) => <div style={{direction:'rtl'}}><JBDateInputJalaliTest label={args.label} min={args.min} max={args.max} valueType={args.valueType}></JBDateInputJalaliTest></div>;
+const JalaliTestTemplate = (args) => <div style={{direction:'rtl'}}><JBDateInputJalaliTest format={args.format?args.format:undefined} label={args.label} min={args.min} max={args.max} valueType={args.valueType}></JBDateInputJalaliTest></div>;
 export const JalaliTest = JalaliTestTemplate.bind({});
 JalaliTest.args = {
     label:'تاریخ',
@@ -41,8 +48,17 @@ JalaliMinMaxTest.args = {
     label:'تاریخ',
     valueType:"JALALI",
     min:"1399-05-01T12:05:39.530Z",
-    max:"1400-07-01T12:05:39.530Z",
+    max:"1400-08-01T12:05:39.530Z",
 };
+export const JalaliMinMaxTestWithCustomFormat = JalaliTestTemplate.bind({});
+JalaliMinMaxTestWithCustomFormat.args = {
+    label:'تاریخ',
+    valueType:"JALALI",
+    min:"1399/05/01",
+    max:"1400/08/01",
+    format:"YYYY/MM/DD"
+};
+
 const TimeStampTestTemplate = (args) => <JBDateInputTimeStampTest label={args.label} min={args.min} max={args.max} valueType={args.valueType}></JBDateInputTimeStampTest>;
 export const TimeStampTest = TimeStampTestTemplate.bind({});
 TimeStampTest.args = {
