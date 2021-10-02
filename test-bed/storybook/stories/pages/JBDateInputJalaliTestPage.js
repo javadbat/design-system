@@ -9,7 +9,7 @@ function JBDateInputJalaliTest(props) {
         },
         {
             validator:(inputedText, valueObject, valueText)=>{
-                debugger;
+                return valueObject.jalali.day == 15;
             },
             message:'باید تاریخ بعد از  15 ماه انتخاب شود'
         }
