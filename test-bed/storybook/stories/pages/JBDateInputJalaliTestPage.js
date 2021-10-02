@@ -2,6 +2,18 @@ import React, {useState} from 'react';
 import JBDateInput from '../../../../react-component/jb-date-input/JBDateInput';
 function JBDateInputJalaliTest(props) {
     const [value, valueSetter] = useState("");
+    const validationList = [
+        {
+            validator:/^13.*$/g,
+            message:'تاریخ باید قبل از تنها در قرن 13 شمسی باشد'
+        },
+        {
+            validator:(inputedText, valueObject, valueText)=>{
+                debugger;
+            },
+            message:'باید تاریخ بعد از  15 ماه انتخاب شود'
+        }
+    ];
     return (
         <div>
             <JBDateInput value={value} label={props.label} min={props.min} max={props.max} valueType={props.valueType} onSelect={e => {valueSetter(e.target.value);}} format={props.format}></JBDateInput>
@@ -16,6 +28,8 @@ function JBDateInputJalaliTest(props) {
             <div style={{'--jb-date-input-text-align':'center'}}>
                 <JBDateInput></JBDateInput>
             </div>
+            <h3>test custom validation</h3>
+            <JBDateInput validationList={validationList} value={value} label={props.label} valueType={props.valueType} onSelect={e => {valueSetter(e.target.value);}} format={props.format}></JBDateInput>
         </div>
     );
 }

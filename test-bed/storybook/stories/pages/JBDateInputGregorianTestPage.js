@@ -4,7 +4,7 @@ function JBDateInputGregorianTest(props) {
     const [setValue, setValueSetter] = useState("");
     return (
         <div>
-            <JBDateInput inputType={props.inputType} label={props.label} min={props.min} max={props.max} valueType={props.valueType} onChange={e => {setValueSetter(e.target.value);}}></JBDateInput>
+            <JBDateInput direction={props.direction} inputType={props.inputType} label={props.label} min={props.min} max={props.max} valueType={props.valueType} onChange={e => {setValueSetter(e.target.value);}}></JBDateInput>
             <div>
                 <br /><br />valueType is {props.valueType}
                 <br /><br />inputType is {props.inputType}

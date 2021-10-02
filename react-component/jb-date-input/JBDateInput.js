@@ -27,6 +27,11 @@ const JBDateInput = React.forwardRef((props, ref)=>{
         }
     },[props.value]);
     useEffect(()=>{
+        if( Array.isArray(props.validationList)){
+            element.current.validationList = props.validationList;
+        }
+    },[props.validationList]);
+    useEffect(()=>{
         if(props.direction){
             element.current.setAttribute('direction', props.direction);
         }
@@ -48,6 +53,7 @@ JBDateInput.propTypes = {
     valueType: PropTypes.oneOf(['GREGORIAN','JALALI','TIME_STAMP']),
     inputType: PropTypes.oneOf(['GREGORIAN','JALALI']),
     direction: PropTypes.oneOf(['ltr','rtl']),
-    value: PropTypes.string
+    value: PropTypes.string,
+    validationList: PropTypes.array
 };
 export default JBDateInput;
