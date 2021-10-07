@@ -57,6 +57,11 @@ const JBTimeInput = React.forwardRef((props, ref)=>{
     useEffect(()=>{
         element.current.validationList = props.validationList;
     },[props.validationList]);
+    useEffect(()=>{
+        if(props.secondEnabled !== null && props.secondEnabled !== undefined){
+            element.current.secondEnabled = props.secondEnabled;
+        }
+    },[props.secondEnabled]);
     useEvent(element.current, 'change', onChange);
     useEvent(element.current, 'keydown', onKeydown);
     useEvent(element.current, 'keyup', onKeyup);
@@ -78,7 +83,8 @@ JBTimeInput.propTypes = {
     className: PropTypes.string,
     placeholder: PropTypes.string,
     direction: PropTypes.string,
-    validationList: PropTypes.array
+    validationList: PropTypes.array,
+    secondEnabled: PropTypes.bool
 };
 
 export default JBTimeInput;

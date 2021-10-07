@@ -34,3 +34,8 @@ ValidationSample.args = {
         }
     ]
 };
+export const withoutSecond = Template.bind({});
+withoutSecond.args = {
+    label:'time',
+    secondEnabled:false
+};
