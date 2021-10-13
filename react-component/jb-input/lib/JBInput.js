@@ -72,7 +72,9 @@ const JBInput = React.forwardRef((props, ref)=>{
     useEvent(element.current, 'blur', onBlur);
     useEvent(element.current, 'enter', onEnter);
     return (
-        <jb-input placeholder={props.placeholder} ref={element} class={props.className} label={props.label} message={props.message}></jb-input>
+        <jb-input placeholder={props.placeholder} ref={element} class={props.className} label={props.label} message={props.message}>
+            {props.children}
+        </jb-input>
     );
 });
 
