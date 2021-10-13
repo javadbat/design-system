@@ -65,6 +65,11 @@ const JBInput = React.forwardRef((props, ref)=>{
             element.current.setNumberFieldParameter(props.numberFieldParameter);
         }
     },[props.NumberFieldParameter]);
+    useEffect(()=>{
+        if(typeof props.disabled == "boolean"){
+            element.current.setAttribute('disabled',`${props.disabled}`);
+        }
+    },[props.disabled]);
     useEvent(element.current, 'change', onChange);
     useEvent(element.current, 'keydown', onKeydown);
     useEvent(element.current, 'keyup', onKeyup);
@@ -89,7 +94,8 @@ JBInput.propTypes = {
     validationList: PropTypes.array,
     placeholder: PropTypes.string,
     direction: PropTypes.string,
-    numberFieldParameter: PropTypes.string
+    numberFieldParameter: PropTypes.string,
+    disabled: PropTypes.bool
 };
 JBInput.displayName = "JBInput";
 export default JBInput;
