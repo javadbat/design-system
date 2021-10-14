@@ -23,6 +23,7 @@ class MockServer{
         });
         this.uploadModule = multer({dest:this.tempFileDirectory,});
         this.app.post('/image/upload',this.uploadModule.single('image'), this.uploadImage.bind(this));
+        this.app.get('/image/download',this.downloadImage, this.uploadImage.bind(this));
         process.on('exit',this.exitHandler.bind(this));
 
     }
@@ -53,7 +54,7 @@ class MockServer{
     }
     createTempDirectory(){
         return new Promise((resolve, reject) => {
-            const osTmpDir = os.tmpdir()
+            const osTmpDir = os.tmpdir();
             this.tempFileDirectory = path.join(osTmpDir,'jb-design-system-test');
             fs.mkdir(this.tempFileDirectory, (err)=>{
                 if(err){
@@ -79,6 +80,12 @@ class MockServer{
     }
     uploadImage(req, res, next){
         res.status(200).send({fileName:req.file});
+    }
+    downloadImage(req, res, next){
+        const imagePath = req.param('imagePath');
+        if(path){
+            res.sendFile(path.join(imagePath));
+        }
     }
 }
 export {MockServer};
