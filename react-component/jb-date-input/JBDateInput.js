@@ -38,7 +38,9 @@ const JBDateInput = React.forwardRef((props, ref)=>{
     },
     [props.direction]);
     return (
-        <jb-date-input label={props.label} value-type={props.valueType?props.valueType:'GREGORIAN'} min={props.min} max={props.max} ref={element} input-type={props.inputType?props.inputType:'JALALI'}></jb-date-input>
+        <jb-date-input label={props.label} value-type={props.valueType?props.valueType:'GREGORIAN'} min={props.min} max={props.max} ref={element} input-type={props.inputType?props.inputType:'JALALI'}>
+            {props.children}
+        </jb-date-input>
     );
 });
 JBDateInput.displayName = "JBDateInput";

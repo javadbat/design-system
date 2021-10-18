@@ -13,6 +13,7 @@ const bridge = {
                     'Content-Type': 'multipart/form-data'
                 }
             }).then((response) => {
+                debugger;
                 resolve(response.data.fileName.path);
             }).catch((err) => {
                 debugger;

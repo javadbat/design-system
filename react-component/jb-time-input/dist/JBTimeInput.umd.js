@@ -162,6 +162,11 @@
     React.useEffect(function () {
       element.current.validationList = props.validationList;
     }, [props.validationList]);
+    React.useEffect(function () {
+      if (props.secondEnabled !== null && props.secondEnabled !== undefined) {
+        element.current.secondEnabled = props.secondEnabled;
+      }
+    }, [props.secondEnabled]);
     useEvent(element.current, 'change', onChange);
     useEvent(element.current, 'keydown', onKeydown);
     useEvent(element.current, 'keyup', onKeyup);
@@ -187,7 +192,8 @@
     className: PropTypes__default['default'].string,
     placeholder: PropTypes__default['default'].string,
     direction: PropTypes__default['default'].string,
-    validationList: PropTypes__default['default'].array
+    validationList: PropTypes__default['default'].array,
+    secondEnabled: PropTypes__default['default'].bool
   };
 
   return JBTimeInput;
