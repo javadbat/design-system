@@ -48,6 +48,11 @@ const JBImageInput = React.forwardRef((props, ref) => {
             element.current.acceptTypes = props.acceptTypes;
         }
     }, [props.acceptTypes]);
+    useEffect(() => {
+        if (props.maxFileSize !== undefined) {
+            element.current.maxFileSize = props.maxFileSize;
+        }
+    }, [props.maxFileSize]);
     function onChange(e) {
         if (typeof props.onChange == "function") {
             props.onChange(e);
@@ -58,8 +63,14 @@ const JBImageInput = React.forwardRef((props, ref) => {
             props.onImageSelected(e);
         }
     }
+    function onMaxSizeExceed(e){
+        if (typeof props.onMaxSizeExceed == "function") {
+            props.onMaxSizeExceed(e);
+        }
+    }
     useEvent(element.current, 'change', onChange);
     useEvent(element.current, 'imageSelected', onImageSelected);
+    useEvent(element.current, 'maxSizeExceed', onMaxSizeExceed);
     return (
         <jb-image-input ref={element} class={props.className || ''} placeholder-title={props.placeholderTitle} upload-type={props.uploadType || 'AUTO'} required={props.required}>
             {props.children}
@@ -78,7 +89,9 @@ JBImageInput.propTypes = {
     bridge: PropTypes.object,
     multiple: PropTypes.bool,
     file: PropTypes.object,
-    acceptTypes: PropTypes.string
+    acceptTypes: PropTypes.string,
+    maxFileSize: PropTypes.number,
+    onMaxSizeExceed: PropTypes.func
 };
 JBImageInput.displayName = "JBImageInput";
 export default JBImageInput;

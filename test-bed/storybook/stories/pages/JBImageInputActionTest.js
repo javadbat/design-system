@@ -4,7 +4,6 @@ import JBImageInput from '../../../../react-component/jb-image-input/JBImageInpu
 import Axios from 'axios';
 const bridge = {
     uploader: (file, config) => {
-        debugger;
         return new Promise((resolve, reject) => {
             var formData = new FormData();
             formData.append("image", file);
@@ -13,10 +12,9 @@ const bridge = {
                     'Content-Type': 'multipart/form-data'
                 }
             }).then((response) => {
-                debugger;
                 resolve(response.data.fileName.path);
             }).catch((err) => {
-                debugger;
+                console.error(err);
             });
         });
     },
@@ -33,18 +31,23 @@ const bridge = {
 
 
             }).catch((err) => {
-                debugger;
+                console.error(err);
             });
         });
     }
-}
+};
 function JBImageInputActionTest(props) {
     function onchange(e) {
-
+        console.log('image changed');
+    }
+    function onMaxSizeExceed(e){
+        console.error(`your file size   is not valid your size is:${e.detail.file.size}`);
     }
     return (
         <div>
-            <JBImageInput bridge={bridge} onChange={onchange} config={{ ss: 10, vv: 20 }}></JBImageInput>
+            <JBImageInput bridge={bridge} onChange={onchange} config={{}}></JBImageInput>
+            <h3>with 2MB max size limit</h3>
+            <JBImageInput bridge={bridge} onChange={onchange} config={{}} maxFileSize={2*1024*1024} onMaxSizeExceed={onMaxSizeExceed}></JBImageInput>
         </div>
     );
 }
