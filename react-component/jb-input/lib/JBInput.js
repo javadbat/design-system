@@ -1,14 +1,14 @@
-import React, {useRef, useEffect, useImperativeHandle, useState} from 'react';
+import React, { useRef, useEffect, useImperativeHandle, useState } from 'react';
 import PropTypes from 'prop-types';
 import '../../../web-component/jb-input/dist/JBInput';
-import {useEvent} from '../../custom-hooks/UseEvent';
+import { useEvent } from '../../custom-hooks/UseEvent';
 // eslint-disable-next-line react/display-name
-const JBInput = React.forwardRef((props, ref)=>{
+const JBInput = React.forwardRef((props, ref) => {
     const element = useRef();
     const [refChangeCount, refChangeCountSetter] = useState(0);
     useImperativeHandle(
         ref,
-        () => (element?element.current:{}),
+        () => (element ? element.current : {}),
         [element],
     );
     useEffect(() => {
@@ -46,30 +46,34 @@ const JBInput = React.forwardRef((props, ref)=>{
     }
     useEffect(() => {
         let value = props.value;
-        if(props.value == null || props.value === undefined){
+        if (props.value == null || props.value === undefined) {
             value = '';
         }
         element.current.value = value;
     }, [props.value]);
     useEffect(() => {
-        element.current.setAttribute('type',props.type);
+        element.current.setAttribute('type', props.type);
     }, [props.type]);
-    useEffect(()=>{
+    useEffect(() => {
         element.current.validationList = props.validationList || [];
-    },[props.validationList]);
-    useEffect(()=>{
-        element.current.setAttribute('direction',props.direction);
-    },[props.direction]);
-    useEffect(()=>{
-        if(typeof props.numberFieldParameter == "object"){
+    }, [props.validationList]);
+    useEffect(() => {
+        element.current.setAttribute('direction', props.direction);
+    }, [props.direction]);
+    useEffect(() => {
+        if (typeof props.numberFieldParameter == "object") {
             element.current.setNumberFieldParameter(props.numberFieldParameter);
         }
-    },[props.NumberFieldParameter]);
-    useEffect(()=>{
-        if(typeof props.disabled == "boolean"){
-            element.current.setAttribute('disabled',`${props.disabled}`);
+    }, [props.NumberFieldParameter]);
+    useEffect(() => {
+        if (typeof props.disabled == "boolean") {
+            element.current.setAttribute('disabled', `${props.disabled}`);
         }
-    },[props.disabled]);
+    }, [props.disabled]);
+    useEffect(() => {
+        element.current.setAttribute('inputmode',props.inputmode);
+    }
+    , [props.inputmode]);
     useEvent(element.current, 'change', onChange);
     useEvent(element.current, 'keydown', onKeydown);
     useEvent(element.current, 'keyup', onKeyup);
@@ -85,7 +89,7 @@ const JBInput = React.forwardRef((props, ref)=>{
 
 JBInput.propTypes = {
     label: PropTypes.string,
-    value: PropTypes.oneOfType([PropTypes.string,PropTypes.number]) ,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     type: PropTypes.string,
     onChange: PropTypes.func,
     onKeyUp: PropTypes.func,
@@ -95,7 +99,8 @@ JBInput.propTypes = {
     placeholder: PropTypes.string,
     direction: PropTypes.string,
     numberFieldParameter: PropTypes.string,
-    disabled: PropTypes.bool
+    disabled: PropTypes.bool,
+    inputmode: PropTypes.string,
 };
 JBInput.displayName = "JBInput";
 export default JBInput;

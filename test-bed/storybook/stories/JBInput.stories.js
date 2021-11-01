@@ -102,3 +102,9 @@ WithStartAndEndSection.args = {
     message: 'static text under input show all the time',
     placeholder: 'place holder'
 };
+
+export const CustomMobileKeyboard = Template.bind({});
+CustomMobileKeyboard.args = {
+    'label': 'number keyboard',
+    'inputmode': 'numeric'
+}
