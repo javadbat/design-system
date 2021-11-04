@@ -3,8 +3,8 @@ import { fileURLToPath } from 'url';
 class GeneralConfig{
     constructor(){
         this.env = process.env.NODE_ENV?process.env.NODE_ENV:'development';
-        const __dirname = dirname(fileURLToPath(import.meta.url));
-        this.basePath = path.join(__dirname,'../');
+        const presentWorkingDirectory = dirname(fileURLToPath(import.meta.url));
+        this.basePath = path.join(presentWorkingDirectory,'../');
         this.host = '0.0.0.0';
         this.port = {
             storybookPort:3100,
