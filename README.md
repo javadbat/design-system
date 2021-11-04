@@ -22,8 +22,6 @@ install packages
 
 ```cmd
 npm i
-cd test-bed/storybook
-npm i
 ```
 
 build packages in project root directory
@@ -33,12 +31,6 @@ build packages in project root directory
 npm run build
 # build only named module
 npm run build jb-input
-```
-
-add express to mock-server
-
-```
-cd mock && npm i
 ```
 
 serve testbeds
