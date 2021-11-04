@@ -35,6 +35,12 @@ npm run build
 npm run build jb-input
 ```
 
+add express to mock-server
+
+```
+cd mock && npm i
+```
+
 serve testbeds
 
 ```cmd
