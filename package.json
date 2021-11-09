@@ -48,6 +48,7 @@
     "eslint-plugin-react": "^7.20.6"
   },
   "scripts": {
+    "postinstall": "node commands/init/postinstall.js",
     "build": "node commands/build/build.js",
     "serve": "node commands/serve/serve.js",
     "start": "node commands/start/start.js"

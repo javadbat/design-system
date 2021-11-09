@@ -22,8 +22,6 @@ install packages
 
 ```cmd
 npm i
-cd test-bed/storybook
-npm i
 ```
 
 build packages in project root directory
