@@ -1,34 +1,43 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useImperativeHandle, useState } from 'react';
 import PropTypes from 'prop-types';
 import '../../../web-component/jb-button/dist/JBButton';
-function JBButton(props) {
-    const buttonElement = useRef();
+import { useEvent } from '../../custom-hooks/UseEvent';
+const JBButton = React.forwardRef((props, ref) => {
+    const element = useRef();
+    const [refChangeCount, refChangeCountSetter] = useState(0);
+    useImperativeHandle(
+        ref,
+        () => (element ? element.current : {}),
+        [element],
+    );
     useEffect(() => {
+        refChangeCountSetter(refChangeCount + 1);
+    }, [element.current]);
+    function handleClick(event) {
         if (typeof props.onClick == "function") {
-            buttonElement.current.addEventListener('click', props.onClick,{});
+            props.onClick(event);
         }
-        return () => {
-            ()=>buttonElement.current.removeEventListener('click',props.onClick,);
-        };
-    }, []);
+    }
     useEffect(() => {
         if (props.disabled) {
-            buttonElement.current.setAttribute('disabled', 'disabled');
+            element.current.setAttribute('disabled', 'disabled');
         } else {
-            buttonElement.current.removeAttribute('disabled');
+            element.current.removeAttribute('disabled');
         }
     }, [props.disabled]);
-    useEffect(()=>{
-        buttonElement.current.isLoading = props.isLoading;
-    },[props.isLoading]);
+    useEffect(() => {
+        element.current.isLoading = props.isLoading;
+    }, [props.isLoading]);
+    useEvent(element.current, 'click', handleClick);
     return (
-        <jb-button ref={buttonElement} loading-text={props.loadingText ? props.loadingText : ''} type={props.type ? props.type : 'primary'} class={props.className}>{props.children}</jb-button>
+        <jb-button ref={element} loading-text={props.loadingText ? props.loadingText : ''} type={props.type ? props.type : 'primary'} class={props.className}>{props.children}</jb-button>
     );
-}
+});
+JBButton.displayName = 'JBButton';
 JBButton.propTypes = {
     type: PropTypes.string,
     onClick: PropTypes.func,
-    isLoading:PropTypes.bool,
+    isLoading: PropTypes.bool,
     className: PropTypes.string,
     loadingText: PropTypes.string,
     disabled: PropTypes.bool
