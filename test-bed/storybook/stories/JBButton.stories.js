@@ -1,19 +1,20 @@
 import React from 'react';
 
-import JBButton from '../../../react-component/jb-button';
+import JBButton from '../../../react-component/jb-button/lib/JBButton';
 
 export default {
     title: 'Example/JBButton',
     component: JBButton
 };
 
-const Template = (args) => <JBButton type={args.type} isLoading={args.isLoading} loadingText={args.loadingText}>{args.buttonText}</JBButton>;
+const Template = (args) => <JBButton {...args}>{args.buttonText}</JBButton>;
 
 export const Primary = Template.bind({});
 Primary.args = {
     type: 'primary',
     buttonText:'ثبت محتوی',
-    loadingText:''
+    loadingText:'',
+    disabled:false,
 };
 
 export const Secondary = Template.bind({});
@@ -21,6 +22,14 @@ Secondary.args = {
     type: 'secendary',
     buttonText:'ثبت اطلاعات',
     loadingText:''
+
+};
+export const Disabled = Template.bind({});
+Disabled.args = {
+    type: 'secendary',
+    buttonText:'ثبت اطلاعات',
+    loadingText:'',
+    disabled:true
 
 };
 export const Loading = Template.bind({});

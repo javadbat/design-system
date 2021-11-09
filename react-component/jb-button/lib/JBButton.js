@@ -11,6 +11,13 @@ function JBButton(props) {
             ()=>buttonElement.current.removeEventListener('click',props.onClick,);
         };
     }, []);
+    useEffect(() => {
+        if (props.disabled) {
+            buttonElement.current.setAttribute('disabled', 'disabled');
+        } else {
+            buttonElement.current.removeAttribute('disabled');
+        }
+    }, [props.disabled]);
     useEffect(()=>{
         buttonElement.current.isLoading = props.isLoading;
     },[props.isLoading]);
@@ -23,7 +30,8 @@ JBButton.propTypes = {
     onClick: PropTypes.func,
     isLoading:PropTypes.bool,
     className: PropTypes.string,
-    loadingText: PropTypes.string
+    loadingText: PropTypes.string,
+    disabled: PropTypes.bool
 };
 export default JBButton;
 
