@@ -1,0 +1,17 @@
+.jb-calendar-theme-test-page{
+    
+}
+.dark-theme{
+    padding: 32px;
+    width: auto;
+    height: auto;
+    border-radius: 24px;
+    background-color: #1f1f1f;
+
+    --jb-calendar-color:#fff;
+    --jb-calendar-arrow-button-bgcolor:#888;
+    --jb-calendar-day-text-color: #fefefe;
+    --jb-calendar-month-bgcolor-hover: #e0e;
+    --jb-calendar-year-bgcolor-hover: #e0e;
+    --jb-calendar-arrow-fill-color: #e0e;
+}

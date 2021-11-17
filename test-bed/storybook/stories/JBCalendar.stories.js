@@ -1,6 +1,7 @@
 import React from 'react';
 import JBCalendar from '../../../react-component/jb-calendar';
 import JBCalendarTest from '../stories/pages/JBCalendarTestPage';
+import JBCalendarCustomTheme from './pages/JBCalendar/JBCalendarCustomTheme';
 export default {
     title: 'Example/JBCalendar',
     component: JBCalendar
@@ -21,5 +22,10 @@ Gregorian.args = {
 const rtlTemplate = (args) =>(<div style={{direction: 'rtl'}}><JBCalendar {...args}></JBCalendar></div>);
 export const RTLGregorian = rtlTemplate.bind({});
 RTLGregorian.args = {
+    inputType:'GREGORIAN'
+};
+const customThemeTemplate = (args) =>(<JBCalendarCustomTheme {...args}></JBCalendarCustomTheme>);
+export const CustomTheme = customThemeTemplate.bind({});
+CustomTheme.args = {
     inputType:'GREGORIAN'
 };
