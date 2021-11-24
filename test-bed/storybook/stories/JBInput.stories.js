@@ -1,8 +1,8 @@
 import React from 'react';
 import JBInput from '../../../react-component/jb-input';
 import JBInputStylingTest from './pages/JBInput/JBInputStylingTest';
-import JBInputTest from './pages/JBInputTest';
-import JBInputValidationList from './pages/JBInputValidationList';
+import JBInputTest from './pages/JBInput/JBInputTest';
+import JBInputValidationList from './pages/JBInput/JBInputValidationList';
 export default {
     title: 'Example/JBInput',
     component: JBInput
@@ -30,7 +30,8 @@ export const Number = Template.bind({});
 Number.args = {
     label: 'تعداد به عدد',
     message: 'متن ثابت زیر کادر متن',
-    type: 'number'
+    type: 'number',
+    onChange:(e)=>{console.log(`new number is ${e.target.value}`);}
 };
 const testActionsTemplate = () => <JBInputTest></JBInputTest>;
 export const testActions = testActionsTemplate.bind({});

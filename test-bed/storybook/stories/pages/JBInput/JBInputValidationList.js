@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import JBInput from '../../../../react-component/jb-input';
+import JBInput from '../../../../../react-component/jb-input';
 import PropTypes, { func } from 'prop-types';
 function JBInputValidationList(props) {
     var inputValidation=[

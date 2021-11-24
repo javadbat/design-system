@@ -1,6 +1,6 @@
 import { number } from 'prop-types';
 import React, { useState, useEffect, useRef}from 'react';
-import JBInput from '../../../../react-component/jb-input/lib/JBInput';
+import JBInput from '../../../../../react-component/jb-input';
 
 function JBInputTest() {
     const input = useRef(null);
@@ -17,7 +17,7 @@ function JBInputTest() {
             <h3>test events</h3>
             <JBInput onEnter={()=>{alert('you press Enter');}} label="تست تایپ"></JBInput>
             <h3>number input test</h3>
-            <h4>step:2, Decimalpecission:4</h4>
+            <h4>step:2, Decimalpecission:4</h4>y
             <JBInput type="number" label="عدد اعشاری" numberFieldParameter={{step:2,decimalPrecision:4,invalidNumberReplacement:""}}></JBInput>
             <JBInput value={numberValue} onChange={(e)=>{setNumberValue(e.target.value);}} type="number" label="عدد عشاری" numberFieldParameter={{step:2,decimalPrecision:4,invalidNumberReplacement:""}}></JBInput>
             <h3>number after change event</h3>
