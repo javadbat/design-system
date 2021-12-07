@@ -1,8 +1,9 @@
 import React from 'react';
 import JBSelect from '../../../react-component/jb-select/JBSelect';
-import JBSelectStyleTest from '../stories/pages/JBSelectStyleTestPage';
+import JBSelectStyleTest from '../stories/pages/JBSelect/JBSelectStyleTestPage';
 import { action } from '@storybook/addon-actions';
-import JBSelectDynamicList from './pages/JBSelectDynamicList';
+import JBSelectDynamicList from './pages/JBSelect/JBSelectDynamicList';
+import CustomizedOptions from './pages/JBSelect/CustomizedOptions';
 export default {
     title: 'Example/JBSelect',
     component: JBSelect
@@ -54,3 +55,6 @@ StyleTest.args = {
 //when user type and want to change text
 const DynamicListTemplate = (args) => <JBSelectDynamicList></JBSelectDynamicList>;
 export const DynamicList = DynamicListTemplate.bind({});
+// customized option dom
+const CustomizableOptionTemplate = (args) => <CustomizedOptions></CustomizedOptions>;
+export const CustomizedOption = CustomizableOptionTemplate.bind({});

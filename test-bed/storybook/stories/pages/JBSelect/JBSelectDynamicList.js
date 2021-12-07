@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import JBSelect from '../../../../react-component/jb-select/JBSelect';
+import JBSelect from '../../../../../react-component/jb-select/JBSelect';
 function JBSelectDynamicList() {
     const [optionList,setOptionList] = useState([]);
     function fillList(text = ''){

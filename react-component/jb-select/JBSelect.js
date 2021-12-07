@@ -24,10 +24,20 @@ const JBSelect = React.forwardRef((props, ref)=>{
         }
     }, [props.getOptionTitle]);
     useEffect(() => {
-        if(typeof props.getOptionValue =="function"){
-            element.current.callbacks.getOptionValue = props.getOptionValue;
+        if(typeof props.getOptionTitle =="function"){
+            element.current.callbacks.getOptionTitle = props.getOptionTitle;
         }
-    }, [props.getOptionValue]);
+    }, [props.getOptionTitle]);
+    useEffect(() => {
+        if(typeof props.getOptionDOM =="function"){
+            element.current.callbacks.getOptionDOM = props.getOptionDOM;
+        }
+    }, [props.getOptionDOM]);
+    useEffect(() => {
+        if(typeof props.getSelectedValueDOM =="function"){
+            element.current.callbacks.getSelectedValueDOM = props.getSelectedValueDOM;
+        }
+    } , [props.getSelectedValueDOM]);
     useEffect(() => {
         element.current.optionList = props.optionList;
     }, [props.optionList]);
@@ -54,6 +64,8 @@ JBSelect.propTypes = {
     optionList: PropTypes.array,
     getOptionTitle: PropTypes.func, 
     getOptionValue: PropTypes.func,
+    getOptionDOM: PropTypes.func,
+    getSelectedValueDOM: PropTypes.func,
     value: PropTypes.any,
     onChange: PropTypes.func,
     onKeyup: PropTypes.func,
