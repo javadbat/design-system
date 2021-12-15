@@ -4,6 +4,9 @@ import '../../../web-component/jb-input/dist/JBInput';
 import { useEvent } from '../../custom-hooks/UseEvent';
 // eslint-disable-next-line react/display-name
 const JBInput = React.forwardRef((props, ref) => {
+    /**
+     * @type {React.MutableRefObject<HTMLInputElement>}
+     */
     const element = useRef();
     const [refChangeCount, refChangeCountSetter] = useState(0);
     useImperativeHandle(
@@ -71,7 +74,11 @@ const JBInput = React.forwardRef((props, ref) => {
         }
     }, [props.disabled]);
     useEffect(() => {
-        element.current.setAttribute('inputmode',props.inputmode);
+        if(props.inputmode){
+            element.current.setAttribute('inputmode',props.inputmode);
+        }else{
+            element.current.removeAttribute('inputmode');
+        }
     }
     , [props.inputmode]);
     useEvent(element.current, 'change', onChange);
