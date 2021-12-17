@@ -47,6 +47,16 @@ const JBInput = React.forwardRef((props, ref) => {
             props.onBlur(e);
         }
     }
+    function onInput(e) {
+        if (typeof props.onInput == 'function' && e instanceof InputEvent) {
+            props.onInput(e);
+        }
+    }
+    function onBeforeInput(e) {
+        if (typeof props.onBeforeInput == 'function' && e instanceof InputEvent) {
+            props.onBeforeInput(e);
+        }
+    }
     useEffect(() => {
         let value = props.value;
         if (props.value == null || props.value === undefined) {
@@ -87,6 +97,8 @@ const JBInput = React.forwardRef((props, ref) => {
     useEvent(element.current, 'focus', onFocus);
     useEvent(element.current, 'blur', onBlur);
     useEvent(element.current, 'enter', onEnter);
+    useEvent(element.current, 'input', onInput);
+    useEvent(element.current, 'beforeinput', onBeforeInput);
     return (
         <jb-input placeholder={props.placeholder} ref={element} class={props.className} label={props.label} message={props.message}>
             {props.children}
@@ -101,6 +113,8 @@ JBInput.propTypes = {
     onChange: PropTypes.func,
     onKeyUp: PropTypes.func,
     onEnter: PropTypes.func,
+    onInput: PropTypes.func,
+    onBeforeinput: PropTypes.func,
     className: PropTypes.string,
     validationList: PropTypes.array,
     placeholder: PropTypes.string,
