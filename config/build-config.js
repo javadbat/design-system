@@ -76,7 +76,7 @@ var webComponentConfig = {
             path: '/web-component/jb-loading/lib/JBLoading.js',
             outputPath:'/web-component/jb-loading/dist/JBLoading.js',
             external: []
-        }
+        },
 
     ],
 };

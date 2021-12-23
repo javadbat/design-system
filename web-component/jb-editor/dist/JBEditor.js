@@ -1226,7 +1226,7 @@ class InputFactory {
     }
 }
 
-var HTML = "<div class=\"jb-editor-web-component\">\n    <div class=\"content-wrapper\">\n    </div>\n</div>";
+var HTML = "<div class=\"jb-editor-web-component\">\r\n    <div class=\"content-wrapper\">\r\n    </div>\r\n</div>";
 
 var css_248z$1 = ".jb-editor-web-component {\n  direction: rtl;\n  width: 100%;\n  height: 100%;\n  background-color: lightseagreen; }\n  .jb-editor-web-component .content-wrapper {\n    width: 100%;\n    height: 100%;\n    padding: 16px;\n    box-sizing: border-box; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkpCRWRpdG9yLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxjQUFjO0VBQ2QsV0FBVztFQUNYLFlBQVk7RUFDWiwrQkFBK0IsRUFBRTtFQUNqQztJQUNFLFdBQVc7SUFDWCxZQUFZO0lBQ1osYUFBYTtJQUNiLHNCQUFzQixFQUFFIiwiZmlsZSI6IkpCRWRpdG9yLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuamItZWRpdG9yLXdlYi1jb21wb25lbnQge1xuICBkaXJlY3Rpb246IHJ0bDtcbiAgd2lkdGg6IDEwMCU7XG4gIGhlaWdodDogMTAwJTtcbiAgYmFja2dyb3VuZC1jb2xvcjogbGlnaHRzZWFncmVlbjsgfVxuICAuamItZWRpdG9yLXdlYi1jb21wb25lbnQgLmNvbnRlbnQtd3JhcHBlciB7XG4gICAgd2lkdGg6IDEwMCU7XG4gICAgaGVpZ2h0OiAxMDAlO1xuICAgIHBhZGRpbmc6IDE2cHg7XG4gICAgYm94LXNpemluZzogYm9yZGVyLWJveDsgfVxuIl19 */";
 

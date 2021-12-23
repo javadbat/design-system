@@ -12,6 +12,8 @@ import rollupReplace from '@rollup/plugin-replace';
 //config
 import { webComponentConfig } from '../../config/build-config.js';
 import generalConfig from '../../config/general-config.js';
+//import typescript from '@rollup/plugin-typescript';
+import typescript from 'rollup-plugin-typescript2';
 import chalk from 'chalk';
 class WebComponentBuilder {
     constructor() {
@@ -24,9 +26,9 @@ class WebComponentBuilder {
                 const componentPromise = this.buildComponent(webComponent);
                 promiseArray.push(componentPromise);
             });
-            Promise.all(promiseArray).then(()=>{
+            Promise.all(promiseArray).then(() => {
                 resolve();
-            }).catch((err)=>{
+            }).catch((err) => {
                 reject(err);
             });
         });
@@ -44,7 +46,7 @@ class WebComponentBuilder {
         let bundlePromise = rollup.rollup(inputOptions);
         bundlePromise.then(function (bundle) {
             bundle.write(outputOptions).then(function (output) {
-                console.log(chalk.greenBright(output.output[0].facadeModuleId),' ',chalk.bgMagenta(' DONE '));
+                console.log(chalk.greenBright(output.output[0].facadeModuleId), ' ', chalk.bgMagenta(' DONE '));
             });
         }).catch((e) => {
             console.log(e);
@@ -75,14 +77,56 @@ class WebComponentBuilder {
                 sourceMap: true
             }),
             rollupJson()
-        ]
+        ];
+        const isTypeScriptModule = this._isTypeScriptModule(module);
+        if (isTypeScriptModule) {
+            plugins.push(typescript({tsconfigDefaults:this._getTypeScriptCompilerOptions(module)}));
+        }
         let inputOptions = {
             input: path.join(...module.path.split('/')),
             external: module.external || [],
             plugins: plugins,
             //manualChunks: config.chuncks
-        }
+        };
         return inputOptions;
+    }
+    _isTypeScriptModule(module) {
+        const filePaths = module.path.split('/');
+        const fileName = filePaths[filePaths.length - 1];
+        const fileExtension = fileName.split('.').pop();
+        return fileExtension === 'ts';
+    }
+    _getTypeScriptCompilerOptions(module) {
+        const includePaths = path.join(...module.path.split('/').slice(0, -1))+ '/**/*';
+        return {
+            "compilerOptions": {
+                "target": "ES2020",
+                "module": "ES2020",
+                "moduleResolution": "nodenext",
+                "allowSyntheticDefaultImports": true,
+                "sourceMap": true,
+                "emitDecoratorMetadata": true,
+                "experimentalDecorators": true,
+                "removeComments": false,
+                "noImplicitAny": false,
+                "suppressImplicitAnyIndexErrors": true,
+                "noLib": false,
+                "preserveConstEnums": true,
+                "suppressExcessPropertyErrors": true,
+                "allowJs": true,
+                "declaration": true,
+                "declarationDir": './',
+                "declarationMap": true,
+                // "outDir": "../dist",
+            },
+            "include": [
+                includePaths,
+            ],
+            "exclude": [
+                ...module.external
+            ]
+
+        };
     }
     _getOutputOption(module) {
         let outputOptions = {
@@ -91,7 +135,7 @@ class WebComponentBuilder {
             file: path.join(...module.outputPath.split('/')),
             format: 'es', //es for native code , system for systemjs known module
             //dir: 'App/dist',
-        }
+        };
         return outputOptions;
     }
 }

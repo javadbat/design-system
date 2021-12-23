@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "module": "ES2020",
+        "noImplicitAny": true,
+        "removeComments": false,
+        "preserveConstEnums": true,
+        "moduleResolution": "nodenext",
+        "sourceMap": true,
+        "allowJs": true
+    },
+    "include": [
+    ],
+    "exclude": [
+        "node_modules",
+        "**/*.spec.ts",
+        "dist"
+    ]
+}
