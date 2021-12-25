@@ -100,9 +100,9 @@ class WebComponentBuilder {
         const includePaths = path.join(...module.path.split('/').slice(0, -1))+ '/**/*';
         return {
             "compilerOptions": {
-                "target": "ES2020",
-                "module": "ES2020",
-                "moduleResolution": "nodenext",
+                "target": "ES2022",
+                "module": "ES2022",
+                "moduleResolution": "node",
                 "allowSyntheticDefaultImports": true,
                 "sourceMap": true,
                 "emitDecoratorMetadata": true,
@@ -116,7 +116,7 @@ class WebComponentBuilder {
                 "allowJs": true,
                 "declaration": true,
                 "declarationDir": './',
-                "declarationMap": true,
+                "declarationMap": false,
                 // "outDir": "../dist",
             },
             "include": [

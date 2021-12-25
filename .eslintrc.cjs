@@ -29,12 +29,14 @@ module.exports = {
         "worker":true,
     },
     "plugins": [
-        "react"
-        
+        "react",
+        "@typescript-eslint"
     ],
     "extends": [
         "eslint:recommended",
-        "plugin:react/recommended"
+        "plugin:react/recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
     ],
     "globals": {
         "Atomics": "readonly",

@@ -4,4 +4,5 @@
 test-bed/storybook/node_modules/*
 web-component/*/dist/*
 react-component/*/dist/*
+/**/*.d.ts
 

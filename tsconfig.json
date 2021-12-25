@@ -5,7 +5,7 @@
         "noImplicitAny": true,
         "removeComments": false,
         "preserveConstEnums": true,
-        "moduleResolution": "nodenext",
+        "moduleResolution": "node",
         "sourceMap": true,
         "allowJs": true
     },

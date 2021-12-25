@@ -7,8 +7,9 @@ var webComponentConfig = {
         },
         {
             name: 'jb-button',
-            path: '/web-component/jb-button/lib/JBButton.js',
-            outputPath: '/web-component/jb-button/dist/JBButton.js'
+            path: '/web-component/jb-button/lib/JBButton.ts',
+            outputPath: '/web-component/jb-button/dist/JBButton.js',
+            external:[]
         },
         {
             name: 'jb-calendar',
