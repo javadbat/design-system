@@ -46,3 +46,6 @@
 [submodule "web-component/jb-loading"]
 	path = web-component/jb-loading
 	url = https://github.com/javadbat/jb-loading.git
+[submodule "react-component/jb-button"]
+	path = react-component/jb-button
+	url = https://github.com/javadbat/jb-button-react.git
