@@ -97,7 +97,7 @@ const reactComponentConfig = {
             name: 'jb-button-react',
             path: '/react-component/jb-button/lib/JBButton.js',
             outputPath: '/react-component/jb-button/dist/JBButton.js',
-            external: ['../../../web-component/jb-button/dist/JBButton', 'prop-types', 'react'],
+            external: ['jb-button', 'prop-types', 'react'],
             globals:{
                 'react':'React',
                 'prop-types':'PropTypes'
