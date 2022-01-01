@@ -49,3 +49,6 @@
 [submodule "react-component/jb-button"]
 	path = react-component/jb-button
 	url = https://github.com/javadbat/jb-button-react.git
+[submodule "react-component/jb-input"]
+	path = react-component/jb-input
+	url = https://github.com/javadbat/jb-input-react.git
