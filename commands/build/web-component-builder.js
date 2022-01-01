@@ -98,6 +98,7 @@ class WebComponentBuilder {
     }
     _getTypeScriptCompilerOptions(module) {
         const includePaths = path.join(...module.path.split('/').slice(0, -1))+ '/**/*';
+        const externalList = module.external || [];
         return {
             "compilerOptions": {
                 "target": "ES2022",
@@ -123,7 +124,7 @@ class WebComponentBuilder {
                 includePaths,
             ],
             "exclude": [
-                ...module.external
+                ...externalList
             ]
 
         };

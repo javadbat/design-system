@@ -18,6 +18,7 @@ module.exports = async ({ config }) => {
     ...config.resolve,
     alias:{
       ...config.resolve.alias,
+      'jb-button': path.resolve(__dirname, '..','..', '..', 'web-component','jb-button', 'dist', 'JBButton.js'),
       'jb-input': path.resolve(__dirname, '..','..', '..', 'web-component','jb-input', 'dist', 'JBInput.js'),
       'jb-select': path.resolve(__dirname, '..','..', '..', 'web-component','jb-select', 'dist', 'JBSelect.js'),
       'jb-calendar': path.resolve(__dirname, '..','..', '..', 'web-component','jb-calendar', 'dist', 'JBCalendar.js'),

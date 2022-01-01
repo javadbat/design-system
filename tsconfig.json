@@ -2,9 +2,11 @@
     "compilerOptions": {
         "baseUrl": ".",
         "module": "ES2020",
+        "strict": true,
         "noImplicitAny": true,
         "removeComments": false,
         "preserveConstEnums": true,
+        "strictPropertyInitialization": true,
         "moduleResolution": "node",
         "sourceMap": true,
         "allowJs": true

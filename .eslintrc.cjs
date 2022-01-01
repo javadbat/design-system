@@ -46,7 +46,7 @@ module.exports = {
         "ecmaVersion": 11,
         "sourceType": "module"
     },
-    "parser": "babel-eslint",
+    "parser": "@typescript-eslint/parser",
     "rules": {
         "indent": ["warn", 4, { "SwitchCase": 1 }],
         "no-console": "off",
@@ -93,5 +93,7 @@ module.exports = {
         'no-mixed-spaces-and-tabs': 'error',
         'semi': 1 ,
         'detect-object-injection':0,
+        //typescript rule
+        "@typescript-eslint/no-non-null-assertion":0,
     }
 };
