@@ -13,7 +13,7 @@ var webComponentConfig = {
         },
         {
             name: 'jb-calendar',
-            path: '/web-component/jb-calendar/lib/JBCalendar.js',
+            path: '/web-component/jb-calendar/lib/JBCalendar.ts',
             outputPath: '/web-component/jb-calendar/dist/JBCalendar.js',
             external: ['dayjs', 'jalaliday']
         },

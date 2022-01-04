@@ -23,7 +23,7 @@ const JBCalendar = React.forwardRef((props, ref) => {
         element.current.setAttribute('direction', props.direction);
     },[props.direction]);
     function onSelect(e) {
-        if (props.onSelect && e instanceof FocusEvent) {
+        if (props.onSelect && e instanceof CustomEvent) {
             props.onSelect(e);
         }
     }

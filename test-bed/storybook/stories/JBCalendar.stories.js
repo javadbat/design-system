@@ -1,6 +1,6 @@
 import React from 'react';
 import JBCalendar from '../../../react-component/jb-calendar';
-import JBCalendarTest from '../stories/pages/JBCalendarTestPage';
+import JBCalendarTest from '../stories/pages/JBCalendar/JBCalendarTestPage';
 import JBCalendarCustomTheme from './pages/JBCalendar/JBCalendarCustomTheme';
 export default {
     title: 'Example/JBCalendar',
