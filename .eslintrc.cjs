@@ -51,7 +51,7 @@ module.exports = {
         "indent": ["warn", 4, { "SwitchCase": 1 }],
         "no-console": "off",
         "no-inline-comments": "off",
-        "no-unused-vars": ["warn", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }],
+        "no-unused-vars": "off",
         "no-debugger":"warn",
         "no-duplicate-imports":"error",
         "react/prop-types":[0],

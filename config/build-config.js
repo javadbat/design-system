@@ -19,7 +19,7 @@ var webComponentConfig = {
         },
         {
             name: 'jb-date-input',
-            path: '/web-component/jb-date-input/lib/JBDateInput.js',
+            path: '/web-component/jb-date-input/lib/JBDateInput.ts',
             outputPath: '/web-component/jb-date-input/dist/JBDateInput.js',
             external: ['dayjs', 'jalaliday', 'jb-calendar']
         },
@@ -160,7 +160,17 @@ const reactComponentConfig = {
             external:[ 'react', 'prop-types', 'jb-time-input'],
             globals:{
                 'react':'React',
-                'prop-types':'PropTypes'
+                'prop-types':'PropTypes',
+            }
+        },
+        {
+            name: 'jb-date-input-react',
+            path: '/react-component/jb-date-input/lib/JBDateInput.js',
+            outputPath:'/react-component/jb-date-input/dist/JBDateInput.js',
+            external:[ 'react', 'prop-types', 'jb-date-input'],
+            globals:{
+                'react':'React',
+                'prop-types':'PropTypes',
             }
         }
     ]
