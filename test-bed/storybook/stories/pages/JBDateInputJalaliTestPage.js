@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import JBDateInput from '../../../../react-component/jb-date-input/JBDateInput';
+import JBDateInput from '../../../../react-component/jb-date-input/lib/JBDateInput';
 function JBDateInputJalaliTest(props) {
     const [value, valueSetter] = useState("");
     const validationList = [
