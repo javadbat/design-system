@@ -3,11 +3,14 @@ import JBDateInput from '../../../react-component/jb-date-input/index';
 import JBDateInputGregorianTest from './pages/JBDateInputGregorianTestPage';
 import JBDateInputJalaliTest from './pages/JBDateInputJalaliTestPage';
 import JBDateInputTimeStampTest from './pages/JBDateInputTimeStampTestPage';
-
+import DarkmodeTest from './pages/JBDateInput/DarkmodeTest';
 export default {
     title: 'Example/JBDateInput',
     component: JBDateInput
 };
+const darkModeTemplate = () => <DarkmodeTest></DarkmodeTest>;
+export const DarkMode = darkModeTemplate.bind({});
+
 const Template = (args) => <JBDateInput {...args}></JBDateInput>;
 export const Normal = Template.bind({});
 Normal.args = {
