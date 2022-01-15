@@ -68,7 +68,7 @@ var webComponentConfig = {
         },
         {
             name: 'jb-time-picker',
-            path: '/web-component/jb-time-picker/lib/JBTimePicker.js',
+            path: '/web-component/jb-time-picker/lib/JBTimePicker.ts',
             outputPath:'/web-component/jb-time-picker/dist/JBTimePicker.js',
             external: []
         },
