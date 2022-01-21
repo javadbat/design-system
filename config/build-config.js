@@ -150,6 +150,28 @@ const reactComponentConfig = {
             external:['mobx-react', 'react', 'mobx', 'prop-types', 'jb-searchbar'],
             globals:{
                 'react':'React',
+                'prop-types':'PropTypes',
+                'mobx':'MobX',
+                'mobx-react':'mobxReact'
+            }
+        },
+        {
+            name: 'jb-grid-row',
+            path: '/react-component/jb-grid/lib/Components/Row.js',
+            outputPath:'/react-component/jb-grid/dist/Components/Row.js',
+            external:['react','prop-types'],
+            globals:{
+                'react':'React',
+                'prop-types':'PropTypes'
+            }
+        },
+        {
+            name: 'jb-grid-cell',
+            path: '/react-component/jb-grid/lib/Components/Cell.js',
+            outputPath:'/react-component/jb-grid/dist/Components/Cell.js',
+            external:['react','prop-types'],
+            globals:{
+                'react':'React',
                 'prop-types':'PropTypes'
             }
         },

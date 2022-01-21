@@ -1,8 +1,8 @@
 import React from 'react';
 import JBDateInput from '../../../react-component/jb-date-input/index';
-import JBDateInputGregorianTest from './pages/JBDateInputGregorianTestPage';
-import JBDateInputJalaliTest from './pages/JBDateInputJalaliTestPage';
-import JBDateInputTimeStampTest from './pages/JBDateInputTimeStampTestPage';
+import JBDateInputGregorianTest from './pages/JBDateInput/JBDateInputGregorianTestPage';
+import JBDateInputJalaliTest from './pages/JBDateInput/JBDateInputJalaliTestPage';
+import JBDateInputTimeStampTest from './pages/JBDateInput/JBDateInputTimeStampTestPage';
 import DarkmodeTest from './pages/JBDateInput/DarkmodeTest';
 export default {
     title: 'Example/JBDateInput',
@@ -44,11 +44,13 @@ GregorianMinMaxTest.args = {
     inputType: 'JALALI',
     direction: "ltr"
 };
-const JalaliTestTemplate = (args) => <div style={{ direction: 'rtl' }}><JBDateInputJalaliTest format={args.format ? args.format : undefined} label={args.label} min={args.min} max={args.max} valueType={args.valueType}></JBDateInputJalaliTest></div>;
+const JalaliTestTemplate = (args) => <div style={{ direction: 'rtl' }}><JBDateInputJalaliTest format={args.format ? args.format :undefined } label={args.label} min={args.min} max={args.max} valueType={args.valueType}></JBDateInputJalaliTest></div>;
 export const JalaliTest = JalaliTestTemplate.bind({});
 JalaliTest.args = {
     label: 'تاریخ',
     valueType: "JALALI",
+    min:'1400-06-18T00:00:00.000Z',
+    max:'1401-09-18T00:00:00.000Z'
 };
 export const JalaliMinMaxTest = JalaliTestTemplate.bind({});
 JalaliMinMaxTest.args = {

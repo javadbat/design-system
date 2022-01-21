@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import JBDateInput from '../../../../react-component/jb-date-input/lib/JBDateInput';
+import JBDateInput from '../../../../../react-component/jb-date-input/lib/JBDateInput';
 function JBDateInputJalaliTest(props) {
     const [value, valueSetter] = useState("");
     const validationList = [
@@ -9,14 +9,14 @@ function JBDateInputJalaliTest(props) {
         },
         {
             validator:(inputedText, valueObject, valueText)=>{
-                return valueObject.jalali.day == 15;
+                return valueObject.jalali.day >= 15;
             },
             message:'باید تاریخ بعد از  15 ماه انتخاب شود'
         }
     ];
     return (
         <div>
-            <JBDateInput value={value} label={props.label} min={props.min} max={props.max} valueType={props.valueType} onSelect={e => {valueSetter(e.target.value);}} format={props.format}></JBDateInput>
+            <JBDateInput value={value} label={props.label} min={props.min} max={props.max} valueType={props.valueType} onSelect={e => {valueSetter(e.target.value);}}></JBDateInput>
             <div>
                 <br /><br />valueType is {props.valueType}
                 <br /><br />Min date is: {props.min? props.min:"Unlimited"}

@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './JBGridTest.css';
-import JBGrid, { Cell, Row } from '../../../../react-component/jb-grid';
+import { Cell, Row, JBGrid } from '../../../../react-component/jb-grid';
 
 import JBGridBridge from './JBGridBridge';
 import JBGridTestViewModel from './JBGridTestViewModel';
 import { observer } from 'mobx-react';
-@observer
+
 class JBGridTest extends Component {
-    static propTypes = {
-        prop: PropTypes
-    }
     constructor(props) {
         super(props);
         this.vm = new JBGridTestViewModel();
@@ -38,4 +35,4 @@ class JBGridTest extends Component {
         );
     }
 }
-export default JBGridTest;
+export default observer(JBGridTest);
