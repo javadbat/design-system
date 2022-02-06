@@ -87,7 +87,7 @@ const reactComponentConfig = {
             name: 'jb-input-react',
             path: '/react-component/jb-input/lib/JBInput.js',
             outputPath: '/react-component/jb-input/dist/JBInput.js',
-            external: ['../../../web-component/jb-input', 'prop-types', 'react'],
+            external: ['jb-input', 'prop-types', 'react'],
             globals:{
                 'react':'React',
                 'prop-types':'PropTypes'
