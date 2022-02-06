@@ -33,6 +33,34 @@ Number.args = {
     type: 'number',
     onChange:(e)=>{console.log(`new number is ${e.target.value}`);}
 };
+export const NumberWithComma = Template.bind({});
+NumberWithComma.args = {
+    label: 'تعداد به عدد',
+    message: 'هر سه رقم با کاما جدا میگردند',
+    type: 'number',
+    numberFieldParameter:{            
+        step: 1,
+        decimalPrecision: 2,
+        invalidNumberReplacement: '',
+        useThousandSeparator: true},
+    onChange:(e)=>{console.log(`new number is ${e.target.value}`);}
+};
+export const NonNegativeNumberWithComma = Template.bind({});
+NonNegativeNumberWithComma.args = {
+    label: 'تعداد به عدد',
+    message: 'هر سه رقم با کاما جدا میگردند',
+    type: 'number',
+    numberFieldParameter:{            
+        step: 1,
+        decimalPrecision: 2,
+        invalidNumberReplacement: '',
+        useThousandSeparator: true,
+        thousandSeparator:'_',
+        acceptNegative: false,
+    },
+        
+    onChange:(e)=>{console.log(`new number is ${e.target.value}`);}
+};
 const testActionsTemplate = () => <JBInputTest></JBInputTest>;
 export const testActions = testActionsTemplate.bind({});
 
