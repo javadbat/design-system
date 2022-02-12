@@ -50,6 +50,7 @@ NonNegativeNumberWithComma.args = {
     label: 'تعداد به عدد',
     message: 'هر سه رقم با کاما جدا میگردند',
     type: 'number',
+    value:'1000000',
     numberFieldParameter:{            
         step: 1,
         decimalPrecision: 2,
