@@ -78,6 +78,12 @@ var webComponentConfig = {
             outputPath:'/web-component/jb-loading/dist/JBLoading.js',
             external: []
         },
+        {
+            name: 'jb-pin-input',
+            path: '/web-component/jb-pin-input/lib/JBPinInput.ts',
+            outputPath:'/web-component/jb-pin-input/dist/JBPinInput.js',
+            external: []
+        },
 
     ],
 };
