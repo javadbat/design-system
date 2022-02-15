@@ -21,7 +21,7 @@ var webComponentConfig = {
             name: 'jb-date-input',
             path: '/web-component/jb-date-input/lib/JBDateInput.ts',
             outputPath: '/web-component/jb-date-input/dist/JBDateInput.js',
-            external: ['dayjs', 'jalaliday', 'jb-calendar']
+            external: ['dayjs', 'jalaliday', 'jb-calendar','lodash.clonedeep']
         },
         {
             name: 'jb-file-input',
