@@ -101,8 +101,8 @@ class WebComponentBuilder {
         const externalList = module.external || [];
         return {
             "compilerOptions": {
-                "target": "ES2022",
-                "module": "ES2022",
+                "target": "ES6",
+                "module": "ES6",
                 "moduleResolution": "node",
                 "allowSyntheticDefaultImports": true,
                 "sourceMap": true,

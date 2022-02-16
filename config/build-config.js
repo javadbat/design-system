@@ -30,7 +30,7 @@ var webComponentConfig = {
         },
         {
             name: 'jb-image-input',
-            path: '/web-component/jb-image-input/lib/JBImageInput.js',
+            path: '/web-component/jb-image-input/lib/JBImageInput.ts',
             outputPath: '/web-component/jb-image-input/dist/JBImageInput.js'
         },
         {
