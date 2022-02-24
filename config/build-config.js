@@ -40,7 +40,7 @@ var webComponentConfig = {
         },
         {
             name: 'jb-textarea',
-            path: '/web-component/jb-textarea/lib/JBTextarea.js',
+            path: '/web-component/jb-textarea/lib/JBTextarea.ts',
             outputPath: '/web-component/jb-textarea/dist/JBTextarea.js'
         },
         {
@@ -62,7 +62,7 @@ var webComponentConfig = {
         },
         {
             name: 'jb-time-input',
-            path: '/web-component/jb-time-input/lib/JBTimeInput.js',
+            path: '/web-component/jb-time-input/lib/JBTimeInput.ts',
             outputPath:'/web-component/jb-time-input/dist/JBTimeInput.js',
             external: ['jb-time-picker']
         },
