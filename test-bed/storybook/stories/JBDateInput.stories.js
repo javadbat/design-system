@@ -8,8 +8,7 @@ export default {
     title: 'Example/JBDateInput',
     component: JBDateInput
 };
-const darkModeTemplate = () => <DarkmodeTest></DarkmodeTest>;
-export const DarkMode = darkModeTemplate.bind({});
+
 
 const Template = (args) => <JBDateInput {...args}></JBDateInput>;
 export const Normal = Template.bind({});
@@ -27,6 +26,17 @@ CustomFormat.args = {
     format: "YYYY/MM/DD",
     direction: "ltr"
 };
+export const WithDefaultCalendarDate = Template.bind({});
+WithDefaultCalendarDate.args = {
+    label: 'تاریخ',
+    valueType: "GREGORIAN",
+    inputType: "JALALI",
+    format: "YYYY/MM/DD",
+    direction: "ltr",
+    calendarDefaultDateView:{year:1360,month:5}
+};
+const darkModeTemplate = () => <DarkmodeTest></DarkmodeTest>;
+export const DarkMode = darkModeTemplate.bind({});
 const GregorianTestTemplate = (args) => <JBDateInputGregorianTest {...args}></JBDateInputGregorianTest>;
 export const GregorianTest = GregorianTestTemplate.bind({});
 GregorianTest.args = {
