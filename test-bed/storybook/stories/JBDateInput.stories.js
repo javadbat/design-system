@@ -4,6 +4,7 @@ import JBDateInputGregorianTest from './pages/JBDateInput/JBDateInputGregorianTe
 import JBDateInputJalaliTest from './pages/JBDateInput/JBDateInputJalaliTestPage';
 import JBDateInputTimeStampTest from './pages/JBDateInput/JBDateInputTimeStampTestPage';
 import DarkmodeTest from './pages/JBDateInput/DarkmodeTest';
+import JBDateInputSizeTest from './pages/JBDateInput/JBDateInputSizeTest';
 export default {
     title: 'Example/JBDateInput',
     component: JBDateInput
@@ -37,6 +38,10 @@ WithDefaultCalendarDate.args = {
 };
 const darkModeTemplate = () => <DarkmodeTest></DarkmodeTest>;
 export const DarkMode = darkModeTemplate.bind({});
+
+const sizeTestTemplate = () => <JBDateInputSizeTest></JBDateInputSizeTest>;
+export const sizeTes = sizeTestTemplate.bind({});
+
 const GregorianTestTemplate = (args) => <JBDateInputGregorianTest {...args}></JBDateInputGregorianTest>;
 export const GregorianTest = GregorianTestTemplate.bind({});
 GregorianTest.args = {
