@@ -16,7 +16,7 @@ function JBDateInputJalaliTest(props) {
     ];
     return (
         <div>
-            <JBDateInput format={props.format} value={value} label={props.label} min={props.min} max={props.max} valueType={props.valueType} onSelect={e => {valueSetter(e.target.value);}}></JBDateInput>
+            <JBDateInput format={props.format} value={value} label={props.label} min={props.min} max={props.max} valueType={props.valueType} onSelect={e => {valueSetter(e.target.value);}} onChange={e => {valueSetter(e.target.value);}}></JBDateInput>
             <div>
                 <br /><br />valueType is {props.valueType}
                 <br /><br />Min date is: {props.min? props.min:"Unlimited"}
@@ -29,7 +29,7 @@ function JBDateInputJalaliTest(props) {
                 <JBDateInput></JBDateInput>
             </div>
             <h3>test custom validation</h3>
-            <JBDateInput validationList={validationList} value={value} label={props.label} valueType={props.valueType} onSelect={e => {valueSetter(e.target.value);}} format={props.format}></JBDateInput>
+            <JBDateInput validationList={validationList} value={value} label={props.label} valueType={props.valueType} onChange={e => {valueSetter(e.target.value);}} onSelect={e => {valueSetter(e.target.value);}} format={props.format}></JBDateInput>
         </div>
     );
 }

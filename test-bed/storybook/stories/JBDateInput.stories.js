@@ -59,8 +59,6 @@ export const JalaliTest = JalaliTestTemplate.bind({});
 JalaliTest.args = {
     label: 'تاریخ',
     valueType: "JALALI",
-    min:'1400-06-18T00:00:00.000Z',
-    max:'1401-09-18T00:00:00.000Z'
 };
 export const JalaliMinMaxTest = JalaliTestTemplate.bind({});
 JalaliMinMaxTest.args = {
