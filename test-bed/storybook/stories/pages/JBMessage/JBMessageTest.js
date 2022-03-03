@@ -1,6 +1,6 @@
 import React from 'react'
-import JBButton from '../../../../react-component/jb-button';
-import JBMessage from '../../../../modules/jb-message';
+import JBButton from '../../../../../react-component/jb-button';
+import JBMessage from '../../../../../modules/jb-message';
 function JBMessageTest() {
     const message = new JBMessage();
     function showSuccessMessage() {
