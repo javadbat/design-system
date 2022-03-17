@@ -70,6 +70,7 @@ class WebComponentBuilder {
             }),
             rollupReplace({
                 'process.env.NODE_ENV': `"${generalConfig.env}"`,
+                preventAssignment: true
             }),
             commonjs({
                 include: ["./index.js", "node_modules/**"],
