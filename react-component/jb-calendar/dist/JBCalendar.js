@@ -2,21 +2,45 @@ import React, { useEffect, useRef, useState, useImperativeHandle } from 'react';
 import 'jb-calendar';
 import PropTypes from 'prop-types';
 
+function getDefaultExportFromCjs (x) {
+	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
+}
+
+function createCommonjsModule(fn, basedir, module) {
+	return module = {
+		path: basedir,
+		exports: {},
+		require: function (path, base) {
+			return commonjsRequire(path, (base === undefined || base === null) ? module.path : base);
+		}
+	}, fn(module, module.exports), module.exports;
+}
+
+function commonjsRequire () {
+	throw new Error('Dynamic requires are not currently supported by @rollup/plugin-commonjs');
+}
+
+var arrayWithHoles = createCommonjsModule(function (module) {
 function _arrayWithHoles(arr) {
   if (Array.isArray(arr)) return arr;
 }
 
-var arrayWithHoles = _arrayWithHoles;
+module.exports = _arrayWithHoles, module.exports.__esModule = true, module.exports["default"] = module.exports;
+});
 
+var iterableToArrayLimit = createCommonjsModule(function (module) {
 function _iterableToArrayLimit(arr, i) {
-  if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;
+  var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"];
+
+  if (_i == null) return;
   var _arr = [];
   var _n = true;
   var _d = false;
-  var _e = undefined;
+
+  var _s, _e;
 
   try {
-    for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
+    for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) {
       _arr.push(_s.value);
 
       if (i && _arr.length === i) break;
@@ -35,8 +59,10 @@ function _iterableToArrayLimit(arr, i) {
   return _arr;
 }
 
-var iterableToArrayLimit = _iterableToArrayLimit;
+module.exports = _iterableToArrayLimit, module.exports.__esModule = true, module.exports["default"] = module.exports;
+});
 
+var arrayLikeToArray = createCommonjsModule(function (module) {
 function _arrayLikeToArray(arr, len) {
   if (len == null || len > arr.length) len = arr.length;
 
@@ -47,8 +73,10 @@ function _arrayLikeToArray(arr, len) {
   return arr2;
 }
 
-var arrayLikeToArray = _arrayLikeToArray;
+module.exports = _arrayLikeToArray, module.exports.__esModule = true, module.exports["default"] = module.exports;
+});
 
+var unsupportedIterableToArray = createCommonjsModule(function (module) {
 function _unsupportedIterableToArray(o, minLen) {
   if (!o) return;
   if (typeof o === "string") return arrayLikeToArray(o, minLen);
@@ -58,19 +86,26 @@ function _unsupportedIterableToArray(o, minLen) {
   if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return arrayLikeToArray(o, minLen);
 }
 
-var unsupportedIterableToArray = _unsupportedIterableToArray;
+module.exports = _unsupportedIterableToArray, module.exports.__esModule = true, module.exports["default"] = module.exports;
+});
 
+var nonIterableRest = createCommonjsModule(function (module) {
 function _nonIterableRest() {
   throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
 
-var nonIterableRest = _nonIterableRest;
+module.exports = _nonIterableRest, module.exports.__esModule = true, module.exports["default"] = module.exports;
+});
 
+var slicedToArray = createCommonjsModule(function (module) {
 function _slicedToArray(arr, i) {
   return arrayWithHoles(arr) || iterableToArrayLimit(arr, i) || unsupportedIterableToArray(arr, i) || nonIterableRest();
 }
 
-var slicedToArray = _slicedToArray;
+module.exports = _slicedToArray, module.exports.__esModule = true, module.exports["default"] = module.exports;
+});
+
+var _slicedToArray = /*@__PURE__*/getDefaultExportFromCjs(slicedToArray);
 
 function useEvent(dom, event, handler) {
   var passive = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
@@ -93,7 +128,7 @@ var JBCalendar = /*#__PURE__*/React.forwardRef(function (props, ref) {
   var element = useRef();
 
   var _useState = useState(0),
-      _useState2 = slicedToArray(_useState, 2),
+      _useState2 = _slicedToArray(_useState, 2),
       refChangeCount = _useState2[0],
       refChangeCountSetter = _useState2[1];
 
@@ -129,5 +164,5 @@ JBCalendar.propTypes = {
   inputType: PropTypes.oneOf(['GREGORIAN', 'JALALI'])
 };
 
-export default JBCalendar;
+export { JBCalendar as default };
 //# sourceMappingURL=JBCalendar.js.map
