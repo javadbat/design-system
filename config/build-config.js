@@ -15,13 +15,13 @@ var webComponentConfig = {
             name: 'jb-calendar',
             path: '/web-component/jb-calendar/lib/JBCalendar.ts',
             outputPath: '/web-component/jb-calendar/dist/JBCalendar.js',
-            external: ['dayjs', 'jalaliday']
+            external: ['date-fns', 'date-fns-jalali']
         },
         {
             name: 'jb-date-input',
             path: '/web-component/jb-date-input/lib/JBDateInput.ts',
             outputPath: '/web-component/jb-date-input/dist/JBDateInput.js',
-            external: ['dayjs', 'jalaliday', 'jb-calendar','lodash.clonedeep']
+            external: ['date-fns', 'date-fns-jalali', 'jb-calendar','lodash.clonedeep']
         },
         {
             name: 'jb-file-input',
@@ -113,7 +113,7 @@ const reactComponentConfig = {
             name: 'jb-calendar-react',
             path: '/react-component/jb-calendar/lib/JBCalendar.js',
             outputPath: '/react-component/jb-calendar/dist/JBCalendar.js',
-            external: ['dayjs', 'jalaliday', 'jb-calendar', 'prop-types', 'react'],
+            external: ['jb-calendar', 'prop-types', 'react'],
             globals:{
                 'react':'React',
                 'prop-types':'PropTypes'
