@@ -18,6 +18,7 @@
         "sourceMap": true,
         "allowJs": true,
         "noImplicitAny": false,
+        "declaration": true,
     },
     "include": [
     ],

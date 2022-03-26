@@ -1,6 +1,4 @@
-import colors from 'colors'
-import path from 'path'
-import fs from 'fs'
+import path from 'path';
 //rollup
 import * as rollup from 'rollup';
 import html from 'rollup-plugin-html';
@@ -15,6 +13,10 @@ import generalConfig from '../../config/general-config.js';
 //import typescript from '@rollup/plugin-typescript';
 import typescript from 'rollup-plugin-typescript2';
 import chalk from 'chalk';
+/**
+ * @typedef {import('rollup-plugin-typescript2/dist/ioptions').IOptions} TypeScriptIOptions
+ */
+
 class WebComponentBuilder {
     constructor() {
         console.log('web-component-builder-initiated'.yellow);
@@ -81,7 +83,7 @@ class WebComponentBuilder {
         ];
         const isTypeScriptModule = this._isTypeScriptModule(module);
         if (isTypeScriptModule) {
-            plugins.push(typescript({tsconfigDefaults:this._getTypeScriptCompilerOptions(module)}));
+            plugins.push(typescript({ tsconfigDefaults: this._getTypeScriptCompilerOptions(module) }));
         }
         let inputOptions = {
             input: path.join(...module.path.split('/')),
@@ -97,10 +99,15 @@ class WebComponentBuilder {
         const fileExtension = fileName.split('.').pop();
         return fileExtension === 'ts';
     }
+    /**
+     * @param {*} module 
+     * @return {TypeScriptIOptions} tsconfig options
+     */
     _getTypeScriptCompilerOptions(module) {
-        const includePaths = path.join(...module.path.split('/').slice(0, -1),'**', '*');
+        const includePaths = path.join(...module.path.split('/').slice(0, -1), '**', '*');
         const externalList = module.external || [];
         return {
+            "useTsconfigDeclarationDir":true,
             "compilerOptions": {
                 "target": "ES6",
                 "module": "ES6",
@@ -119,7 +126,7 @@ class WebComponentBuilder {
                 "declaration": true,
                 "declarationDir": './',
                 "declarationMap": false,
-                // "outDir": "../dist",
+                //"outDir": "../dist",
             },
             "include": [
                 includePaths,

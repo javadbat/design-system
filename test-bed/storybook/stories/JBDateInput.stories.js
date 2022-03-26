@@ -36,6 +36,16 @@ WithDefaultCalendarDate.args = {
     direction: "ltr",
     calendarDefaultDateView:{year:1360,month:5}
 };
+export const PersianNumber = Template.bind({});
+PersianNumber.args = {
+    label: 'با اعداد فارسی',
+    valueType: "GREGORIAN",
+    inputType: "JALALI",
+    format: "YYYY/MM/DD",
+    direction: "ltr",
+    usePersianNumber: true,
+    calendarDefaultDateView:{year:1360,month:5}
+};
 const darkModeTemplate = () => <DarkmodeTest></DarkmodeTest>;
 export const DarkMode = darkModeTemplate.bind({});
 

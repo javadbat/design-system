@@ -1,4 +1,3 @@
-import colors from 'colors';
 import path, { format } from 'path';
 import fs from 'fs';
 //rollup
