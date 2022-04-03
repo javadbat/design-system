@@ -38,7 +38,7 @@
     "jb-date-input": "^1.0.4",
     "jb-input": "^1.0.4",
     "jb-searchbar": "^1.0.2",
-    "jb-select": "^1.0.1",
+    "jb-select": "file:./web-component/jb-select",
     "jb-time-picker": "^2.0.1",
     "lodash": "^4.17.21",
     "lodash.clonedeep": "^4.5.0",
