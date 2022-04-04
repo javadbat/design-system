@@ -59,8 +59,12 @@ Normal.args = {
             label: 'to date',
             type: 'DATE'
         }
-    ]
+    ],
+    onSearch:()=>{
+        console.log('search happend');
+    }
 };
+
 const RTLTemplate = (args) => <div style={{'direction':'rtl'}}><JBSearchbar {...args}></JBSearchbar></div>;
 export const RTLSample = RTLTemplate.bind({});
 RTLSample.args = {
@@ -117,4 +121,10 @@ RTLSample.args = {
             type: 'DATE'
         }
     ]
+};
+export const SearchOnChange = Template.bind({});
+SearchOnChange.args = {
+    ...Normal.args,
+    searchOnChange: true,
+
 };

@@ -1,8 +1,130 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import 'jb-select';
 import 'jb-input';
 import 'jb-date-input';
+
+function getDefaultExportFromCjs (x) {
+	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
+}
+
+function createCommonjsModule(fn, basedir, module) {
+	return module = {
+		path: basedir,
+		exports: {},
+		require: function (path, base) {
+			return commonjsRequire(path, (base === undefined || base === null) ? module.path : base);
+		}
+	}, fn(module, module.exports), module.exports;
+}
+
+function commonjsRequire () {
+	throw new Error('Dynamic requires are not currently supported by @rollup/plugin-commonjs');
+}
+
+var arrayWithHoles = createCommonjsModule(function (module) {
+function _arrayWithHoles(arr) {
+  if (Array.isArray(arr)) return arr;
+}
+
+module.exports = _arrayWithHoles, module.exports.__esModule = true, module.exports["default"] = module.exports;
+});
+
+var iterableToArrayLimit = createCommonjsModule(function (module) {
+function _iterableToArrayLimit(arr, i) {
+  var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"];
+
+  if (_i == null) return;
+  var _arr = [];
+  var _n = true;
+  var _d = false;
+
+  var _s, _e;
+
+  try {
+    for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) {
+      _arr.push(_s.value);
+
+      if (i && _arr.length === i) break;
+    }
+  } catch (err) {
+    _d = true;
+    _e = err;
+  } finally {
+    try {
+      if (!_n && _i["return"] != null) _i["return"]();
+    } finally {
+      if (_d) throw _e;
+    }
+  }
+
+  return _arr;
+}
+
+module.exports = _iterableToArrayLimit, module.exports.__esModule = true, module.exports["default"] = module.exports;
+});
+
+var arrayLikeToArray = createCommonjsModule(function (module) {
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+
+  for (var i = 0, arr2 = new Array(len); i < len; i++) {
+    arr2[i] = arr[i];
+  }
+
+  return arr2;
+}
+
+module.exports = _arrayLikeToArray, module.exports.__esModule = true, module.exports["default"] = module.exports;
+});
+
+var unsupportedIterableToArray = createCommonjsModule(function (module) {
+function _unsupportedIterableToArray(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return arrayLikeToArray(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(o);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return arrayLikeToArray(o, minLen);
+}
+
+module.exports = _unsupportedIterableToArray, module.exports.__esModule = true, module.exports["default"] = module.exports;
+});
+
+var nonIterableRest = createCommonjsModule(function (module) {
+function _nonIterableRest() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+
+module.exports = _nonIterableRest, module.exports.__esModule = true, module.exports["default"] = module.exports;
+});
+
+var slicedToArray = createCommonjsModule(function (module) {
+function _slicedToArray(arr, i) {
+  return arrayWithHoles(arr) || iterableToArrayLimit(arr, i) || unsupportedIterableToArray(arr, i) || nonIterableRest();
+}
+
+module.exports = _slicedToArray, module.exports.__esModule = true, module.exports["default"] = module.exports;
+});
+
+var _slicedToArray = /*@__PURE__*/getDefaultExportFromCjs(slicedToArray);
+
+function useEvent(dom, event, handler) {
+  var passive = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
+  useEffect(function () {
+    if (dom) {
+      // initiate the event handler
+      dom.addEventListener(event, handler, passive);
+    } // this will clean up the event every time the component is re-rendered
+
+
+    return function cleanup() {
+      if (dom) {
+        dom.removeEventListener(event, handler);
+      }
+    };
+  });
+}
 
 var HTML = "<div class=\"jb-searchbar-web-component\">\r\n    <div class=\"search-dynamic-wrapper\">\r\n        <section class=\"filter-list-section\"></section>\r\n        <section class=\"filter-input-section\">\r\n            <div class=\"column-select-wrapper\">\r\n                 <jb-select class=\"column-select\" placeholder=\"\"></jb-select>\r\n            </div>\r\n            <div class=\"intent-wrapper --hide\">\r\n                <div class=\"intent-column\"></div>\r\n                <div class=\"intent-input-wrapper\"></div>\r\n                <div class=\"intent-submit-button\">\r\n                    <svg x=\"0px\" y=\"0px\" viewBox=\"0 0 493.464 493.464\" space=\"preserve\">\r\n                        <g>\r\n                            <g>\r\n                                <path d=\"M246.736,0C110.692,0,0.004,110.68,0.004,246.732c0,136.06,110.688,246.732,246.732,246.732    c136.048,0,246.724-110.672,246.724-246.732C493.456,110.68,382.78,0,246.736,0z M360.524,208.716L230.98,338.268    c-2.82,2.824-7.816,2.824-10.64,0l-86.908-86.912c-1.412-1.416-2.192-3.3-2.192-5.324c0.004-2.016,0.784-3.912,2.192-5.336    l11.108-11.104c1.412-1.408,3.3-2.18,5.328-2.18c2.016,0,3.908,0.772,5.316,2.18l67.752,67.752c1.5,1.516,3.94,1.516,5.444,0    l110.392-110.392c2.824-2.824,7.828-2.824,10.644,0l11.108,11.124c1.412,1.4,2.208,3.304,2.208,5.308    C362.732,205.412,361.936,207.3,360.524,208.716z\"/>\r\n                            </g>\r\n                        </g>\r\n                    </svg>\r\n                </div>\r\n            </div>\r\n        </section>\r\n    </div>\r\n    <div class=\"search-button-wrapper\">\r\n        <svg viewBox=\"0 0 512 512\" xmlns=\"http://www.w3.org/2000/svg\">\r\n            <circle cx=\"255\" cy=\"255\" r=\"170\"></circle>\r\n            <g class=\"spin-line-group\">\r\n                <rect x=\"0\" y=\"0\" width=\"512\" height=\"512\"/>\r\n                <path class=\"convertable-line\" d=\"M400 400 L 450 450\"></path>\r\n            </g>\r\n        </svg>\r\n    </div>\r\n</div>";
 
@@ -429,9 +551,31 @@ if (myElementNotExists) {
 
 function JBSearchbar(props) {
   var element = useRef();
+
+  var _useState = useState(0),
+      _useState2 = _slicedToArray(_useState, 2),
+      refChangeCount = _useState2[0],
+      refChangeCountSetter = _useState2[1];
+
+  useEffect(function () {
+    refChangeCountSetter(refChangeCount + 1);
+  }, [element.current]);
   useEffect(function () {
     element.current.columnList = props.columnList;
   }, [props.columnList]);
+  useEffect(function () {
+    if (props.searchOnChange) {
+      element.current.searchOnChange = true;
+    } else {
+      element.current.searchOnChange = false;
+    }
+  }, [props.searchOnChange]);
+  var onSearch = useCallback(function () {
+    if (typeof props.onSearch === 'function') {
+      props.onSearch();
+    }
+  });
+  useEvent(element.current, 'search', onSearch);
   return /*#__PURE__*/React.createElement("jb-searchbar", {
     placeholder: props.placeholder,
     ref: element
@@ -439,7 +583,9 @@ function JBSearchbar(props) {
 }
 
 JBSearchbar.propTypes = {
-  placeholder: PropTypes.string
+  placeholder: PropTypes.string,
+  searchOnChange: PropTypes.bool,
+  onSearch: PropTypes.func
 };
 
 export { JBSearchbar as default };
