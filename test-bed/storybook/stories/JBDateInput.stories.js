@@ -34,7 +34,7 @@ WithDefaultCalendarDate.args = {
     inputType: "JALALI",
     format: "YYYY/MM/DD",
     direction: "ltr",
-    calendarDefaultDateView:{year:1360,month:5}
+    calendarDefaultDateView: { year: 1360, month: 5 }
 };
 export const PersianNumber = Template.bind({});
 PersianNumber.args = {
@@ -44,11 +44,16 @@ PersianNumber.args = {
     format: "YYYY/MM/DD",
     direction: "ltr",
     usePersianNumber: true,
-    calendarDefaultDateView:{year:1360,month:5}
+    calendarDefaultDateView: { year: 1360, month: 5 }
+};
+export const Required = Template.bind({});
+Required.args = {
+    label: 'فیلد اجباری',
+    required: true,
+    direction: "ltr",
 };
 const darkModeTemplate = () => <DarkmodeTest></DarkmodeTest>;
 export const DarkMode = darkModeTemplate.bind({});
-
 const sizeTestTemplate = () => <JBDateInputSizeTest></JBDateInputSizeTest>;
 export const sizeTes = sizeTestTemplate.bind({});
 

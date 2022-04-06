@@ -1,4 +1,4 @@
-import React, {useState, useMemo} from 'react';
+import React, {useState, useMemo, useCallback} from 'react';
 import JBDateInput from '../../../../../react-component/jb-date-input/lib/JBDateInput';
 function JBDateInputTimeStampTest(props) {
     const [setValue, setValueSetter] = useState(null);
@@ -9,9 +9,12 @@ function JBDateInputTimeStampTest(props) {
             return null;
         }
     },setValue);
+    const onChange = useCallback((e)=>{
+        setValueSetter(e.target.value);
+    },[]);
     return (
         <div>
-            <JBDateInput value={setValue} label={props.label} valueType="TIME_STAMP" min={props.min} max={props.max} onSelect={e => {setValueSetter(e.target.value);}}></JBDateInput>
+            <JBDateInput value={setValue} label={props.label} valueType="TIME_STAMP" min={props.min} max={props.max} onSelect={e => {onChange(e);}}></JBDateInput>
             <div>
                 <br /><br />valueType is {props.valueType}
                 <br /><br />Min date is: {props.min? props.min:"Unlimited"}
