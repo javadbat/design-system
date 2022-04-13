@@ -172,6 +172,16 @@ const reactComponentConfig = {
             }
         },
         {
+            name: 'jb-grid-expand-row',
+            path: '/react-component/jb-grid/lib/Components/ExpandRow.js',
+            outputPath:'/react-component/jb-grid/dist/Components/ExpandRow.js',
+            external:['react','prop-types'],
+            globals:{
+                'react':'React',
+                'prop-types':'PropTypes'
+            }
+        },
+        {
             name: 'jb-grid-cell',
             path: '/react-component/jb-grid/lib/Components/Cell.js',
             outputPath:'/react-component/jb-grid/dist/Components/Cell.js',

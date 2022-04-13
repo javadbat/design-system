@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './JBGridTest.css';
-import { Cell, Row, JBGrid } from '../../../../react-component/jb-grid';
+import { Cell, Row, JBGrid, ExpandRow } from 'jb-grid';
 
 import JBGridBridge from './JBGridBridge';
 import JBGridTestViewModel from './JBGridTestViewModel';
 import { observer } from 'mobx-react';
-
 class JBGridTest extends Component {
     constructor(props) {
         super(props);
@@ -22,10 +21,17 @@ class JBGridTest extends Component {
                         vm.jbGridConfig.data.data.map(
                             (item) => {
                                 return (
-                                    <Row key={item.id} style={{ gridTemplateColumns: vm.jbGridConfig.styles.table.generalCols.gridTemplateColumns }}>
-                                        <Cell>{item.name}</Cell>
-                                        <Cell>{item.age}</Cell>
-                                    </Row>
+                                    <React.Fragment key={item.id}>
+                                        <Row style={{ gridTemplateColumns: vm.jbGridConfig.styles.table.generalCols.gridTemplateColumns }}>
+                                            <Cell>{item.name}</Cell>
+                                            <Cell>{item.age}</Cell>
+                                            <Cell><button onClick={()=>{item.jbGridDetail.isExpanded = !item.jbGridDetail.isExpanded;}}>detail</button></Cell>
+                                        </Row>
+                                        <ExpandRow show={item.jbGridDetail.isExpanded}>
+                                            expand row
+                                        </ExpandRow>
+                                    </React.Fragment>
+
                                 );
                             }
                         )

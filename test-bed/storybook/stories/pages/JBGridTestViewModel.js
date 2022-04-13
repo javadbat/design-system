@@ -56,6 +56,12 @@ class JBGridTestViewModel{
                 caption: 'سن',
                 sortable: false,
                 width: '1fr'
+            },
+            {
+                id: 3,
+                name: 'expand',
+                caption: 'باز کردن',
+                sortable: false,
             }
         ];
         this.jbGridConfig.data.url = "http://localhost:3200/grid/user-list",
