@@ -32,36 +32,52 @@ Number.args = {
     label: 'تعداد به عدد',
     message: 'متن ثابت زیر کادر متن',
     type: 'number',
-    onChange:(e)=>{console.log(`new number is ${e.target.value}`);}
+    onChange: (e) => { console.log(`new number is ${e.target.value}`); }
 };
 export const NumberWithComma = Template.bind({});
 NumberWithComma.args = {
     label: 'تعداد به عدد',
     message: 'هر سه رقم با کاما جدا میگردند',
     type: 'number',
-    numberFieldParameter:{            
+    numberFieldParameter: {
         step: 1,
         decimalPrecision: 2,
         invalidNumberReplacement: '',
-        useThousandSeparator: true},
-    onChange:(e)=>{console.log(`new number is ${e.target.value}`);}
+        useThousandSeparator: true
+    },
+    onChange: (e) => { console.log(`new number is ${e.target.value}`); }
+};
+export const NumberWithMinMax = Template.bind({});
+NumberWithMinMax.args = {
+    label: 'تعداد به عدد',
+    message: 'عدد بین 1 تا 10000',
+    type: 'number',
+    numberFieldParameter: {
+        step: 1,
+        decimalPrecision: 2,
+        invalidNumberReplacement: '',
+        useThousandSeparator: true,
+        maxValue: 10000,
+        minValue: 1,
+    },
+    onChange: (e) => { console.log(`new number is ${e.target.value}`); }
 };
 export const NonNegativeNumberWithComma = Template.bind({});
 NonNegativeNumberWithComma.args = {
     label: 'تعداد به عدد',
     message: 'هر سه رقم با کاما جدا میگردند',
     type: 'number',
-    value:'1000000',
-    numberFieldParameter:{            
+    value: '1000000',
+    numberFieldParameter: {
         step: 1,
         decimalPrecision: 2,
         invalidNumberReplacement: '',
         useThousandSeparator: true,
-        thousandSeparator:'_',
+        thousandSeparator: '_',
         acceptNegative: false,
     },
-        
-    onChange:(e)=>{console.log(`new number is ${e.target.value}`);}
+
+    onChange: (e) => { console.log(`new number is ${e.target.value}`); }
 };
 const testActionsTemplate = () => <JBInputTest></JBInputTest>;
 export const testActions = testActionsTemplate.bind({});
