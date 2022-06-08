@@ -1,5 +1,5 @@
 import React from 'react';
-import JBSelect from '../../../react-component/jb-select/JBSelect';
+import JBSelect from '../../../react-component/jb-select/lib/JBSelect';
 import JBSelectStyleTest from '../stories/pages/JBSelect/JBSelectStyleTestPage';
 import { action } from '@storybook/addon-actions';
 import JBSelectDynamicList from './pages/JBSelect/JBSelectDynamicList';
@@ -8,10 +8,11 @@ export default {
     title: 'Example/JBSelect',
     component: JBSelect
 };
-const Template = (args) => <JBSelect label={args.label} onChange={args.onChange} optionList={args.optionList} getOptionTitle={args.getOptionTitle} getOptionValue={args.getOptionValue} onKeyup={args.onKeyup}></JBSelect>;
+const Template = (args) => <JBSelect { ...args}></JBSelect>;
 export const Normal = Template.bind({});
 Normal.args = {
     label:'select from menu',
+    message:"please select a value",
     optionList:['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39'],
 };
 export const OptionObject = Template.bind({});

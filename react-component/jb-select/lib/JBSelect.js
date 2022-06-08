@@ -1,8 +1,8 @@
 /* eslint-disable react/display-name */
 import React, {useEffect, useRef, useState, useImperativeHandle} from 'react';
-import '../../web-component/jb-select';
+import 'jb-select';
 import PropTypes from 'prop-types';
-import { useEvent } from '../custom-hooks/UseEvent';
+import { useEvent } from '../../custom-hooks/UseEvent';
 
 const JBSelect = React.forwardRef((props, ref)=>{
     let element = useRef();
@@ -41,6 +41,12 @@ const JBSelect = React.forwardRef((props, ref)=>{
     useEffect(() => {
         element.current.optionList = props.optionList;
     }, [props.optionList]);
+    useEffect(() => {
+        if(props.message !== null && props.message !== undefined){
+            debugger;
+            element.current.setAttribute("message", props.message);
+        }
+    },[props.message]);
     function onKeyup(e) {
         if (props.onKeyup) {
             props.onKeyup(e);
@@ -70,6 +76,7 @@ JBSelect.propTypes = {
     onChange: PropTypes.func,
     onKeyup: PropTypes.func,
     required: PropTypes.bool,
+    message: PropTypes.string,
 };
 JBSelect.displayName = 'JBSelect';
 export default JBSelect;

@@ -1,5 +1,5 @@
 import React from 'react';
-import JBSelect from '../../../../../react-component/jb-select/JBSelect';
+import JBSelect from '../../../../../react-component/jb-select/lib/JBSelect';
 import './JBSelectStyleTestPage.css';
 function JBSelectStyleTest (props){
     const options = ["1","2","3"];
