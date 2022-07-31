@@ -47,7 +47,11 @@ const JBSelect = React.forwardRef((props, ref) => {
         }
     }, [props.message]);
     useEffect(() => {
-        element.current.setAttribute("placeholder", props.placeholder);
+        if(props.placeholder === null || props.placeholder === undefined) {
+            element.current.setAttribute("placeholder", "");
+        }else{
+            element.current.setAttribute("placeholder", props.placeholder);
+        }
     }, [props.placeholder]);
     function onKeyup(e) {
         if (props.onKeyup) {

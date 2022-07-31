@@ -54,6 +54,12 @@ export const StyleTest = StyleTestTemplate.bind({});
 StyleTest.args = {
     label:'از منو انتخاب کنید',
 };
+export const EmptyList = Template.bind({});
+EmptyList.args = {
+    label:'empty list',
+    message:"this list is a empty list",
+    optionList:[],
+};
 //when user type and want to change text
 const DynamicListTemplate = (args) => <JBSelectDynamicList></JBSelectDynamicList>;
 export const DynamicList = DynamicListTemplate.bind({});
