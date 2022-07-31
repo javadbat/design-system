@@ -35,7 +35,7 @@ var webComponentConfig = {
         },
         {
             name: 'jb-select',
-            path: '/web-component/jb-select/lib/JBSelect.js',
+            path: '/web-component/jb-select/lib/JBSelect.ts',
             outputPath: '/web-component/jb-select/dist/JBSelect.js'
         },
         {
