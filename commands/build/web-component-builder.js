@@ -38,10 +38,14 @@ class WebComponentBuilder {
     }
     buildComponent(component) {
         console.log(`start building ${component.name}`);
-        const inputOptions = this._getInputOption(component);
-        const outputOptions = this._getOutputOption(component);
-        return this.buildModule(inputOptions, outputOptions);
 
+        const inputOptions = this._getInputOption(component);
+        const outputOptions = this._getOutputOption(component,'es');
+        const modulePromise = this.buildModule(inputOptions, outputOptions);
+        //build umd package
+        const umdOutputOptions = this._getOutputOption(component,'umd');
+        const UMDmodulePromise = this.buildModule(inputOptions, umdOutputOptions);
+        return Promise.all([modulePromise,UMDmodulePromise]);
     }
     buildModule(inputOptions, outputOptions) {
         //build module with rollup without any watch or something
@@ -137,14 +141,25 @@ class WebComponentBuilder {
 
         };
     }
-    _getOutputOption(module) {
+    _getOutputOption(module, format = "es") {
+        const pathArr = module.outputPath.split('/');
+        const fullFileName = pathArr[pathArr.length - 1];
+        const fileName = path.parse(fullFileName).name;
+        const fileExtention = path.parse(fullFileName).ext;
+        const outputFileName = `${fileName}${format == 'es'?'':('.'+format)}${fileExtention}`;
+        const dir =pathArr.slice(0,pathArr.length - 1);
         let outputOptions = {
             // core output options
             sourcemap: true,
-            file: path.join(...module.outputPath.split('/')),
-            format: 'es', //es for native code , system for systemjs known module
+            dir:path.join(...dir),
+            entryFileNames: outputFileName,
+            format: format, //es for native code , system for systemjs known module, umd for umd package
             //dir: 'App/dist',
         };
+        if(format == "umd"){
+            outputOptions.name = module.umdName;
+            outputOptions.globals = module.globals || {};
+        }
         return outputOptions;
     }
 }

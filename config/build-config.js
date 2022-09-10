@@ -3,86 +3,117 @@ var webComponentConfig = {
         {
             name: 'jb-input',
             path: '/web-component/jb-input/lib/JBInput.ts',
-            outputPath: '/web-component/jb-input/dist/JBInput.js'
+            outputPath: '/web-component/jb-input/dist/JBInput.js',
+            umdName:'JBDateInput'
         },
         {
             name: 'jb-button',
             path: '/web-component/jb-button/lib/JBButton.ts',
             outputPath: '/web-component/jb-button/dist/JBButton.js',
-            external:[]
+            external:[],
+            umdName:'JBButton'
         },
         {
             name: 'jb-calendar',
             path: '/web-component/jb-calendar/lib/JBCalendar.ts',
             outputPath: '/web-component/jb-calendar/dist/JBCalendar.js',
-            external: ['date-fns', 'date-fns-jalali']
+            external: ['date-fns', 'date-fns-jalali'],
+            umdName:'JBCalendar',
+            globals:{
+                'date-fns':'dateFns',
+                'date-fns-jalali':'dateFnsJalali',
+            }
         },
         {
             name: 'jb-date-input',
             path: '/web-component/jb-date-input/lib/JBDateInput.ts',
             outputPath: '/web-component/jb-date-input/dist/JBDateInput.js',
-            external: ['date-fns', 'date-fns-jalali', 'jb-calendar','lodash.clonedeep']
+            umdName:'JBDateInput',
+            external: ['date-fns', 'date-fns-jalali', 'jb-calendar'],
+            globals:{
+                'date-fns':'dateFns',
+                'date-fns-jalali':'dateFnsJalali',
+            }
         },
         {
             name: 'jb-file-input',
             path: '/web-component/jb-file-input/lib/JBFileInput.js',
-            outputPath: '/web-component/jb-file-input/dist/JBFileInput.js'
+            outputPath: '/web-component/jb-file-input/dist/JBFileInput.js',
+            umdName:'JBFileInput',
         },
         {
             name: 'jb-image-input',
             path: '/web-component/jb-image-input/lib/JBImageInput.ts',
-            outputPath: '/web-component/jb-image-input/dist/JBImageInput.js'
+            outputPath: '/web-component/jb-image-input/dist/JBImageInput.js',
+            umdName:'JBDateImageInput',
         },
         {
             name: 'jb-select',
             path: '/web-component/jb-select/lib/JBSelect.ts',
-            outputPath: '/web-component/jb-select/dist/JBSelect.js'
+            outputPath: '/web-component/jb-select/dist/JBSelect.js',
+            umdName:'JBSelect',
         },
         {
             name: 'jb-textarea',
             path: '/web-component/jb-textarea/lib/JBTextarea.ts',
-            outputPath: '/web-component/jb-textarea/dist/JBTextarea.js'
+            outputPath: '/web-component/jb-textarea/dist/JBTextarea.js',
+            umdName:'JBTextarea',
         },
         {
             name: 'jb-message',
             path: '/modules/jb-message/lib/JBMessage.js',
-            outputPath: '/modules/jb-message/dist/JBMessage.js'
+            outputPath: '/modules/jb-message/dist/JBMessage.js',
+            umdName:'JBMessage',
         },
         {
             name: 'jb-searchbar',
             path: '/web-component/jb-searchbar/lib/JBSearchbar.js',
             outputPath:'/web-component/jb-searchbar/dist/JBSearchbar.js',
-            external: ['jb-input', 'jb-select', 'jb-date-input']
+            external: ['jb-input', 'jb-select', 'jb-date-input'],
+            umdName:'JBSearchbar',
+            globals:{
+                'jb-input':'JBInput',
+                'jb-select':'JBSelect',
+                'jb-date-input':"JBDateInput"
+            }
         },
         {
             name: 'jb-editor',
             path: '/web-component/jb-editor/lib/JBEditor.js',
             outputPath:'/web-component/jb-editor/dist/JBEditor.js',
-            external: []
+            external: [],
+            umdName:'JBEditor',
         },
         {
             name: 'jb-time-input',
             path: '/web-component/jb-time-input/lib/JBTimeInput.ts',
             outputPath:'/web-component/jb-time-input/dist/JBTimeInput.js',
-            external: ['jb-time-picker']
+            external: ['jb-time-picker'],
+            umdName:'JBTimeInput',
+            globals:{
+                'jb-time-picker':'JBTimePicker',
+            }
         },
         {
             name: 'jb-time-picker',
             path: '/web-component/jb-time-picker/lib/JBTimePicker.ts',
             outputPath:'/web-component/jb-time-picker/dist/JBTimePicker.js',
-            external: []
+            external: [],
+            umdName:'JBTimePicker',
         },
         {
             name: 'jb-loading',
             path: '/web-component/jb-loading/lib/JBLoading.js',
             outputPath:'/web-component/jb-loading/dist/JBLoading.js',
-            external: []
+            external: [],
+            umdName:'JBLoading',
         },
         {
             name: 'jb-pin-input',
             path: '/web-component/jb-pin-input/lib/JBPinInput.ts',
             outputPath:'/web-component/jb-pin-input/dist/JBPinInput.js',
-            external: []
+            external: [],
+            umdName:'JBPinInput',
         },
 
     ],
