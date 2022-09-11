@@ -58,3 +58,6 @@
 [submodule "web-component/jb-pin-input"]
 	path = web-component/jb-pin-input
 	url = https://github.com/javadbat/jb-pin-input.git
+[submodule "web-component/jb-payment-input"]
+	path = web-component/jb-payment-input
+	url = https://github.com/javadbat/jb-payment-input.git
