@@ -115,6 +115,16 @@ var webComponentConfig = {
             external: [],
             umdName:'JBPinInput',
         },
+        {
+            name: 'jb-payment-input',
+            path: '/web-component/jb-payment-input/lib/JBPaymentInput.js',
+            outputPath: '/web-component/jb-payment-input/dist/JBPaymentInput.js',
+            umdName:'JBPaymentInput',
+            external: ['jb-input'],
+            globals:{
+                'jb-input':'JBInput',
+            }
+        },
 
     ],
 };
