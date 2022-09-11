@@ -9,7 +9,7 @@ export function useEvent(dom, event, handler, passive = false) {
         // this will clean up the event every time the component is re-rendered
         return function cleanup() {
             if(dom){
-                dom.removeEventListener(event, handler);
+                dom.removeEventListener(event, handler, passive);
             }
         };
     });

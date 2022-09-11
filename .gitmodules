@@ -61,3 +61,6 @@
 [submodule "web-component/jb-payment-input"]
 	path = web-component/jb-payment-input
 	url = https://github.com/javadbat/jb-payment-input.git
+[submodule "react-component/jb-payment-input"]
+	path = react-component/jb-payment-input
+	url = https://github.com/javadbat/jb-payment-input-react.git

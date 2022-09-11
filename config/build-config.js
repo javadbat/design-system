@@ -261,6 +261,16 @@ const reactComponentConfig = {
                 'react':'React',
                 'prop-types':'PropTypes',
             }
+        },
+        {
+            name: 'jb-payment-input-react',
+            path: '/react-component/jb-payment-input/lib/JBPaymentInput.js',
+            outputPath:'/react-component/jb-payment-input/dist/JBPaymentInput.js',
+            external:[ 'jb-payment-input', 'prop-types', 'react'],
+            globals:{
+                'react':'React',
+                'prop-types':'PropTypes',
+            }
         }
     ]
 };
