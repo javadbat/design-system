@@ -125,6 +125,15 @@ var webComponentConfig = {
                 'jb-input':'JBInput',
             }
         },
+        {
+            name: 'jb-modal',
+            path: '/web-component/jb-modal/lib/JBModal.js',
+            outputPath: '/web-component/jb-modal/dist/JBModal.js',
+            umdName:'JBPaymentInput',
+            globals:{
+                'jb-modal':'JBModal',
+            }
+        },
 
     ],
 };
@@ -271,7 +280,17 @@ const reactComponentConfig = {
                 'react':'React',
                 'prop-types':'PropTypes',
             }
+        },
+        {
+            name: 'jb-national-input-react',
+            path: '/react-component/jb-national-input/lib/JBNationalInput.js',
+            outputPath:'/react-component/jb-payment-input/dist/JBNationalInput.js',
+            external:[ 'jb-national-input', 'prop-types', 'react'],
+            globals:{
+                'react':'React',
+                'prop-types':'PropTypes',
+            }
         }
     ]
 };
-export { webComponentConfig , reactComponentConfig }
+export { webComponentConfig , reactComponentConfig };
