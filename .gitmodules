@@ -73,3 +73,6 @@
 [submodule "web-component/jb-modal"]
 	path = web-component/jb-modal
 	url = https://github.com/javadbat/jb-modal.git
+[submodule "react-component/jb-modal"]
+	path = react-component/jb-modal
+	url = https://github.com/javadbat/jb-modal-react.git

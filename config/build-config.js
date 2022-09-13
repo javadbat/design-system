@@ -290,6 +290,16 @@ const reactComponentConfig = {
                 'react':'React',
                 'prop-types':'PropTypes',
             }
+        },
+        {
+            name: 'jb-modal-react',
+            path: '/react-component/jb-modal/lib/JBModal.js',
+            outputPath:'/react-component/jb-modal/dist/JBModal.js',
+            external:[ 'jb-modal', 'prop-types', 'react'],
+            globals:{
+                'react':'React',
+                'prop-types':'PropTypes',
+            }
         }
     ]
 };
