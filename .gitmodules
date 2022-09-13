@@ -76,3 +76,6 @@
 [submodule "react-component/jb-modal"]
 	path = react-component/jb-modal
 	url = https://github.com/javadbat/jb-modal-react.git
+[submodule "web-component/jb-tooltip"]
+	path = web-component/jb-tooltip
+	url = https://github.com/javadbat/jb-tooltip.git
