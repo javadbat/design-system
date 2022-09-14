@@ -313,6 +313,16 @@ const reactComponentConfig = {
                 'react':'React',
                 'prop-types':'PropTypes',
             }
+        },
+        {
+            name: 'jb-infinite-scroll-react',
+            path: '/react-component/jb-infinite-scroll/lib/JBInfiniteScroll.js',
+            outputPath:'/react-component/jb-infinite-scroll/dist/JBInfiniteScroll.js',
+            external:[ 'jb-infinite-scroll', 'prop-types', 'react'],
+            globals:{
+                'react':'React',
+                'prop-types':'PropTypes',
+            }
         }
     ]
 };

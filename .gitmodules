@@ -90,3 +90,7 @@
 	path = web-component/jb-infinite-scroll
 	url = https://github.com/javadbat/jb-infinite-scroll.git
 	branch = main
+[submodule "react-component/jb-infinite-scroll"]
+	path = react-component/jb-infinite-scroll
+	url = https://github.com/javadbat/jb-infinite-scroll-react.git
+	branch = main
