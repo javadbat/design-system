@@ -137,6 +137,16 @@ var webComponentConfig = {
             outputPath: '/web-component/jb-tooltip/dist/jb-tooltip.js',
             umdName:'JBTooltip'
         },
+        {
+            name: 'jb-infinite-scroll',
+            path: '/web-component/jb-infinite-scroll/lib/jb-infinite-scroll.ts',
+            outputPath: '/web-component/jb-infinite-scroll/dist/jb-infinite-scroll.js',
+            umdName:'JBInfiniteScroll',
+            external: ['jb-loading'],
+            globals:{
+                'jb-loading':'JBLoading',
+            }
+        },
 
     ],
 };
