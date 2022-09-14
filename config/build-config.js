@@ -308,7 +308,7 @@ const reactComponentConfig = {
         {
             name: 'jb-national-input-react',
             path: '/react-component/jb-national-input/lib/JBNationalInput.js',
-            outputPath:'/react-component/jb-payment-input/dist/JBNationalInput.js',
+            outputPath:'/react-component/jb-national-input/dist/JBNationalInput.js',
             external:[ 'jb-national-input', 'prop-types', 'react'],
             globals:{
                 'react':'React',
