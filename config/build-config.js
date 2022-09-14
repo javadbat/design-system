@@ -147,6 +147,17 @@ var webComponentConfig = {
                 'jb-loading':'JBLoading',
             }
         },
+        {
+            name: 'jb-qrcode',
+            path: '/web-component/jb-qrcode/lib/JBQrcode.ts',
+            outputPath: '/web-component/jb-qrcode/dist/JBQrcode.js',
+            umdName:'JBQrcode',
+            external: ['qrcode'],
+            globals:{
+                'qrcode':'QRCode',
+            }
+        },
+        
 
     ],
 };

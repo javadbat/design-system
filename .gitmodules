@@ -94,3 +94,7 @@
 	path = react-component/jb-infinite-scroll
 	url = https://github.com/javadbat/jb-infinite-scroll-react.git
 	branch = main
+[submodule "web-component/jb-qrcode"]
+	path = web-component/jb-qrcode
+	url = https://github.com/javadbat/jb-qrcode
+	branch = main
