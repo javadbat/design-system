@@ -60,9 +60,10 @@ class MockServer{
                 if(err){
                     if(err.code == 'EEXIST'){
                         resolve();
+                    }else{
+                        console.log(err);
+                        reject();
                     }
-                    console.log(err);
-                    reject();
                 }else{
                     resolve();
                 }
