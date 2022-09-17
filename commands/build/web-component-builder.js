@@ -39,13 +39,14 @@ class WebComponentBuilder {
     buildComponent(component) {
         console.log(`start building ${component.name}`);
 
-        const inputOptions = this._getInputOption(component);
-        const outputOptions = this._getOutputOption(component,'es');
+        const inputOptions = this._getInputOption(component,"es");
+        const outputOptions = this._getOutputOption(component, 'es');
         const modulePromise = this.buildModule(inputOptions, outputOptions);
         //build umd package
-        const umdOutputOptions = this._getOutputOption(component,'umd');
-        const UMDmodulePromise = this.buildModule(inputOptions, umdOutputOptions);
-        return Promise.all([modulePromise,UMDmodulePromise]);
+        const umdInputOptions = this._getInputOption(component,"umd");
+        const umdOutputOptions = this._getOutputOption(component, 'umd');
+        const UMDmodulePromise = this.buildModule(umdInputOptions, umdOutputOptions);
+        return Promise.all([modulePromise, UMDmodulePromise]);
     }
     buildModule(inputOptions, outputOptions) {
         //build module with rollup without any watch or something
@@ -59,7 +60,20 @@ class WebComponentBuilder {
         });
         return bundlePromise;
     }
-    _getInputOption(module) {
+    /**
+     * 
+     * @param {*} module 
+     * @param {"es" | "umd"} format 
+     * @return {object}
+     */
+    _getInputOption(module, format = "es") {
+        /**
+        * @type {Array<String>}
+        */
+        let externalList = module.external || [];
+        if (format == "umd" && Array.isArray(module.umdIncludes) && externalList.length > 0) {
+            externalList = externalList.filter(el => !module.umdIncludes.includes(el));
+        }
         let plugins = [
             html({
                 include: '**/*.html'
@@ -67,32 +81,33 @@ class WebComponentBuilder {
             postcss({
                 extensions: ['.css', '.pcss', 'scss'],
                 inject: false,
-                sourceMap: true
+                sourceMap: false
             }),
             resolve({
                 preferBuiltins: true,
-                mainFields: ['browser'],
+                mainFields: ['browser', 'jsnext:main', 'module', 'main'],
                 jsnext: true,
             }),
             rollupReplace({
                 'process.env.NODE_ENV': `"${generalConfig.env}"`,
                 preventAssignment: true
             }),
-            commonjs({
-                include: ["./index.js", "node_modules/**"],
-                ignoreGlobal: false,
-                sourceMap: true
-            }),
+            // commonjs({
+            //     include: ["./index.js", "node_modules/**"],
+            //     ignoreGlobal: false,
+            //     sourceMap: true,
+            // }),
             rollupJson()
         ];
         const isTypeScriptModule = this._isTypeScriptModule(module);
         if (isTypeScriptModule) {
-            plugins.push(typescript({ tsconfigDefaults: this._getTypeScriptCompilerOptions(module) }));
+            plugins.push(typescript({ tsconfigDefaults: this._getTypeScriptCompilerOptions(module, externalList) }));
         }
         let inputOptions = {
             input: path.join(...module.path.split('/')),
-            external: module.external || [],
+            external: externalList,
             plugins: plugins,
+            // treeshake:"smallest"
             //manualChunks: config.chuncks
         };
         return inputOptions;
@@ -105,13 +120,14 @@ class WebComponentBuilder {
     }
     /**
      * @param {*} module 
+     * @param {Array<String>} externalList
      * @return {TypeScriptIOptions} tsconfig options
      */
-    _getTypeScriptCompilerOptions(module) {
+    _getTypeScriptCompilerOptions(module, externalList) {
         const includePaths = path.join(...module.path.split('/').slice(0, -1), '**', '*');
-        const externalList = module.external || [];
+
         return {
-            "useTsconfigDeclarationDir":true,
+            "useTsconfigDeclarationDir": true,
             "compilerOptions": {
                 "target": "ES6",
                 "module": "ES6",
@@ -146,17 +162,17 @@ class WebComponentBuilder {
         const fullFileName = pathArr[pathArr.length - 1];
         const fileName = path.parse(fullFileName).name;
         const fileExtention = path.parse(fullFileName).ext;
-        const outputFileName = `${fileName}${format == 'es'?'':('.'+format)}${fileExtention}`;
-        const dir =pathArr.slice(0,pathArr.length - 1);
+        const outputFileName = `${fileName}${format == 'es' ? '' : ('.' + format)}${fileExtention}`;
+        const dir = pathArr.slice(0, pathArr.length - 1);
         let outputOptions = {
             // core output options
             sourcemap: true,
-            dir:path.join(...dir),
+            dir: path.join(...dir),
             entryFileNames: outputFileName,
             format: format, //es for native code , system for systemjs known module, umd for umd package
             //dir: 'App/dist',
         };
-        if(format == "umd"){
+        if (format == "umd") {
             outputOptions.name = module.umdName;
             outputOptions.globals = module.globals || {};
         }

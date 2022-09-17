@@ -19,10 +19,8 @@ var webComponentConfig = {
             outputPath: '/web-component/jb-calendar/dist/JBCalendar.js',
             external: ['date-fns', 'date-fns-jalali'],
             umdName:'JBCalendar',
-            globals:{
-                'date-fns':'dateFns',
-                'date-fns-jalali':'dateFnsJalali',
-            }
+            //becuase date-fns dont have any umd module export i have to do this so it doenst exclude in umd build
+            umdIncludes:['date-fns', 'date-fns-jalali']
         },
         {
             name: 'jb-date-input',
@@ -30,10 +28,8 @@ var webComponentConfig = {
             outputPath: '/web-component/jb-date-input/dist/JBDateInput.js',
             umdName:'JBDateInput',
             external: ['date-fns', 'date-fns-jalali', 'jb-calendar'],
-            globals:{
-                'date-fns':'dateFns',
-                'date-fns-jalali':'dateFnsJalali',
-            }
+            //becuase date-fns dont have any umd module export i have to do this so it doenst exclude in umd build
+            umdIncludes:['date-fns', 'date-fns-jalali', 'jb-calendar']
         },
         {
             name: 'jb-file-input',
