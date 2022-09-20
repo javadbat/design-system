@@ -98,3 +98,6 @@
 	path = web-component/jb-qrcode
 	url = https://github.com/javadbat/jb-qrcode
 	branch = main
+[submodule "react-component/jb-select"]
+	path = react-component/jb-select
+	url = https://github.com/javadbat/jb-select-react.git
