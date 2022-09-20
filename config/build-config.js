@@ -170,6 +170,16 @@ const reactComponentConfig = {
             }
         },
         {
+            name: 'jb-select-react',
+            path: '/react-component/jb-select/lib/JBSelect.js',
+            outputPath: '/react-component/jb-select/dist/JBSelect.js',
+            external: ['jb-select', 'prop-types', 'react'],
+            globals:{
+                'react':'React',
+                'prop-types':'PropTypes'
+            }
+        },
+        {
             name: 'jb-button-react',
             path: '/react-component/jb-button/lib/JBButton.js',
             outputPath: '/react-component/jb-button/dist/JBButton.js',
