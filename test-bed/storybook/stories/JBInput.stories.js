@@ -79,6 +79,16 @@ NonNegativeNumberWithComma.args = {
 
     onChange: (e) => { console.log(`new number is ${e.target.value}`); }
 };
+export const NumberWithoutButtons = Template.bind({});
+NumberWithoutButtons.args = {
+    label: 'عددی بدون دکمه',
+    message: 'دکمه های +- حذف',
+    type: 'number',
+    numberFieldParameter: {
+        showButtons:false
+    },
+    onChange: (e) => { console.log(`new number is ${e.target.value}`); }
+};
 const testActionsTemplate = () => <JBInputTest></JBInputTest>;
 export const testActions = testActionsTemplate.bind({});
 

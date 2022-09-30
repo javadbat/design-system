@@ -11,7 +11,7 @@ function JBInputTest() {
     },[]);
     return (
         <div style={{direction:'rtl'}}>
-            <JBInput ref={input} value={value} onKeyUp={e=>setValue(e.target.value)} label="تست تایپ"></JBInput>
+            <JBInput ref={input} value={value} onKeyup={e=>setValue(e.target.value)} onKeydown={(e)=>{console.log(e);}} label="تست تایپ"></JBInput>
             <span>value:</span>
             <input value={value} onChange={e=>setValue(e.target.value)} />
             <h3>test events</h3>

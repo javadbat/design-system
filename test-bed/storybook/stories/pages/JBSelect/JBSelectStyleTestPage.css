@@ -69,3 +69,11 @@
     --jb-select-bgcolor-selected: rgb(195, 57, 230);
     --jb-select-bgcolor: lightgray;
 }
+.self-style-select{
+    --jb-select-margin: 0px 4px;
+    --jb-select-border-radius: 0px;
+    --jb-select-border-color: rgb(26, 23, 23);
+    --jb-select-border-color-selected: rgb(30, 29, 43);
+    --jb-select-bgcolor-selected: rgb(195, 57, 230);
+    --jb-select-bgcolor: lightgray;
+}
