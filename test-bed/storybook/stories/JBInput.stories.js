@@ -89,6 +89,16 @@ NumberWithoutButtons.args = {
     },
     onChange: (e) => { console.log(`new number is ${e.target.value}`); }
 };
+export const NumberWithPersianChar = Template.bind({});
+NumberWithPersianChar.args = {
+    label: 'type number',
+    message: 'type en number but user see persian char number',
+    type: 'number',
+    numberFieldParameter: {
+        showPersianNumber:true
+    },
+    onChange: (e) => { console.log(`new number is ${e.target.value}`); }
+};
 const testActionsTemplate = () => <JBInputTest></JBInputTest>;
 export const testActions = testActionsTemplate.bind({});
 

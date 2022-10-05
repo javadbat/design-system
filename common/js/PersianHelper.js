@@ -21,5 +21,4 @@ function enToFaDigits(input) {
     );
     return result;
 }
-export {enToFaDigits};
-export {faToEnDigits};
+export {enToFaDigits, faToEnDigits};
