@@ -27,7 +27,8 @@ function JBSelectStyleTest (props){
                 --jb-select-border-color: rgb(26, 23, 23);<br /><br />
                 --jb-select-border-color-selected: rgb(30, 29, 43);<br /><br />
                 --jb-select-bgcolor-selected: rgb(195, 57, 230);<br /><br />
-                --jb-select-bgcolor: lightgray;
+                --jb-select-bgcolor: lightgray;<br /><br />
+                --jb-select-mobile-search-input-height: 64px;
             </div>
             <br /><br />
             <div className="self-style-wrapper">

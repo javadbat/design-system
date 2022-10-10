@@ -68,6 +68,7 @@
     --jb-select-border-color-selected: rgb(30, 29, 43);
     --jb-select-bgcolor-selected: rgb(195, 57, 230);
     --jb-select-bgcolor: lightgray;
+    --jb-select-mobile-search-input-height: 64px;
 }
 .self-style-select{
     --jb-select-margin: 0px 4px;
