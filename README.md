@@ -48,4 +48,5 @@ npm start
 
 ```command
 git submodule add -f https://github.com/user/repo.git web-component/web-component-name 
+git submodule add -f https://github.com/user/repo.git react-component/react-component-name 
 ```

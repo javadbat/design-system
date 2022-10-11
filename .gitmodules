@@ -101,3 +101,6 @@
 [submodule "react-component/jb-select"]
 	path = react-component/jb-select
 	url = https://github.com/javadbat/jb-select-react.git
+[submodule "react-component/jb-pin-input"]
+	path = react-component/jb-pin-input
+	url = https://github.com/javadbat/jb-pin-input-react.git

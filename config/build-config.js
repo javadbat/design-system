@@ -340,6 +340,16 @@ const reactComponentConfig = {
                 'react':'React',
                 'prop-types':'PropTypes',
             }
+        },
+        {
+            name: 'jb-pin-input-react',
+            path: '/react-component/jb-pin-input/lib/JBPinInput.js',
+            outputPath:'/react-component/jb-pin-input/dist/JBPinInput.js',
+            external:[ 'jb-pin-input', 'prop-types', 'react'],
+            globals:{
+                'react':'React',
+                'prop-types':'PropTypes',
+            }
         }
     ]
 };
