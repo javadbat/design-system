@@ -6,10 +6,16 @@ export default {
     component: JBPinInput
 };
 const Template = (args) => <JBPinInput { ...args}></JBPinInput>;
-export const CardNumber = Template.bind({});
-CardNumber.args = {
+export const Normal = Template.bind({});
+Normal.args = {
     label:'pin input',
     message:"please input 16 digit card number",
+    value:"",
+};
+export const AutoFocus = Template.bind({});
+AutoFocus.args = {
+    label:'autofocus',
+    autofocus:true,
     value:"",
 };
 const PinInputStyleTemplate = () => <JBPinInputStyleTest></JBPinInputStyleTest>;
