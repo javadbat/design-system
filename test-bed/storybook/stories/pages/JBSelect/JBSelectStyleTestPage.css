@@ -78,3 +78,8 @@
     --jb-select-bgcolor-selected: rgb(195, 57, 230);
     --jb-select-bgcolor: lightgray;
 }
+.with-divider-line{
+    --jb-select-middle-div-radius:4px;
+    --jb-select-middle-div-color:red;
+    --jb-select-middle-div-height:12px;
+}

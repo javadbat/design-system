@@ -43,6 +43,19 @@ function JBSelectStyleTest (props){
                 --jb-select-bgcolor-selected: rgb(195, 57, 230);<br /><br />
                 --jb-select-bgcolor: lightgray;
             </div>
+            <br /><br />
+            <div className="with-divider-line">
+                <JBSelect className="self-style-select" label="self style" optionList={options} message="this select get classname itself and style are not set to parent element"></JBSelect>
+            </div>
+            <div className='style-table-title-2'>JB Select Custom Style 3</div>
+            <div className='style-table-content-2'>
+                --jb-select-margin: 0px 4px;<br /><br />
+                --jb-select-border-radius: 0px;<br /><br />
+                --jb-select-border-color: rgb(26, 23, 23);<br /><br />
+                --jb-select-border-color-selected: rgb(30, 29, 43);<br /><br />
+                --jb-select-bgcolor-selected: rgb(195, 57, 230);<br /><br />
+                --jb-select-bgcolor: lightgray;
+            </div>
         </div>
     );
 }
