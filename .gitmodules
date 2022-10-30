@@ -104,3 +104,6 @@
 [submodule "react-component/jb-pin-input"]
 	path = react-component/jb-pin-input
 	url = https://github.com/javadbat/jb-pin-input-react.git
+[submodule "web-component/jb-mobile-input"]
+	path = web-component/jb-mobile-input
+	url = https://github.com/javadbat/jb-mobile-input.git
