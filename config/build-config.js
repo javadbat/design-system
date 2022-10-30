@@ -113,7 +113,7 @@ var webComponentConfig = {
         },
         {
             name: 'jb-payment-input',
-            path: '/web-component/jb-payment-input/lib/JBPaymentInput.js',
+            path: '/web-component/jb-payment-input/lib/JBPaymentInput.ts',
             outputPath: '/web-component/jb-payment-input/dist/JBPaymentInput.js',
             umdName:'JBPaymentInput',
             external: ['jb-input'],
