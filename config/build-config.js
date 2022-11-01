@@ -122,6 +122,16 @@ var webComponentConfig = {
             }
         },
         {
+            name: 'jb-mobile-input',
+            path: '/web-component/jb-mobile-input/lib/jb-mobile-input.ts',
+            outputPath: '/web-component/jb-mobile-input/dist/jb-mobile-input.js',
+            umdName:'JBMobileInput',
+            external: ['jb-input'],
+            globals:{
+                'jb-input':'JBInput',
+            }
+        },
+        {
             name: 'jb-modal',
             path: '/web-component/jb-modal/lib/JBModal.js',
             outputPath: '/web-component/jb-modal/dist/JBModal.js',
@@ -306,6 +316,16 @@ const reactComponentConfig = {
             path: '/react-component/jb-payment-input/lib/JBPaymentInput.js',
             outputPath:'/react-component/jb-payment-input/dist/JBPaymentInput.js',
             external:[ 'jb-payment-input', 'prop-types', 'react'],
+            globals:{
+                'react':'React',
+                'prop-types':'PropTypes',
+            }
+        },
+        {
+            name: 'jb-mobile-input-react',
+            path: '/react-component/jb-mobile-input/lib/JBMobileInput.js',
+            outputPath:'/react-component/jb-mobile-input/dist/JBMobileInput.js',
+            external:[ 'jb-mobile-input', 'prop-types', 'react'],
             globals:{
                 'react':'React',
                 'prop-types':'PropTypes',
