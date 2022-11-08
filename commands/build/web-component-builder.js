@@ -13,6 +13,9 @@ import generalConfig from '../../config/general-config.js';
 //import typescript from '@rollup/plugin-typescript';
 import typescript from 'rollup-plugin-typescript2';
 import chalk from 'chalk';
+// import InlineSvg from 'rollup-plugin-inline-svg';
+import svg from 'rollup-plugin-svg'
+
 /**
  * @typedef {import('rollup-plugin-typescript2/dist/ioptions').IOptions} TypeScriptIOptions
  */
@@ -77,6 +80,9 @@ class WebComponentBuilder {
         let plugins = [
             html({
                 include: '**/*.html'
+            }),
+            svg({
+                base64:false
             }),
             postcss({
                 extensions: ['.css', '.pcss', 'scss'],

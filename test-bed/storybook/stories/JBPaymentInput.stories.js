@@ -1,5 +1,6 @@
 import React from 'react';
 import {JBPaymentInput} from '../../../react-component/jb-payment-input';
+import 'jb-payment-input/dist/bank-indicator/bank-indicator.js';
 export default {
     title: 'Example/JBPaymentInput',
     component: JBPaymentInput
@@ -19,5 +20,14 @@ ShabaNumber.args = {
     message:"please input shaba number",
     value:"",
     inputType:"SHABA_NUMBER"
+    // placeholder:"1234 5678 9012 3456",
+};
+const WithLogoTemplate = (args) => <JBPaymentInput { ...args}><bank-indicator prefix="636214" slot="start-section"></bank-indicator></JBPaymentInput>;
+export const CardNumberWithBankLogo = WithLogoTemplate.bind({});
+CardNumberWithBankLogo.args = {
+    label:'card number',
+    message:"card number with bank logo",
+    value:"",
+    inputType:"CARD_NUMBER"
     // placeholder:"1234 5678 9012 3456",
 };

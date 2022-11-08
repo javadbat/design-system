@@ -38,12 +38,12 @@
     "jb-calendar": "file:./web-component/jb-calendar",
     "jb-date-input": "^1.0.4",
     "jb-input": "file:./web-component/jb-input",
+    "jb-mobile-input": "file:./web-component/jb-mobile-input",
+    "jb-payment-input": "file:./web-component/jb-payment-input",
+    "jb-pin-input": "file:./web-component/jb-pin-input",
     "jb-searchbar": "^1.0.2",
     "jb-select": "file:./web-component/jb-select",
-    "jb-payment-input": "file:./web-component/jb-payment-input",
-    "jb-pin-input":"file:./web-component/jb-pin-input",
     "jb-time-picker": "file:./web-component/jb-time-picker",
-    "jb-mobile-input": "file:./web-component/jb-mobile-input",
     "lodash": "^4.17.21",
     "lodash.clonedeep": "^4.5.0",
     "mobx": "^6.0.1",
@@ -55,6 +55,7 @@
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-html": "^0.2.1",
     "rollup-plugin-postcss": "^3.1.8",
+    "rollup-plugin-svg": "^2.0.0",
     "rollup-plugin-typescript2": "^0.31.2",
     "sass": "^1.35.1",
     "style-loader": "^1.2.1",
@@ -64,7 +65,7 @@
     "@types/react": "^17.0.38",
     "eslint": "^7.9.0",
     "eslint-plugin-react": "^7.20.6",
-    "typescript": "^4.6.0-dev.20211223"
+    "typescript": "^4.8.4"
   },
   "scripts": {
     "postinstall": "node commands/init/postinstall.js",

@@ -122,6 +122,15 @@ var webComponentConfig = {
             }
         },
         {
+            name: 'bank-indicator',
+            path: '/web-component/jb-payment-input/lib/bank-indicator/bank-indicator.ts',
+            outputPath: '/web-component/jb-payment-input/dist/bank-indicator/bank-indicator.js',
+            umdName:'BankIndicator',
+            external: [],
+            globals:{
+            }
+        },
+        {
             name: 'jb-mobile-input',
             path: '/web-component/jb-mobile-input/lib/jb-mobile-input.ts',
             outputPath: '/web-component/jb-mobile-input/dist/jb-mobile-input.js',
