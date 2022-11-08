@@ -22,7 +22,7 @@ ShabaNumber.args = {
     inputType:"SHABA_NUMBER"
     // placeholder:"1234 5678 9012 3456",
 };
-const WithLogoTemplate = (args) => <JBPaymentInput { ...args}><bank-indicator prefix="636214" slot="start-section"></bank-indicator></JBPaymentInput>;
+const WithLogoTemplate = (args) => <JBPaymentInput { ...args}><bank-indicator slot="end-section"></bank-indicator></JBPaymentInput>;
 export const CardNumberWithBankLogo = WithLogoTemplate.bind({});
 CardNumberWithBankLogo.args = {
     label:'card number',
