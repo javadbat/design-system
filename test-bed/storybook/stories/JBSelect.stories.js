@@ -4,6 +4,7 @@ import JBSelectStyleTest from '../stories/pages/JBSelect/JBSelectStyleTestPage';
 import { action } from '@storybook/addon-actions';
 import JBSelectDynamicList from './pages/JBSelect/JBSelectDynamicList';
 import CustomizedOptions from './pages/JBSelect/CustomizedOptions';
+import JBSelectDesign from './pages/JBSelect/JbSelectDesign';
 export default {
     title: 'Example/JBSelect',
     component: JBSelect
@@ -66,3 +67,6 @@ export const DynamicList = DynamicListTemplate.bind({});
 // customized option dom
 const CustomizableOptionTemplate = (args) => <CustomizedOptions></CustomizedOptions>;
 export const CustomizedOption = CustomizableOptionTemplate.bind({});
+
+const JBSelectDesignTemplate = (args) => <JBSelectDesign></JBSelectDesign>;
+export const JBSelectDesignTest = JBSelectDesignTemplate.bind({});
