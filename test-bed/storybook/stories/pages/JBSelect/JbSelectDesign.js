@@ -45,14 +45,21 @@ function JBSelectDesign(props) {
     }
     return (
         <div className='select-wrapper'>
-            <JBSelect searchPlaceholder="جست و جو" optionList={colorList} getSelectedValueDOM={getSelectedValueDOM} getOptionDOM={getOptionDOM} getOptionTitle={getOptionTitle}></JBSelect>
+            <JBSelect searchPlaceholder="جست و جو" optionList={colorList} getSelectedValueDOM={getSelectedValueDOM} getOptionDOM={getOptionDOM} getOptionTitle={getOptionTitle}>
+                <div style={{height:'24px'}} slot='select-arrow-icon'>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="24" height="24" rx="5" fill="#E7E7E7" />
+                        <path d="M19 8.5L12 15.5L5 8.5" stroke="#8B8B8B" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                </div>
+            </JBSelect>
         </div>
     );
 }
 
 JBSelectDesign.propTypes = {
 
-}
+};
 
 export default JBSelectDesign;
 
