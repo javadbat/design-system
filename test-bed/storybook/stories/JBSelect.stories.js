@@ -1,5 +1,5 @@
 import React from 'react';
-import JBSelect from '../../../react-component/jb-select/lib/JBSelect';
+import {JBSelect} from 'jb-select-react';
 import JBSelectStyleTest from '../stories/pages/JBSelect/JBSelectStyleTestPage';
 import { action } from '@storybook/addon-actions';
 import JBSelectDynamicList from './pages/JBSelect/JBSelectDynamicList';

@@ -43,7 +43,10 @@ npm run serve
 
 npm start
 ```
-
+if you are using node17 or later please type it before build
+```cmd
+$env:NODE_OPTIONS = "--openssl-legacy-provider"
+```
 ## add a new submodule
 
 ```command
