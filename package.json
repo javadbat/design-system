@@ -41,6 +41,7 @@
     "jb-mobile-input": "file:./web-component/jb-mobile-input",
     "jb-payment-input": "file:./web-component/jb-payment-input",
     "jb-pin-input": "file:./web-component/jb-pin-input",
+    "jb-modal": "file:./web-component/jb-modal",
     "jb-searchbar": "^1.0.2",
     "jb-select": "file:./web-component/jb-select",
     "jb-time-picker": "file:./web-component/jb-time-picker",

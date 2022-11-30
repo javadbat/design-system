@@ -142,9 +142,9 @@ var webComponentConfig = {
         },
         {
             name: 'jb-modal',
-            path: '/web-component/jb-modal/lib/JBModal.js',
+            path: '/web-component/jb-modal/lib/JBModal.ts',
             outputPath: '/web-component/jb-modal/dist/JBModal.js',
-            umdName:'JBPaymentInput',
+            umdName:'JBModal',
         },
         {
             name: 'jb-tooltip',
