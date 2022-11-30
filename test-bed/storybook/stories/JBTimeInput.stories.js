@@ -39,3 +39,10 @@ withoutSecond.args = {
     label:'time',
     secondEnabled:false
 };
+
+export const FrontalZero = Template.bind({});
+FrontalZero.args = {
+    label:'زمان',
+    closeButtonText:'بستن',
+    frontalZero:true,
+};
