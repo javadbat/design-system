@@ -46,3 +46,9 @@ FrontalZero.args = {
     closeButtonText:'بستن',
     frontalZero:true,
 };
+export const OptionalMinute = Template.bind({});
+OptionalMinute.args = {
+    label:'زمان',
+    closeButtonText:'بستن',
+    optionalUnits:['minute']
+};

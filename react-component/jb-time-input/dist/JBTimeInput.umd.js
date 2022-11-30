@@ -183,6 +183,12 @@
 	      element.current.frontalZero = props.frontalZero;
 	    }
 	  }, [props.frontalZero]);
+	  React.useEffect(function () {
+	    debugger;
+	    if (Array.isArray(props.optionalUnits)) {
+	      element.current.optionalUnits = props.optionalUnits;
+	    }
+	  }, [props.optionalUnits]);
 	  useEvent(element.current, 'change', onChange);
 	  useEvent(element.current, 'keydown', onKeydown);
 	  useEvent(element.current, 'keyup', onKeyup);
@@ -210,7 +216,8 @@
 	  direction: PropTypes__default["default"].string,
 	  validationList: PropTypes__default["default"].array,
 	  secondEnabled: PropTypes__default["default"].bool,
-	  frontalZero: PropTypes__default["default"].bool
+	  frontalZero: PropTypes__default["default"].bool,
+	  optionalUnits: PropTypes__default["default"].array
 	};
 
 	return JBTimeInput;
