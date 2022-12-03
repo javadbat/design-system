@@ -33,6 +33,7 @@ module.exports = async ({ config }) => {
       'jb-pin-input-react': path.resolve(__dirname, '..','..', '..', 'react-component','jb-pin-input', 'dist', 'JBPinInput.js'),
       'jb-mobile-input':path.resolve(__dirname, '..','..', '..', 'web-component','jb-mobile-input', 'dist', 'jb-mobile-input.js'),
       'jb-payment-input':path.resolve(__dirname, '..','..', '..', 'web-component','jb-payment-input'),
+      'jb-modal':path.resolve(__dirname, '..','..', '..', 'web-component','jb-modal'),
     }
   }
   return config;
