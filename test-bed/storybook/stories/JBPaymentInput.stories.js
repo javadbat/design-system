@@ -31,3 +31,12 @@ CardNumberWithBankLogo.args = {
     inputType:"CARD_NUMBER"
     // placeholder:"1234 5678 9012 3456",
 };
+export const DashSeparatorCN = Template.bind({});
+DashSeparatorCN.args = {
+    label:'card number',
+    message:"please input 16 digit card number",
+    value:"",
+    separator:"-",
+    inputType:"CARD_NUMBER"
+    // placeholder:"1234 5678 9012 3456",
+};
