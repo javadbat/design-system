@@ -18,4 +18,6 @@
     --jb-pin-input-pin-height:50px;
     --jb-pin-input-pin-font-size:16px;
     --jb-pin-input-pin-font-weight:600;
+    --jb-pin-input-wrapper-box-shadow:0px 0px 1px 1px #ececec;
+    --jb-pin-input-error-message-margin:12px 24px;
 }

@@ -41,6 +41,8 @@ export function JBPinInputStyleTest() {
                     <p>--jb-pin-input-pin-input-wrapper-height:25px;</p>
                     <p> --jb-pin-input-pin-font-size:16px;</p>
                     <p>--jb-pin-input-pin-font-weight:600;</p>
+                    <p>--jb-pin-input-wrapper-box-shadow:0px 0px 1px 1px #ececec;</p>
+                    <p>--jb-pin-input-error-message-margin:12px 24px;</p>
     
 
                 </div>
