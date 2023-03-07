@@ -302,7 +302,7 @@ const reactComponentConfig = {
         },
         {
             name: 'jb-date-input-react',
-            path: '/react-component/jb-date-input/lib/JBDateInput.js',
+            path: '/react-component/jb-date-input/lib/JBDateInput.tsx',
             outputPath:'/react-component/jb-date-input/dist/JBDateInput.js',
             external:[ 'react', 'prop-types', 'jb-date-input'],
             globals:{
