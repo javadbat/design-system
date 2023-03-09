@@ -29,7 +29,7 @@ var webComponentConfig = {
             umdName:'JBDateInput',
             external: ['date-fns', 'date-fns-jalali', 'jb-calendar'],
             //becuase date-fns dont have any umd module export i have to do this so it doenst exclude in umd build
-            umdIncludes:['date-fns', 'date-fns-jalali', 'jb-calendar']
+            umdIncludes:['date-fns', 'date-fns-jalali', 'jb-calendar',]
         },
         {
             name: 'jb-file-input',

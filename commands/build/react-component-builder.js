@@ -134,7 +134,6 @@ class ReactComponentBuilder {
  */
     _getTypeScriptCompilerOptions(module, externalList) {
         const includePaths = path.join(...module.path.split('/').slice(0, -1), '**', '*');
-
         return {
             "useTsconfigDeclarationDir": true,
             "compilerOptions": {
@@ -153,7 +152,7 @@ class ReactComponentBuilder {
                 "suppressExcessPropertyErrors": true,
                 "allowJs": true,
                 "declaration": true,
-                "declarationDir": ".",
+                "declarationDir": "./",
                 "declarationMap": false,
                 "jsx": "react"
                 //"outDir": "../dist",

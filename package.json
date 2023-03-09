@@ -37,7 +37,7 @@
     "eslint-plugin-import": "^2.22.0",
     "jalaliday": "^2.3.0",
     "jb-calendar": "file:./web-component/jb-calendar",
-    "jb-date-input": "^3.7.2",
+    "jb-date-input": "^3.7.7",
     "jb-date-input-react": "^2.0.1",
     "jb-input": "file:./web-component/jb-input",
     "jb-mobile-input": "file:./web-component/jb-mobile-input",
