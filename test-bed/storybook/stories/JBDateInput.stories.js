@@ -1,5 +1,5 @@
 import React from 'react';
-import JBDateInput from '../../../react-component/jb-date-input/index';
+import JBDateInput from 'jb-date-input-react';
 import JBDateInputGregorianTest from './pages/JBDateInput/JBDateInputGregorianTestPage';
 import JBDateInputJalaliTest from './pages/JBDateInput/JBDateInputJalaliTestPage';
 import JBDateInputTimeStampTest from './pages/JBDateInput/JBDateInputTimeStampTestPage';

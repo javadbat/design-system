@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import JBDateInput from '../../../../../react-component/jb-date-input/lib/JBDateInput';
+import JBDateInput from 'jb-date-input-react';
 function JBDateInputGregorianTest(props) {
     const [setValue, setValueSetter] = useState("");
     return (
