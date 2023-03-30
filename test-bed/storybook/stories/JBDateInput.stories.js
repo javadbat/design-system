@@ -1,10 +1,11 @@
 import React from 'react';
-import JBDateInput from 'jb-date-input-react';
+import {JBDateInput} from 'jb-date-input-react';
 import JBDateInputGregorianTest from './pages/JBDateInput/JBDateInputGregorianTestPage';
 import JBDateInputJalaliTest from './pages/JBDateInput/JBDateInputJalaliTestPage';
 import JBDateInputTimeStampTest from './pages/JBDateInput/JBDateInputTimeStampTestPage';
 import DarkmodeTest from './pages/JBDateInput/DarkmodeTest';
 import JBDateInputSizeTest from './pages/JBDateInput/JBDateInputSizeTest';
+import InFormData from './pages/JBDateInput/InFormData';
 export default {
     title: 'Example/JBDateInput',
     component: JBDateInput
@@ -163,10 +164,15 @@ const WithStartSectionTemplate = (args) => (
         </jb-date-input-inbox-element>
     </JBDateInput>
 );
+
 export const WithStartSection = WithStartSectionTemplate.bind({});
-Normal.args = {
+WithStartSection.args = {
     label: 'تاریخ',
     valueType: "GREGORIAN",
     inputType: "JALALI",
     direction: "ltr"
+};
+const InFormTemplate = (args) => <InFormData {...args}></InFormData>;
+export const InFormTest = InFormTemplate.bind({});
+InFormTest.args = {
 };
