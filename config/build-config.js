@@ -180,7 +180,7 @@ const reactComponentConfig = {
     reactComponents: [
         {
             name: 'jb-input-react',
-            path: '/react-component/jb-input/lib/JBInput.js',
+            path: '/react-component/jb-input/lib/JBInput.tsx',
             outputPath: '/react-component/jb-input/dist/JBInput.js',
             external: ['jb-input', 'prop-types', 'react'],
             globals:{
@@ -200,7 +200,7 @@ const reactComponentConfig = {
         },
         {
             name: 'jb-button-react',
-            path: '/react-component/jb-button/lib/JBButton.js',
+            path: '/react-component/jb-button/lib/JBButton.tsx',
             outputPath: '/react-component/jb-button/dist/JBButton.js',
             external: ['jb-button', 'prop-types', 'react'],
             globals:{
