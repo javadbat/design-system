@@ -372,7 +372,7 @@ const reactComponentConfig = {
         },
         {
             name: 'jb-pin-input-react',
-            path: '/react-component/jb-pin-input/lib/JBPinInput.js',
+            path: '/react-component/jb-pin-input/lib/JBPinInput.tsx',
             outputPath:'/react-component/jb-pin-input/dist/JBPinInput.js',
             external:[ 'jb-pin-input', 'prop-types', 'react'],
             globals:{
