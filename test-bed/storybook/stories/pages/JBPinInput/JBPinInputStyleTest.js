@@ -1,6 +1,6 @@
 import React from 'react';
 import "./JBPinInputStyleTest.css";
-import { JBPinInput } from "../../../../../react-component/jb-pin-input/lib/JBPinInput";
+import { JBPinInput } from "../../../../../react-component/jb-pin-input";
 
 export function JBPinInputStyleTest() {
     return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import JBInput from '../../../../../react-component/jb-input/lib/JBInput';
+import {JBInput} from '../../../../../react-component/jb-input';
 import './JBInputStylingTest.css';
 function JBInputStylingTest() {
     return (

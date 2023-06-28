@@ -1,5 +1,5 @@
 import React from 'react';
-import {JBPinInput} from '../../../react-component/jb-pin-input/lib/JBPinInput';
+import {JBPinInput} from '../../../react-component/jb-pin-input';
 import {JBPinInputStyleTest} from './pages/JBPinInput/JBPinInputStyleTest';
 export default {
     title: 'Example/JBPinInput',
@@ -17,6 +17,12 @@ AutoFocus.args = {
     label:'autofocus',
     autofocus:true,
     value:"",
+};
+export const charLength = Template.bind({});
+charLength.args = {
+    label:'5 digit pin',
+    value:"",
+    charLength:8
 };
 const PinInputStyleTemplate = () => <JBPinInputStyleTest></JBPinInputStyleTest>;
 export const PinInputStyle = PinInputStyleTemplate.bind({});

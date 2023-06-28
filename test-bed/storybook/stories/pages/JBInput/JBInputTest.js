@@ -1,6 +1,6 @@
 import { number } from 'prop-types';
 import React, { useState, useEffect, useRef}from 'react';
-import JBInput from '../../../../../react-component/jb-input';
+import {JBInput} from '../../../../../react-component/jb-input';
 
 function JBInputTest() {
     const input = useRef(null);
