@@ -190,7 +190,7 @@ const reactComponentConfig = {
         },
         {
             name: 'jb-select-react',
-            path: '/react-component/jb-select/lib/JBSelect.js',
+            path: '/react-component/jb-select/lib/JBSelect.tsx',
             outputPath: '/react-component/jb-select/dist/JBSelect.js',
             external: ['jb-select', 'prop-types', 'react'],
             globals:{
@@ -310,16 +310,16 @@ const reactComponentConfig = {
                 'prop-types':'PropTypes',
             }
         },
-        {
-            name: 'jb-select-react',
-            path: '/react-component/jb-select/lib/JBSelect.js',
-            outputPath:'/react-component/jb-select/dist/JBSelect.js',
-            external:[ 'jb-select', 'prop-types', 'react'],
-            globals:{
-                'react':'React',
-                'prop-types':'PropTypes',
-            }
-        },
+        // {
+        //     name: 'jb-select-react',
+        //     path: '/react-component/jb-select/lib/JBSelect.tsx',
+        //     outputPath:'/react-component/jb-select/dist/JBSelect.js',
+        //     external:[ 'jb-select', 'prop-types', 'react'],
+        //     globals:{
+        //         'react':'React',
+        //         'prop-types':'PropTypes',
+        //     }
+        // },
         {
             name: 'jb-payment-input-react',
             path: '/react-component/jb-payment-input/lib/JBPaymentInput.js',
