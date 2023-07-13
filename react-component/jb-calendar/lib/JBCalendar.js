@@ -4,7 +4,7 @@ import { useEvent } from '../../custom-hooks/UseEvent';
 import PropTypes from 'prop-types';
 // eslint-disable-next-line react/display-name
 const JBCalendar = React.forwardRef((props, ref) => {
-    let element = useRef();
+    let element = useRef(null);
     const [refChangeCount, refChangeCountSetter] = useState(0);
     useImperativeHandle(
         ref,

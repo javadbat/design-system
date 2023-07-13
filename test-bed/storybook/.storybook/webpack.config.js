@@ -4,20 +4,21 @@ module.exports = async ({ config }) => {
   // fonts
   config.module.rules.push({
     test: /\.(png|woff|woff2|eot|ttf|svg)$/,
-    use: [
-      {
-        loader: 'file-loader',
-        query: {
-          name: '[name].[ext]'
-        }
-      }
-    ],
-    include: path.resolve(__dirname, '../src/styles'),
+    type: 'asset/resource',
+    generator: {
+        filename: '[name][ext]',
+    },
+    // loader: 'file-loader',
+    //     options: {
+    //       name: '[name].[ext]',
+    // },
+    // include: path.resolve(__dirname, '../src/styles'),
   });
   config.resolve = {
     ...config.resolve,
     alias:{
       ...config.resolve.alias,
+      react: path.resolve('node_modules/react'),
       'jb-button': path.resolve(__dirname, '..','..', '..', 'web-component','jb-button', 'dist', 'JBButton.js'),
       'jb-input': path.resolve(__dirname, '..','..', '..', 'web-component','jb-input', 'dist', 'JBInput.js'),
       'jb-pin-input': path.resolve(__dirname, '..','..', '..', 'web-component','jb-pin-input', 'dist', 'JBPinInput.js'),

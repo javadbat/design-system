@@ -1,6 +1,6 @@
 import React, { useState }from 'react';
 import PropTypes from 'prop-types';
-import {JBSelect} from '../../../../../react-component/jb-select/lib/JBSelect';
+import {JBSelect} from '../../../../../react-component/jb-select/index';
 import './CustomizedOptions.css';
 function CustomizedOptions(props) {
     const [colorList, colorListSetter] = useState([

@@ -3,9 +3,7 @@ import { action, makeObservable, observable } from "mobx";
 import {JBGridData} from '../../../../react-component/jb-grid';
 class JBGridTestViewModel{
 
-    @observable
     jbGridConfig = new JBGridData();
-    @observable
     filterConfig = {
         columnList: [
             {
@@ -37,10 +35,13 @@ class JBGridTestViewModel{
         ]
     }
     constructor(){
-        makeObservable(this);
+        makeObservable(this,{
+            filterConfig:observable,
+            jbGridConfig:observable,
+            initGrid:action.bind
+        });
         this.initGrid();
     }
-    @action
     initGrid(){
         this.jbGridConfig.table.columns = [
             {

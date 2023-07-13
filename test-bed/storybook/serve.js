@@ -14,7 +14,8 @@ function getPort(){
     return port;
 }
 const port = getPort();
-const serveProcess = spawn('start-storybook',['-p',port,'-c','.storybook','watch-css','-s','./src'],{stdio:'inherit',shell:true});
+// const serveProcess = spawn('start-storybook',['-p',port,'-c','.storybook','watch-css','-s','./src'],{stdio:'inherit',shell:true});
+const serveProcess = spawn('storybook',["dev",'-p',port,'-c','.storybook','watch-css',],{stdio:'inherit',shell:true});
 serveProcess.on('exit',(data)=>{
     console.log(data);
 });
