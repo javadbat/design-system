@@ -379,6 +379,16 @@ const reactComponentConfig = {
                 'react':'React',
                 'prop-types':'PropTypes',
             }
+        },
+        {
+            name: 'jb-loading-react',
+            path: '/react-component/jb-loading/lib/JBLoading.tsx',
+            outputPath:'/react-component/jb-loading/dist/JBLoading.js',
+            external:[ 'jb-loading', 'prop-types', 'react'],
+            globals:{
+                'react':'React',
+                'prop-types':'PropTypes',
+            }
         }
     ]
 };

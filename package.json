@@ -44,6 +44,7 @@
     "jb-input": "file:./web-component/jb-input",
     "jb-mobile-input": "file:./web-component/jb-mobile-input",
     "jb-modal": "file:./web-component/jb-modal",
+    "jb-loading": "file:./web-component/jb-loading",
     "jb-payment-input": "file:./web-component/jb-payment-input",
     "jb-pin-input": "file:./web-component/jb-pin-input",
     "jb-searchbar": "^1.0.2",
