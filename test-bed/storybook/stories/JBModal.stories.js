@@ -1,5 +1,5 @@
 import React from 'react';
-import JBModal from '../../../react-component/jb-modal/lib/JBModal';
+import JBModal from '../../../react-component/jb-modal';
 import NormalP from './pages/JBModal/Normal';
 
 

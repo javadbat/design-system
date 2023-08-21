@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import JBModal from '../../../../../react-component/jb-modal/lib/JBModal';
+import React, { useState } from 'react';
+import JBModal from '../../../../../react-component/jb-modal';
 import './Normal.css';
 const longString= "test long string ".repeat(200);
 export default function Normal() {

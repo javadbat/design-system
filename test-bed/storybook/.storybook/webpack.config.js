@@ -34,6 +34,7 @@ module.exports = async ({ config }) => {
       'jb-time-input-react': path.resolve(__dirname, '..','..', '..', 'react-component','jb-time-input', 'dist', 'JBTimeInput.js'),
       'jb-date-input-react': path.resolve(__dirname, '..','..', '..', 'react-component','jb-date-input', 'dist', 'JBDateInput.js'),
       'jb-pin-input-react': path.resolve(__dirname, '..','..', '..', 'react-component','jb-pin-input', 'dist', 'JBPinInput.js'),
+      'jb-loading-react': path.resolve(__dirname, '..','..', '..', 'react-component','jb-loading', 'dist', 'JBLoading.js'),
       'jb-mobile-input':path.resolve(__dirname, '..','..', '..', 'web-component','jb-mobile-input', 'dist', 'jb-mobile-input.js'),
       'jb-payment-input':path.resolve(__dirname, '..','..', '..', 'web-component','jb-payment-input'),
       'jb-modal':path.resolve(__dirname, '..','..', '..', 'web-component','jb-modal'),

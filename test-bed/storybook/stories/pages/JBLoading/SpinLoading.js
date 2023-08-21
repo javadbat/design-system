@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../../../../../web-component/jb-loading';
+import 'jb-loading';
 function SpinLoading(props) {
     return (
         <div className="spin-loading-page">
