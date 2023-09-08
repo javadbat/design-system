@@ -308,6 +308,7 @@ const reactComponentConfig = {
             globals:{
                 'react':'React',
                 'prop-types':'PropTypes',
+                'jb-date-input':'JBDateInput'
             }
         },
         // {
