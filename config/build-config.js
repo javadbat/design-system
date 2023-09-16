@@ -57,7 +57,7 @@ var webComponentConfig = {
         },
         {
             name: 'jb-message',
-            path: '/modules/jb-message/lib/JBMessage.js',
+            path: '/modules/jb-message/lib/JBMessage.ts',
             outputPath: '/modules/jb-message/dist/JBMessage.js',
             umdName:'JBMessage',
         },
