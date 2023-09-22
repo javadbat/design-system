@@ -20,7 +20,7 @@ AutoFocus.args = {
 };
 export const charLength = Template.bind({});
 charLength.args = {
-    label:'5 digit pin',
+    label:'8 digit pin',
     value:"",
     charLength:8
 };
