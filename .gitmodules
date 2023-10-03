@@ -113,3 +113,6 @@
 [submodule "react-component/jb-loading"]
 	path = react-component/jb-loading
 	url = https://github.com/javadbat/jb-loading-react.git
+[submodule "web-component/jb-notification"]
+	path = web-component/jb-notification
+	url = https://github.com/javadbat/jb-notification.git

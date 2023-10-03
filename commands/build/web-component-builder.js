@@ -3,7 +3,6 @@ import path from 'path';
 import * as rollup from 'rollup';
 import html from 'rollup-plugin-html';
 import postcss from 'rollup-plugin-postcss';
-import commonjs from '@rollup/plugin-commonjs';
 import rollupJson from '@rollup/plugin-json';
 import resolve from '@rollup/plugin-node-resolve';
 import rollupReplace from '@rollup/plugin-replace';
@@ -14,7 +13,7 @@ import generalConfig from '../../config/general-config.js';
 import typescript from 'rollup-plugin-typescript2';
 import chalk from 'chalk';
 // import InlineSvg from 'rollup-plugin-inline-svg';
-import svg from 'rollup-plugin-svg'
+import svg from 'rollup-plugin-svg';
 
 /**
  * @typedef {import('rollup-plugin-typescript2/dist/ioptions').IOptions} TypeScriptIOptions
@@ -22,7 +21,7 @@ import svg from 'rollup-plugin-svg'
 
 class WebComponentBuilder {
     constructor() {
-        console.log('web-component-builder-initiated'.yellow);
+        console.log(chalk.yellow('web-component-builder-initiated'));
     }
     build() {
         return new Promise((resolve, reject) => {
@@ -39,24 +38,23 @@ class WebComponentBuilder {
         });
 
     }
-    buildComponent(component) {
+    async buildComponent(component) {
         console.log(`start building ${component.name}`);
 
         const inputOptions = this._getInputOption(component,"es");
         const outputOptions = this._getOutputOption(component, 'es');
-        const modulePromise = this.buildModule(inputOptions, outputOptions);
+        await this.buildModule(inputOptions, outputOptions,'es');
         //build umd package
         const umdInputOptions = this._getInputOption(component,"umd");
         const umdOutputOptions = this._getOutputOption(component, 'umd');
-        const UMDmodulePromise = this.buildModule(umdInputOptions, umdOutputOptions);
-        return Promise.all([modulePromise, UMDmodulePromise]);
+        await this.buildModule(umdInputOptions, umdOutputOptions, 'umd');
     }
-    buildModule(inputOptions, outputOptions) {
+    buildModule(inputOptions, outputOptions, type) {
         //build module with rollup without any watch or something
         let bundlePromise = rollup.rollup(inputOptions);
         bundlePromise.then(function (bundle) {
             bundle.write(outputOptions).then(function (output) {
-                console.log(chalk.greenBright(output.output[0].facadeModuleId), ' ', chalk.bgMagenta(' DONE '));
+                console.log(chalk.greenBright(output.output[0].facadeModuleId), ' ',chalk.bgBlue(` ${type} `) , ' ', chalk.bgMagenta(' DONE '));
             });
         }).catch((e) => {
             console.log(e);

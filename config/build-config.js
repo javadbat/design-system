@@ -153,6 +153,18 @@ var webComponentConfig = {
             umdName:'JBTooltip'
         },
         {
+            name: 'jb-notification',
+            path: '/web-component/jb-notification/lib/jb-notification.ts',
+            outputPath: '/web-component/jb-notification/dist/jb-notification.js',
+            umdName:'JBNotification'
+        },
+        {
+            name: 'jb-notification-wrapper',
+            path: '/web-component/jb-notification/lib/wrapper/jb-notification-wrapper.ts',
+            outputPath: '/web-component/jb-notification/dist/wrapper/jb-notification-wrapper.js',
+            umdName:'JBNotificationWrapper'
+        },
+        {
             name: 'jb-infinite-scroll',
             path: '/web-component/jb-infinite-scroll/lib/jb-infinite-scroll.ts',
             outputPath: '/web-component/jb-infinite-scroll/dist/jb-infinite-scroll.js',
