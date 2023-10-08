@@ -49,6 +49,7 @@
     "jb-pin-input": "file:./web-component/jb-pin-input",
     "jb-searchbar": "^1.0.2",
     "jb-select": "^4.5.1",
+    "jb-textarea": "^2.1.0",
     "jb-time-picker": "file:./web-component/jb-time-picker",
     "lodash": "^4.17.21",
     "lodash.clonedeep": "^4.5.0",

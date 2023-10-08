@@ -323,6 +323,16 @@ const reactComponentConfig = {
                 'jb-date-input':'JBDateInput'
             }
         },
+        {
+            name: 'jb-textarea-react',
+            path: '/react-component/jb-textarea/lib/JBTextArea.tsx',
+            outputPath:'/react-component/jb-textarea/dist/JBTextArea.js',
+            external:[ 'react', 'prop-types', 'jb-textarea'],
+            globals:{
+                'react':'React',
+                'jb-textarea':'JBTextarea'
+            }
+        },
         // {
         //     name: 'jb-select-react',
         //     path: '/react-component/jb-select/lib/JBSelect.tsx',

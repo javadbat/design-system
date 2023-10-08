@@ -23,27 +23,28 @@ class ReactComponentBuilder {
         });
 
     }
-    buildComponent(component) {
+    async buildComponent(component) {
         console.log(`start building ${component.name}`);
         const inputOptions = this._getInputOption(component);
         const esOutputOptions = this._getOutputOption(component, 'es');
         const umdOutputOptions = this._getOutputOption(component, 'umd');
-        const esBuildPromise = this.buildModule(inputOptions, esOutputOptions);
-        const umdBuildPromise = this.buildModule(inputOptions, umdOutputOptions);
-        return Promise.all([esBuildPromise, umdBuildPromise]);
-
+        await this.buildModule(inputOptions, esOutputOptions, 'ES');
+        await this.buildModule(inputOptions, umdOutputOptions, 'UMD');
     }
-    buildModule(inputOptions, outputOptions) {
+    buildModule(inputOptions, outputOptions, type) {
         //build module with rollup without any watch or something
-        let bundlePromise = rollup.rollup(inputOptions);
-        bundlePromise.then(function (bundle) {
-            bundle.write(outputOptions).then(function (output) {
-                console.log(chalk.greenBright(output.output[0].facadeModuleId), ' ', chalk.bgMagenta(' DONE '));
+        return new Promise((resolve, reject) => {
+            let bundlePromise = rollup.rollup(inputOptions);
+            bundlePromise.then(function (bundle) {
+                bundle.write(outputOptions).then(function (output) {
+                    console.log(chalk.greenBright(output.output[0].facadeModuleId), ' ', chalk.bgBlue(type), ' ', chalk.bgMagenta(' DONE '));
+                    resolve();
+                });
+            }).catch((e) => {
+                console.log(e);
+                reject(e);
             });
-        }).catch((e) => {
-            console.log(e);
         });
-        return bundlePromise;
     }
     _getInputOption(module) {
         let externalList = module.external || [];
