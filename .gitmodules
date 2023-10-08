@@ -116,3 +116,6 @@
 [submodule "web-component/jb-notification"]
 	path = web-component/jb-notification
 	url = https://github.com/javadbat/jb-notification.git
+[submodule "react-component/jb-textarea"]
+	path = react-component/jb-textarea
+	url = https://github.com/javadbat/jb-textarea-react.git
