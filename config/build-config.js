@@ -33,8 +33,8 @@ var webComponentConfig = {
         },
         {
             name: 'jb-file-input',
-            path: '/web-component/jb-file-input/lib/JBFileInput.js',
-            outputPath: '/web-component/jb-file-input/dist/JBFileInput.js',
+            path: '/web-component/jb-file-input/lib/jb-file-input.ts',
+            outputPath: '/web-component/jb-file-input/dist/jb-file-input.js',
             umdName:'JBFileInput',
         },
         {
@@ -408,6 +408,16 @@ const reactComponentConfig = {
             path: '/react-component/jb-loading/lib/JBLoading.tsx',
             outputPath:'/react-component/jb-loading/dist/JBLoading.js',
             external:[ 'jb-loading', 'prop-types', 'react'],
+            globals:{
+                'react':'React',
+                'prop-types':'PropTypes',
+            }
+        },
+        {
+            name: 'jb-file-input-react',
+            path: '/react-component/jb-file-input/lib/JBFileInput.tsx',
+            outputPath:'/react-component/jb-file-input/dist/JBFileInput.js',
+            external:[ 'jb-file-input', 'prop-types', 'react'],
             globals:{
                 'react':'React',
                 'prop-types':'PropTypes',

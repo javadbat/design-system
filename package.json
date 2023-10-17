@@ -41,6 +41,7 @@
     "jb-checkbox-react": "file:./react-component/jb-checkbox",
     "jb-date-input": "file:./web-component/jb-date-input",
     "jb-date-input-react": "file:./react-component/jb-date-input",
+    "jb-file-input": "file:./web-component/jb-file-input",
     "jb-input": "file:./web-component/jb-input",
     "jb-loading": "file:./web-component/jb-loading",
     "jb-mobile-input": "file:./web-component/jb-mobile-input",

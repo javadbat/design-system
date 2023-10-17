@@ -119,3 +119,6 @@
 [submodule "react-component/jb-textarea"]
 	path = react-component/jb-textarea
 	url = https://github.com/javadbat/jb-textarea-react.git
+[submodule "react-component/jb-file-input"]
+	path = react-component/jb-file-input
+	url = https://github.com/javadbat/jb-file-input-react.git
