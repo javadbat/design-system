@@ -1,5 +1,5 @@
 import React from 'react';
-import JBFileInput from '../../../react-component/jb-file-input/JBFileInput';
+import JBFileInput from '../../../react-component/jb-file-input';
 export default {
     title: 'Example/JBFileInput',
     component: JBFileInput

@@ -77,10 +77,11 @@ module.exports = {
         'no-cond-assign': 'off',
         'no-irregular-whitespace': 'error',
         'no-unexpected-multiline': 'error',
-        'valid-jsdoc': ['warn', {
+        'valid-jsdoc': ['off', {
             requireParamDescription: false,
             requireReturnDescription: false,
             requireReturn: false,
+            requireParamType: false,
             prefer: { returns: 'return' },
         }],
         'curly': ['error', 'multi-line'],

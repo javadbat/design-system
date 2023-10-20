@@ -154,6 +154,14 @@ WithCustomIcon.args = {
     inputType: "JALALI",
     direction: "ltr"
 };
+export const WithoutIcon = Normal.bind({});
+WithoutIcon.args = {
+    label: 'تاریخ',
+    valueType: "GREGORIAN",
+    inputType: "JALALI",
+    direction: "ltr",
+    style:"--jb-date-input-calendar-trigger-display:none"
+};
 const WithStartSectionTemplate = (args) => (
     <JBDateInput {...args}>
         <jb-date-input-inbox-element slot="end-section">
