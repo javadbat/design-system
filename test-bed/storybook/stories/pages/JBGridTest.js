@@ -22,7 +22,7 @@ class JBGridTest extends Component {
                             (item) => {
                                 return (
                                     <React.Fragment key={item.id}>
-                                        <Row style={{ gridTemplateColumns: vm.jbGridConfig.styles.table.generalCols.gridTemplateColumns }}>
+                                        <Row>
                                             <Cell>{item.name}</Cell>
                                             <Cell>{item.age}</Cell>
                                             <Cell><button onClick={()=>{item.jbGridDetail.isExpanded = !item.jbGridDetail.isExpanded;}}>detail</button></Cell>
