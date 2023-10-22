@@ -38,7 +38,7 @@ class JBGridTestViewModel{
         makeObservable(this,{
             filterConfig:observable,
             jbGridConfig:observable,
-            initGrid:action.bind
+            initGrid:action.bound
         });
         this.initGrid();
     }

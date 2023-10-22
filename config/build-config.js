@@ -63,8 +63,8 @@ var webComponentConfig = {
         },
         {
             name: 'jb-searchbar',
-            path: '/web-component/jb-searchbar/lib/JBSearchbar.js',
-            outputPath:'/web-component/jb-searchbar/dist/JBSearchbar.js',
+            path: '/web-component/jb-searchbar/lib/jb-searchbar.ts',
+            outputPath:'/web-component/jb-searchbar/dist/jb-searchbar.js',
             external: ['jb-input', 'jb-select', 'jb-date-input'],
             umdName:'JBSearchbar',
             globals:{
@@ -262,7 +262,7 @@ const reactComponentConfig = {
         },
         {
             name: 'jb-grid',
-            path: '/react-component/jb-grid/lib/JBGrid.js',
+            path: '/react-component/jb-grid/lib/JBGrid.tsx',
             outputPath:'/react-component/jb-grid/dist/JBGrid.js',
             external:['mobx-react', 'react', 'mobx', 'prop-types', 'jb-searchbar'],
             globals:{
