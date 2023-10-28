@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import './JBGridTest.css';
 import { Cell, Row, JBGrid, ExpandRow } from 'jb-grid';
 
@@ -27,9 +26,9 @@ class JBGridTest extends Component {
                                             <Cell>{item.age}</Cell>
                                             <Cell><button onClick={()=>{item.jbGridDetail.isExpanded = !item.jbGridDetail.isExpanded;}}>detail</button></Cell>
                                         </Row>
-                                        <ExpandRow show={item.jbGridDetail.isExpanded}>
+                                        {/* <ExpandRow show={item.jbGridDetail.isExpanded}>
                                             expand row
-                                        </ExpandRow>
+                                        </ExpandRow> */}
                                     </React.Fragment>
 
                                 );

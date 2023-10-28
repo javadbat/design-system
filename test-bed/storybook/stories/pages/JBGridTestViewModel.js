@@ -47,26 +47,26 @@ class JBGridTestViewModel{
             {
                 id: 1,
                 name: 'name',
-                caption: 'نام',
+                title: 'نام',
                 sortable: false,
                 width: '1fr'
             },
             {
                 id: 2,
                 name: 'age',
-                caption: 'سن',
+                title: 'سن',
                 sortable: false,
                 width: '1fr'
             },
             {
                 id: 3,
                 name: 'expand',
-                caption: 'باز کردن',
+                title: 'باز کردن',
                 sortable: false,
             }
         ];
-        this.jbGridConfig.data.url = "http://localhost:3200/grid/user-list",
-        this.jbGridConfig.data.method = "POST";
+        this.jbGridConfig.data.requestParams.url = "http://localhost:3200/grid/user-list",
+        this.jbGridConfig.data.requestParams.method = "POST";
     }
 }
 export default JBGridTestViewModel;
