@@ -261,6 +261,16 @@ const reactComponentConfig = {
             }
         },
         {
+            name: 'jb-image-input-react',
+            path: '/react-component/jb-image-input/lib/JBImageInput.tsx',
+            outputPath: '/react-component/jb-image-input/dist/JBImageInput.js',
+            external: ['prop-types', 'react', 'jb-image-input', 'jb-image-input/types'],
+            globals:{
+                'react':'React',
+                'prop-types':'PropTypes'
+            }
+        },
+        {
             name: 'jb-grid',
             path: '/react-component/jb-grid/lib/JBGrid.tsx',
             outputPath:'/react-component/jb-grid/dist/JBGrid.js',
