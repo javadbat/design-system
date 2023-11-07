@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import JBImageInput from '../../../../react-component/jb-image-input/JBImageInput';
+import JBImageInput from '../../../../react-component/jb-image-input/dist/JBImageInput';
 import Axios from 'axios';
 const bridge = {
     uploader: (file, config) => {

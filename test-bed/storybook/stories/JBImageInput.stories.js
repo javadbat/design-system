@@ -1,5 +1,5 @@
 import React from 'react';
-import JBImageInput from '../../../react-component/jb-image-input/JBImageInput';
+import JBImageInput from '../../../react-component/jb-image-input/dist/JBImageInput';
 import JBImageInputActionTest from './pages/JBImageInputActionTest';
 export default {
     title: 'Example/JBImageInput',

@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
-import JBDateInput from 'jb-date-input-react';
+import {JBDateInput} from 'jb-date-input-react';
 function JBDateInputJalaliTest(props) {
     const [value, valueSetter] = useState("");
+    const [dateValue,setDateValue] = useState(new Date());
     const validationList = [
         {
             validator:/^13.*$/g,
@@ -31,6 +32,8 @@ function JBDateInputJalaliTest(props) {
             </div>
             <h3>test custom validation</h3>
             <JBDateInput validationList={validationList} value={value} label={props.label} valueType={props.valueType} onChange={e => {valueSetter(e.target.value);}} onSelect={e => {valueSetter(e.target.value);}} format={props.format}></JBDateInput>
+            <h3>test via JS Date type value</h3>
+            <JBDateInput value={dateValue} onChange={(e)=>setDateValue(e.target.valueInDate)}></JBDateInput>
         </div>
     );
 }
