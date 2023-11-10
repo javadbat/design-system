@@ -365,9 +365,9 @@ const reactComponentConfig = {
         },
         {
             name: 'jb-mobile-input-react',
-            path: '/react-component/jb-mobile-input/lib/JBMobileInput.js',
+            path: '/react-component/jb-mobile-input/lib/JBMobileInput.tsx',
             outputPath:'/react-component/jb-mobile-input/dist/JBMobileInput.js',
-            external:[ 'jb-mobile-input', 'prop-types', 'react'],
+            external:['jb-input', 'jb-mobile-input', 'prop-types', 'react'],
             globals:{
                 'react':'React',
                 'prop-types':'PropTypes',
