@@ -28,6 +28,14 @@ CustomFormat.args = {
     format: "YYYY/MM/DD",
     direction: "ltr"
 };
+export const Placeholder = Template.bind({});
+Placeholder.args = {
+    label: 'تاریخ',
+    placeholder:'تاریخ را وارد کنید',
+    valueType: "GREGORIAN",
+    inputType: "JALALI",
+    direction: "ltr"
+};
 export const WithDefaultCalendarDate = Template.bind({});
 WithDefaultCalendarDate.args = {
     label: 'تاریخ',

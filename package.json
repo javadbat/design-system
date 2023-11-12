@@ -48,6 +48,7 @@
     "jb-input-react": "^3.0.6",
     "jb-loading": "file:./web-component/jb-loading",
     "jb-mobile-input": "file:./web-component/jb-mobile-input",
+    "jb-mobile-input-react": "file:./react-component/jb-mobile-input",
     "jb-modal": "file:./web-component/jb-modal",
     "jb-payment-input": "file:./web-component/jb-payment-input",
     "jb-pin-input": "file:./web-component/jb-pin-input",

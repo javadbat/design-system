@@ -25,6 +25,7 @@ module.exports = async ({ config }) => {
       'jb-pin-input': path.resolve(__dirname, '..','..', '..', 'web-component','jb-pin-input', 'dist', 'JBPinInput.js'),
       'jb-select': path.resolve(__dirname, '..','..', '..', 'web-component','jb-select', 'dist', 'JBSelect.js'),
       'jb-select-react': path.resolve(__dirname, '..','..', '..', 'react-component','jb-select', 'index.js'),
+      'jb-mobile-input-react': path.resolve(__dirname, '..','..', '..', 'react-component','jb-mobile-input', 'index.js'),
       'jb-grid': path.resolve(__dirname, '..','..', '..', 'react-component','jb-grid', 'index.js'),
       'jb-calendar': path.resolve(__dirname, '..','..', '..', 'web-component','jb-calendar', 'dist', 'JBCalendar.js'),
       'jb-date-input': path.resolve(__dirname, '..','..', '..', 'web-component','jb-date-input', 'dist', 'JBDateInput.js'),
