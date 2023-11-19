@@ -1,5 +1,5 @@
 import React from 'react';
-import JBSelect from '../../../../../react-component/jb-select';
+import {JBSelect} from 'jb-select-react';
 import './JBSelectStyleTestPage.css';
 function JBSelectStyleTest (props){
     const options = ["1","2","3"];
@@ -28,7 +28,9 @@ function JBSelectStyleTest (props){
                 --jb-select-border-color-selected: rgb(30, 29, 43);<br /><br />
                 --jb-select-bgcolor-selected: rgb(195, 57, 230);<br /><br />
                 --jb-select-bgcolor: lightgray;<br /><br />
-                --jb-select-mobile-search-input-height: 64px;
+                --jb-select-mobile-search-input-height: 64px;<br /><br />
+                --jb-select-border-bottom-width:1px;<br /><br />
+                --jb-select-mobile-item-list-border-radius:16px;
             </div>
             <br /><br />
             <div className="self-style-wrapper">
