@@ -69,6 +69,14 @@ EmptyList.args = {
     message:"this list is a empty list",
     optionList:[],
 };
+const WithStyleTemplate = (args) => <JBSelect style={{"--jb-select-mobile-modal-height":"50vh","--jb-select-mobile-modal-border-radius":"1rem"}} { ...args}></JBSelect>;
+export const ModalHeight = WithStyleTemplate.bind({});
+ModalHeight.args = {
+    label:'select from in mobile',
+    message:"put in mobile view and open menu. it must fill half of the page",
+    placeholder:"select number here",
+    optionList:['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39'],
+};
 //when user type and want to change text
 const DynamicListTemplate = (args) => <JBSelectDynamicList></JBSelectDynamicList>;
 export const DynamicList = DynamicListTemplate.bind({});
