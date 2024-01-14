@@ -35,9 +35,11 @@ class JBGridBridge {
     }
     getData(configData, requestBody) {
         return new Promise((resolve, reject) => {
-            var request = Axios({
-                url: configData.requestParams.url,
-                method: configData.requestParams.method,
+            const url = configData.url;
+            const method = configData.method;
+            Axios({
+                url,
+                method,
                 data: requestBody
             }).then((res)=>{
                 resolve(res.data);

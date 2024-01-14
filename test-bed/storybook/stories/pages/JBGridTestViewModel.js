@@ -48,7 +48,7 @@ class JBGridTestViewModel{
                 id: 1,
                 name: 'name',
                 title: 'نام',
-                sortable: false,
+                sortable: true,
                 width: '1fr'
             },
             {
