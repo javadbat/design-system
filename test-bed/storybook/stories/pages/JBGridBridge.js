@@ -42,7 +42,9 @@ class JBGridBridge {
                 method,
                 data: requestBody
             }).then((res)=>{
-                resolve(res.data);
+                setTimeout(()=>{
+                    resolve(res.data);
+                },3000)
             }).catch((err) => {
                 reject(err);
             });
