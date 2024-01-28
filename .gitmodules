@@ -125,3 +125,6 @@
 [submodule "react-component/jb-image-input"]
 	path = react-component/jb-image-input
 	url = https://github.com/javadbat/jb-image-input-react.git
+[submodule "web-component/jb-switch"]
+	path = web-component/jb-switch
+	url = https://github.com/javadbat/jb-switch.git

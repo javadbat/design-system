@@ -1,6 +1,6 @@
 import { action, makeObservable, observable } from "mobx";
 
-import {JBGridData} from '../../../../react-component/jb-grid';
+import {JBGridData} from 'jb-grid';
 class JBGridTestViewModel{
 
     jbGridConfig = new JBGridData();

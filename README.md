@@ -4,7 +4,7 @@ design-system for jb-web-components and corresponding react components
 
 ## architecture
 
-micro-front-end with storybook testbed
+micro-front-end with storybook test bed
 
 ## usage
 

@@ -5,6 +5,7 @@ import { Cell, Row, JBGrid, ExpandRow } from 'jb-grid';
 import JBGridBridge from './JBGridBridge';
 import JBGridTestViewModel from './JBGridTestViewModel';
 import { observer } from 'mobx-react';
+import ExpandRowSample from './ExpandRowSample';
 class JBGridTest extends Component {
     constructor(props) {
         super(props);
@@ -26,9 +27,9 @@ class JBGridTest extends Component {
                                             <Cell>{item.age}</Cell>
                                             <Cell><button onClick={()=>{item.jbGridDetail.isExpanded = !item.jbGridDetail.isExpanded;}}>detail</button></Cell>
                                         </Row>
-                                        {/* <ExpandRow show={item.jbGridDetail.isExpanded}>
-                                            expand row
-                                        </ExpandRow> */}
+                                        <ExpandRow show={item.jbGridDetail.isExpanded}>
+                                            <ExpandRowSample></ExpandRowSample>
+                                        </ExpandRow>
                                     </React.Fragment>
 
                                 );
