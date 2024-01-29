@@ -249,11 +249,12 @@ const reactComponentConfig = {
         },
         {
             name: 'jb-switch-react',
-            path: '/react-component/jb-switch/lib/JBSwitch.js',
+            path: '/react-component/jb-switch/lib/JBSwitch.tsx',
             outputPath: '/react-component/jb-switch/dist/JBSwitch.js',
-            external: ['prop-types', 'react'],
+            external: ['prop-types', 'react','jb-switch'],
             globals:{
                 'react':'React',
+                'jb-switch':'JBSwitch',
                 'prop-types':'PropTypes'
             }
         },

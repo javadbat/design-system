@@ -1,5 +1,5 @@
 import React from 'react';
-import JBSwitch from '../../../react-component/jb-switch';
+import {JBSwitch} from '../../../react-component/jb-switch/index';
 import { action } from '@storybook/addon-actions';
 import JBSwitchTest from '../stories/pages/JBSwitchTestPage';
 import JBSwitchIsLoadingTest from '../stories/pages/JBSwitchIsLoadingTestPage';

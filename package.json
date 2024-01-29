@@ -43,6 +43,8 @@
     "jb-date-input-react": "file:react-component/jb-date-input",
     "jb-file-input": "file:./web-component/jb-file-input",
     "jb-grid": "file:./react-component/jb-grid",
+    "jb-switch": "file:./web-component/jb-switch",
+    "jb-switch-react": "file:./react-component/jb-switch",
     "jb-image-input": "^2.0.2",
     "jb-input": "file:./web-component/jb-input",
     "jb-input-react": "^3.0.6",
