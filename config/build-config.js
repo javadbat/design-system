@@ -184,6 +184,13 @@ var webComponentConfig = {
                 'qrcode':'QRCode',
             }
         },
+        {
+            name: 'jb-switch',
+            path: '/web-component/jb-switch/lib/jb-switch.ts',
+            outputPath:'/web-component/jb-switch/dist/jb-switch.js',
+            external: [],
+            umdName:'JBSwitch',
+        },
         
 
     ],
