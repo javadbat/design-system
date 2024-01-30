@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import JBSwitch from '../../../../react-component/jb-switch';
+import {JBSwitch} from '../../../../react-component/jb-switch';
 function JBSwitchTest (props){
     const [value, inputValueSetter] = useState(false);
     return (

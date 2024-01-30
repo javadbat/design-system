@@ -4,9 +4,10 @@ function JBSwitchIsLoadingTest (props){
     const [value, inputValueSetter] = useState(false);
     const [isLoading, isLoadingSetter] = useState(false);
     function onChangeInput(e){
+        const newValue = e.target.value;
         isLoadingSetter(true);
         setTimeout(() => {
-            inputValueSetter(e.target.value);
+            inputValueSetter(newValue);
             isLoadingSetter(false);
         }, 1500);
     }
