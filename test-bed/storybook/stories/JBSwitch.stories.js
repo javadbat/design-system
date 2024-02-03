@@ -1,8 +1,8 @@
 import React from 'react';
 import {JBSwitch} from '../../../react-component/jb-switch/index';
 import { action } from '@storybook/addon-actions';
-import JBSwitchTest from '../stories/pages/JBSwitchTestPage';
-import JBSwitchIsLoadingTest from '../stories/pages/JBSwitchIsLoadingTestPage';
+import JBSwitchTest from '../stories/pages/jb-switch/JBSwitchTestPage';
+import JBSwitchIsLoadingTest from '../stories/pages//jb-switch/JBSwitchIsLoadingTestPage';
 import {JBSwitchWebComponent} from '../../../web-component/jb-switch/dist/jb-switch';
 console.log(JBSwitchWebComponent);
 export default {
@@ -14,6 +14,14 @@ const Template = (args) => <JBSwitch trueTitle={args.trueTitle} falseTitle={args
 
 export const Normal = Template.bind({});
 Normal.args = {
+    value:false,
+    trueTitle:'فعال',
+    falseTitle:'غیر فعال',
+    onChange:(e)=>{console.log(e);action('onChange')(e);}
+};
+const RTLTemplate = (args) => <div style={{direction:"rtl"}}><JBSwitch trueTitle={args.trueTitle} falseTitle={args.falseTitle} value={args.value} onChange={args.onChange} isLoading={args.isLoading}></JBSwitch></div>;
+export const RTL = RTLTemplate.bind({});
+RTL.args = {
     value:false,
     trueTitle:'فعال',
     falseTitle:'غیر فعال',
