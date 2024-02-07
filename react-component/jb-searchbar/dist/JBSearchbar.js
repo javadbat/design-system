@@ -26,55 +26,46 @@ var arrayWithHoles = createCommonjsModule(function (module) {
 function _arrayWithHoles(arr) {
   if (Array.isArray(arr)) return arr;
 }
-
 module.exports = _arrayWithHoles, module.exports.__esModule = true, module.exports["default"] = module.exports;
 });
 
 var iterableToArrayLimit = createCommonjsModule(function (module) {
 function _iterableToArrayLimit(arr, i) {
-  var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"];
-
-  if (_i == null) return;
-  var _arr = [];
-  var _n = true;
-  var _d = false;
-
-  var _s, _e;
-
-  try {
-    for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) {
-      _arr.push(_s.value);
-
-      if (i && _arr.length === i) break;
-    }
-  } catch (err) {
-    _d = true;
-    _e = err;
-  } finally {
+  var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"];
+  if (null != _i) {
+    var _s,
+      _e,
+      _x,
+      _r,
+      _arr = [],
+      _n = !0,
+      _d = !1;
     try {
-      if (!_n && _i["return"] != null) _i["return"]();
+      if (_x = (_i = _i.call(arr)).next, 0 === i) {
+        if (Object(_i) !== _i) return;
+        _n = !1;
+      } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0);
+    } catch (err) {
+      _d = !0, _e = err;
     } finally {
-      if (_d) throw _e;
+      try {
+        if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return;
+      } finally {
+        if (_d) throw _e;
+      }
     }
+    return _arr;
   }
-
-  return _arr;
 }
-
 module.exports = _iterableToArrayLimit, module.exports.__esModule = true, module.exports["default"] = module.exports;
 });
 
 var arrayLikeToArray = createCommonjsModule(function (module) {
 function _arrayLikeToArray(arr, len) {
   if (len == null || len > arr.length) len = arr.length;
-
-  for (var i = 0, arr2 = new Array(len); i < len; i++) {
-    arr2[i] = arr[i];
-  }
-
+  for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
   return arr2;
 }
-
 module.exports = _arrayLikeToArray, module.exports.__esModule = true, module.exports["default"] = module.exports;
 });
 
@@ -87,7 +78,6 @@ function _unsupportedIterableToArray(o, minLen) {
   if (n === "Map" || n === "Set") return Array.from(o);
   if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return arrayLikeToArray(o, minLen);
 }
-
 module.exports = _unsupportedIterableToArray, module.exports.__esModule = true, module.exports["default"] = module.exports;
 });
 
@@ -95,7 +85,6 @@ var nonIterableRest = createCommonjsModule(function (module) {
 function _nonIterableRest() {
   throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
-
 module.exports = _nonIterableRest, module.exports.__esModule = true, module.exports["default"] = module.exports;
 });
 
@@ -103,7 +92,6 @@ var slicedToArray = createCommonjsModule(function (module) {
 function _slicedToArray(arr, i) {
   return arrayWithHoles(arr) || iterableToArrayLimit(arr, i) || unsupportedIterableToArray(arr, i) || nonIterableRest();
 }
-
 module.exports = _slicedToArray, module.exports.__esModule = true, module.exports["default"] = module.exports;
 });
 
@@ -115,38 +103,67 @@ function useEvent(dom, event, handler) {
     if (dom) {
       // initiate the event handler
       dom.addEventListener(event, handler, passive);
-    } // this will clean up the event every time the component is re-rendered
-
-
+    }
+    // this will clean up the event every time the component is re-rendered
     return function cleanup() {
       if (dom) {
-        dom.removeEventListener(event, handler);
+        dom.removeEventListener(event, handler, passive);
       }
     };
   });
 }
 
+/******************************************************************************
+Copyright (c) Microsoft Corporation.
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
+***************************************************************************** */
+
+function __classPrivateFieldGet(receiver, state, kind, f) {
+    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a getter");
+    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
+    return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
+}
+
+function __classPrivateFieldSet(receiver, state, value, kind, f) {
+    if (kind === "m") throw new TypeError("Private method is not writable");
+    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a setter");
+    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot write private member to an object whose class did not declare it");
+    return (kind === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value)), value;
+}
+
 var HTML = "<div class=\"jb-searchbar-web-component\">\r\n    <div class=\"search-dynamic-wrapper\">\r\n        <section class=\"filter-list-section\"></section>\r\n        <section class=\"filter-input-section\">\r\n            <div class=\"column-select-wrapper\">\r\n                 <jb-select class=\"column-select\" placeholder=\"\"></jb-select>\r\n            </div>\r\n            <div class=\"intent-wrapper --hide\">\r\n                <div class=\"intent-column\"></div>\r\n                <div class=\"intent-input-wrapper\"></div>\r\n                <div class=\"intent-submit-button\">\r\n                    <svg x=\"0px\" y=\"0px\" viewBox=\"0 0 493.464 493.464\" space=\"preserve\">\r\n                        <g>\r\n                            <g>\r\n                                <path d=\"M246.736,0C110.692,0,0.004,110.68,0.004,246.732c0,136.06,110.688,246.732,246.732,246.732    c136.048,0,246.724-110.672,246.724-246.732C493.456,110.68,382.78,0,246.736,0z M360.524,208.716L230.98,338.268    c-2.82,2.824-7.816,2.824-10.64,0l-86.908-86.912c-1.412-1.416-2.192-3.3-2.192-5.324c0.004-2.016,0.784-3.912,2.192-5.336    l11.108-11.104c1.412-1.408,3.3-2.18,5.328-2.18c2.016,0,3.908,0.772,5.316,2.18l67.752,67.752c1.5,1.516,3.94,1.516,5.444,0    l110.392-110.392c2.824-2.824,7.828-2.824,10.644,0l11.108,11.124c1.412,1.4,2.208,3.304,2.208,5.308    C362.732,205.412,361.936,207.3,360.524,208.716z\"/>\r\n                            </g>\r\n                        </g>\r\n                    </svg>\r\n                </div>\r\n            </div>\r\n        </section>\r\n    </div>\r\n    <div class=\"search-button-wrapper\">\r\n        <svg viewBox=\"0 0 512 512\" xmlns=\"http://www.w3.org/2000/svg\">\r\n            <circle cx=\"255\" cy=\"255\" r=\"170\"></circle>\r\n            <g class=\"spin-line-group\">\r\n                <rect x=\"0\" y=\"0\" width=\"512\" height=\"512\"/>\r\n                <path class=\"convertable-line\" d=\"M400 400 L 450 450\"></path>\r\n            </g>\r\n        </svg>\r\n    </div>\r\n</div>";
 
-var css_248z = ".jb-searchbar-web-component {\n  width: 100%;\n  height: auto;\n  min-height: 48px;\n  display: flex; }\n  .jb-searchbar-web-component .search-dynamic-wrapper {\n    width: calc(100% - 48px);\n    height: auto;\n    min-height: 48px;\n    display: inline-flex;\n    flex-wrap: wrap; }\n    .jb-searchbar-web-component .search-dynamic-wrapper .filter-list-section {\n      display: inline-flex;\n      align-items: center;\n      flex-wrap: wrap;\n      row-gap: 8px;\n      column-gap: 8px; }\n      .jb-searchbar-web-component .search-dynamic-wrapper .filter-list-section .filter-item {\n        display: inline-flex;\n        justify-content: center;\n        align-items: center;\n        margin: 0px 0px;\n        padding: 4px 8px;\n        background-color: #408cff;\n        color: #fff;\n        border-radius: 36px; }\n        .jb-searchbar-web-component .search-dynamic-wrapper .filter-list-section .filter-item .delete-btn {\n          cursor: pointer;\n          display: block;\n          padding: 4px 8px 0px 8px;\n          box-sizing: border-box; }\n          .jb-searchbar-web-component .search-dynamic-wrapper .filter-list-section .filter-item .delete-btn svg {\n            fill: #fff;\n            width: 12px;\n            height: 12px; }\n        .jb-searchbar-web-component .search-dynamic-wrapper .filter-list-section .filter-item .filter-label {\n          display: block;\n          box-sizing: border-box; }\n    .jb-searchbar-web-component .search-dynamic-wrapper .filter-input-section {\n      --jb-select-margin: 0 0;\n      --jb-select-border-radius: 24px;\n      --jb-select-border-color: transparent;\n      --jb-select-border-color-selected: transparent;\n      --jb-select-bgcolor: #fff;\n      --jb-select-list-box-shadow: 0px 15px 20px -6px #d8d8d8;\n      display: inline-block; }\n      .jb-searchbar-web-component .search-dynamic-wrapper .filter-input-section .column-select-wrapper {\n        width: 240px; }\n        .jb-searchbar-web-component .search-dynamic-wrapper .filter-input-section .column-select-wrapper.--hide {\n          display: none; }\n      .jb-searchbar-web-component .search-dynamic-wrapper .filter-input-section .intent-wrapper {\n        display: flex;\n        align-items: center; }\n        .jb-searchbar-web-component .search-dynamic-wrapper .filter-input-section .intent-wrapper .intent-input-wrapper {\n          width: 180px;\n          --jb-input-margin: 0 0;\n          --jb-input-border-radius: 0px;\n          --jb-input-border-color: transparent;\n          --jb-input-border-color-focus: transparent;\n          --jb-input-bgcolor: #fff;\n          --jb-input-message-box-display:none;\n          --jb-select-margin: 0 0;\n          --jb-select-border-radius: 24px;\n          --jb-select-border-color: transparent;\n          --jb-select-border-color-selected: transparent;\n          --jb-select-bgcolor: #fff;\n          --jb-date-input-margin: 0 0;\n          --jb-date-input-border-radius: 0px;\n          --jb-date-input-border-color: transparent;\n          --jb-date-input-border-color-focus: transparent;\n          --jb-date-input-bgcolor: #fff;\n          --jb-date-input-message-box-display: none; }\n        .jb-searchbar-web-component .search-dynamic-wrapper .filter-input-section .intent-wrapper .intent-submit-button {\n          width: 32px;\n          height: 32px;\n          float: right;\n          padding: 4px 0 4px 0;\n          cursor: not-allowed; }\n          .jb-searchbar-web-component .search-dynamic-wrapper .filter-input-section .intent-wrapper .intent-submit-button.--active {\n            cursor: pointer; }\n            .jb-searchbar-web-component .search-dynamic-wrapper .filter-input-section .intent-wrapper .intent-submit-button.--active svg {\n              fill: #28BD48; }\n          .jb-searchbar-web-component .search-dynamic-wrapper .filter-input-section .intent-wrapper .intent-submit-button svg {\n            fill: #929292; }\n        .jb-searchbar-web-component .search-dynamic-wrapper .filter-input-section .intent-wrapper.--hide {\n          display: none; }\n  .jb-searchbar-web-component .search-button-wrapper {\n    width: 48px;\n    height: auto;\n    min-height: 48px;\n    cursor: pointer; }\n    .jb-searchbar-web-component .search-button-wrapper svg {\n      width: 36px;\n      height: 36px;\n      margin: 4px 8px;\n      box-sizing: border-box;\n      background-color: transparent; }\n      .jb-searchbar-web-component .search-button-wrapper svg circle {\n        stroke: #7b7b7b;\n        fill: white;\n        stroke-width: 25px; }\n      .jb-searchbar-web-component .search-button-wrapper svg .spin-line-group {\n        transform-origin: center;\n        fill: transparent; }\n        .jb-searchbar-web-component .search-button-wrapper svg .spin-line-group rect {\n          fill: transparent; }\n        .jb-searchbar-web-component .search-button-wrapper svg .spin-line-group path {\n          fill: none;\n          stroke: #9b9b9b;\n          stroke-linecap: round;\n          stroke-linejoin: round;\n          transition: 0.2s;\n          stroke-width: 35px;\n          transform-origin: center; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkpCU2VhcmNoYmFyLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxXQUFXO0VBQ1gsWUFBWTtFQUNaLGdCQUFnQjtFQUNoQixhQUFhLEVBQUU7RUFDZjtJQUNFLHdCQUF3QjtJQUN4QixZQUFZO0lBQ1osZ0JBQWdCO0lBQ2hCLG9CQUFvQjtJQUNwQixlQUFlLEVBQUU7SUFDakI7TUFDRSxvQkFBb0I7TUFDcEIsbUJBQW1CO01BQ25CLGVBQWU7TUFDZixZQUFZO01BQ1osZUFBZSxFQUFFO01BQ2pCO1FBQ0Usb0JBQW9CO1FBQ3BCLHVCQUF1QjtRQUN2QixtQkFBbUI7UUFDbkIsZUFBZTtRQUNmLGdCQUFnQjtRQUNoQix5QkFBeUI7UUFDekIsV0FBVztRQUNYLG1CQUFtQixFQUFFO1FBQ3JCO1VBQ0UsZUFBZTtVQUNmLGNBQWM7VUFDZCx3QkFBd0I7VUFDeEIsc0JBQXNCLEVBQUU7VUFDeEI7WUFDRSxVQUFVO1lBQ1YsV0FBVztZQUNYLFlBQVksRUFBRTtRQUNsQjtVQUNFLGNBQWM7VUFDZCxzQkFBc0IsRUFBRTtJQUM5QjtNQUNFLHVCQUF1QjtNQUN2QiwrQkFBK0I7TUFDL0IscUNBQXFDO01BQ3JDLDhDQUE4QztNQUM5Qyx5QkFBeUI7TUFDekIsdURBQXVEO01BQ3ZELHFCQUFxQixFQUFFO01BQ3ZCO1FBQ0UsWUFBWSxFQUFFO1FBQ2Q7VUFDRSxhQUFhLEVBQUU7TUFDbkI7UUFDRSxhQUFhO1FBQ2IsbUJBQW1CLEVBQUU7UUFDckI7VUFDRSxZQUFZO1VBQ1osc0JBQXNCO1VBQ3RCLDZCQUE2QjtVQUM3QixvQ0FBb0M7VUFDcEMsMENBQTBDO1VBQzFDLHdCQUF3QjtVQUN4QixtQ0FBbUM7VUFDbkMsdUJBQXVCO1VBQ3ZCLCtCQUErQjtVQUMvQixxQ0FBcUM7VUFDckMsOENBQThDO1VBQzlDLHlCQUF5QjtVQUN6QiwyQkFBMkI7VUFDM0Isa0NBQWtDO1VBQ2xDLHlDQUF5QztVQUN6QywrQ0FBK0M7VUFDL0MsNkJBQTZCO1VBQzdCLHlDQUF5QyxFQUFFO1FBQzdDO1VBQ0UsV0FBVztVQUNYLFlBQVk7VUFDWixZQUFZO1VBQ1osb0JBQW9CO1VBQ3BCLG1CQUFtQixFQUFFO1VBQ3JCO1lBQ0UsZUFBZSxFQUFFO1lBQ2pCO2NBQ0UsYUFBYSxFQUFFO1VBQ25CO1lBQ0UsYUFBYSxFQUFFO1FBQ25CO1VBQ0UsYUFBYSxFQUFFO0VBQ3ZCO0lBQ0UsV0FBVztJQUNYLFlBQVk7SUFDWixnQkFBZ0I7SUFDaEIsZUFBZSxFQUFFO0lBQ2pCO01BQ0UsV0FBVztNQUNYLFlBQVk7TUFDWixlQUFlO01BQ2Ysc0JBQXNCO01BQ3RCLDZCQUE2QixFQUFFO01BQy9CO1FBQ0UsZUFBZTtRQUNmLFdBQVc7UUFDWCxrQkFBa0IsRUFBRTtNQUN0QjtRQUNFLHdCQUF3QjtRQUN4QixpQkFBaUIsRUFBRTtRQUNuQjtVQUNFLGlCQUFpQixFQUFFO1FBQ3JCO1VBQ0UsVUFBVTtVQUNWLGVBQWU7VUFDZixxQkFBcUI7VUFDckIsc0JBQXNCO1VBQ3RCLGdCQUFnQjtVQUNoQixrQkFBa0I7VUFDbEIsd0JBQXdCLEVBQUUiLCJmaWxlIjoiSkJTZWFyY2hiYXIuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5qYi1zZWFyY2hiYXItd2ViLWNvbXBvbmVudCB7XG4gIHdpZHRoOiAxMDAlO1xuICBoZWlnaHQ6IGF1dG87XG4gIG1pbi1oZWlnaHQ6IDQ4cHg7XG4gIGRpc3BsYXk6IGZsZXg7IH1cbiAgLmpiLXNlYXJjaGJhci13ZWItY29tcG9uZW50IC5zZWFyY2gtZHluYW1pYy13cmFwcGVyIHtcbiAgICB3aWR0aDogY2FsYygxMDAlIC0gNDhweCk7XG4gICAgaGVpZ2h0OiBhdXRvO1xuICAgIG1pbi1oZWlnaHQ6IDQ4cHg7XG4gICAgZGlzcGxheTogaW5saW5lLWZsZXg7XG4gICAgZmxleC13cmFwOiB3cmFwOyB9XG4gICAgLmpiLXNlYXJjaGJhci13ZWItY29tcG9uZW50IC5zZWFyY2gtZHluYW1pYy13cmFwcGVyIC5maWx0ZXItbGlzdC1zZWN0aW9uIHtcbiAgICAgIGRpc3BsYXk6IGlubGluZS1mbGV4O1xuICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICAgIGZsZXgtd3JhcDogd3JhcDtcbiAgICAgIHJvdy1nYXA6IDhweDtcbiAgICAgIGNvbHVtbi1nYXA6IDhweDsgfVxuICAgICAgLmpiLXNlYXJjaGJhci13ZWItY29tcG9uZW50IC5zZWFyY2gtZHluYW1pYy13cmFwcGVyIC5maWx0ZXItbGlzdC1zZWN0aW9uIC5maWx0ZXItaXRlbSB7XG4gICAgICAgIGRpc3BsYXk6IGlubGluZS1mbGV4O1xuICAgICAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICAgICAgbWFyZ2luOiAwcHggMHB4O1xuICAgICAgICBwYWRkaW5nOiA0cHggOHB4O1xuICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjNDA4Y2ZmO1xuICAgICAgICBjb2xvcjogI2ZmZjtcbiAgICAgICAgYm9yZGVyLXJhZGl1czogMzZweDsgfVxuICAgICAgICAuamItc2VhcmNoYmFyLXdlYi1jb21wb25lbnQgLnNlYXJjaC1keW5hbWljLXdyYXBwZXIgLmZpbHRlci1saXN0LXNlY3Rpb24gLmZpbHRlci1pdGVtIC5kZWxldGUtYnRuIHtcbiAgICAgICAgICBjdXJzb3I6IHBvaW50ZXI7XG4gICAgICAgICAgZGlzcGxheTogYmxvY2s7XG4gICAgICAgICAgcGFkZGluZzogNHB4IDhweCAwcHggOHB4O1xuICAgICAgICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7IH1cbiAgICAgICAgICAuamItc2VhcmNoYmFyLXdlYi1jb21wb25lbnQgLnNlYXJjaC1keW5hbWljLXdyYXBwZXIgLmZpbHRlci1saXN0LXNlY3Rpb24gLmZpbHRlci1pdGVtIC5kZWxldGUtYnRuIHN2ZyB7XG4gICAgICAgICAgICBmaWxsOiAjZmZmO1xuICAgICAgICAgICAgd2lkdGg6IDEycHg7XG4gICAgICAgICAgICBoZWlnaHQ6IDEycHg7IH1cbiAgICAgICAgLmpiLXNlYXJjaGJhci13ZWItY29tcG9uZW50IC5zZWFyY2gtZHluYW1pYy13cmFwcGVyIC5maWx0ZXItbGlzdC1zZWN0aW9uIC5maWx0ZXItaXRlbSAuZmlsdGVyLWxhYmVsIHtcbiAgICAgICAgICBkaXNwbGF5OiBibG9jaztcbiAgICAgICAgICBib3gtc2l6aW5nOiBib3JkZXItYm94OyB9XG4gICAgLmpiLXNlYXJjaGJhci13ZWItY29tcG9uZW50IC5zZWFyY2gtZHluYW1pYy13cmFwcGVyIC5maWx0ZXItaW5wdXQtc2VjdGlvbiB7XG4gICAgICAtLWpiLXNlbGVjdC1tYXJnaW46IDAgMDtcbiAgICAgIC0tamItc2VsZWN0LWJvcmRlci1yYWRpdXM6IDI0cHg7XG4gICAgICAtLWpiLXNlbGVjdC1ib3JkZXItY29sb3I6IHRyYW5zcGFyZW50O1xuICAgICAgLS1qYi1zZWxlY3QtYm9yZGVyLWNvbG9yLXNlbGVjdGVkOiB0cmFuc3BhcmVudDtcbiAgICAgIC0tamItc2VsZWN0LWJnY29sb3I6ICNmZmY7XG4gICAgICAtLWpiLXNlbGVjdC1saXN0LWJveC1zaGFkb3c6IDBweCAxNXB4IDIwcHggLTZweCAjZDhkOGQ4O1xuICAgICAgZGlzcGxheTogaW5saW5lLWJsb2NrOyB9XG4gICAgICAuamItc2VhcmNoYmFyLXdlYi1jb21wb25lbnQgLnNlYXJjaC1keW5hbWljLXdyYXBwZXIgLmZpbHRlci1pbnB1dC1zZWN0aW9uIC5jb2x1bW4tc2VsZWN0LXdyYXBwZXIge1xuICAgICAgICB3aWR0aDogMjQwcHg7IH1cbiAgICAgICAgLmpiLXNlYXJjaGJhci13ZWItY29tcG9uZW50IC5zZWFyY2gtZHluYW1pYy13cmFwcGVyIC5maWx0ZXItaW5wdXQtc2VjdGlvbiAuY29sdW1uLXNlbGVjdC13cmFwcGVyLi0taGlkZSB7XG4gICAgICAgICAgZGlzcGxheTogbm9uZTsgfVxuICAgICAgLmpiLXNlYXJjaGJhci13ZWItY29tcG9uZW50IC5zZWFyY2gtZHluYW1pYy13cmFwcGVyIC5maWx0ZXItaW5wdXQtc2VjdGlvbiAuaW50ZW50LXdyYXBwZXIge1xuICAgICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgICBhbGlnbi1pdGVtczogY2VudGVyOyB9XG4gICAgICAgIC5qYi1zZWFyY2hiYXItd2ViLWNvbXBvbmVudCAuc2VhcmNoLWR5bmFtaWMtd3JhcHBlciAuZmlsdGVyLWlucHV0LXNlY3Rpb24gLmludGVudC13cmFwcGVyIC5pbnRlbnQtaW5wdXQtd3JhcHBlciB7XG4gICAgICAgICAgd2lkdGg6IDE4MHB4O1xuICAgICAgICAgIC0tamItaW5wdXQtbWFyZ2luOiAwIDA7XG4gICAgICAgICAgLS1qYi1pbnB1dC1ib3JkZXItcmFkaXVzOiAwcHg7XG4gICAgICAgICAgLS1qYi1pbnB1dC1ib3JkZXItY29sb3I6IHRyYW5zcGFyZW50O1xuICAgICAgICAgIC0tamItaW5wdXQtYm9yZGVyLWNvbG9yLWZvY3VzOiB0cmFuc3BhcmVudDtcbiAgICAgICAgICAtLWpiLWlucHV0LWJnY29sb3I6ICNmZmY7XG4gICAgICAgICAgLS1qYi1pbnB1dC1tZXNzYWdlLWJveC1kaXNwbGF5Om5vbmU7XG4gICAgICAgICAgLS1qYi1zZWxlY3QtbWFyZ2luOiAwIDA7XG4gICAgICAgICAgLS1qYi1zZWxlY3QtYm9yZGVyLXJhZGl1czogMjRweDtcbiAgICAgICAgICAtLWpiLXNlbGVjdC1ib3JkZXItY29sb3I6IHRyYW5zcGFyZW50O1xuICAgICAgICAgIC0tamItc2VsZWN0LWJvcmRlci1jb2xvci1zZWxlY3RlZDogdHJhbnNwYXJlbnQ7XG4gICAgICAgICAgLS1qYi1zZWxlY3QtYmdjb2xvcjogI2ZmZjtcbiAgICAgICAgICAtLWpiLWRhdGUtaW5wdXQtbWFyZ2luOiAwIDA7XG4gICAgICAgICAgLS1qYi1kYXRlLWlucHV0LWJvcmRlci1yYWRpdXM6IDBweDtcbiAgICAgICAgICAtLWpiLWRhdGUtaW5wdXQtYm9yZGVyLWNvbG9yOiB0cmFuc3BhcmVudDtcbiAgICAgICAgICAtLWpiLWRhdGUtaW5wdXQtYm9yZGVyLWNvbG9yLWZvY3VzOiB0cmFuc3BhcmVudDtcbiAgICAgICAgICAtLWpiLWRhdGUtaW5wdXQtYmdjb2xvcjogI2ZmZjtcbiAgICAgICAgICAtLWpiLWRhdGUtaW5wdXQtbWVzc2FnZS1ib3gtZGlzcGxheTogbm9uZTsgfVxuICAgICAgICAuamItc2VhcmNoYmFyLXdlYi1jb21wb25lbnQgLnNlYXJjaC1keW5hbWljLXdyYXBwZXIgLmZpbHRlci1pbnB1dC1zZWN0aW9uIC5pbnRlbnQtd3JhcHBlciAuaW50ZW50LXN1Ym1pdC1idXR0b24ge1xuICAgICAgICAgIHdpZHRoOiAzMnB4O1xuICAgICAgICAgIGhlaWdodDogMzJweDtcbiAgICAgICAgICBmbG9hdDogcmlnaHQ7XG4gICAgICAgICAgcGFkZGluZzogNHB4IDAgNHB4IDA7XG4gICAgICAgICAgY3Vyc29yOiBub3QtYWxsb3dlZDsgfVxuICAgICAgICAgIC5qYi1zZWFyY2hiYXItd2ViLWNvbXBvbmVudCAuc2VhcmNoLWR5bmFtaWMtd3JhcHBlciAuZmlsdGVyLWlucHV0LXNlY3Rpb24gLmludGVudC13cmFwcGVyIC5pbnRlbnQtc3VibWl0LWJ1dHRvbi4tLWFjdGl2ZSB7XG4gICAgICAgICAgICBjdXJzb3I6IHBvaW50ZXI7IH1cbiAgICAgICAgICAgIC5qYi1zZWFyY2hiYXItd2ViLWNvbXBvbmVudCAuc2VhcmNoLWR5bmFtaWMtd3JhcHBlciAuZmlsdGVyLWlucHV0LXNlY3Rpb24gLmludGVudC13cmFwcGVyIC5pbnRlbnQtc3VibWl0LWJ1dHRvbi4tLWFjdGl2ZSBzdmcge1xuICAgICAgICAgICAgICBmaWxsOiAjMjhCRDQ4OyB9XG4gICAgICAgICAgLmpiLXNlYXJjaGJhci13ZWItY29tcG9uZW50IC5zZWFyY2gtZHluYW1pYy13cmFwcGVyIC5maWx0ZXItaW5wdXQtc2VjdGlvbiAuaW50ZW50LXdyYXBwZXIgLmludGVudC1zdWJtaXQtYnV0dG9uIHN2ZyB7XG4gICAgICAgICAgICBmaWxsOiAjOTI5MjkyOyB9XG4gICAgICAgIC5qYi1zZWFyY2hiYXItd2ViLWNvbXBvbmVudCAuc2VhcmNoLWR5bmFtaWMtd3JhcHBlciAuZmlsdGVyLWlucHV0LXNlY3Rpb24gLmludGVudC13cmFwcGVyLi0taGlkZSB7XG4gICAgICAgICAgZGlzcGxheTogbm9uZTsgfVxuICAuamItc2VhcmNoYmFyLXdlYi1jb21wb25lbnQgLnNlYXJjaC1idXR0b24td3JhcHBlciB7XG4gICAgd2lkdGg6IDQ4cHg7XG4gICAgaGVpZ2h0OiBhdXRvO1xuICAgIG1pbi1oZWlnaHQ6IDQ4cHg7XG4gICAgY3Vyc29yOiBwb2ludGVyOyB9XG4gICAgLmpiLXNlYXJjaGJhci13ZWItY29tcG9uZW50IC5zZWFyY2gtYnV0dG9uLXdyYXBwZXIgc3ZnIHtcbiAgICAgIHdpZHRoOiAzNnB4O1xuICAgICAgaGVpZ2h0OiAzNnB4O1xuICAgICAgbWFyZ2luOiA0cHggOHB4O1xuICAgICAgYm94LXNpemluZzogYm9yZGVyLWJveDtcbiAgICAgIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50OyB9XG4gICAgICAuamItc2VhcmNoYmFyLXdlYi1jb21wb25lbnQgLnNlYXJjaC1idXR0b24td3JhcHBlciBzdmcgY2lyY2xlIHtcbiAgICAgICAgc3Ryb2tlOiAjN2I3YjdiO1xuICAgICAgICBmaWxsOiB3aGl0ZTtcbiAgICAgICAgc3Ryb2tlLXdpZHRoOiAyNXB4OyB9XG4gICAgICAuamItc2VhcmNoYmFyLXdlYi1jb21wb25lbnQgLnNlYXJjaC1idXR0b24td3JhcHBlciBzdmcgLnNwaW4tbGluZS1ncm91cCB7XG4gICAgICAgIHRyYW5zZm9ybS1vcmlnaW46IGNlbnRlcjtcbiAgICAgICAgZmlsbDogdHJhbnNwYXJlbnQ7IH1cbiAgICAgICAgLmpiLXNlYXJjaGJhci13ZWItY29tcG9uZW50IC5zZWFyY2gtYnV0dG9uLXdyYXBwZXIgc3ZnIC5zcGluLWxpbmUtZ3JvdXAgcmVjdCB7XG4gICAgICAgICAgZmlsbDogdHJhbnNwYXJlbnQ7IH1cbiAgICAgICAgLmpiLXNlYXJjaGJhci13ZWItY29tcG9uZW50IC5zZWFyY2gtYnV0dG9uLXdyYXBwZXIgc3ZnIC5zcGluLWxpbmUtZ3JvdXAgcGF0aCB7XG4gICAgICAgICAgZmlsbDogbm9uZTtcbiAgICAgICAgICBzdHJva2U6ICM5YjliOWI7XG4gICAgICAgICAgc3Ryb2tlLWxpbmVjYXA6IHJvdW5kO1xuICAgICAgICAgIHN0cm9rZS1saW5lam9pbjogcm91bmQ7XG4gICAgICAgICAgdHJhbnNpdGlvbjogMC4ycztcbiAgICAgICAgICBzdHJva2Utd2lkdGg6IDM1cHg7XG4gICAgICAgICAgdHJhbnNmb3JtLW9yaWdpbjogY2VudGVyOyB9XG4iXX0= */";
+var css_248z = ".jb-searchbar-web-component {\n  width: 100%;\n  height: auto;\n  min-height: 48px;\n  display: flex; }\n  .jb-searchbar-web-component .search-dynamic-wrapper {\n    width: calc(100% - 48px);\n    height: auto;\n    min-height: 48px;\n    display: inline-flex;\n    flex-wrap: wrap; }\n    .jb-searchbar-web-component .search-dynamic-wrapper .filter-list-section {\n      display: inline-flex;\n      align-items: center;\n      flex-wrap: wrap;\n      row-gap: 8px;\n      column-gap: 8px; }\n      .jb-searchbar-web-component .search-dynamic-wrapper .filter-list-section .filter-item {\n        display: inline-flex;\n        justify-content: center;\n        align-items: center;\n        margin: 0px 0px;\n        padding: 4px 8px;\n        background-color: #408cff;\n        color: #fff;\n        border-radius: 36px; }\n        .jb-searchbar-web-component .search-dynamic-wrapper .filter-list-section .filter-item .delete-btn {\n          cursor: pointer;\n          display: block;\n          padding: 4px 8px 0px 8px;\n          box-sizing: border-box; }\n          .jb-searchbar-web-component .search-dynamic-wrapper .filter-list-section .filter-item .delete-btn svg {\n            fill: #fff;\n            width: 12px;\n            height: 12px; }\n        .jb-searchbar-web-component .search-dynamic-wrapper .filter-list-section .filter-item .filter-label {\n          display: block;\n          box-sizing: border-box; }\n    .jb-searchbar-web-component .search-dynamic-wrapper .filter-input-section {\n      --jb-select-margin: 0 0;\n      --jb-select-border-radius: 24px;\n      --jb-select-border-color: transparent;\n      --jb-select-border-color-selected: transparent;\n      --jb-select-bgcolor: #fff;\n      --jb-select-list-box-shadow: 0px 15px 20px -6px #d8d8d8;\n      display: inline-block; }\n      .jb-searchbar-web-component .search-dynamic-wrapper .filter-input-section .column-select-wrapper {\n        width: 240px; }\n        .jb-searchbar-web-component .search-dynamic-wrapper .filter-input-section .column-select-wrapper.--hide {\n          display: none; }\n      .jb-searchbar-web-component .search-dynamic-wrapper .filter-input-section .intent-wrapper {\n        display: flex;\n        align-items: center; }\n        .jb-searchbar-web-component .search-dynamic-wrapper .filter-input-section .intent-wrapper .intent-input-wrapper {\n          width: 180px;\n          --jb-input-margin: 0 0;\n          --jb-input-border-radius: 0px;\n          --jb-input-border-color: transparent;\n          --jb-input-border-color-focus: transparent;\n          --jb-input-bgcolor: #fff;\n          --jb-input-message-box-display:none;\n          --jb-select-margin: 0 0;\n          --jb-select-border-radius: 24px;\n          --jb-select-border-color: transparent;\n          --jb-select-border-color-selected: transparent;\n          --jb-select-bgcolor: #fff;\n          --jb-date-input-margin: 0 0;\n          --jb-date-input-border-radius: 0px;\n          --jb-date-input-border-color: transparent;\n          --jb-date-input-border-color-focus: transparent;\n          --jb-date-input-bgcolor: #fff;\n          --jb-date-input-message-box-display: none; }\n        .jb-searchbar-web-component .search-dynamic-wrapper .filter-input-section .intent-wrapper .intent-submit-button {\n          width: 32px;\n          height: 32px;\n          float: right;\n          padding: 4px 0 4px 0;\n          cursor: not-allowed; }\n          .jb-searchbar-web-component .search-dynamic-wrapper .filter-input-section .intent-wrapper .intent-submit-button.--active {\n            cursor: pointer; }\n            .jb-searchbar-web-component .search-dynamic-wrapper .filter-input-section .intent-wrapper .intent-submit-button.--active svg {\n              fill: #28BD48; }\n          .jb-searchbar-web-component .search-dynamic-wrapper .filter-input-section .intent-wrapper .intent-submit-button svg {\n            fill: #929292; }\n        .jb-searchbar-web-component .search-dynamic-wrapper .filter-input-section .intent-wrapper.--hide {\n          display: none; }\n  .jb-searchbar-web-component .search-button-wrapper {\n    width: 48px;\n    height: auto;\n    min-height: 48px;\n    cursor: pointer; }\n    .jb-searchbar-web-component .search-button-wrapper svg {\n      width: 36px;\n      height: 36px;\n      margin: 4px 8px;\n      box-sizing: border-box;\n      background-color: transparent; }\n      .jb-searchbar-web-component .search-button-wrapper svg circle {\n        stroke: #7b7b7b;\n        fill: white;\n        stroke-width: 25px; }\n      .jb-searchbar-web-component .search-button-wrapper svg .spin-line-group {\n        transform-origin: center;\n        fill: transparent; }\n        .jb-searchbar-web-component .search-button-wrapper svg .spin-line-group rect {\n          fill: transparent; }\n        .jb-searchbar-web-component .search-button-wrapper svg .spin-line-group path {\n          fill: none;\n          stroke: #9b9b9b;\n          stroke-linecap: round;\n          stroke-linejoin: round;\n          transition: 0.2s;\n          stroke-width: 35px;\n          transform-origin: center; }\n";
 
+/* eslint-disable no-duplicate-imports */
 class InputFactory {
-    constructor() {
-        
-    }
     createTextInput({ onIntentSubmited, setIntentColumnValue, setIntentActive }) {
         const input = document.createElement('jb-input');
         input.addEventListener('keydown', (e) => {
-            if (e.keyCode == 13 && e.target.value.trim() != "") {
+            const target = e.target;
+            if (e.keyCode == 13 && target.value.trim() != "") {
                 onIntentSubmited();
             }
         });
         input.addEventListener('keyup', (e) => {
-            setIntentColumnValue(e.target.value, e.target.value);
-            if (e.target.validation.isValid) {
+            var _a, _b;
+            const target = e.target;
+            setIntentColumnValue(target.value, target.value);
+            if ((_a = target.validation) === null || _a === void 0 ? void 0 : _a.isValid) {
                 setIntentActive(true);
-            } else {
-                setIntentActive(false, e.target.validation.message);
+            }
+            else {
+                setIntentActive(false, (_b = target.validation) === null || _b === void 0 ? void 0 : _b.message);
             }
         });
         input.addEventListener('init', () => {
@@ -165,19 +182,22 @@ class InputFactory {
     }
     createNumberInput({ onIntentSubmited, setIntentColumnValue, setIntentActive }) {
         const input = document.createElement('jb-input');
-
         input.addEventListener('keydown', (e) => {
-            if (e.keyCode == 13 && e.target.value.trim() != "") {
+            const target = e.target;
+            if (e.keyCode == 13 && target.value.trim() != "") {
                 onIntentSubmited();
             }
         });
         input.addEventListener('keyup', (e) => {
-            const value = parseInt(e.target.value);
-            setIntentColumnValue(value, e.target.value);
-            if (e.target.validation.isValid) {
+            var _a;
+            const target = e.target;
+            const value = parseInt(target.value);
+            setIntentColumnValue(value, target.value);
+            if (target.validation && target.validation.isValid) {
                 setIntentActive(true);
-            } else {
-                setIntentActive(false, e.target.validation.message);
+            }
+            else {
+                setIntentActive(false, (_a = target.validation) === null || _a === void 0 ? void 0 : _a.message);
             }
         });
         input.addEventListener('init', () => {
@@ -201,9 +221,10 @@ class InputFactory {
         select.callbacks.getOptionValue = column.config.getOptionValue;
         select.optionList = column.config.optionList;
         select.addEventListener('change', (e) => {
+            const target = e.target;
             let label = "";
-            label = e.target.textValue;
-            setIntentColumnValue(e.target.value, label);
+            label = target.selectedOptionTitle;
+            setIntentColumnValue(target.value, label);
             setIntentActive(true);
             onIntentSubmited();
         });
@@ -219,19 +240,22 @@ class InputFactory {
             dateInput.focus();
         });
         dateInput.addEventListener('keyup', (e) => {
-            if (e.target.validation.isValid) {
+            const target = e.target;
+            if (target.validation.isValid) {
                 setIntentActive(true);
-                const value = e.target.value;
-                const label = e.target.inputValue;
+                const value = target.value;
+                const label = target.inputValue;
                 setIntentColumnValue(value, label);
-            } else {
-                setIntentActive(false, e.target.validation.message);
+            }
+            else {
+                setIntentActive(false, target.validation.message);
             }
         });
         dateInput.addEventListener('select', (e) => {
+            const target = e.target;
             setIntentActive(true);
-            const value = e.target.value;
-            const label = e.target.inputValue;
+            const value = target.value;
+            const label = target.inputValue;
             setIntentColumnValue(value, label);
             onIntentSubmited();
         });
@@ -239,77 +263,89 @@ class InputFactory {
     }
 }
 
+var _JBSearchbarWebComponent_isLoading, _JBSearchbarWebComponent_inputState, _JBSearchbarWebComponent_columnList, _JBSearchbarWebComponent_inputFactory, _JBSearchbarWebComponent_searchOnChange;
 class JBSearchbarWebComponent extends HTMLElement {
     get isLoading() {
-        return this._isLoading;
+        return __classPrivateFieldGet(this, _JBSearchbarWebComponent_isLoading, "f");
     }
     set isLoading(value) {
-        if ((!this._isLoading) && value) {
+        if ((!__classPrivateFieldGet(this, _JBSearchbarWebComponent_isLoading, "f")) && value) {
             this.playSearchIconAnimation();
         }
-        this._isLoading = value;
-
+        __classPrivateFieldSet(this, _JBSearchbarWebComponent_isLoading, value, "f");
     }
     get inputState() {
-        return this._inputState;
+        return __classPrivateFieldGet(this, _JBSearchbarWebComponent_inputState, "f");
     }
     set inputState(value) {
+        var _a, _b;
         if (value == "SELECT_COLUMN") {
             this.elements.columnSelect.value = null;
             this.elements.intent.wrapper.classList.add('--hide');
-            this.elements.columnSelect.parentElement.classList.remove('--hide');
+            (_a = this.elements.columnSelect.parentElement) === null || _a === void 0 ? void 0 : _a.classList.remove('--hide');
             this.elements.columnSelect.focus();
-        } else if (value == "FILL_VALUE") {
+        }
+        else if (value == "FILL_VALUE") {
             this.elements.intent.wrapper.classList.remove('--hide');
             this.elements.intent.input.wrapper.innerHTML = "";
-            this.elements.columnSelect.parentElement.classList.add('--hide');
+            (_b = this.elements.columnSelect.parentElement) === null || _b === void 0 ? void 0 : _b.classList.add('--hide');
         }
-        this._inputState = value;
+        __classPrivateFieldSet(this, _JBSearchbarWebComponent_inputState, value, "f");
     }
     get value() {
         return this.filterList.map(x => ({ column: x.column, value: x.value }));
     }
     get columnList() {
-        return this._columnList;
+        return __classPrivateFieldGet(this, _JBSearchbarWebComponent_columnList, "f");
     }
     set columnList(value) {
         //TODO: check validation of column to be array ind has neccessary prop
         this.setColumnList(value);
     }
+    get searchOnChange() {
+        return __classPrivateFieldGet(this, _JBSearchbarWebComponent_searchOnChange, "f");
+    }
+    set searchOnChange(value) {
+        if (typeof value == "boolean") {
+            __classPrivateFieldSet(this, _JBSearchbarWebComponent_searchOnChange, value, "f");
+        }
+    }
     constructor() {
         super();
-        this.initWebComponent();
-        this._inputFactory = new InputFactory();
-    }
-    registerEventListener() {
-        this.elements.columnSelect.addEventListener('change', this.onColumnSelected.bind(this));
-        this.elements.intent.submitButton.addEventListener('click', this.onIntentSubmited.bind(this));
-        this.elements.columnSelect.addEventListener('init', () => {
-            this.setColumnList();
-            this.elements.columnSelect.focus();
-        });
-        this.elements.searchButton.wrapper.addEventListener('click', this.search.bind(this));
-
-    }
-    initProp() {
+        _JBSearchbarWebComponent_isLoading.set(this, false);
+        _JBSearchbarWebComponent_inputState.set(this, "SELECT_COLUMN");
+        _JBSearchbarWebComponent_columnList.set(this, []);
+        _JBSearchbarWebComponent_inputFactory.set(this, new InputFactory());
         this.intentColumn = {
             column: null,
             value: null,
             label: null,
             active: false
         };
-        this._columnList = [];
-        this._inputState = "SELECT_COLUMN";
+        this.filterList = [];
+        _JBSearchbarWebComponent_searchOnChange.set(this, false);
+        this.initWebComponent();
+    }
+    registerEventListener() {
+        this.elements.columnSelect.addEventListener('change', this.onColumnSelected.bind(this));
+        this.elements.intent.submitButton.addEventListener('click', this.onIntentSubmited.bind(this));
+        this.elements.columnSelect.addEventListener('init', () => {
+            this.elements.columnSelect.focus();
+        });
+        this.elements.searchButton.wrapper.addEventListener('click', this.search.bind(this));
+    }
+    initProp() {
         this.filterList = this.createFilterList();
-
     }
     createFilterList() {
         const flProxy = new Proxy([], {
             get: (target, property, receiver) => {
                 if (property == "splice") {
+                    //when we remove filter
                     const origMethod = target[property];
                     const customSplice = (...args) => {
-                        this.elements.filterListWrapper.children[args[0]].remove();
+                        const domIndex = args[0];
+                        this.elements.filterListWrapper.children[domIndex].remove();
                         //becuase we apply function like this the get wont call again in proxy
                         //we apply into proxy not orginal obj so setter hooks for splice in setter do their job
                         return origMethod.apply(receiver, args);
@@ -318,28 +354,27 @@ class JBSearchbarWebComponent extends HTMLElement {
                 }
                 return target[property];
             },
-            set: (target, property, value, receiver) => {
-                if (!(property == "length")) {
+            set: (target, property, value) => {
+                if (!(property == "length") && typeof property == "string") {
                     if (parseInt(property) == target.length) {
                         //when push
-                        const dom = this.createFilterDOM(value);
+                        const dom = this.createFilterDOM(value.value, value.label);
                         value.dom = dom;
                         this.elements.filterListWrapper.appendChild(dom);
                     }
-                    if (!isNaN(property) && parseInt(property) < target.length) {
+                    if (!Number.isNaN(Number(property)) && parseInt(property) < target.length) {
                         //when splice
                         //we do dom delete in proxy getter
-                        value.dom.filterIndex = parseInt(property);
+                        value.dom.dataset.filterIndex = property;
                     }
                 }
                 target[property] = value;
                 return true;
-
             }
         });
         return flProxy;
     }
-    createFilterDOM({ label, column }) {
+    createFilterDOM(label, columnLabel) {
         const dom = document.createElement('div');
         dom.classList.add('filter-item');
         const deleteButtonDom = document.createElement('div');
@@ -347,29 +382,30 @@ class JBSearchbarWebComponent extends HTMLElement {
         deleteButtonDom.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 298.667 298.667" style="enable-background:new 0 0 298.667 298.667;" xml:space="preserve"><g><polygon points="298.667,30.187 268.48,0 149.333,119.147 30.187,0 0,30.187 119.147,149.333 0,268.48 30.187,298.667     149.333,179.52 268.48,298.667 298.667,268.48 179.52,149.333   "/></g></svg>`;
         const labelDom = document.createElement('div');
         labelDom.classList.add('filter-label');
-        labelDom.innerHTML = `${column.label}: ${label}`;
+        labelDom.innerHTML = `${columnLabel}: ${label}`;
         const filterIndex = this.filterList.length;
-        dom.filterIndex = filterIndex;
+        dom.dataset.filterIndex = filterIndex.toString();
         deleteButtonDom.addEventListener('click', (e) => {
-            this.deleteFilter(e.currentTarget.parentElement.filterIndex);
+            const currentTarget = e.currentTarget;
+            const filterIndex = parseInt(currentTarget.parentElement.dataset.filterIndex);
+            this.deleteFilter(filterIndex);
         });
         dom.appendChild(deleteButtonDom);
         dom.appendChild(labelDom);
         return dom;
-
     }
     deleteFilter(filterIndex) {
         this.filterList.splice(filterIndex, 1);
+        this.triggerOnChange();
         this.setColumnListSelectOptionList();
     }
     connectedCallback() {
         // standard web component event that called when all of dom is binded
         this.callOnLoadEvent();
         this.initProp();
-
     }
     callOnLoadEvent() {
-        var event = new CustomEvent('load', { bubbles: true, composed: true });
+        const event = new CustomEvent('load', { bubbles: true, composed: true });
         this.dispatchEvent(event);
     }
     initWebComponent() {
@@ -387,16 +423,15 @@ class JBSearchbarWebComponent extends HTMLElement {
                     spinnerBox: shadowRoot.querySelector('.search-button-wrapper .spin-line-group')
                 }
             },
-
-            columnSelect: this.shadowRoot.querySelector('.column-select'),
+            columnSelect: shadowRoot.querySelector('.column-select'),
             intent: {
-                column: this.shadowRoot.querySelector('.intent-wrapper .intent-column'),
+                column: shadowRoot.querySelector('.intent-wrapper .intent-column'),
                 input: {
-                    wrapper: this.shadowRoot.querySelector('.intent-wrapper .intent-input-wrapper'),
+                    wrapper: shadowRoot.querySelector('.intent-wrapper .intent-input-wrapper'),
                     input: null
                 },
-                submitButton: this.shadowRoot.querySelector('.intent-wrapper .intent-submit-button'),
-                wrapper: this.shadowRoot.querySelector('.intent-wrapper')
+                submitButton: shadowRoot.querySelector('.intent-wrapper .intent-submit-button'),
+                wrapper: shadowRoot.querySelector('.intent-wrapper')
             }
         };
         this.registerEventListener();
@@ -416,9 +451,8 @@ class JBSearchbarWebComponent extends HTMLElement {
         }
     }
     setColumnList(columnList) {
-        this._columnList = columnList;
+        __classPrivateFieldSet(this, _JBSearchbarWebComponent_columnList, columnList, "f");
         this.setColumnListSelectOptionList();
-
     }
     setColumnListSelectOptionList() {
         const currentFilterKeys = this.filterList.map((filter) => {
@@ -433,13 +467,13 @@ class JBSearchbarWebComponent extends HTMLElement {
                 }
                 return true;
             });
-            this.elements.columnSelect.callbacks.getOptionTitle = (column) => { return column.label };
+            this.elements.columnSelect.callbacks.getOptionTitle = (column) => { return column.label; };
             this.elements.columnSelect.optionList = columnList;
         }
-
     }
     onColumnSelected(e) {
-        const column = e.target.value;
+        const target = e.target;
+        const column = target.value;
         this.intentColumn.column = column;
         this.inputState = "FILL_VALUE";
         this.elements.intent.column.innerHTML = column.label;
@@ -453,7 +487,8 @@ class JBSearchbarWebComponent extends HTMLElement {
             if (value) {
                 this.elements.intent.submitButton.classList.add('--active');
                 this.elements.intent.submitButton.setAttribute('title', 'ثبت فیلتر');
-            } else {
+            }
+            else {
                 this.elements.intent.submitButton.classList.remove('--active');
                 this.elements.intent.submitButton.setAttribute('title', err);
             }
@@ -464,17 +499,17 @@ class JBSearchbarWebComponent extends HTMLElement {
         };
         switch (column.type) {
             case 'TEXT':
-                return this._inputFactory.createTextInput({ onIntentSubmited: this.onIntentSubmited.bind(this), setIntentActive: setIntentActive, setIntentColumnValue });
+                return __classPrivateFieldGet(this, _JBSearchbarWebComponent_inputFactory, "f").createTextInput({ onIntentSubmited: this.onIntentSubmited.bind(this), setIntentActive: setIntentActive, setIntentColumnValue });
             case 'NUMBER':
-                return this._inputFactory.createNumberInput({ onIntentSubmited: this.onIntentSubmited.bind(this), setIntentActive: setIntentActive, setIntentColumnValue });
+                return __classPrivateFieldGet(this, _JBSearchbarWebComponent_inputFactory, "f").createNumberInput({ onIntentSubmited: this.onIntentSubmited.bind(this), setIntentActive: setIntentActive, setIntentColumnValue });
             case 'SELECT':
-                return this._inputFactory.createSelectInput({ column, onIntentSubmited: this.onIntentSubmited.bind(this), setIntentActive: setIntentActive, setIntentColumnValue });
+                return __classPrivateFieldGet(this, _JBSearchbarWebComponent_inputFactory, "f").createSelectInput({ column, onIntentSubmited: this.onIntentSubmited.bind(this), setIntentActive: setIntentActive, setIntentColumnValue });
             case 'DATE':
-                return this._inputFactory.createDateInput({ column, onIntentSubmited: this.onIntentSubmited.bind(this), setIntentActive: setIntentActive, setIntentColumnValue });
+                return __classPrivateFieldGet(this, _JBSearchbarWebComponent_inputFactory, "f").createDateInput({ column, onIntentSubmited: this.onIntentSubmited.bind(this), setIntentActive: setIntentActive, setIntentColumnValue });
         }
     }
     onIntentSubmited() {
-        if (this.intentColumn.active) {
+        if (this.intentColumn.column && this.intentColumn.value && this.intentColumn.label && this.intentColumn.active) {
             this.submitIntent(this.intentColumn.column, this.intentColumn.value, this.intentColumn.label);
             this.inputState = "SELECT_COLUMN";
             this.intentColumn = {
@@ -484,7 +519,6 @@ class JBSearchbarWebComponent extends HTMLElement {
                 active: false
             };
             this.elements.intent.submitButton.classList.remove('--active');
-
         }
     }
     submitIntent(column, value, label) {
@@ -494,56 +528,65 @@ class JBSearchbarWebComponent extends HTMLElement {
             label: label
         });
         this.setColumnListSelectOptionList();
+        this.triggerOnChange();
     }
     playSearchIconAnimation() {
         const spinnerLine = this.elements.searchButton.svg.spinnerLine;
         const spinnerBox = this.elements.searchButton.svg.spinnerBox;
-        var self = this;
-        var ShrinkLineAnimation = spinnerLine.animate([{ d: 'path("M400 400 L 450 450")' }, { d: 'path("M410 410 L 415 415")' }], { id: 'ShrinkLine', duration: 400 });
+        const self = this;
+        const ShrinkLineAnimation = spinnerLine.animate([{ d: 'path("M400 400 L 450 450")' }, { d: 'path("M410 410 L 415 415")' }], { id: 'ShrinkLine', duration: 400 });
         ShrinkLineAnimation.cancel();
-        var shrinkLineFunction = function (animation) {
+        const shrinkLineFunction = function () {
             spinnerLine.setAttribute("d", "M 407.82484150097946 413.25475607450323 A 220 220 0 0 0 413.25475607450323 407.8248415009794");
             curveLineAnimation.play();
         };
         ShrinkLineAnimation.onfinish = shrinkLineFunction;
-        var curveLineAnimation = spinnerLine.animate([{ d: 'path("M 407.82484150097946 413.25475607450323 A 220 220 0 0 0 413.25475607450323 407.8248415009794")' }, { d: 'path("M 255 475 A 220 220 0 0 0 475 255")' }], { id: 'CurveLine', duration: 400 });
+        const curveLineAnimation = spinnerLine.animate([{ d: 'path("M 407.82484150097946 413.25475607450323 A 220 220 0 0 0 413.25475607450323 407.8248415009794")' }, { d: 'path("M 255 475 A 220 220 0 0 0 475 255")' }], { id: 'CurveLine', duration: 400 });
         curveLineAnimation.cancel();
-        var curveLineFunction = function (animation) {
+        const curveLineFunction = function () {
             spinnerLine.setAttribute("d", "M 255 475 A 220 220 0 0 0 475 255");
             spinAnimation.play();
         };
         curveLineAnimation.onfinish = curveLineFunction;
-        var spinAnimation = spinnerBox.animate([{ transform: 'rotate(0deg)' }, { transform: 'rotate(180deg)' }, { transform: 'rotate(360deg)' }], { id: 'Spin', duration: 1000, iterations: 1 });
+        const spinAnimation = spinnerBox.animate([{ transform: 'rotate(0deg)' }, { transform: 'rotate(180deg)' }, { transform: 'rotate(360deg)' }], { id: 'Spin', duration: 1000, iterations: 1 });
         spinAnimation.cancel();
-        var spinFunction = function (animation) {
+        const spinFunction = function () {
             if (self.isLoading == true) {
                 spinAnimation.play();
-            } else {
+            }
+            else {
                 ReversecurveLineAnimation.play();
             }
         };
         spinAnimation.onfinish = spinFunction;
-        var growLineAnimation = spinnerLine.animate([{ d: 'path("M410 410 L 415 415")' }, { d: 'path("M400 400 L 450 450")' }], { id: 'GrowLine', uration: 400 });
+        const growLineAnimation = spinnerLine.animate([{ d: 'path("M410 410 L 415 415")' }, { d: 'path("M400 400 L 450 450")' }], { id: 'GrowLine', duration: 400 });
         growLineAnimation.cancel();
-        var growLineFunction = function (animation) {
+        const growLineFunction = function () {
             spinnerLine.setAttribute("d", "M400 400 L 450 450");
         };
         growLineAnimation.onfinish = growLineFunction;
-
-        var ReversecurveLineAnimation = spinnerLine.animate([{ d: 'path("M 255 475 A 220 220 0 0 0 475 255")' }, { d: 'path("M 407.82484150097946 413.25475607450323 A 220 220 0 0 0 413.25475607450323 407.8248415009794")' }], { id: 'ReverseCurveLine', duration: 400 });
+        const ReversecurveLineAnimation = spinnerLine.animate([{ d: 'path("M 255 475 A 220 220 0 0 0 475 255")' }, { d: 'path("M 407.82484150097946 413.25475607450323 A 220 220 0 0 0 413.25475607450323 407.8248415009794")' }], { id: 'ReverseCurveLine', duration: 400 });
         ReversecurveLineAnimation.cancel();
-        let ReversecurveLineFunction = function (animation) {
+        const ReversecurveLineFunction = function () {
             spinnerLine.setAttribute("d", "M410 410 L 415 415");
             growLineAnimation.play();
         };
         ReversecurveLineAnimation.onfinish = ReversecurveLineFunction;
         ShrinkLineAnimation.play();
     }
+    triggerOnChange() {
+        const event = new CustomEvent('change');
+        this.dispatchEvent(event);
+        if (this.searchOnChange) {
+            this.search();
+        }
+    }
     search() {
         const event = new CustomEvent('search');
         this.dispatchEvent(event);
     }
 }
+_JBSearchbarWebComponent_isLoading = new WeakMap(), _JBSearchbarWebComponent_inputState = new WeakMap(), _JBSearchbarWebComponent_columnList = new WeakMap(), _JBSearchbarWebComponent_inputFactory = new WeakMap(), _JBSearchbarWebComponent_searchOnChange = new WeakMap();
 const myElementNotExists = !customElements.get('jb-searchbar');
 if (myElementNotExists) {
     window.customElements.define('jb-searchbar', JBSearchbarWebComponent);
@@ -551,12 +594,10 @@ if (myElementNotExists) {
 
 function JBSearchbar(props) {
   var element = useRef();
-
   var _useState = useState(0),
-      _useState2 = _slicedToArray(_useState, 2),
-      refChangeCount = _useState2[0],
-      refChangeCountSetter = _useState2[1];
-
+    _useState2 = _slicedToArray(_useState, 2),
+    refChangeCount = _useState2[0],
+    refChangeCountSetter = _useState2[1];
   useEffect(function () {
     refChangeCountSetter(refChangeCount + 1);
   }, [element.current]);
@@ -581,7 +622,6 @@ function JBSearchbar(props) {
     ref: element
   });
 }
-
 JBSearchbar.propTypes = {
   placeholder: PropTypes.string,
   searchOnChange: PropTypes.bool,

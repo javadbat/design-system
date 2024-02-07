@@ -46,10 +46,10 @@ Normal.args = {
                     }
                 ],
                 getOptionTitle: (option) => {
-                    return option.title;
+                    return option?.title || "";
                 },
                 getOptionValue: (option) => {
-                    return option.value;
+                    return option?.value || "";
                 }
             }
 

@@ -184,7 +184,6 @@
 	    }
 	  }, [props.frontalZero]);
 	  React.useEffect(function () {
-	    debugger;
 	    if (Array.isArray(props.optionalUnits)) {
 	      element.current.optionalUnits = props.optionalUnits;
 	    }

@@ -33,7 +33,7 @@ module.exports = async ({ config }) => {
       'jb-date-input': path.resolve(__dirname, '..','..', '..', 'web-component','jb-date-input', 'dist', 'JBDateInput.js'),
       'jb-time-input': path.resolve(__dirname, '..','..', '..', 'web-component','jb-time-input', 'dist', 'JBTimeInput.js'),
       'jb-time-picker': path.resolve(__dirname, '..','..', '..', 'web-component','jb-time-picker', 'dist', 'JBTimePicker.js'),
-      'jb-searchbar': path.resolve(__dirname, '..','..', '..', 'web-component','jb-searchbar', 'dist', 'JBSearchbar.js'),
+      'jb-searchbar': path.resolve(__dirname, '..','..', '..', 'web-component','jb-searchbar', 'dist', 'jb-searchbar.js'),
       'jb-time-input-react': path.resolve(__dirname, '..','..', '..', 'react-component','jb-time-input', 'dist', 'JBTimeInput.js'),
       'jb-date-input-react': path.resolve(__dirname, '..','..', '..', 'react-component','jb-date-input', 'dist', 'JBDateInput.js'),
       'jb-pin-input-react': path.resolve(__dirname, '..','..', '..', 'react-component','jb-pin-input', 'dist', 'JBPinInput.js'),

@@ -177,7 +177,6 @@ var JBTimeInput = /*#__PURE__*/React.forwardRef(function (props, ref) {
     }
   }, [props.frontalZero]);
   useEffect(function () {
-    debugger;
     if (Array.isArray(props.optionalUnits)) {
       element.current.optionalUnits = props.optionalUnits;
     }
