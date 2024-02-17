@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import JBTextarea from '../../../../react-component/jb-textarea';
+import {JBTextarea} from '../../../../react-component/jb-textarea';
 import './JBTextAreaTestPage.css';
 function JBTextAreaTestPage(props) {
     const [textVal, textValSetter] = useState('');
