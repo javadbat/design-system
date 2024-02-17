@@ -1,5 +1,5 @@
 import React, {useState, useMemo, useCallback} from 'react';
-import JBDateInput from 'jb-date-input-react';
+import {JBDateInput} from 'jb-date-input-react';
 function JBDateInputTimeStampTest(props) {
     const [setValue, setValueSetter] = useState(null);
     const valueInDate = useMemo(()=>{
