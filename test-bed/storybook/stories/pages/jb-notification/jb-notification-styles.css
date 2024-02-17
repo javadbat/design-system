@@ -1,0 +1,9 @@
+.jb-notification-test-page{
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+}
+.custom-styled-jb-message {
+    --jb-message-position: fixed;
+    --jb-message-margin-top: 300px;
+}
