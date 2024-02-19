@@ -27,8 +27,10 @@ class ReactComponentBuilder {
         console.log(`start building ${component.name}`);
         const inputOptions = this._getInputOption(component);
         const esOutputOptions = this._getOutputOption(component, 'es');
+        const cjsOutputOptions = this._getOutputOption(component, 'cjs');
         const umdOutputOptions = this._getOutputOption(component, 'umd');
         await this.buildModule(inputOptions, esOutputOptions, 'ES');
+        await this.buildModule(inputOptions, cjsOutputOptions, 'CJS');
         await this.buildModule(inputOptions, umdOutputOptions, 'UMD');
     }
     buildModule(inputOptions, outputOptions, type) {
