@@ -11,6 +11,11 @@ export const Normal = Template.bind({});
 Normal.args = {
     inputType:'JALALI'
 };
+export const CustomMonthName = Template.bind({});
+CustomMonthName.args = {
+    inputType:'JALALI',
+    jalaliMonthList:['حَمَل','ثَور','جَوزا','سَرَطان','اَسَد','سُنبُله','میزان','عَقرَب','قَوس','جَدْی','دَلو','حوت']
+};
 const TestTemplate = (args) => <JBCalendarTest></JBCalendarTest>;
 export const Test = TestTemplate.bind({});
 Test.args = {

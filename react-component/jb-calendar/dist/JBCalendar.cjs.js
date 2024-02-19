@@ -1,6 +1,13 @@
-import React, { useEffect, useRef, useState, useImperativeHandle } from 'react';
-import 'jb-calendar';
-import PropTypes from 'prop-types';
+'use strict';
+
+var React = require('react');
+require('jb-calendar');
+var PropTypes = require('prop-types');
+
+function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+
+var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
+var PropTypes__default = /*#__PURE__*/_interopDefaultLegacy(PropTypes);
 
 function getDefaultExportFromCjs (x) {
 	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
@@ -97,7 +104,7 @@ var _slicedToArray = /*@__PURE__*/getDefaultExportFromCjs(slicedToArray);
 
 function useEvent(dom, event, handler) {
   var passive = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
-  useEffect(function () {
+  React.useEffect(function () {
     if (dom) {
       // initiate the event handler
       dom.addEventListener(event, handler, passive);
@@ -112,27 +119,27 @@ function useEvent(dom, event, handler) {
 }
 
 // eslint-disable-next-line react/display-name
-var JBCalendar = /*#__PURE__*/React.forwardRef(function (props, ref) {
-  var element = useRef(null);
-  var _useState = useState(0),
+var JBCalendar = /*#__PURE__*/React__default["default"].forwardRef(function (props, ref) {
+  var element = React.useRef(null);
+  var _useState = React.useState(0),
     _useState2 = _slicedToArray(_useState, 2),
     refChangeCount = _useState2[0],
     refChangeCountSetter = _useState2[1];
-  useImperativeHandle(ref, function () {
+  React.useImperativeHandle(ref, function () {
     return element ? element.current : {};
   }, [element]);
-  useEffect(function () {
+  React.useEffect(function () {
     refChangeCountSetter(refChangeCount + 1);
   }, [element.current]);
-  useEffect(function () {
+  React.useEffect(function () {
     if (props.inputType) {
       element.current.inputType = props.inputType;
     }
   }, [props.inputType]);
-  useEffect(function () {
+  React.useEffect(function () {
     element.current.setAttribute('direction', props.direction);
   }, [props.direction]);
-  useEffect(function () {
+  React.useEffect(function () {
     if (props.jalaliMonthList) {
       element.current.setMonthList('JALALI', props.jalaliMonthList);
     }
@@ -143,16 +150,16 @@ var JBCalendar = /*#__PURE__*/React.forwardRef(function (props, ref) {
     }
   }
   useEvent(element.current, 'select', onSelect);
-  return /*#__PURE__*/React.createElement("jb-calendar", {
+  return /*#__PURE__*/React__default["default"].createElement("jb-calendar", {
     ref: element
   });
 });
 JBCalendar.propTypes = {
-  onSelect: PropTypes.func,
-  value: PropTypes.string,
-  jalaliMonthList: PropTypes.array,
-  inputType: PropTypes.oneOf(['GREGORIAN', 'JALALI'])
+  onSelect: PropTypes__default["default"].func,
+  value: PropTypes__default["default"].string,
+  jalaliMonthList: PropTypes__default["default"].array,
+  inputType: PropTypes__default["default"].oneOf(['GREGORIAN', 'JALALI'])
 };
 
-export { JBCalendar as default };
-//# sourceMappingURL=JBCalendar.js.map
+module.exports = JBCalendar;
+//# sourceMappingURL=JBCalendar.cjs.js.map

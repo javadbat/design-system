@@ -22,6 +22,11 @@ const JBCalendar = React.forwardRef((props, ref) => {
     useEffect(()=>{
         element.current.setAttribute('direction', props.direction);
     },[props.direction]);
+    useEffect(()=>{
+        if(props.jalaliMonthList){
+            element.current.setMonthList('JALALI',props.jalaliMonthList);
+        }
+    },[props.jalaliMonthList]);
     function onSelect(e) {
         if (props.onSelect && e instanceof CustomEvent) {
             props.onSelect(e);
@@ -35,6 +40,7 @@ const JBCalendar = React.forwardRef((props, ref) => {
 JBCalendar.propTypes = {
     onSelect: PropTypes.func,
     value: PropTypes.string,
+    jalaliMonthList: PropTypes.array,
     inputType: PropTypes.oneOf(['GREGORIAN', 'JALALI'])
 };
 export default JBCalendar;
