@@ -55,6 +55,13 @@ PersianNumber.args = {
     usePersianNumber: true,
     calendarDefaultDateView: { year: 1360, month: 5 }
 };
+export const CustomMonthName = Template.bind({});
+CustomMonthName.args = {
+    label: 'تاریخ',
+    valueType: "GREGORIAN",
+    inputType: "JALALI",
+    jalaliMonthList:['حَمَل','ثَور','جَوزا','سَرَطان','اَسَد','سُنبُله','میزان','عَقرَب','قَوس','جَدْی','دَلو','حوت']
+};
 export const Required = Template.bind({});
 Required.args = {
     label: 'فیلد اجباری',

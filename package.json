@@ -40,7 +40,7 @@
     "jalaliday": "^2.3.0",
     "jb-button": "file:./web-component/jb-button",
     "jb-button-react": "file:./react-component/jb-button",
-    "jb-calendar": "^4.0.3",
+    "jb-calendar": "file:./web-component/jb-calendar",
     "jb-checkbox-react": "file:./react-component/jb-checkbox",
     "jb-date-input": "file:./web-component/jb-date-input",
     "jb-date-input-react": "file:react-component/jb-date-input",
