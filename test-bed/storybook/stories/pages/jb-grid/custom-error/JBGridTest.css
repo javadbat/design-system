@@ -1,0 +1,8 @@
+html, body, #root{
+    height: 100%;
+}
+.grid-wrapper{
+    width: 100%;
+    height: calc(100% - 64px);
+    direction: rtl;
+}
