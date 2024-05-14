@@ -91,12 +91,12 @@ module.exports = {
     'no-multi-spaces': 'error',
     'no-multi-str': 'error',
     'camelcase': ['error', { properties: 'never' }],
-    "@typescript-eslint/ban-ts-comment":"warn",
     'no-mixed-spaces-and-tabs': 'error',
     'semi': 1,
     'detect-object-injection': 0,
     //typescript rule
     "@typescript-eslint/no-non-null-assertion": 0,
+    "@typescript-eslint/ban-ts-comment":"warn",
     "@typescript-eslint/no-this-alias": [
       "error",
       {
