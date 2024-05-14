@@ -1,3 +1,5 @@
+'use strict';
+
 var css_248z$1 = ".paragraph-input {\n  min-height: 32px;\n}";
 
 class ParserHelper {
@@ -369,4 +371,4 @@ const myElementNotExists = !customElements.get('jb-editor');
 if(myElementNotExists){
     window.customElements.define('jb-editor', JBInputWebComponent);
 }
-//# sourceMappingURL=JBEditor.js.map
+//# sourceMappingURL=JBEditor.cjs.js.map

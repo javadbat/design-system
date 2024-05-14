@@ -1,5 +1,21 @@
 {
-    "name": "@design-system/all",
-    "version": "0.0.1",
-    "exports": "./mod.ts"
+  "name": "@design-system/all",
+  "version": "0.0.1",
+  "exports": "./mod.ts",
+  "tasks": {
+    "build": "deno run --allow-read --allow-write --allow-net --allow-env --allow-sys --allow-ffi ./tasks/build/build.ts "
+  },
+  "imports": {
+    "@std/path": "jsr:@std/path@^0.224.0",
+    "jb-calendar": "file:./web-component/jb-calendar"
+  },
+  "compilerOptions": {
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "dom.asynciterable",
+      "deno.ns"
+    ],
+    "types": ["./global.d.ts"]
+  }
 }
