@@ -1,7 +1,7 @@
 import chalk from "npm:chalk";
 import {
   webComponentList,
-  webComponentBuildConfig,
+  type WebComponentBuildConfig,
 } from "../../config/build-config.ts";
 import {generalConfig} from "../../config/general-config.ts";
 import * as path from "https://deno.land/std@0.207.0/path/mod.ts";
@@ -23,7 +23,7 @@ export class WebComponentBuilder {
       await this.buildComponent(component);
     }
   }
-  async buildComponent(componentBuildConfig: webComponentBuildConfig) {
+  async buildComponent(componentBuildConfig: WebComponentBuildConfig) {
     console.log(`start building ${componentBuildConfig.name}`);
     const inputOptions = this.#getInputOption(componentBuildConfig);
     const esOutputOptions = this.#getOutputOption(componentBuildConfig, "es");
@@ -46,7 +46,7 @@ export class WebComponentBuilder {
     return bundlePromise;
   }
   #getInputOption(
-    module: webComponentBuildConfig,
+    module: WebComponentBuildConfig,
     format: "es" | "cjs" | "umd" = "es"
   ) {
     /**
@@ -112,13 +112,13 @@ export class WebComponentBuilder {
     };
     return inputOptions;
   }
-  #isTypeScriptModule(module:webComponentBuildConfig) {
+  #isTypeScriptModule(module:WebComponentBuildConfig) {
     const filePaths = module.path.split('/');
     const fileName = filePaths[filePaths.length - 1];
     const fileExtension = fileName.split('.').pop();
     return fileExtension === 'ts';
   }
-  #getTypeScriptCompilerOptions(module:webComponentBuildConfig, externalList:string[]) {
+  #getTypeScriptCompilerOptions(module:WebComponentBuildConfig, externalList:string[]) {
     const includePaths = path.join(
       ...module.path.split("/").slice(0, -1),
       "**",
@@ -149,7 +149,7 @@ export class WebComponentBuilder {
       exclude: [...externalList],
     };
   }
-  #getOutputOption(module:webComponentBuildConfig, format = "es") {
+  #getOutputOption(module:WebComponentBuildConfig, format = "es") {
     const pathArr = module.outputPath.split('/');
     const fullFileName = pathArr[pathArr.length - 1];
     const fileName = path.parse(fullFileName).name;

@@ -1,4 +1,4 @@
-export type webComponentBuildConfig = {
+export type WebComponentBuildConfig = {
   name: string;
   path: string;
   outputPath: string;
@@ -7,7 +7,7 @@ export type webComponentBuildConfig = {
   umdIncludes?: string[];
   globals?: { [key: string]: string };
 };
-export type reactComponentBuildConfig = {
+export type ReactComponentBuildConfig = {
   name: string;
   path: string;
   outputPath: string;
@@ -16,7 +16,7 @@ export type reactComponentBuildConfig = {
   umdIncludes?: string[];
   globals?: { [key: string]: string };
 };
-const webComponentList: webComponentBuildConfig[] = [
+const webComponentList: WebComponentBuildConfig[] = [
   {
     name: "jb-input",
     path: "/web-component/jb-input/lib/JBInput.ts",
@@ -210,7 +210,7 @@ const webComponentList: webComponentBuildConfig[] = [
     umdName: "JBSwitch",
   },
 ];
-const reactComponentList: reactComponentBuildConfig[] = [
+const reactComponentList: ReactComponentBuildConfig[] = [
   {
     name: "jb-input-react",
     path: "/react-component/jb-input/lib/JBInput.tsx",
