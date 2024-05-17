@@ -1,6 +1,6 @@
 {
   "name": "@design-system/all",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "exports": "./mod.ts",
   "tasks": {
     "build": "deno run --allow-read --allow-write --allow-net --allow-env --allow-sys --allow-ffi ./tasks/build/build.ts "
@@ -41,7 +41,6 @@
       "dom.iterable",
       "dom.asynciterable",
       "deno.ns"
-    ],
-    "types": ["./global.d.ts"]
+    ]
   }
 }
