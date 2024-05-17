@@ -95,7 +95,7 @@ export class WebComponentBuilder {
       plugins.push(
         //@ts-ignore
         typescript({
-          tsconfig:"tsconfig-modules.json",
+          tsconfig:"web-component/tsconfig.json",
           tsconfigDefaults: this.#getTypeScriptCompilerOptions(
             module,
             externalList

@@ -10,6 +10,6 @@ const wcConfig = webComponentList.find((wc) => wc.name == componentName);
 if (wcConfig) {
   webComponentBuilder.buildComponent(wcConfig);
 } else {
-  // await webComponentBuilder.buildAllComponents();
+  await webComponentBuilder.buildAllComponents();
   await reactComponentBuilder.buildAllComponent();
 }

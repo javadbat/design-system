@@ -1,1 +1,1 @@
-module.exports = require('./dist/JBCalendar');
+import {JBCalendar} from './dist/JBCalendar.js';

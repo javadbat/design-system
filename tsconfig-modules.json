@@ -9,11 +9,7 @@
         "sourceMap": true,
         "allowJs": true,
         "target": "es6",
-        "typeRoots" : ["./node_modules/@types", "./global.d.ts"],
     },
-    "include": [
-        "global.d.ts",
-    ],
     "exclude": [
         "node_modules",
         "**/*.spec.ts",
