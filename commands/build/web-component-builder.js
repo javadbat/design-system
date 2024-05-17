@@ -23,20 +23,10 @@ class WebComponentBuilder {
   constructor() {
     console.log(chalk.yellow('web-component-builder-initiated'));
   }
-  build() {
-    return new Promise((resolve, reject) => {
-      const promiseArray = [];
-      webComponentConfig.webComponents.forEach((webComponent) => {
-        const componentPromise = this.buildComponent(webComponent);
-        promiseArray.push(componentPromise);
-      });
-      Promise.all(promiseArray).then(() => {
-        resolve();
-      }).catch((err) => {
-        reject(err);
-      });
-    });
-
+  async build() {
+      for(const webComponent of webComponentConfig.webComponents){
+        await this.buildComponent(webComponent);
+      }
   }
   async buildComponent(component) {
     console.log(`start building ${component.name}`);
@@ -142,10 +132,8 @@ class WebComponentBuilder {
         "experimentalDecorators": true,
         "removeComments": false,
         "noImplicitAny": false,
-        "suppressImplicitAnyIndexErrors": true,
         "noLib": false,
         "preserveConstEnums": true,
-        "suppressExcessPropertyErrors": true,
         "allowJs": true,
         "declaration": true,
         "declarationDir": './',

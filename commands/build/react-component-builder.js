@@ -17,11 +17,11 @@ class ReactComponentBuilder {
   constructor() {
     console.log('react-component-builder-initiated'.yellow);
   }
-  build() {
-    reactComponentConfig.reactComponents.forEach((reactComponent) => {
-      this.buildComponent(reactComponent);
-    });
+  async build() {
+    for(const reactComponent of reactComponentConfig.reactComponents){
+      await this.buildComponent(reactComponent);
 
+    }
   }
   async buildComponent(component) {
     console.log(`start building ${component.name}`);
@@ -61,7 +61,7 @@ class ReactComponentBuilder {
         inject: true,
         sourceMap: true
       }),
-      rollupBabel.default({
+      rollupBabel({
         exclude: ['node_modules/**', ...externalList],
         babelrc: false,
         babelHelpers: 'runtime',
@@ -149,10 +149,8 @@ class ReactComponentBuilder {
         "experimentalDecorators": true,
         "removeComments": false,
         "noImplicitAny": false,
-        "suppressImplicitAnyIndexErrors": true,
         "noLib": false,
         "preserveConstEnums": true,
-        "suppressExcessPropertyErrors": true,
         "allowJs": true,
         "declaration": true,
         "declarationDir": "./",

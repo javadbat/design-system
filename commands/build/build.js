@@ -21,9 +21,14 @@ if (specifiedModuleName) {
     }
   }
 } else {
+  const startTime = performance.now();
   //when user want to build all modules
   webComponentBuilder.build().then(() => {
-    reactComponentBuilder.build();
+    reactComponentBuilder.build().then(()=>{
+      const endTime = performance.now();
+      const duration = endTime - startTime;
+      console.log("the build took ", duration, " time to finish");
+    });
   }).catch((err) => {
     console.error(err);
   });
