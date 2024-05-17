@@ -13,11 +13,7 @@ import {generalConfig} from '../../config/general-config.ts';
 import chalk from 'npm:chalk';
 import typescript from 'npm:rollup-plugin-typescript2';
 import { DEFAULT_EXTENSIONS } from 'npm:@babel/core';
-// import {type IOptions as TypeScriptIOptions} from 'npm:rollup-plugin-typescript2/dist/ioptions';
 export class ReactComponentBuilder {
-  constructor() {
-    console.log(chalk.yellow('react-component-builder-initiated'));
-  }
   async buildAllComponent() {
     for(const reactComponent of reactComponentList){
       await this.buildComponent(reactComponent);
