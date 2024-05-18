@@ -3,7 +3,8 @@
   "version": "0.0.3",
   "exports": "./mod.ts",
   "tasks": {
-    "build": "deno run --allow-read --allow-write --allow-net --allow-env --allow-sys --allow-ffi ./tasks/build/build.ts "
+    "build": "deno run --allow-read --allow-write --allow-net --allow-env --allow-sys --allow-ffi ./tasks/build/build.ts ",
+    "start": "deno run --allow-read --allow-net --allow-env --allow-run ./tasks/start/start.ts" 
   },
   "exclude": ["web-component/", "react-component/"],
   "imports": {
