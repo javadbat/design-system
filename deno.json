@@ -20,7 +20,7 @@
     "jb-date-input": "file:./web-component/jb-date-input",
     "jb-date-input-react": "file:react-component/jb-date-input",
     "jb-file-input": "file:./web-component/jb-file-input",
-    "jb-grid": "file:./react-component/jb-grid",
+    "jb-grid": "./react-component/jb-grid",
     "jb-image-input": "file:./web-component/jb-image-input",
     "jb-input-react": "file:./react-component/jb-input",
     "jb-loading": "file:./web-component/jb-loading",

@@ -23,9 +23,9 @@ class JBGridTest extends Component {
                 return (
                   <React.Fragment key={item.id}>
                     <Row>
-                      <Cell>{item.name}</Cell>
-                      <Cell>{item.age}</Cell>
-                      <Cell><button onClick={()=>{item.jbGridDetail.isExpanded = !item.jbGridDetail.isExpanded;}}>detail</button></Cell>
+                      <Cell label="نام:">{item.name}</Cell>
+                      <Cell label={"سن:"}>{item.age}</Cell>
+                      <Cell label="عملیات:"><button onClick={()=>{item.jbGridDetail.isExpanded = !item.jbGridDetail.isExpanded;}}>detail</button></Cell>
                     </Row>
                     <ExpandRow show={item.jbGridDetail.isExpanded}>
                       <ExpandRowSample></ExpandRowSample>
