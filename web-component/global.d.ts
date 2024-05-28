@@ -7,7 +7,7 @@ declare module '*.scss' {
 }
 declare module '*.html' {
     const value: FileStringModules;
-    export default value.default
+    export default value.default;
 }
 declare module '*.svg' {
     const value: string;

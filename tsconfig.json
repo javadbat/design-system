@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "noImplicitAny": true,
+        "removeComments": false,
+        "sourceMap": true,
+        "allowJs": true,
+    },
+    "exclude": [
+        "node_modules",
+        "**/*.spec.ts",
+    ]
+}

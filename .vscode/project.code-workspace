@@ -13,5 +13,9 @@
         "path": "../react-component"
       },
     ],
-    "settings": {}
+    "settings": {
+        "deno.enable": true,
+        "deno.lint": true,
+        "deno.future": true
+    }
   }
