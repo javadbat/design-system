@@ -13,7 +13,7 @@
     "@std/path": "jsr:@std/path@^0.224.0",
     "jb-calendar": "file:./web-component/jb-calendar",
     "jb-button": "file:./web-component/jb-button",
-    "jb-input": "./web-component/jb-input/index.js",
+    "jb-input": "file:./web-component/jb-input/index.js",
     "jb-textarea": "file:./web-component/jb-textarea",
     "jb-button-react": "file:./react-component/jb-button",
     "jb-checkbox-react": "file:./react-component/jb-checkbox",

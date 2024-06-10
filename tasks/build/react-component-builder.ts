@@ -169,25 +169,6 @@ export class ReactComponentBuilder {
     );
     return {
       useTsconfigDeclarationDir: true,
-      compilerOptions: {
-        target: "ES6",
-        module: "ES6",
-        moduleResolution: "node",
-        allowSyntheticDefaultImports: true,
-        sourceMap: true,
-        emitDecoratorMetadata: true,
-        experimentalDecorators: true,
-        removeComments: false,
-        noImplicitAny: false,
-        noLib: false,
-        preserveConstEnums: true,
-        allowJs: true,
-        declaration: true,
-        declarationDir: "./",
-        declarationMap: false,
-        jsx: "react",
-        //"outDir": "../dist",
-      },
       include: [includePaths],
       exclude: [...externalList],
     };

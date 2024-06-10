@@ -1,14 +1,23 @@
 {
     "compilerOptions": {
         "baseUrl": ".",
-        "module": "es2020",
-        "noImplicitAny": true,
+        "module": "ES2020",
         "removeComments": false,
         "preserveConstEnums": true,
         "moduleResolution": "node",
         "sourceMap": true,
         "allowJs": true,
-        "target": "es6",
+        "target": "ES2020",
+        "allowSyntheticDefaultImports": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "noImplicitAny": false,
+        "noLib": false,
+        "esModuleInterop": false,
+        "declaration": true,
+        "declarationDir": "./",
+        "declarationMap": false,
+        "jsx": "react",
         "typeRoots" : ["../node_modules/@types", "./global.d.ts"],
     },
     "include": [
@@ -17,7 +26,6 @@
     "exclude": [
         "node_modules",
         "**/*.spec.ts",
-        "dist"
     ],
     "extends":"../tsconfig.json"
 }
