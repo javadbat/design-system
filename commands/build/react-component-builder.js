@@ -1,7 +1,7 @@
 import path, { format } from 'path';
 //rollup
 import * as rollup from 'rollup';
-import rollupBabel from '@rollup/plugin-babel';
+import {babel as rollupBabel} from '@rollup/plugin-babel';
 import postcss from 'rollup-plugin-postcss';
 import commonjs from '@rollup/plugin-commonjs';
 import rollupJson from '@rollup/plugin-json';
