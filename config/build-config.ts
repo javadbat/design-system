@@ -98,6 +98,13 @@ const webComponentList: WebComponentBuildConfig[] = [
     umdName: "JBEditor",
   },
   {
+    name: "jb-time-picker",
+    path: "/web-component/jb-time-picker/lib/JBTimePicker.ts",
+    outputPath: "/web-component/jb-time-picker/dist/JBTimePicker.js",
+    external: [],
+    umdName: "JBTimePicker",
+  },
+  {
     name: "jb-time-input",
     path: "/web-component/jb-time-input/lib/JBTimeInput.ts",
     outputPath: "/web-component/jb-time-input/dist/JBTimeInput.js",
@@ -106,13 +113,6 @@ const webComponentList: WebComponentBuildConfig[] = [
     globals: {
       "jb-time-picker": "JBTimePicker",
     },
-  },
-  {
-    name: "jb-time-picker",
-    path: "/web-component/jb-time-picker/lib/JBTimePicker.ts",
-    outputPath: "/web-component/jb-time-picker/dist/JBTimePicker.js",
-    external: [],
-    umdName: "JBTimePicker",
   },
   {
     name: "jb-loading",
