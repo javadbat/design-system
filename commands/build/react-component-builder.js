@@ -94,7 +94,9 @@ class ReactComponentBuilder {
     ];
     const isTypeScriptModule = this._isTypeScriptModule(module);
     if (isTypeScriptModule) {
-      plugins.push(typescript({ tsconfigDefaults: this._getTypeScriptCompilerOptions(module, externalList) }));
+      plugins.push(typescript(
+        {tsconfig: "react-component/tsconfig.json", tsconfigDefaults: this._getTypeScriptCompilerOptions(module, externalList) }
+      ));
     }
     let inputOptions = {
       input: path.join(...module.path.split('/')),
