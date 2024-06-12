@@ -28,9 +28,13 @@ export class ReactComponentBuilder {
     const esOutputOptions = this._getOutputOption(component, "es");
     const cjsOutputOptions = this._getOutputOption(component, "cjs");
     const umdOutputOptions = this._getOutputOption(component, "umd");
-    await this.buildModule(inputOptions, esOutputOptions, "ES");
-    await this.buildModule(inputOptions, cjsOutputOptions, "CJS");
-    await this.buildModule(inputOptions, umdOutputOptions, "UMD");
+    try{
+      await this.buildModule(inputOptions, esOutputOptions, "ES");
+      await this.buildModule(inputOptions, cjsOutputOptions, "CJS");
+      await this.buildModule(inputOptions, umdOutputOptions, "UMD");
+    }catch(e){
+      console.error(component.name + ' build failed');
+    }
   }
   buildModule(
     inputOptions: rollup.RollupOptions,
