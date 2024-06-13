@@ -25,13 +25,15 @@ export class WebComponentBuilder {
   }
   async buildComponent(componentBuildConfig: WebComponentBuildConfig) {
     console.log(`start building ${componentBuildConfig.name}`);
-    const inputOptions = this.#getInputOption(componentBuildConfig);
+    const inputOptions = this.#getInputOption(componentBuildConfig,'es');
+    const cjsInputOptions = this.#getInputOption(componentBuildConfig,'cjs');
+    const umdInputOptions = this.#getInputOption(componentBuildConfig,'umd');
     const esOutputOptions = this.#getOutputOption(componentBuildConfig, "es");
     const cjsOutputOptions = this.#getOutputOption(componentBuildConfig, "cjs");
     const umdOutputOptions = this.#getOutputOption(componentBuildConfig, "umd");
     await this.buildModule(inputOptions, esOutputOptions, "ES");
-    await this.buildModule(inputOptions, cjsOutputOptions, "CJS");
-    await this.buildModule(inputOptions, umdOutputOptions, "UMD");
+    await this.buildModule(cjsInputOptions, cjsOutputOptions, "CJS");
+    await this.buildModule(umdInputOptions, umdOutputOptions, "UMD");
   }
   buildModule(inputOptions:any, outputOptions:any, type:"ES" | "CJS" | "UMD"){
     //build module with rollup without any watch or something
@@ -49,9 +51,6 @@ export class WebComponentBuilder {
     module: WebComponentBuildConfig,
     format: "es" | "cjs" | "umd" = "es"
   ) {
-    /**
-     * @type {Array<String>}
-     */
     let externalList = module.external || [];
     if (
       format == "umd" &&
