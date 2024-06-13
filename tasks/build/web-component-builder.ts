@@ -31,9 +31,13 @@ export class WebComponentBuilder {
     const esOutputOptions = this.#getOutputOption(componentBuildConfig, "es");
     const cjsOutputOptions = this.#getOutputOption(componentBuildConfig, "cjs");
     const umdOutputOptions = this.#getOutputOption(componentBuildConfig, "umd");
-    await this.buildModule(inputOptions, esOutputOptions, "ES");
-    await this.buildModule(cjsInputOptions, cjsOutputOptions, "CJS");
-    await this.buildModule(umdInputOptions, umdOutputOptions, "UMD");
+    try {
+      await this.buildModule(inputOptions, esOutputOptions, "ES");
+      await this.buildModule(cjsInputOptions, cjsOutputOptions, "CJS");
+      await this.buildModule(umdInputOptions, umdOutputOptions, "UMD");
+    }catch(e){
+      console.error(componentBuildConfig.name + ' build failed');
+    }
   }
   buildModule(inputOptions:any, outputOptions:any, type:"ES" | "CJS" | "UMD"){
     //build module with rollup without any watch or something
@@ -43,7 +47,7 @@ export class WebComponentBuilder {
         console.log(chalk.greenBright(output.output[0].facadeModuleId), ' ',chalk.bgBlue(` ${type} `) , ' ', chalk.bgMagenta(' DONE '));
       });
     }).catch((e) => {
-      console.log(e);
+      console.error(e);
     });
     return bundlePromise;
   }

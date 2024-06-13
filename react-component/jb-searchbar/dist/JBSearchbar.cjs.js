@@ -6,8 +6,8 @@ require('jb-select');
 require('jb-input');
 require('jb-date-input');
 
-function _arrayWithHoles(arr) {
-  if (Array.isArray(arr)) return arr;
+function _arrayWithHoles(r) {
+  if (Array.isArray(r)) return r;
 }
 
 function _iterableToArrayLimit(r, l) {
@@ -35,27 +35,26 @@ function _iterableToArrayLimit(r, l) {
   }
 }
 
-function _arrayLikeToArray(arr, len) {
-  if (len == null || len > arr.length) len = arr.length;
-  for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
-  return arr2;
+function _arrayLikeToArray(r, a) {
+  (null == a || a > r.length) && (a = r.length);
+  for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e];
+  return n;
 }
 
-function _unsupportedIterableToArray(o, minLen) {
-  if (!o) return;
-  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
-  var n = Object.prototype.toString.call(o).slice(8, -1);
-  if (n === "Object" && o.constructor) n = o.constructor.name;
-  if (n === "Map" || n === "Set") return Array.from(o);
-  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+function _unsupportedIterableToArray(r, a) {
+  if (r) {
+    if ("string" == typeof r) return _arrayLikeToArray(r, a);
+    var t = {}.toString.call(r).slice(8, -1);
+    return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0;
+  }
 }
 
 function _nonIterableRest() {
   throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
 
-function _slicedToArray(arr, i) {
-  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
+function _slicedToArray(r, e) {
+  return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest();
 }
 
 function useEvent(dom, event, handler) {
@@ -84,59 +83,47 @@ function _typeof(o) {
   }, _typeof(o);
 }
 
-function _assertThisInitialized(self) {
-  if (self === void 0) {
-    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }
-  return self;
+function _assertThisInitialized(e) {
+  if (void 0 === e) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  return e;
 }
 
-function _possibleConstructorReturn(self, call) {
-  if (call && (_typeof(call) === "object" || typeof call === "function")) {
-    return call;
-  } else if (call !== void 0) {
-    throw new TypeError("Derived constructors may only return object or undefined");
-  }
-  return _assertThisInitialized(self);
+function _possibleConstructorReturn(t, e) {
+  if (e && ("object" == _typeof(e) || "function" == typeof e)) return e;
+  if (void 0 !== e) throw new TypeError("Derived constructors may only return object or undefined");
+  return _assertThisInitialized(t);
 }
 
-function _getPrototypeOf(o) {
-  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) {
-    return o.__proto__ || Object.getPrototypeOf(o);
-  };
-  return _getPrototypeOf(o);
+function _getPrototypeOf(t) {
+  return _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function (t) {
+    return t.__proto__ || Object.getPrototypeOf(t);
+  }, _getPrototypeOf(t);
 }
 
-function _setPrototypeOf(o, p) {
-  _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) {
-    o.__proto__ = p;
-    return o;
-  };
-  return _setPrototypeOf(o, p);
+function _setPrototypeOf(t, e) {
+  return _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function (t, e) {
+    return t.__proto__ = e, t;
+  }, _setPrototypeOf(t, e);
 }
 
-function _inherits(subClass, superClass) {
-  if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function");
-  }
-  subClass.prototype = Object.create(superClass && superClass.prototype, {
+function _inherits(t, e) {
+  if ("function" != typeof e && null !== e) throw new TypeError("Super expression must either be null or a function");
+  t.prototype = Object.create(e && e.prototype, {
     constructor: {
-      value: subClass,
-      writable: true,
-      configurable: true
+      value: t,
+      writable: !0,
+      configurable: !0
     }
-  });
-  Object.defineProperty(subClass, "prototype", {
-    writable: false
-  });
-  if (superClass) _setPrototypeOf(subClass, superClass);
+  }), Object.defineProperty(t, "prototype", {
+    writable: !1
+  }), e && _setPrototypeOf(t, e);
 }
 
-function _isNativeFunction(fn) {
+function _isNativeFunction(t) {
   try {
-    return Function.toString.call(fn).indexOf("[native code]") !== -1;
-  } catch (e) {
-    return typeof fn === "function";
+    return -1 !== Function.toString.call(t).indexOf("[native code]");
+  } catch (n) {
+    return "function" == typeof t;
   }
 }
 
@@ -157,37 +144,31 @@ function _construct(t, e, r) {
   return r && _setPrototypeOf(p, r.prototype), p;
 }
 
-function _wrapNativeSuper(Class) {
-  var _cache = typeof Map === "function" ? new Map() : undefined;
-  _wrapNativeSuper = function _wrapNativeSuper(Class) {
-    if (Class === null || !_isNativeFunction(Class)) return Class;
-    if (typeof Class !== "function") {
-      throw new TypeError("Super expression must either be null or a function");
-    }
-    if (typeof _cache !== "undefined") {
-      if (_cache.has(Class)) return _cache.get(Class);
-      _cache.set(Class, Wrapper);
+function _wrapNativeSuper(t) {
+  var r = "function" == typeof Map ? new Map() : void 0;
+  return _wrapNativeSuper = function _wrapNativeSuper(t) {
+    if (null === t || !_isNativeFunction(t)) return t;
+    if ("function" != typeof t) throw new TypeError("Super expression must either be null or a function");
+    if (void 0 !== r) {
+      if (r.has(t)) return r.get(t);
+      r.set(t, Wrapper);
     }
     function Wrapper() {
-      return _construct(Class, arguments, _getPrototypeOf(this).constructor);
+      return _construct(t, arguments, _getPrototypeOf(this).constructor);
     }
-    Wrapper.prototype = Object.create(Class.prototype, {
+    return Wrapper.prototype = Object.create(t.prototype, {
       constructor: {
         value: Wrapper,
-        enumerable: false,
-        writable: true,
-        configurable: true
+        enumerable: !1,
+        writable: !0,
+        configurable: !0
       }
-    });
-    return _setPrototypeOf(Wrapper, Class);
-  };
-  return _wrapNativeSuper(Class);
+    }), _setPrototypeOf(Wrapper, t);
+  }, _wrapNativeSuper(t);
 }
 
-function _classCallCheck(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
+function _classCallCheck(a, n) {
+  if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function");
 }
 
 function toPrimitive(t, r) {
@@ -203,25 +184,19 @@ function toPrimitive(t, r) {
 
 function toPropertyKey(t) {
   var i = toPrimitive(t, "string");
-  return "symbol" == _typeof(i) ? i : String(i);
+  return "symbol" == _typeof(i) ? i : i + "";
 }
 
-function _defineProperties(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || false;
-    descriptor.configurable = true;
-    if ("value" in descriptor) descriptor.writable = true;
-    Object.defineProperty(target, toPropertyKey(descriptor.key), descriptor);
+function _defineProperties(e, r) {
+  for (var t = 0; t < r.length; t++) {
+    var o = r[t];
+    o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, toPropertyKey(o.key), o);
   }
 }
-function _createClass(Constructor, protoProps, staticProps) {
-  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-  if (staticProps) _defineProperties(Constructor, staticProps);
-  Object.defineProperty(Constructor, "prototype", {
-    writable: false
-  });
-  return Constructor;
+function _createClass(e, r, t) {
+  return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", {
+    writable: !1
+  }), e;
 }
 
 function _callSuper(t, o, e) { return o = _getPrototypeOf(o), _possibleConstructorReturn(t, _isNativeReflectConstruct() ? Reflect.construct(o, [], _getPrototypeOf(t).constructor) : o.apply(t, e)); }
@@ -264,7 +239,7 @@ var InputFactory = /*#__PURE__*/function () {
   function InputFactory() {
     _classCallCheck(this, InputFactory);
   }
-  _createClass(InputFactory, [{
+  return _createClass(InputFactory, [{
     key: "createTextInput",
     value: function createTextInput(args) {
       var column = args.column,
@@ -279,13 +254,14 @@ var InputFactory = /*#__PURE__*/function () {
         }
       });
       input.addEventListener('keyup', function (e) {
-        var _a, _b;
+        var _target$validation;
         var target = e.target;
         setIntentColumnValue(target.value, target.value, column.label);
-        if ((_a = target.validation) === null || _a === void 0 ? void 0 : _a.isValid) {
+        if ((_target$validation = target.validation) !== null && _target$validation !== void 0 && _target$validation.isValid) {
           setIntentActive(true);
         } else {
-          setIntentActive(false, ((_b = target.validation) === null || _b === void 0 ? void 0 : _b.message) || undefined);
+          var _target$validation2;
+          setIntentActive(false, ((_target$validation2 = target.validation) === null || _target$validation2 === void 0 ? void 0 : _target$validation2.message) || undefined);
         }
       });
       input.addEventListener('init', function () {
@@ -315,14 +291,14 @@ var InputFactory = /*#__PURE__*/function () {
         }
       });
       input.addEventListener('keyup', function (e) {
-        var _a;
         var target = e.target;
         var value = parseInt(target.value);
         setIntentColumnValue(value, target.value, column.label);
         if (target.validation && target.validation.isValid) {
           setIntentActive(true);
         } else {
-          setIntentActive(false, ((_a = target.validation) === null || _a === void 0 ? void 0 : _a.message) || undefined);
+          var _target$validation3;
+          setIntentActive(false, ((_target$validation3 = target.validation) === null || _target$validation3 === void 0 ? void 0 : _target$validation3.message) || undefined);
         }
       });
       input.addEventListener('init', function () {
@@ -398,20 +374,18 @@ var InputFactory = /*#__PURE__*/function () {
       return dateInput;
     }
   }]);
-  return InputFactory;
 }();
 var _JBSearchbarWebComponent_instances, _JBSearchbarWebComponent_isLoading, _JBSearchbarWebComponent_inputState, _JBSearchbarWebComponent_columnList, _JBSearchbarWebComponent_inputFactory, _JBSearchbarWebComponent_searchOnChange, _JBSearchbarWebComponent_showColumnSelect;
 var JBSearchbarWebComponent = /*#__PURE__*/function (_HTMLElement) {
-  _inherits(JBSearchbarWebComponent, _HTMLElement);
   function JBSearchbarWebComponent() {
     var _this;
     _classCallCheck(this, JBSearchbarWebComponent);
     _this = _callSuper(this, JBSearchbarWebComponent);
-    _JBSearchbarWebComponent_instances.add(_assertThisInitialized(_this));
-    _JBSearchbarWebComponent_isLoading.set(_assertThisInitialized(_this), false);
-    _JBSearchbarWebComponent_inputState.set(_assertThisInitialized(_this), "SELECT_COLUMN");
-    _JBSearchbarWebComponent_columnList.set(_assertThisInitialized(_this), []);
-    _JBSearchbarWebComponent_inputFactory.set(_assertThisInitialized(_this), new InputFactory());
+    _JBSearchbarWebComponent_instances.add(_this);
+    _JBSearchbarWebComponent_isLoading.set(_this, false);
+    _JBSearchbarWebComponent_inputState.set(_this, "SELECT_COLUMN");
+    _JBSearchbarWebComponent_columnList.set(_this, []);
+    _JBSearchbarWebComponent_inputFactory.set(_this, new InputFactory());
     _this.intentColumn = {
       column: null,
       value: null,
@@ -420,11 +394,12 @@ var JBSearchbarWebComponent = /*#__PURE__*/function (_HTMLElement) {
       active: false
     };
     _this.filterList = [];
-    _JBSearchbarWebComponent_searchOnChange.set(_assertThisInitialized(_this), false);
+    _JBSearchbarWebComponent_searchOnChange.set(_this, false);
     _this.initWebComponent();
     return _this;
   }
-  _createClass(JBSearchbarWebComponent, [{
+  _inherits(JBSearchbarWebComponent, _HTMLElement);
+  return _createClass(JBSearchbarWebComponent, [{
     key: "isLoading",
     get: function get() {
       return __classPrivateFieldGet(this, _JBSearchbarWebComponent_isLoading, "f");
@@ -441,7 +416,6 @@ var JBSearchbarWebComponent = /*#__PURE__*/function (_HTMLElement) {
       return __classPrivateFieldGet(this, _JBSearchbarWebComponent_inputState, "f");
     },
     set: function set(value) {
-      var _a;
       if (value == "SELECT_COLUMN") {
         this.elements.columnSelect.value = null;
         this.elements.intent.wrapper.classList.add("--hide");
@@ -450,9 +424,10 @@ var JBSearchbarWebComponent = /*#__PURE__*/function (_HTMLElement) {
           this.elements.columnSelect.focus();
         }
       } else if (value == "FILL_VALUE") {
+        var _this$elements$column;
         this.elements.intent.wrapper.classList.remove("--hide");
         this.elements.intent.input.wrapper.innerHTML = "";
-        (_a = this.elements.columnSelect.parentElement) === null || _a === void 0 ? void 0 : _a.classList.add("--hide");
+        (_this$elements$column = this.elements.columnSelect.parentElement) === null || _this$elements$column === void 0 || _this$elements$column.classList.add("--hide");
       }
       __classPrivateFieldSet(this, _JBSearchbarWebComponent_inputState, value);
     }
@@ -868,11 +843,10 @@ var JBSearchbarWebComponent = /*#__PURE__*/function (_HTMLElement) {
       return ["placeholder"];
     }
   }]);
-  return JBSearchbarWebComponent;
 }( /*#__PURE__*/_wrapNativeSuper(HTMLElement));
 _JBSearchbarWebComponent_isLoading = new WeakMap(), _JBSearchbarWebComponent_inputState = new WeakMap(), _JBSearchbarWebComponent_columnList = new WeakMap(), _JBSearchbarWebComponent_inputFactory = new WeakMap(), _JBSearchbarWebComponent_searchOnChange = new WeakMap(), _JBSearchbarWebComponent_instances = new WeakSet(), _JBSearchbarWebComponent_showColumnSelect = function _JBSearchbarWebComponent_showColumnSelect() {
-  var _a;
-  (_a = this.elements.columnSelect.parentElement) === null || _a === void 0 ? void 0 : _a.classList.remove("--hide");
+  var _this$elements$column2;
+  (_this$elements$column2 = this.elements.columnSelect.parentElement) === null || _this$elements$column2 === void 0 || _this$elements$column2.classList.remove("--hide");
 };
 var myElementNotExists = !customElements.get("jb-searchbar");
 if (myElementNotExists) {
