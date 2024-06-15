@@ -97,11 +97,11 @@ export class WebComponentBuilder {
     ];
     const isTypeScriptModule = this.#isTypeScriptModule(module);
     if (isTypeScriptModule) {
-
+      const tsConfigFilePath = module.tsconfigPath?module.tsconfigPath:path.join(moduleFolderPathArr,"tsconfig.json");
       plugins.push(
         //@ts-ignore
         typescript({
-          tsconfig: path.join(moduleFolderPathArr,"tsconfig.json"),
+          tsconfig: tsConfigFilePath,
           tsconfigDefaults: this.#getTypeScriptCompilerOptions(
             module,
             externalList

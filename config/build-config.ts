@@ -5,6 +5,7 @@ export type WebComponentBuildConfig = {
   umdName: string;
   external?: string[];
   umdIncludes?: string[];
+  tsconfigPath?:string;
   globals?: { [key: string]: string };
 };
 export type ReactComponentBuildConfig = {
@@ -146,6 +147,7 @@ const webComponentList: WebComponentBuildConfig[] = [
     umdName: "BankIndicator",
     external: [],
     globals: {},
+    tsconfigPath:"web-component/jb-payment-input/tsconfig.json"
   },
   {
     name: "jb-mobile-input",
@@ -181,6 +183,7 @@ const webComponentList: WebComponentBuildConfig[] = [
     outputPath:
       "/web-component/jb-notification/dist/wrapper/jb-notification-wrapper.js",
     umdName: "JBNotificationWrapper",
+    tsconfigPath:"web-component/jb-notification/tsconfig.json"
   },
   {
     name: "jb-infinite-scroll",
