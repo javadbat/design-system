@@ -24,9 +24,9 @@ class WebComponentBuilder {
     console.log(chalk.yellow('web-component-builder-initiated'));
   }
   async build() {
-      for(const webComponent of webComponentConfig.webComponents){
-        await this.buildComponent(webComponent);
-      }
+    for(const webComponent of webComponentConfig.webComponents){
+      await this.buildComponent(webComponent);
+    }
   }
   async buildComponent(component) {
     console.log(`start building ${component.name}`);
@@ -62,6 +62,8 @@ class WebComponentBuilder {
         * @type {Array<String>}
         */
     let externalList = module.external || [];
+    // remove filename and lib folder name result in web-component/jb-input
+    const moduleFolderPathArr = path.join(...module.path.split('/').slice(0, -2));
     if (format == "umd" && Array.isArray(module.umdIncludes) && externalList.length > 0) {
       externalList = externalList.filter(el => !module.umdIncludes.includes(el));
     }
@@ -95,7 +97,7 @@ class WebComponentBuilder {
     ];
     const isTypeScriptModule = this._isTypeScriptModule(module);
     if (isTypeScriptModule) {
-      plugins.push(typescript({tsconfig:"web-component/tsconfig.json", tsconfigDefaults: this._getTypeScriptCompilerOptions(module, externalList) }));
+      plugins.push(typescript({tsconfig: path.join(moduleFolderPathArr,"tsconfig.json"), tsconfigDefaults: this._getTypeScriptCompilerOptions(module, externalList) }));
     }
     let inputOptions = {
       input: path.join(...module.path.split('/')),

@@ -27,5 +27,5 @@
         "node_modules",
         "**/*.spec.ts",
     ],
-    "extends":"../tsconfig.json"
+    "extends":"../tsconfig-base.json"
 }

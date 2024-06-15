@@ -55,6 +55,8 @@ export class WebComponentBuilder {
     module: WebComponentBuildConfig,
     format: "es" | "cjs" | "umd" = "es"
   ) {
+    // remove filename and lib folder name result in web-component/jb-input
+    const moduleFolderPathArr = path.join(...module.path.split('/').slice(0, -2));
     let externalList = module.external || [];
     if (
       format == "umd" &&
@@ -95,10 +97,11 @@ export class WebComponentBuilder {
     ];
     const isTypeScriptModule = this.#isTypeScriptModule(module);
     if (isTypeScriptModule) {
+
       plugins.push(
         //@ts-ignore
         typescript({
-          tsconfig:"web-component/tsconfig.json",
+          tsconfig: path.join(moduleFolderPathArr,"tsconfig.json"),
           tsconfigDefaults: this.#getTypeScriptCompilerOptions(
             module,
             externalList
@@ -122,8 +125,9 @@ export class WebComponentBuilder {
     return fileExtension === 'ts';
   }
   #getTypeScriptCompilerOptions(module:WebComponentBuildConfig, externalList:string[]) {
+    const moduleFolderPath = module.path.split("/").slice(0, -1);
     const includePaths = path.join(
-      ...module.path.split("/").slice(0, -1),
+      ...moduleFolderPath,
       "**",
       "*"
     );
@@ -131,21 +135,21 @@ export class WebComponentBuilder {
     return {
       useTsconfigDeclarationDir: true,
       compilerOptions: {
-        target: "ES6",
-        module: "ES6",
-        moduleResolution: "node",
-        allowSyntheticDefaultImports: true,
-        sourceMap: true,
-        emitDecoratorMetadata: true,
-        experimentalDecorators: true,
-        removeComments: false,
-        noImplicitAny: false,
-        noLib: false,
-        preserveConstEnums: true,
-        allowJs: true,
-        declaration: true,
-        declarationDir: "./",
-        declarationMap: false,
+        // target: "ES6",
+        // module: "ES6",
+        // moduleResolution: "node",
+        // allowSyntheticDefaultImports: true,
+        // sourceMap: true,
+        // emitDecoratorMetadata: true,
+        // experimentalDecorators: true,
+        // removeComments: false,
+        // noImplicitAny: false,
+        // noLib: false,
+        // preserveConstEnums: true,
+        // allowJs: true,
+        // declaration: true,
+        // declarationDir: "./",
+        // declarationMap: false,
         //"outDir": "../dist",
       },
       include: [includePaths],
