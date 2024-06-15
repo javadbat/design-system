@@ -34,6 +34,7 @@ export class ReactComponentBuilder {
       await this.buildModule(inputOptions, umdOutputOptions, "UMD");
     }catch(e){
       console.error(component.name + ' build failed');
+      console.error(e.message);
     }
   }
   buildModule(
