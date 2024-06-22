@@ -1,8 +1,10 @@
-import React, { useEffect, useRef, useState, useCallback } from 'react';
-import PropTypes from 'prop-types';
-import 'jb-select';
-import 'jb-input';
-import 'jb-date-input';
+'use strict';
+
+var React = require('react');
+var PropTypes = require('prop-types');
+require('jb-select');
+require('jb-input');
+require('jb-date-input');
 
 function _arrayWithHoles(r) {
   if (Array.isArray(r)) return r;
@@ -57,7 +59,7 @@ function _slicedToArray(r, e) {
 
 function useEvent(dom, event, handler) {
   var passive = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
-  useEffect(function () {
+  React.useEffect(function () {
     if (dom) {
       // initiate the event handler
       dom.addEventListener(event, handler, passive);
@@ -852,25 +854,25 @@ if (myElementNotExists) {
 }
 
 function JBSearchbar(props) {
-  var element = useRef();
-  var _useState = useState(0),
+  var element = React.useRef();
+  var _useState = React.useState(0),
     _useState2 = _slicedToArray(_useState, 2),
     refChangeCount = _useState2[0],
     refChangeCountSetter = _useState2[1];
-  useEffect(function () {
+  React.useEffect(function () {
     refChangeCountSetter(refChangeCount + 1);
   }, [element.current]);
-  useEffect(function () {
+  React.useEffect(function () {
     element.current.columnList = props.columnList;
   }, [props.columnList]);
-  useEffect(function () {
+  React.useEffect(function () {
     if (props.searchOnChange) {
       element.current.searchOnChange = true;
     } else {
       element.current.searchOnChange = false;
     }
   }, [props.searchOnChange]);
-  var onSearch = useCallback(function () {
+  var onSearch = React.useCallback(function () {
     if (typeof props.onSearch === 'function') {
       props.onSearch();
     }
@@ -887,5 +889,5 @@ JBSearchbar.propTypes = {
   onSearch: PropTypes.func
 };
 
-export { JBSearchbar as default };
-//# sourceMappingURL=JBSearchbar.js.map
+module.exports = JBSearchbar;
+//# sourceMappingURL=JBSearchbar.cjs.js.map

@@ -1,0 +1,21 @@
+{
+    "folders": [
+      {
+        "name": "ROOT",
+        "path": "../"
+      },
+      {
+        "name": "front/web-components",
+        "path": "../web-component"
+      },
+      {
+        "name": "front/react-components",
+        "path": "../react-component"
+      },
+    ],
+    "settings": {
+        "deno.enable": true,
+        "deno.lint": true,
+        "deno.future": true
+    }
+  }

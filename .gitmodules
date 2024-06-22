@@ -1,6 +1,9 @@
 [submodule "web-component/jb-input"]
 	path = web-component/jb-input
 	url = https://github.com/javadbat/jb-input.git
+[submodule "web-component/jb-button"]
+	path = web-component/jb-button
+	url = https://github.com/javadbat/jb-button.git
 [submodule "web-component/"]
 	path = web-component/
 	url = https://github.com/javadbat/.git

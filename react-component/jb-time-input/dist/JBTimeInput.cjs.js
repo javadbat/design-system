@@ -1,8 +1,8 @@
 'use strict';
 
 var React = require('react');
-require('jb-calendar');
 var PropTypes = require('prop-types');
+require('jb-time-input');
 
 function _arrayWithHoles(r) {
   if (Array.isArray(r)) return r;
@@ -72,8 +72,8 @@ function useEvent(dom, event, handler) {
 }
 
 // eslint-disable-next-line react/display-name
-var JBCalendar = /*#__PURE__*/React.forwardRef(function (props, ref) {
-  var element = React.useRef(null);
+var JBTimeInput = /*#__PURE__*/React.forwardRef(function (props, ref) {
+  var element = React.useRef();
   var _useState = React.useState(0),
     _useState2 = _slicedToArray(_useState, 2),
     refChangeCount = _useState2[0],
@@ -84,35 +84,94 @@ var JBCalendar = /*#__PURE__*/React.forwardRef(function (props, ref) {
   React.useEffect(function () {
     refChangeCountSetter(refChangeCount + 1);
   }, [element.current]);
-  React.useEffect(function () {
-    if (props.inputType) {
-      element.current.inputType = props.inputType;
+  function onChange(e) {
+    if (props.onChange) {
+      props.onChange(e);
     }
-  }, [props.inputType]);
+  }
+  function onKeydown(e) {
+    if (props.onKeydown) {
+      props.onKeydown(e);
+    }
+  }
+  function onKeyup(e) {
+    if (props.onKeyup) {
+      props.onKeyup(e);
+    }
+  }
+  function onEnter(e) {
+    if (props.onEnter) {
+      props.onEnter(e);
+    }
+  }
+  function onFocus(e) {
+    if (props.onFocus && e instanceof FocusEvent) {
+      props.onFocus(e);
+    }
+  }
+  function onBlur(e) {
+    if (props.onBlur && e instanceof FocusEvent) {
+      props.onBlur(e);
+    }
+  }
+  React.useEffect(function () {
+    var value = props.value;
+    if (props.value == null || props.value === undefined) {
+      value = '00:00:00';
+    }
+    element.current.value = value;
+  }, [props.value]);
   React.useEffect(function () {
     element.current.setAttribute('direction', props.direction);
   }, [props.direction]);
   React.useEffect(function () {
-    if (props.jalaliMonthList) {
-      element.current.setMonthList('JALALI', props.jalaliMonthList);
+    element.current.validationList = props.validationList;
+  }, [props.validationList]);
+  React.useEffect(function () {
+    if (props.secondEnabled !== null && props.secondEnabled !== undefined) {
+      element.current.secondEnabled = props.secondEnabled;
     }
-  }, [props.jalaliMonthList]);
-  function onSelect(e) {
-    if (props.onSelect && e instanceof CustomEvent) {
-      props.onSelect(e);
+  }, [props.secondEnabled]);
+  React.useEffect(function () {
+    if (typeof props.frontalZero == "boolean") {
+      element.current.frontalZero = props.frontalZero;
     }
-  }
-  useEvent(element.current, 'select', onSelect);
-  return /*#__PURE__*/React.createElement("jb-calendar", {
-    ref: element
+  }, [props.frontalZero]);
+  React.useEffect(function () {
+    if (Array.isArray(props.optionalUnits)) {
+      element.current.optionalUnits = props.optionalUnits;
+    }
+  }, [props.optionalUnits]);
+  useEvent(element.current, 'change', onChange);
+  useEvent(element.current, 'keydown', onKeydown);
+  useEvent(element.current, 'keyup', onKeyup);
+  useEvent(element.current, 'focus', onFocus);
+  useEvent(element.current, 'blur', onBlur);
+  useEvent(element.current, 'enter', onEnter);
+  return /*#__PURE__*/React.createElement("jb-time-input", {
+    placeholder: props.placeholder,
+    ref: element,
+    "class": props.className,
+    label: props.label,
+    message: props.message,
+    "close-button-text": props.closeButtonText
   });
 });
-JBCalendar.propTypes = {
-  onSelect: PropTypes.func,
+JBTimeInput.propTypes = {
+  label: PropTypes.string,
+  closeButtonText: PropTypes.string,
   value: PropTypes.string,
-  jalaliMonthList: PropTypes.array,
-  inputType: PropTypes.oneOf(['GREGORIAN', 'JALALI'])
+  onChange: PropTypes.func,
+  onKeyUp: PropTypes.func,
+  onEnter: PropTypes.func,
+  className: PropTypes.string,
+  placeholder: PropTypes.string,
+  direction: PropTypes.string,
+  validationList: PropTypes.array,
+  secondEnabled: PropTypes.bool,
+  frontalZero: PropTypes.bool,
+  optionalUnits: PropTypes.array
 };
 
-exports.JBCalendar = JBCalendar;
-//# sourceMappingURL=JBCalendar.cjs.js.map
+module.exports = JBTimeInput;
+//# sourceMappingURL=JBTimeInput.cjs.js.map
