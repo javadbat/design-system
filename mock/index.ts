@@ -1,4 +1,4 @@
-import { MockServer } from "./mock-server.js";
+import { MockServer } from "./mock-server.ts";
 
 function getPort():number {
   const defaultPort = 3200;
