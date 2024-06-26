@@ -148,10 +148,12 @@ export class ReactComponentBuilder {
     ];
     const isTypeScriptModule = this.#isTypeScriptModule(module);
     if (isTypeScriptModule) {
+      const moduleFolderPathArr = path.join(...module.path.split('/').slice(0, -2));
+      const tsConfigFilePath = module.tsconfigPath?module.tsconfigPath:path.join(moduleFolderPathArr,"tsconfig.json");
       plugins.push(
         //@ts-ignore
         typescript({
-          tsconfig: "react-component/tsconfig.json",
+          tsconfig: tsConfigFilePath,
           tsconfigDefaults: this.#getTypeScriptCompilerOptions(
             module,
             externalList

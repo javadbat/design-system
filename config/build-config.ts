@@ -16,6 +16,7 @@ export type ReactComponentBuildConfig = {
   external?: string[];
   umdIncludes?: string[];
   globals?: { [key: string]: string };
+  tsconfigPath?:string;
 };
 const webComponentList: WebComponentBuildConfig[] = [
   {
