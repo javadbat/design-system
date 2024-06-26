@@ -31,4 +31,4 @@ const mockApiCommand = new Deno.Command("deno", {
 });
 Deno.env.set("STORYBOOK_PORT", generalConfig.port.storybookPort.toString());
 mockApiCommand.spawn();
-storyBookCommand.spawn();
+// storyBookCommand.spawn();
