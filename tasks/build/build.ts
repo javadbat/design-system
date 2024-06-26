@@ -6,13 +6,14 @@ import {ReactComponentBuilder} from './react-component-builder.ts';
 const webComponentBuilder = new WebComponentBuilder();
 const reactComponentBuilder = new ReactComponentBuilder();
 console.log(chalk.green(Deno.args));
+const hasWatch = Deno.args.includes('--watch');
 const componentName = Deno.args[0];
 const wcConfig = webComponentList.find((wc) => wc.name == componentName);
 const reactConfig = reactComponentList.find((rc) => rc.name == componentName);
 if (wcConfig) {
-  webComponentBuilder.buildComponent(wcConfig);
+  webComponentBuilder.buildComponent(wcConfig,hasWatch);
 } else if(reactConfig){
-  reactComponentBuilder.buildComponent(reactConfig);
+  reactComponentBuilder.buildComponent(reactConfig,hasWatch);
 }else {
   const startTime = performance.now();
   await webComponentBuilder.buildAllComponents();

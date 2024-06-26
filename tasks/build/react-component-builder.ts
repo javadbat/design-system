@@ -22,16 +22,20 @@ export class ReactComponentBuilder {
       await this.buildComponent(reactComponent);
     }
   }
-  async buildComponent(component: ReactComponentBuildConfig) {
+  async buildComponent(component: ReactComponentBuildConfig,watch = false) {
     console.log(`start building ${component.name}`);
-    const inputOptions = this._getInputOption(component);
-    const esOutputOptions = this._getOutputOption(component, "es");
-    const cjsOutputOptions = this._getOutputOption(component, "cjs");
-    const umdOutputOptions = this._getOutputOption(component, "umd");
+    const inputOptions = this.#getInputOption(component);
+    const esOutputOptions = this.#getOutputOption(component, "es");
+    const cjsOutputOptions = this.#getOutputOption(component, "cjs");
+    const umdOutputOptions = this.#getOutputOption(component, "umd");
     try{
-      await this.buildModule(inputOptions, esOutputOptions, "ES");
-      await this.buildModule(inputOptions, cjsOutputOptions, "CJS");
-      await this.buildModule(inputOptions, umdOutputOptions, "UMD");
+      if(watch){
+        this.#buildAndWatchModule(inputOptions,esOutputOptions,component)
+      }else{
+        await this.buildModule(inputOptions, esOutputOptions, "ES");
+        await this.buildModule(inputOptions, cjsOutputOptions, "CJS");
+        await this.buildModule(inputOptions, umdOutputOptions, "UMD");
+      }
     }catch(e){
       console.error(component.name + ' build failed');
       console.error(e.message);
@@ -64,7 +68,38 @@ export class ReactComponentBuilder {
         });
     });
   }
-  _getInputOption(module: ReactComponentBuildConfig) {
+  #buildAndWatchModule(inputOptions:rollup.RollupOptions, outputOptions:rollup.OutputOptions, module:ReactComponentBuildConfig) {
+    return new Promise<void>((resolve, reject) => {
+      const watcher = rollup.watch({
+        ...inputOptions,
+        output: outputOptions,
+        watch: {
+          exclude: module.external
+        }
+      });
+      this.#watcherEventHandler(watcher, resolve, reject);
+    });
+  }
+  #watcherEventHandler(watcher:rollup.RollupWatcher, resolver:()=>void, rejecter:()=>void) {
+    watcher.on('event', event => {
+      if (event.code === 'BUNDLE_START') {
+        console.log('Bundling...');
+      } else if (event.code === 'BUNDLE_END') {
+        console.log(chalk.green(event.input + '\n' + 'Bundled in ' + event.duration + 'ms.'));
+        resolver();
+      } else if (event.code === 'ERROR') {
+        console.log(event);
+        
+        console.error(chalk.red((event as any).error));
+        rejecter();
+      }
+      //rollup need to be closed on each result to free up space
+      if ((event as any).result) {
+        (event as any).result.close();
+      }
+    });
+  }
+  #getInputOption(module: ReactComponentBuildConfig):rollup.InputOptions{
     const externalList = module.external || [];
     const plugins = [
       //@ts-ignore
@@ -111,13 +146,13 @@ export class ReactComponentBuilder {
       //@ts-ignore
       rollupJson(),
     ];
-    const isTypeScriptModule = this._isTypeScriptModule(module);
+    const isTypeScriptModule = this.#isTypeScriptModule(module);
     if (isTypeScriptModule) {
-      //@ts-ignore
       plugins.push(
+        //@ts-ignore
         typescript({
           tsconfig: "react-component/tsconfig.json",
-          tsconfigDefaults: this._getTypeScriptCompilerOptions(
+          tsconfigDefaults: this.#getTypeScriptCompilerOptions(
             module,
             externalList
           ),
@@ -132,10 +167,7 @@ export class ReactComponentBuilder {
     };
     return inputOptions;
   }
-  _getOutputOption(
-    module: ReactComponentBuildConfig,
-    format: "umd" | "es" | "cjs"
-  ) {
+  #getOutputOption(module: ReactComponentBuildConfig,format: "umd" | "es" | "cjs"):rollup.OutputOptions{
     const pathArr = module.outputPath.split("/");
     const fullFileName = pathArr[pathArr.length - 1];
     const fileName = path.parse(fullFileName).name;
@@ -157,13 +189,13 @@ export class ReactComponentBuilder {
     }
     return outputOptions;
   }
-  _isTypeScriptModule(module: ReactComponentBuildConfig) {
+  #isTypeScriptModule(module: ReactComponentBuildConfig) {
     const filePaths = module.path.split("/");
     const fileName = filePaths[filePaths.length - 1];
     const fileExtension = fileName.split(".").pop();
     return fileExtension === "ts" || fileExtension == "tsx";
   }
-  _getTypeScriptCompilerOptions(
+  #getTypeScriptCompilerOptions(
     module: ReactComponentBuildConfig,
     externalList: string[]
   ) {

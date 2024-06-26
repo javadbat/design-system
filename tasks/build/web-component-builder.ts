@@ -17,29 +17,35 @@ import rollupReplace from "npm:@rollup/plugin-replace";
 import typescript from "npm:rollup-plugin-typescript2";
 // import InlineSvg from 'rollup-plugin-inline-svg';
 import svg from "npm:rollup-plugin-svg";
+import { ModuleFormat } from "npm:rollup";
 export class WebComponentBuilder {
   async buildAllComponents() {
     for (const component of webComponentList) {
       await this.buildComponent(component);
     }
   }
-  async buildComponent(componentBuildConfig: WebComponentBuildConfig) {
+  async buildComponent(componentBuildConfig: WebComponentBuildConfig,watch = false) {
     console.log(`start building ${componentBuildConfig.name}`);
     const inputOptions = this.#getInputOption(componentBuildConfig,'es');
     const cjsInputOptions = this.#getInputOption(componentBuildConfig,'cjs');
     const umdInputOptions = this.#getInputOption(componentBuildConfig,'umd');
+    //
     const esOutputOptions = this.#getOutputOption(componentBuildConfig, "es");
     const cjsOutputOptions = this.#getOutputOption(componentBuildConfig, "cjs");
     const umdOutputOptions = this.#getOutputOption(componentBuildConfig, "umd");
     try {
-      await this.buildModule(inputOptions, esOutputOptions, "ES");
-      await this.buildModule(cjsInputOptions, cjsOutputOptions, "CJS");
-      await this.buildModule(umdInputOptions, umdOutputOptions, "UMD");
+      if(watch){
+        this.#buildAndWatchModule(inputOptions,esOutputOptions,componentBuildConfig);
+      }else{
+        await this.buildModule(inputOptions, esOutputOptions, "ES");
+        await this.buildModule(cjsInputOptions, cjsOutputOptions, "CJS");
+        await this.buildModule(umdInputOptions, umdOutputOptions, "UMD");
+      }
     }catch(e){
       console.error(componentBuildConfig.name + ' build failed');
     }
   }
-  buildModule(inputOptions:any, outputOptions:any, type:"ES" | "CJS" | "UMD"){
+  buildModule(inputOptions:rollup.RollupOptions, outputOptions:rollup.OutputOptions, type:"ES" | "CJS" | "UMD"){
     //build module with rollup without any watch or something
     const bundlePromise = rollup.rollup(inputOptions);
     bundlePromise.then(function (bundle) {
@@ -51,10 +57,38 @@ export class WebComponentBuilder {
     });
     return bundlePromise;
   }
-  #getInputOption(
-    module: WebComponentBuildConfig,
-    format: "es" | "cjs" | "umd" = "es"
-  ) {
+  #buildAndWatchModule(inputOptions:rollup.RollupOptions, outputOptions:rollup.OutputOptions, module:WebComponentBuildConfig) {
+    return new Promise<void>((resolve, reject) => {
+      const watcher = rollup.watch({
+        ...inputOptions,
+        output: outputOptions,
+        watch: {
+          exclude: module.external
+        }
+      });
+      this.#watcherEventHandler(watcher, resolve, reject);
+    });
+  }
+  #watcherEventHandler(watcher:rollup.RollupWatcher, resolver:()=>void, rejecter:()=>void) {
+    watcher.on('event', event => {
+      if (event.code === 'BUNDLE_START') {
+        console.log('Bundling...');
+      } else if (event.code === 'BUNDLE_END') {
+        console.log(chalk.green(event.input + '\n' + 'Bundled in ' + event.duration + 'ms.'));
+        resolver();
+      } else if (event.code === 'ERROR') {
+        console.log(event);
+        
+        console.error(chalk.red((event as any).error));
+        rejecter();
+      }
+      //rollup need to be closed on each result to free up space
+      if ((event as any).result) {
+        (event as any).result.close();
+      }
+    });
+  }
+  #getInputOption(module: WebComponentBuildConfig, format: "es" | "cjs" | "umd" = "es"):rollup.RollupOptions{
     // remove filename and lib folder name result in web-component/jb-input
     const moduleFolderPathArr = path.join(...module.path.split('/').slice(0, -2));
     let externalList = module.external || [];
@@ -156,7 +190,7 @@ export class WebComponentBuilder {
       exclude: [...externalList],
     };
   }
-  #getOutputOption(module:WebComponentBuildConfig, format = "es") {
+  #getOutputOption(module:WebComponentBuildConfig, format:ModuleFormat = "es"):rollup.OutputOptions{
     const pathArr = module.outputPath.split('/');
     const fullFileName = pathArr[pathArr.length - 1];
     const fileName = path.parse(fullFileName).name;
