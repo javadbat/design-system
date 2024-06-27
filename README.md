@@ -33,6 +33,13 @@ npm run build
 # build only a named module
 npm run build jb-input
 ```
+in deno (recommended):
+```bash
+deno run build
+deno run build jb-input
+# we dint build cjs or UMD in watch mode for more speed so pleas build your package without watch mode at least 1 time before publish
+deno run build jb-input --watch
+```
 
 ### serve testbeds
 

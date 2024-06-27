@@ -1,5 +1,47 @@
 {
-    "name": "@design-system/all",
-    "version": "0.0.1",
-    "exports": "./mod.ts"
+  "name": "@design-system/all",
+  "version": "0.0.5",
+  "exports": "./mod.ts",
+  "tasks": {
+    "build": "deno run --allow-read --allow-write --allow-net --allow-env --allow-sys --allow-ffi ./tasks/build/build.ts ",
+    "start": "deno run --allow-read --allow-net --allow-env --allow-run ./tasks/start/start.ts" 
+  },
+  "exclude": ["web-component/", "react-component/"],
+  "imports": {
+    "/": "./",
+    "./": "./",
+    "@std/path": "jsr:@std/path@^0.224.0",
+    "jb-calendar": "file:./web-component/jb-calendar",
+    "jb-button": "file:./web-component/jb-button",
+    "jb-input": "file:./web-component/jb-input/index.js",
+    "jb-textarea": "file:./web-component/jb-textarea",
+    "jb-button-react": "file:./react-component/jb-button",
+    "jb-checkbox-react": "file:./react-component/jb-checkbox",
+    "jb-date-input": "file:./web-component/jb-date-input",
+    "jb-date-input-react": "file:react-component/jb-date-input",
+    "jb-file-input": "file:./web-component/jb-file-input",
+    "jb-grid": "./react-component/jb-grid",
+    "jb-image-input": "file:./web-component/jb-image-input",
+    "jb-input-react": "file:./react-component/jb-input",
+    "jb-loading": "file:./web-component/jb-loading",
+    "jb-mobile-input": "file:./web-component/jb-mobile-input",
+    "jb-mobile-input-react": "file:./react-component/jb-mobile-input",
+    "jb-modal": "file:./web-component/jb-modal",
+    "jb-notification": "file:./web-component/jb-notification",
+    "jb-payment-input": "file:./web-component/jb-payment-input",
+    "jb-pin-input": "file:./web-component/jb-pin-input",
+    "jb-searchbar": "file:./web-component/jb-searchbar",
+    "jb-select": "file:./web-component/jb-select",
+    "jb-switch": "file:./web-component/jb-switch",
+    "jb-switch-react": "file:./react-component/jb-switch",
+    "jb-time-picker": "file:./web-component/jb-time-picker"
+  },
+  "compilerOptions": {
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "dom.asynciterable",
+      "deno.ns"
+    ]
+  }
 }
