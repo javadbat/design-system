@@ -229,7 +229,7 @@ const reactComponentConfig = {
     },
     {
       name: 'jb-calendar-react',
-      path: '/react-component/jb-calendar/lib/JBCalendar.jsx',
+      path: '/react-component/jb-calendar/lib/JBCalendar.tsx',
       outputPath: '/react-component/jb-calendar/dist/JBCalendar.js',
       external: ['jb-calendar', 'prop-types', 'react'],
       globals: {
@@ -239,7 +239,7 @@ const reactComponentConfig = {
     },
     {
       name: 'jb-checkbox-react',
-      path: '/react-component/jb-checkbox/lib/JBCheckbox.js',
+      path: '/react-component/jb-checkbox/lib/JBCheckbox.tsx',
       outputPath: '/react-component/jb-checkbox/dist/JBCheckbox.js',
       external: ['prop-types', 'react'],
       globals: {
@@ -260,7 +260,7 @@ const reactComponentConfig = {
     },
     {
       name: 'jb-searchbar-react',
-      path: '/react-component/jb-searchbar/lib/JBSearchbar.js',
+      path: '/react-component/jb-searchbar/lib/JBSearchbar.tsx',
       outputPath: '/react-component/jb-searchbar/dist/JBSearchbar.js',
       external: ['prop-types', 'react', 'jb-input', 'jb-select', 'jb-date-input'],
       globals: {
@@ -322,7 +322,7 @@ const reactComponentConfig = {
     // },
     {
       name: 'jb-time-input-react',
-      path: '/react-component/jb-time-input/lib/JBTimeInput.js',
+      path: '/react-component/jb-time-input/lib/JBTimeInput.tsx',
       outputPath: '/react-component/jb-time-input/dist/JBTimeInput.js',
       external: ['react', 'prop-types', 'jb-time-input'],
       globals: {
@@ -363,7 +363,7 @@ const reactComponentConfig = {
     // },
     {
       name: 'jb-payment-input-react',
-      path: '/react-component/jb-payment-input/lib/JBPaymentInput.js',
+      path: '/react-component/jb-payment-input/lib/JBPaymentInput.tsx',
       outputPath: '/react-component/jb-payment-input/dist/JBPaymentInput.js',
       external: ['jb-payment-input', 'prop-types', 'react'],
       globals: {
@@ -383,7 +383,7 @@ const reactComponentConfig = {
     },
     {
       name: 'jb-national-input-react',
-      path: '/react-component/jb-national-input/lib/JBNationalInput.js',
+      path: '/react-component/jb-national-input/lib/JBNationalInput.tsx',
       outputPath: '/react-component/jb-national-input/dist/JBNationalInput.js',
       external: ['jb-national-input', 'prop-types', 'react'],
       globals: {
