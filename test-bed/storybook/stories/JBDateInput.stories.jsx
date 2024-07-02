@@ -68,6 +68,11 @@ Required.args = {
   required: true,
   direction: "ltr",
 };
+export const WithOverflowHandler = Template.bind({});
+WithOverflowHandler.args = {
+  label: 'will jump on overflow',
+  overflowHandler:"JUMP"
+};
 const darkModeTemplate = () => <DarkmodeTest></DarkmodeTest>;
 export const DarkMode = darkModeTemplate.bind({});
 const sizeTestTemplate = () => <JBDateInputSizeTest></JBDateInputSizeTest>;
@@ -201,3 +206,4 @@ const InFormTemplate = (args) => <InFormData {...args}></InFormData>;
 export const InFormTest = InFormTemplate.bind({});
 InFormTest.args = {
 };
+
