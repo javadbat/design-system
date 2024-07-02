@@ -16,6 +16,10 @@
         "name": "front/common",
         "path": "../common"
       },
+      {
+        "name": "front/test-bed",
+        "path": "../test-bed"
+      },
     ],
     "settings": {
         "deno.enable": true,

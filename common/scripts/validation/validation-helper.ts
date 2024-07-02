@@ -1,4 +1,4 @@
-import {ClearValidationErrorCallback, GetInputtedTextCallback, ShowValidationErrorCallback, ValidationItem,ValidationResult,ValidationResultItem,ValidationResultSummary, getValueStringCallback} from "./validation-helper-types";
+import {ClearValidationErrorCallback, GetInputtedValueCallback, ShowValidationErrorCallback, ValidationItem,ValidationResult,ValidationResultItem,ValidationResultSummary, GetValueStringCallback,GetInsideValidationsCallback} from "./validation-helper-types";
 
 export class ValidationHelper<ValidationValue>{
   //states
@@ -14,15 +14,15 @@ export class ValidationHelper<ValidationValue>{
   //callbacks
   #showValidationError: ShowValidationErrorCallback | null = null; 
   #clearValidationError: ClearValidationErrorCallback | null = null;
-  #getInputText:GetInputtedTextCallback<ValidationValue> | null = null;
-  #getValueString:getValueStringCallback<ValidationValue> | null = null;
-  constructor(showValidationError:ShowValidationErrorCallback, clearValidationError: ClearValidationErrorCallback, getInputText:GetInputtedTextCallback<ValidationValue> ) {
+  #getInputValue:GetInputtedValueCallback<ValidationValue> | null = null;
+  #getValueString:GetValueStringCallback<ValidationValue> | null = null;
+  #getInsideValidations:GetInsideValidationsCallback<ValidationValue> | null = null;
+  constructor(showValidationError:ShowValidationErrorCallback, clearValidationError: ClearValidationErrorCallback, getInputValue:GetInputtedValueCallback<ValidationValue>, getValueString:GetValueStringCallback<ValidationValue>,getInsideValidations:GetInsideValidationsCallback<ValidationValue> ) {
     this.#showValidationError = showValidationError;
     this.#clearValidationError= clearValidationError;
-    this.#getInputText = getInputText;
-  }
-  setValueStringCallback(callback:getValueStringCallback<ValidationValue>){
-    this.#getValueString = callback;
+    this.#getInputValue = getInputValue;
+    this.#getValueString = getValueString;
+    this.#getInsideValidations = getInsideValidations;
   }
   get list(): ValidationItem<ValidationValue>[] {
     return this.#list;
@@ -37,8 +37,8 @@ export class ValidationHelper<ValidationValue>{
   checkValidity(showError = true): ValidationResult<ValidationValue> {
     // this method is for use out of component  for example if user click on submit button and developer want to check if all fields are valid
     //takeAction determine if we want to show user error in web component default Manner or developer will handle it by himself
-    const inputText = this.#getInputText();
-    const validationResult = this.#checkValueValidation(inputText);
+    const inputValue = this.#getInputValue();
+    const validationResult = this.#checkValueValidation(inputValue);
     this.#resultSummary = {
       isValid: validationResult.isAllValid,
       message: null,
@@ -65,7 +65,12 @@ export class ValidationHelper<ValidationValue>{
       validationList: [],
       isAllValid: true,
     };
-    this.list.forEach((validation) => {
+    let insideValidations:ValidationItem<ValidationValue>[] = [];
+    if(typeof this.#getInsideValidations == "function"){
+      insideValidations = this.#getInsideValidations();
+    }
+    const list = [...insideValidations, ...this.list];
+    list.forEach((validation) => {
       const res = this.#checkValidation(value, validation);
       validationResult.validationList.push(res);
       if (!res.isValid) {
@@ -79,6 +84,7 @@ export class ValidationHelper<ValidationValue>{
    */
   #checkValidation(value: ValidationValue,validation: ValidationItem<ValidationValue>): ValidationResultItem<ValidationValue> {
     let testRes:boolean;
+    let message = validation.message;
     if (validation.validator instanceof RegExp) {
       const text = typeof value == "string"?value:this.#getValueString(value);
       testRes = validation.validator.test(text);
@@ -86,13 +92,18 @@ export class ValidationHelper<ValidationValue>{
     }
 
     if (typeof validation.validator == "function") {
-      testRes = validation.validator(value);
+      const funcRes = validation.validator(value);
+      if(typeof funcRes == "string" && funcRes.length >0){
+        message = funcRes;
+      }
+      //if function return string if string was full it mean we must show custom error
+      testRes = typeof funcRes == "string"? funcRes.length==0 : funcRes;
     }
 
     if (!testRes) {
       return {
         isValid: false,
-        message: validation.message,
+        message: message,
         validation: validation,
       };
     }

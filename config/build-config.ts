@@ -21,9 +21,9 @@ export type ReactComponentBuildConfig = {
 const webComponentList: WebComponentBuildConfig[] = [
   {
     name: "jb-input",
-    path: "/web-component/jb-input/lib/JBInput.ts",
-    outputPath: "/web-component/jb-input/dist/JBInput.js",
-    umdName: "JBDateInput",
+    path: "/web-component/jb-input/lib/jb-input.ts",
+    outputPath: "/web-component/jb-input/dist/jb-input.js",
+    umdName: "JBInput",
   },
   {
     name: "jb-button",
@@ -38,16 +38,16 @@ const webComponentList: WebComponentBuildConfig[] = [
     outputPath: "/web-component/jb-calendar/dist/JBCalendar.js",
     external: ["date-fns", "date-fns-jalali"],
     umdName: "JBCalendar",
-    //becuase date-fns dont have any umd module export i have to do this so it doenst exclude in umd build
+    //because date-fns dont have any umd module export i have to do this so it doenst exclude in umd build
     umdIncludes: ["date-fns", "date-fns-jalali"],
   },
   {
     name: "jb-date-input",
-    path: "/web-component/jb-date-input/lib/JBDateInput.ts",
-    outputPath: "/web-component/jb-date-input/dist/JBDateInput.js",
+    path: "/web-component/jb-date-input/lib/jb-date-input.ts",
+    outputPath: "/web-component/jb-date-input/dist/jb-date-input.js",
     umdName: "JBDateInput",
     external: ["date-fns", "date-fns-jalali", "jb-calendar"],
-    //becuase date-fns dont have any umd module export i have to do this so it doenst exclude in umd build
+    //because date-fns dont have any umd module export i have to do this so it doesn't exclude in umd build
     umdIncludes: ["date-fns", "date-fns-jalali", "jb-calendar"],
   },
   {

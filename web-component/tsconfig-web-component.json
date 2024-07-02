@@ -1,4 +1,5 @@
 {
+    "useTsconfigDeclarationDir": true,
     "compilerOptions": {
         "baseUrl": ".",
         "module": "ES2020",
@@ -10,7 +11,10 @@
         "allowJs": true,
         "target": "ES2020",
         "typeRoots" : ["../node_modules/@types", "./global.d.ts"],
-        "composite": true
+        "composite": true,
+        "declaration": true,
+        "declarationDir": "./",
+        "declarationMap": false,
     },
     "include": [
         "global.d.ts",

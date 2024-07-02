@@ -1,5 +1,5 @@
 import React from 'react';
-import JBTimeInput from '../../../react-component/jb-time-input/lib/JBTimeInput';
+import JBTimeInput from '../../../react-component/jb-time-input/dist/JBTimeInput';
 import JBTimeInputEventTestPage from './pages/JBTimeInputEventTestPage';
 import JBTimeInputWebComponentEventTestPage from './pages/JBTimeInputWebComponentEventTestPage';
 export default {

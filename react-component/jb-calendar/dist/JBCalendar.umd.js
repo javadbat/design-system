@@ -21,7 +21,7 @@
 
   // eslint-disable-next-line react/display-name
   const JBCalendar = React.forwardRef((props, ref) => {
-      let element = React.useRef(null);
+      const element = React.useRef(null);
       const [refChangeCount, refChangeCountSetter] = React.useState(0);
       React.useImperativeHandle(ref, () => (element ? element.current : {}), [element]);
       React.useEffect(() => {

@@ -1,17 +1,13 @@
-import { ClearValidationErrorCallback, GetInputtedTextCallback, ShowValidationErrorCallback, ValidationItem, ValidationResult, ValidationResultItem, ValidationResultSummary } from "./validation-helper-types";
-export declare class ValidationHelper {
+import { ClearValidationErrorCallback, GetInputtedValueCallback, ShowValidationErrorCallback, ValidationItem, ValidationResult, ValidationResultSummary, GetValueStringCallback, GetInsideValidationsCallback } from "./validation-helper-types";
+export declare class ValidationHelper<ValidationValue> {
     #private;
-    validation?: ValidationResultSummary;
-    showValidationError: ShowValidationErrorCallback | null;
-    clearValidationError: ClearValidationErrorCallback | null;
-    getInputText: GetInputtedTextCallback | null;
-    constructor(showValidationError: ShowValidationErrorCallback, clearValidationError: ClearValidationErrorCallback, getInputText: GetInputtedTextCallback);
-    get validationList(): ValidationItem[];
-    set validationList(value: ValidationItem[]);
+    get resultSummary(): ValidationResultSummary;
+    result: ValidationResult<ValidationValue> | null;
+    constructor(showValidationError: ShowValidationErrorCallback, clearValidationError: ClearValidationErrorCallback, getInputValue: GetInputtedValueCallback<ValidationValue>, getValueString: GetValueStringCallback<ValidationValue>, getInsideValidations: GetInsideValidationsCallback<ValidationValue>);
+    get list(): ValidationItem<ValidationValue>[];
+    set list(value: ValidationItem<ValidationValue>[]);
     /**
      * @description check if input validation list is fulfilled or not
      */
-    checkValidity(showError?: boolean): ValidationResult;
-    checkInputValidation(value: string): ValidationResult;
-    checkValidation(text: string, validation: ValidationItem): ValidationResultItem;
+    checkValidity(showError?: boolean): ValidationResult<ValidationValue>;
 }

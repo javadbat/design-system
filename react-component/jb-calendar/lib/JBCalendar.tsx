@@ -22,7 +22,7 @@ declare global {
 }
 // eslint-disable-next-line react/display-name
 const JBCalendar = React.forwardRef((props:any, ref) => {
-  let element = useRef<JBCalendarWebComponent>(null);
+  const element = useRef<JBCalendarWebComponent>(null);
   const [refChangeCount, refChangeCountSetter] = useState(0);
   useImperativeHandle(
     ref,
