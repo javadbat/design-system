@@ -16,13 +16,13 @@ export class ValidationHelper<ValidationValue>{
   #clearValidationError: ClearValidationErrorCallback | null = null;
   #getInputValue:GetInputtedValueCallback<ValidationValue> | null = null;
   #getValueString:GetValueStringCallback<ValidationValue> | null = null;
-  #getInsideValidations:GetInsideValidationsCallback<ValidationValue> | null = null;
+  #getInsideValidations:GetInsideValidationsCallback<ValidationValue>[] = [];
   constructor(showValidationError:ShowValidationErrorCallback, clearValidationError: ClearValidationErrorCallback, getInputValue:GetInputtedValueCallback<ValidationValue>, getValueString:GetValueStringCallback<ValidationValue>,getInsideValidations:GetInsideValidationsCallback<ValidationValue> ) {
     this.#showValidationError = showValidationError;
     this.#clearValidationError= clearValidationError;
     this.#getInputValue = getInputValue;
     this.#getValueString = getValueString;
-    this.#getInsideValidations = getInsideValidations;
+    this.#getInsideValidations.push(getInsideValidations);
   }
   get list(): ValidationItem<ValidationValue>[] {
     return this.#list;
@@ -58,6 +58,22 @@ export class ValidationHelper<ValidationValue>{
     return validationResult;
   }
   /**
+   * @description this function will register a function as validation getter sp on each validation check it will call getter function and check it's returned validation
+   * @public
+   */
+  addValidationListGetter(func:GetInsideValidationsCallback<ValidationValue>){
+    this.#getInsideValidations.push(func);
+  }
+  #getInsideValidationList(){
+    const insideValidations:ValidationItem<ValidationValue>[] = [];
+    this.#getInsideValidations.forEach((getValidation)=>{
+      if(typeof getValidation == "function"){
+        insideValidations.push(...getValidation());
+      }
+    });
+    return insideValidations.flat();
+  }
+  /**
    *@description compare value with all validation
    */
   #checkValueValidation(value: ValidationValue) {
@@ -65,10 +81,7 @@ export class ValidationHelper<ValidationValue>{
       validationList: [],
       isAllValid: true,
     };
-    let insideValidations:ValidationItem<ValidationValue>[] = [];
-    if(typeof this.#getInsideValidations == "function"){
-      insideValidations = this.#getInsideValidations();
-    }
+    const insideValidations = this.#getInsideValidationList();
     const list = [...insideValidations, ...this.list];
     list.forEach((validation) => {
       const res = this.#checkValidation(value, validation);

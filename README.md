@@ -5,6 +5,7 @@ design-system for jb-web-components and corresponding react components
 ## architecture
 
 micro-front-end with storybook test bed
+this project is in the middle of transform between nodejs and deno and gets a little complicated to run
 
 ## usage
 
@@ -35,10 +36,10 @@ npm run build jb-input
 ```
 in deno (recommended):
 ```bash
-deno run build
-deno run build jb-input
+deno task build
+deno task build jb-input
 # we dint build cjs or UMD in watch mode for more speed so pleas build your package without watch mode at least 1 time before publish
-deno run build jb-input --watch
+deno task build jb-input --watch
 ```
 
 ### serve testbeds

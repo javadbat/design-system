@@ -161,6 +161,16 @@ const webComponentList: WebComponentBuildConfig[] = [
     },
   },
   {
+    name: "jb-national-input",
+    path: "/web-component/jb-national-input/lib/jb-national-input.ts",
+    outputPath: "/web-component/jb-national-input/dist/jb-national-input.js",
+    umdName: "JBNationalInput",
+    external: ["jb-input"],
+    globals: {
+      "jb-input": "JBInput",
+    },
+  },
+  {
     name: "jb-modal",
     path: "/web-component/jb-modal/lib/JBModal.ts",
     outputPath: "/web-component/jb-modal/dist/JBModal.js",
