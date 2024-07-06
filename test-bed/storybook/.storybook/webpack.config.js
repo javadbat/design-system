@@ -29,6 +29,7 @@ module.exports = async ({ config }) => {
       'jb-switch': path.resolve(__dirname, '..','..', '..', 'web-component','jb-switch', 'index.js'),
       'jb-switch-react': path.resolve(__dirname, '..','..', '..', 'react-component','jb-switch', 'index.js'),
       'jb-mobile-input-react': path.resolve(__dirname, '..','..', '..', 'react-component','jb-mobile-input', 'index.js'),
+      'jb-national-input-react': path.resolve(__dirname, '..','..', '..', 'react-component','jb-national-input', 'index.js'),
       'jb-grid': path.resolve(__dirname, '..','..', '..', 'react-component','jb-grid', 'index.js'),
       'jb-calendar': path.resolve(__dirname, '..','..', '..', 'web-component','jb-calendar', 'dist', 'JBCalendar.js'),
       'jb-date-input': path.resolve(__dirname, '..','..', '..', 'web-component','jb-date-input', 'index.js'),
@@ -40,6 +41,7 @@ module.exports = async ({ config }) => {
       'jb-pin-input-react': path.resolve(__dirname, '..','..', '..', 'react-component','jb-pin-input', 'dist', 'JBPinInput.js'),
       'jb-loading-react': path.resolve(__dirname, '..','..', '..', 'react-component','jb-loading', 'dist', 'JBLoading.js'),
       'jb-mobile-input':path.resolve(__dirname, '..','..', '..', 'web-component','jb-mobile-input', 'dist', 'jb-mobile-input.js'),
+      'jb-national-input':path.resolve(__dirname, '..','..', '..', 'web-component','jb-national-input', 'dist', 'jb-national-input.js'),
       'jb-payment-input':path.resolve(__dirname, '..','..', '..', 'web-component','jb-payment-input'),
       'jb-modal':path.resolve(__dirname, '..','..', '..', 'web-component','jb-modal'),
     }

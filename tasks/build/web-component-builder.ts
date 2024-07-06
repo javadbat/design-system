@@ -53,7 +53,7 @@ export class WebComponentBuilder {
         console.log(chalk.greenBright(output.output[0].facadeModuleId), ' ',chalk.bgBlue(` ${type} `) , ' ', chalk.bgMagenta(' DONE '));
       });
     }).catch((e) => {
-      console.error(e);
+      console.error(e.message);
     });
     return bundlePromise;
   }
@@ -169,22 +169,6 @@ export class WebComponentBuilder {
     return {
       useTsconfigDeclarationDir: true,
       compilerOptions: {
-        // target: "ES6",
-        // module: "ES6",
-        // moduleResolution: "node",
-        // allowSyntheticDefaultImports: true,
-        // sourceMap: true,
-        // emitDecoratorMetadata: true,
-        // experimentalDecorators: true,
-        // removeComments: false,
-        // noImplicitAny: false,
-        // noLib: false,
-        // preserveConstEnums: true,
-        // allowJs: true,
-        // declaration: true,
-        // declarationDir: "./",
-        // declarationMap: false,
-        //"outDir": "../dist",
       },
       include: [includePaths],
       exclude: [...externalList],
@@ -203,7 +187,6 @@ export class WebComponentBuilder {
       dir: path.join(...dir),
       entryFileNames: outputFileName,
       format: format, //es for native code , system for systemjs known module, umd for umd package
-      //dir: 'App/dist',
     };
     if (format == "umd") {
       //@ts-ignore package is not standard

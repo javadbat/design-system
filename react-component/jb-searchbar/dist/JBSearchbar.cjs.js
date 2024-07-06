@@ -204,16 +204,15 @@ var InputFactory = /*#__PURE__*/function () {
         var _target$validation;
         var target = e.target;
         setIntentColumnValue(target.value, target.value, column.label);
-        if ((_target$validation = target.validation) !== null && _target$validation !== void 0 && _target$validation.isValid) {
+        if ((_target$validation = target.validation) !== null && _target$validation !== void 0 && _target$validation.resultSummary.isValid) {
           setIntentActive(true);
         } else {
-          var _target$validation2;
-          setIntentActive(false, ((_target$validation2 = target.validation) === null || _target$validation2 === void 0 ? void 0 : _target$validation2.message) || undefined);
+          setIntentActive(false, target.validation.resultSummary.message || undefined);
         }
       });
       input.addEventListener('init', function () {
         input.focus();
-        input.validationList = [{
+        input.validation.list = [{
           validator: /.{1}/g,
           message: 'پر کردن فیلد اجباری است'
         }];
@@ -241,16 +240,16 @@ var InputFactory = /*#__PURE__*/function () {
         var target = e.target;
         var value = parseInt(target.value);
         setIntentColumnValue(value, target.value, column.label);
-        if (target.validation && target.validation.isValid) {
+        if (target.validation && target.validation.resultSummary.isValid) {
           setIntentActive(true);
         } else {
-          var _target$validation3;
-          setIntentActive(false, ((_target$validation3 = target.validation) === null || _target$validation3 === void 0 ? void 0 : _target$validation3.message) || undefined);
+          var _target$validation2;
+          setIntentActive(false, ((_target$validation2 = target.validation) === null || _target$validation2 === void 0 ? void 0 : _target$validation2.resultSummary.message) || undefined);
         }
       });
       input.addEventListener('init', function () {
         input.focus();
-        input.validationList = [{
+        input.validation.list = [{
           validator: /.{1}/g,
           message: 'پر کردن فیلد اجباری است'
         }, {
@@ -301,13 +300,13 @@ var InputFactory = /*#__PURE__*/function () {
       });
       dateInput.addEventListener('keyup', function (e) {
         var target = e.target;
-        if (target.validation.isValid) {
+        if (target.validation.resultSummary.isValid) {
           setIntentActive(true);
           var value = target.valueInDate;
           var valueString = target.value;
           setIntentColumnValue(value, valueString, column.label);
         } else {
-          setIntentActive(false, target.validation.message || undefined);
+          setIntentActive(false, target.validation.resultSummary.message || undefined);
         }
       });
       dateInput.addEventListener('select', function (e) {
