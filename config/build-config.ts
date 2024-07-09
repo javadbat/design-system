@@ -132,8 +132,8 @@ const webComponentList: WebComponentBuildConfig[] = [
   },
   {
     name: "jb-payment-input",
-    path: "/web-component/jb-payment-input/lib/JBPaymentInput.ts",
-    outputPath: "/web-component/jb-payment-input/dist/JBPaymentInput.js",
+    path: "/web-component/jb-payment-input/lib/jb-payment-input.ts",
+    outputPath: "/web-component/jb-payment-input/dist/jb-payment-input.js",
     umdName: "JBPaymentInput",
     external: ["jb-input"],
     globals: {
