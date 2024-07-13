@@ -54,6 +54,7 @@
     "jb-mobile-input": "file:./web-component/jb-mobile-input",
     "jb-mobile-input-react": "file:./react-component/jb-mobile-input",
     "jb-national-input":"file:./web-component/jb-national-input",
+    "jb-number-input":"file:./web-component/jb-number-input",
     "jb-national-input-react":"file:./react-component/jb-national-input",
     "jb-modal": "file:./web-component/jb-modal",
     "jb-notification": "file:./web-component/jb-notification",

@@ -161,6 +161,16 @@ const webComponentList: WebComponentBuildConfig[] = [
     },
   },
   {
+    name: "jb-number-input",
+    path: "/web-component/jb-number-input/lib/jb-number-input.ts",
+    outputPath: "/web-component/jb-number-input/dist/jb-number-input.js",
+    umdName: "JBNumberInput",
+    external: ["jb-input"],
+    globals: {
+      "jb-input": "JBInput",
+    },
+  },
+  {
     name: "jb-national-input",
     path: "/web-component/jb-national-input/lib/jb-national-input.ts",
     outputPath: "/web-component/jb-national-input/dist/jb-national-input.js",
@@ -413,7 +423,17 @@ const reactComponentList: ReactComponentBuildConfig[] = [
     name: "jb-national-input-react",
     path: "/react-component/jb-national-input/lib/JBNationalInput.tsx",
     outputPath: "/react-component/jb-national-input/dist/JBNationalInput.js",
-    external: ["jb-national-input", "prop-types", "react"],
+    external: ["jb-national-input","jb-input", "prop-types", "react"],
+    globals: {
+      react: "React",
+      "prop-types": "PropTypes",
+    },
+  },
+  {
+    name: "jb-number-input-react",
+    path: "/react-component/jb-number-input/lib/JBNumberInput.tsx",
+    outputPath: "/react-component/jb-number-input/dist/JBNumberInput.js",
+    external: ["jb-number-input", "jb-input", "prop-types", "react"],
     globals: {
       react: "React",
       "prop-types": "PropTypes",

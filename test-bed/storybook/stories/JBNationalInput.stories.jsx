@@ -1,7 +1,7 @@
 import React from 'react';
 import {JBNationalInput} from 'jb-national-input-react';
 export default {
-  title: 'Example/JBNationalInput',
+  title: 'Example/Input/JBNationalInput',
   component: JBNationalInput
 };
 const Template = (args) => <JBNationalInput { ...args}></JBNationalInput>;

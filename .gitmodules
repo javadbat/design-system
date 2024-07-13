@@ -134,3 +134,9 @@
 [submodule "react-component/jb-button"]
 	path = react-component/jb-button
 	url = https://github.com/javadbat/jb-button-react.git
+[submodule "web-component/jb-number-input"]
+	path = web-component/jb-number-input
+	url = https://github.com/javadbat/jb-number-input.git
+[submodule "react-component/jb-number-input"]
+	path = react-component/jb-number-input
+	url = https://github.com/javadbat/jb-numbet-input-react.git

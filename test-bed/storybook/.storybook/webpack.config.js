@@ -42,6 +42,8 @@ module.exports = async ({ config }) => {
       'jb-loading-react': path.resolve(__dirname, '..','..', '..', 'react-component','jb-loading', 'dist', 'JBLoading.js'),
       'jb-mobile-input':path.resolve(__dirname, '..','..', '..', 'web-component','jb-mobile-input', 'dist', 'jb-mobile-input.js'),
       'jb-national-input':path.resolve(__dirname, '..','..', '..', 'web-component','jb-national-input', 'dist', 'jb-national-input.js'),
+      'jb-number-input':path.resolve(__dirname, '..','..', '..', 'web-component','jb-number-input', 'dist', 'jb-number-input.js'),
+      'jb-number-input-react': path.resolve(__dirname, '..','..', '..', 'react-component','jb-number-input', 'dist', 'JBNumberInput.js'),
       'jb-payment-input':path.resolve(__dirname, '..','..', '..', 'web-component','jb-payment-input'),
       'jb-modal':path.resolve(__dirname, '..','..', '..', 'web-component','jb-modal'),
     }

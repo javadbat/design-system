@@ -2,7 +2,7 @@ import React from 'react';
 import {JBPaymentInput} from '../../../react-component/jb-payment-input';
 import 'jb-payment-input/dist/bank-indicator/bank-indicator.js';
 export default {
-  title: 'Example/JBPaymentInput',
+  title: 'Example/Input/JBPaymentInput',
   component: JBPaymentInput
 };
 const Template = (args) => <JBPaymentInput { ...args}></JBPaymentInput>;
