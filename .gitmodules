@@ -140,3 +140,9 @@
 [submodule "react-component/jb-number-input"]
 	path = react-component/jb-number-input
 	url = https://github.com/javadbat/jb-number-input-react.git
+[submodule "web-component/jb-password-input"]
+	path = web-component/jb-password-input
+	url = https://github.com/javadbat/jb-password-input.git
+[submodule "react-component/jb-password-input"]
+	path = react-component/jb-password-input
+	url = https://github.com/javadbat/jb-password-input-react.git
