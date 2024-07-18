@@ -5,8 +5,5 @@ import generalConfig from "../../config/general-config.js";
 
 const processInstaller = (...pathnames) => spawn("npm", ["i"], { shell:true, stdio:'inherit', cwd: path.join(generalConfig.basePath, ...pathnames) });
 
-chalk.blue("installing mock server packages");
-export const mockInstallProcess = processInstaller("mock");
-
 chalk.blue("installing storybook packages");
 export const storybookInstallProcess = processInstaller("test-bed", "storybook");
