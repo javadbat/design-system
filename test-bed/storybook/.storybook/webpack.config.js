@@ -45,7 +45,10 @@ module.exports = async ({ config }) => {
       'jb-number-input':path.resolve(__dirname, '..','..', '..', 'web-component','jb-number-input', 'dist', 'jb-number-input.js'),
       'jb-number-input-react': path.resolve(__dirname, '..','..', '..', 'react-component','jb-number-input', 'dist', 'JBNumberInput.js'),
       'jb-payment-input':path.resolve(__dirname, '..','..', '..', 'web-component','jb-payment-input'),
+      'jb-password-input':path.resolve(__dirname, '..','..', '..', 'web-component','jb-password-input','dist','jb-password-input.js'),
+      'jb-password-input-react': path.resolve(__dirname, '..','..', '..', 'react-component','jb-password-input', 'dist', 'JBPasswordInput.js'),
       'jb-modal':path.resolve(__dirname, '..','..', '..', 'web-component','jb-modal'),
+      'jb-message':path.resolve(__dirname, '..','..', '..', 'modules','jb-message'),
     }
   }
   return config;

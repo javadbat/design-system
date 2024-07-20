@@ -31,6 +31,7 @@
     "jb-modal": "file:./web-component/jb-modal",
     "jb-notification": "file:./web-component/jb-notification",
     "jb-payment-input": "file:./web-component/jb-payment-input",
+    "jb-password-input": "file:./web-component/jb-password-input",
     "jb-pin-input": "file:./web-component/jb-pin-input",
     "jb-searchbar": "file:./web-component/jb-searchbar",
     "jb-select": "file:./web-component/jb-select",

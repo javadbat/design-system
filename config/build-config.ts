@@ -181,6 +181,16 @@ const webComponentList: WebComponentBuildConfig[] = [
     },
   },
   {
+    name: "jb-password-input",
+    path: "/web-component/jb-password-input/lib/jb-password-input.ts",
+    outputPath: "/web-component/jb-password-input/dist/jb-password-input.js",
+    umdName: "JBPasswordInput",
+    external: ["jb-input"],
+    globals: {
+      "jb-input": "JBInput",
+    },
+  },
+  {
     name: "jb-modal",
     path: "/web-component/jb-modal/lib/JBModal.ts",
     outputPath: "/web-component/jb-modal/dist/JBModal.js",
@@ -404,6 +414,16 @@ const reactComponentList: ReactComponentBuildConfig[] = [
     path: "/react-component/jb-payment-input/lib/JBPaymentInput.tsx",
     outputPath: "/react-component/jb-payment-input/dist/JBPaymentInput.js",
     external: ["jb-payment-input", "prop-types", "react"],
+    globals: {
+      react: "React",
+      "prop-types": "PropTypes",
+    },
+  },
+  {
+    name: "jb-password-input-react",
+    path: "/react-component/jb-password-input/lib/JBPasswordInput.tsx",
+    outputPath: "/react-component/jb-password-input/dist/JBPasswordInput.js",
+    external: ["jb-password-input", "prop-types", "react"],
     globals: {
       react: "React",
       "prop-types": "PropTypes",
