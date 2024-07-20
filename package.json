@@ -60,6 +60,7 @@
     "jb-national-input-react": "file:./react-component/jb-national-input",
     "jb-notification": "file:./web-component/jb-notification",
     "jb-number-input": "file:./web-component/jb-number-input",
+    "jb-number-input-react": "file:./react-component/jb-number-input",
     "jb-payment-input": "file:./web-component/jb-payment-input",
     "jb-pin-input": "file:./web-component/jb-pin-input",
     "jb-searchbar": "file:./web-component/jb-searchbar",
