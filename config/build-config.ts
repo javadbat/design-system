@@ -413,50 +413,52 @@ const reactComponentList: ReactComponentBuildConfig[] = [
     name: "jb-payment-input-react",
     path: "/react-component/jb-payment-input/lib/JBPaymentInput.tsx",
     outputPath: "/react-component/jb-payment-input/dist/JBPaymentInput.js",
-    external: ["jb-payment-input", "prop-types", "react"],
+    external: ["jb-payment-input","jb-input-react", "prop-types", "react"],
     globals: {
       react: "React",
       "prop-types": "PropTypes",
+      "jb-input-react":"JBInputReact"
     },
   },
   {
     name: "jb-password-input-react",
     path: "/react-component/jb-password-input/lib/JBPasswordInput.tsx",
     outputPath: "/react-component/jb-password-input/dist/JBPasswordInput.js",
-    external: ["jb-password-input", "prop-types", "react"],
+    external: ["jb-password-input","jb-input-react", "prop-types", "react"],
     globals: {
       react: "React",
       "prop-types": "PropTypes",
+      "jb-input-react":"JBInputReact"
     },
   },
   {
     name: "jb-mobile-input-react",
     path: "/react-component/jb-mobile-input/lib/JBMobileInput.tsx",
     outputPath: "/react-component/jb-mobile-input/dist/JBMobileInput.js",
-    external: ["jb-input", "jb-mobile-input", "prop-types", "react"],
+    external: ["jb-input","jb-input-react", "jb-mobile-input", "prop-types", "react"],
     globals: {
       react: "React",
-      "prop-types": "PropTypes",
+      "jb-input-react":"JBInputReact"
     },
   },
   {
     name: "jb-national-input-react",
     path: "/react-component/jb-national-input/lib/JBNationalInput.tsx",
     outputPath: "/react-component/jb-national-input/dist/JBNationalInput.js",
-    external: ["jb-national-input","jb-input", "prop-types", "react"],
+    external: ["jb-national-input","jb-input-react","jb-input", "prop-types", "react"],
     globals: {
       react: "React",
-      "prop-types": "PropTypes",
+      "jb-input-react":"JBInputReact"
     },
   },
   {
     name: "jb-number-input-react",
     path: "/react-component/jb-number-input/lib/JBNumberInput.tsx",
     outputPath: "/react-component/jb-number-input/dist/JBNumberInput.js",
-    external: ["jb-number-input", "jb-input", "prop-types", "react"],
+    external: ["jb-number-input","jb-input-react", "jb-input", "prop-types", "react"],
     globals: {
       react: "React",
-      "prop-types": "PropTypes",
+      "jb-input-react":"JBInputReact"
     },
   },
   {

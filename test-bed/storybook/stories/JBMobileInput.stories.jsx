@@ -1,7 +1,7 @@
 import React from 'react';
 import {JBMobileInput} from 'jb-mobile-input-react';
 export default {
-  title: 'Example/JBMobileInput',
+  title: 'Example/Input/JBMobileInput',
   component: JBMobileInput
 };
 const Template = (args) => <JBMobileInput { ...args}></JBMobileInput>;
