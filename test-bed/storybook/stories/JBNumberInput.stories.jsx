@@ -84,9 +84,7 @@ export const numberTest = numberTestTemplate.bind({});
 const WithStartSectionTemplate = (args) => {
   return (
     <JBNumberInput {...args}>
-      <jb-input-inbox-element slot="start-section">
-        <div style={{ width: '24px', height: '24px', backgroundColor: '#262626' }}></div>
-      </jb-input-inbox-element>
+      <div slot="start-section" style={{ width: '24px', height: '24px', backgroundColor: '#262626' }}></div>
     </JBNumberInput>
   );
 };
@@ -101,9 +99,7 @@ WithStartSection.args = {
 const WithEndSectionTemplate = (args) => {
   return (
     <JBNumberInput {...args}>
-      <jb-input-inbox-element slot="end-section">
-        <div style={{ width: '24px', height: '24px', backgroundColor: '#262626' }}></div>
-      </jb-input-inbox-element>
+      <div slot="end-section" style={{ width: '24px', height: '24px', backgroundColor: '#262626' }}></div>
     </JBNumberInput>
   );
 };
@@ -117,12 +113,8 @@ WithEndSection.args = {
 const WithStartAndEndSectionTemplate = (args) => {
   return (
     <JBNumberInput {...args}>
-      <jb-input-inbox-element slot="end-section">
-        <div style={{ width: '24px', height: '24px', backgroundColor: '#262626' }}></div>
-      </jb-input-inbox-element>
-      <jb-input-inbox-element slot="start-section">
-        <div style={{ width: '24px', height: '24px', backgroundColor: '#262626' }}></div>
-      </jb-input-inbox-element>
+      <div slot="end-section" style={{ width: '24px', height: '24px', backgroundColor: '#262626' }}></div>
+      <div slot="start-section" style={{ width: '24px', height: '24px', backgroundColor: '#262626' }}></div>
     </JBNumberInput>
   );
 };

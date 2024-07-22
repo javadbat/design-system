@@ -186,12 +186,8 @@ WithoutIcon.args = {
 };
 const WithStartSectionTemplate = (args) => (
   <JBDateInput {...args}>
-    <jb-date-input-inbox-element slot="end-section">
-      <div style={{ width: '24px', height: '24px', backgroundColor: '#262626' }}></div>
-    </jb-date-input-inbox-element>
-    <jb-date-input-inbox-element slot="start-section">
-      <div style={{ width: '24px', height: '24px', backgroundColor: '#262626' }}></div>
-    </jb-date-input-inbox-element>
+    <div slot="end-section" style={{ width: '24px', height: '24px', backgroundColor: '#262626' }}></div>
+    <div slot="start-section" style={{ width: '24px', height: '24px', backgroundColor: '#262626' }}></div>
   </JBDateInput>
 );
 

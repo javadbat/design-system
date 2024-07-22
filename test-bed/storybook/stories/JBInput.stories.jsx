@@ -52,9 +52,7 @@ ValidationList.args = {
 const WithStartSectionTemplate = (args) => {
   return (
     <JBInput direction='ltr' label={args.label} message={args.message} type={args.type} validationList={args.validationList} placeholder={args.placeholder}>
-      <jb-input-inbox-element slot="start-section">
-        <div style={{ width: '24px', height: '24px', backgroundColor: '#262626' }}></div>
-      </jb-input-inbox-element>
+      <div slot="start-section" style={{ width: '24px', height: '24px', backgroundColor: '#262626' }}></div>
     </JBInput>
   );
 };
@@ -69,9 +67,7 @@ WithStartSection.args = {
 const WithEndSectionTemplate = (args) => {
   return (
     <JBInput direction='ltr' label={args.label} message={args.message} type={args.type} validationList={args.validationList} placeholder={args.placeholder}>
-      <jb-input-inbox-element slot="end-section">
-        <div style={{ width: '24px', height: '24px', backgroundColor: '#262626' }}></div>
-      </jb-input-inbox-element>
+      <div slot="end-section" style={{ width: '24px', height: '24px', backgroundColor: '#262626' }}></div>
     </JBInput>
   );
 };
@@ -85,12 +81,8 @@ WithEndSection.args = {
 const WithStartAndEndSectionTemplate = (args) => {
   return (
     <JBInput direction='ltr' label={args.label} message={args.message} type={args.type} validationList={args.validationList} placeholder={args.placeholder}>
-      <jb-input-inbox-element slot="end-section">
-        <div style={{ width: '24px', height: '24px', backgroundColor: '#262626' }}></div>
-      </jb-input-inbox-element>
-      <jb-input-inbox-element slot="start-section">
-        <div style={{ width: '24px', height: '24px', backgroundColor: '#262626' }}></div>
-      </jb-input-inbox-element>
+      <div slot="end-section" style={{ width: '24px', height: '24px', backgroundColor: '#262626' }}></div>
+      <div slot="start-section" style={{ width: '24px', height: '24px', backgroundColor: '#262626' }}></div>
     </JBInput>
   );
 };
