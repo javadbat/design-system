@@ -1,6 +1,6 @@
 import React from 'react';
-import {JBPaymentInput} from '../../../react-component/jb-payment-input';
-import 'jb-payment-input/dist/bank-indicator/bank-indicator.js';
+import {JBPaymentInput} from 'jb-payment-input-react';
+import 'jb-payment-input/bank-indicator';
 export default {
   title: 'Example/Input/JBPaymentInput',
   component: JBPaymentInput
