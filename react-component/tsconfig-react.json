@@ -4,7 +4,7 @@
         "module": "ES2020",
         "removeComments": false,
         "preserveConstEnums": true,
-        "moduleResolution": "node",
+        "moduleResolution": "Bundler",
         "sourceMap": true,
         "allowJs": true,
         "target": "ES2020",

@@ -417,7 +417,19 @@ const reactComponentList: ReactComponentBuildConfig[] = [
     globals: {
       react: "React",
       "prop-types": "PropTypes",
-      "jb-input-react":"JBInputReact"
+      "jb-input-react":"JBInputReact",
+      "jb-payment-input":"JBPaymentInput"
+    },
+  },
+  {
+    name: "bank-indicator-react",
+    path: "/react-component/jb-payment-input/lib/BankIndicator.tsx",
+    outputPath: "/react-component/jb-payment-input/dist/BankIndicator.js",
+    external: ["jb-payment-input",'jb-payment-input/bank-indicator', "prop-types", "react"],
+    globals: {
+      react: "React",
+      "prop-types": "PropTypes",
+      "jb-payment-input":"JBPaymentInput"
     },
   },
   {
