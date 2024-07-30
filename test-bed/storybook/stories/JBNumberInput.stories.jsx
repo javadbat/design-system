@@ -18,44 +18,24 @@ export const NumberWithComma = Template.bind({});
 NumberWithComma.args = {
   label: 'تعداد به عدد',
   message: 'هر سه رقم با کاما جدا میگردند',
-  numberFieldParameter: {
-    step: 1,
-    decimalPrecision: 2,
-    invalidNumberReplacement: '',
-    useThousandSeparator: true
-  },
+  showThousandSeparator: true,
   onChange: (e) => { console.log(`new number is ${e.target.value}`); }
 };
 export const NumberWithMinMax = Template.bind({});
 NumberWithMinMax.args = {
   label: 'تعداد به عدد',
   message: 'عدد بین 1 تا 10000',
-  type: 'number',
-  numberFieldParameter: {
-    step: 1,
-    decimalPrecision: 2,
-    invalidNumberReplacement: '',
-    useThousandSeparator: true,
-    maxValue: 10000,
-    minValue: 1,
-  },
+  maxValue: 10000,
+  minValue: 1,
   onChange: (e) => { console.log(`new number is ${e.target.value}`); }
 };
-export const NonNegativeNumberWithUnderline = Template.bind({});
-NonNegativeNumberWithUnderline.args = {
+export const NonNegativeNumberWithUnderlineSeparator = Template.bind({});
+NonNegativeNumberWithUnderlineSeparator.args = {
   label: 'تعداد به عدد',
   message: 'هر سه رقم با خط تیره جدا میگردند',
-  type: 'number',
-  value: '1000000',
-  numberFieldParameter: {
-    step: 1,
-    decimalPrecision: 2,
-    invalidNumberReplacement: '',
-    useThousandSeparator: true,
-    thousandSeparator: '_',
-    acceptNegative: false,
-  },
-
+  acceptNegative: false,
+  showThousandSeparator:true,
+  thousandSeparator: '_',
   onChange: (e) => { console.log(`new number is ${e.target.value}`); }
 };
 export const NumberWithButtons = Template.bind({});
@@ -64,9 +44,7 @@ NumberWithButtons.args = {
   message: 'دکمه های +-',
   type: 'number',
   showControlButton:true,
-  numberFieldParameter: {
-    step:100
-  },
+  step:100,
   onChange: (e) => { console.log(`new number is ${e.target.value}`); }
 };
 export const NumberWithPersianChar = Template.bind({});
@@ -74,9 +52,7 @@ NumberWithPersianChar.args = {
   label: 'type number',
   message: 'type en number but user see persian char number',
   type: 'number',
-  numberFieldParameter: {
-    showPersianNumber:true
-  },
+  showPersianNumber:true,
   onChange: (e) => { console.log(`new number is ${e.target.value}`); }
 };
 const numberTestTemplate = () => <JBInputNumberTest></JBInputNumberTest>;
