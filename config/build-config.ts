@@ -33,6 +33,13 @@ const webComponentList: WebComponentBuildConfig[] = [
     umdName: "JBButton",
   },
   {
+    name: "jb-popover",
+    path: "/web-component/jb-popover/lib/jb-popover.ts",
+    outputPath: "/web-component/jb-popover/dist/jb-popover.js",
+    external: [],
+    umdName: "JBButton",
+  },
+  {
     name: "jb-calendar",
     path: "/web-component/jb-calendar/lib/JBCalendar.ts",
     outputPath: "/web-component/jb-calendar/dist/JBCalendar.js",

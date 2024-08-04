@@ -19,7 +19,8 @@ module.exports = async ({ config }) => {
     modules: [
       ...(config.resolve.modules || []),
       //move thing here if you want to import package as real package and not a single file put it here
-      path.resolve(__dirname, '..','..', '..', 'web-component','jb-payment-input')
+      path.resolve(__dirname, '..','..', '..', 'web-component','jb-payment-input'),
+      path.resolve(__dirname, '..','..', '..', 'web-component','jb-popover')
     ],
     alias:{
       ...config.resolve.alias,

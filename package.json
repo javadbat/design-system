@@ -39,6 +39,7 @@
     "eslint-plugin-import": "^2.22.0",
     "jalaliday": "^2.3.0",
     "jb-button": "file:./web-component/jb-button",
+    "jb-popover": "file:./web-component/jb-popover",
     "jb-button-react": "file:./react-component/jb-button",
     "jb-calendar": "file:./web-component/jb-calendar",
     "jb-checkbox-react": "file:./react-component/jb-checkbox",
