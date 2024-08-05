@@ -5,10 +5,10 @@
 - [jb-payment-input](https://github.com/javadbat/jb-payment-input)
 - [jb-national-input](https://github.com/javadbat/jb-national-input)
 - [jb-password-input](https://github.com/javadbat/jb-password-input)
-- [jb-number-input]((https://github.com/javadbat/jb-number-input))
+- [jb-number-input](https://github.com/javadbat/jb-number-input)
 - [jb-mobile-input](https://github.com/javadbat/jb-mobile-input)
 - [jb-time-input](https://github.com/javadbat/jb-time-input)
-- [jb-date-input]((https://github.com/javadbat/jb-date-input))
+- [jb-date-input](https://github.com/javadbat/jb-date-input)
 
 ## buttons:
 - [jb-button](https://github.com/javadbat/jb-button)
