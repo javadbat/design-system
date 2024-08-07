@@ -63,13 +63,15 @@ const JBTimeInput = React.forwardRef((props, ref) => {
         element.current.value = value;
     }, [props.value]);
     useEffect(() => {
-        element.current.setAttribute('direction', props.direction);
+        element.current?.setAttribute('direction', props.direction);
     }, [props.direction]);
     useEffect(() => {
-        element.current.validationList = props.validationList;
+        if (Array.isArray(props.validationList) && element.current) {
+            element.current.validation.list = props.validationList;
+        }
     }, [props.validationList]);
     useEffect(() => {
-        if (props.secondEnabled !== null && props.secondEnabled !== undefined) {
+        if (element.current, props.secondEnabled !== null && props.secondEnabled !== undefined) {
             element.current.secondEnabled = props.secondEnabled;
         }
     }, [props.secondEnabled]);

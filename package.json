@@ -70,6 +70,7 @@
     "jb-switch-react": "file:./react-component/jb-switch",
     "jb-textarea": "^2.1.0",
     "jb-time-picker": "file:./web-component/jb-time-picker",
+    "jb-time-input": "file:./web-component/jb-time-input",
     "lodash": "^4.17.21",
     "lodash.clonedeep": "^4.5.0",
     "mobx": "^6.0.1",

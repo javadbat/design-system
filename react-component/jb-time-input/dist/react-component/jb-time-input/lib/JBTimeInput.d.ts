@@ -1,6 +1,6 @@
 import React from 'react';
 import 'jb-time-input';
-type JBTimeInputWebComponent = any;
+import { JBTimeInputWebComponent } from 'jb-time-input';
 declare global {
     namespace JSX {
         interface IntrinsicElements {

@@ -1,10 +1,10 @@
 import React, {useRef, useEffect, useImperativeHandle, useState} from 'react';
 import PropTypes from 'prop-types';
 import 'jb-time-input';
+// eslint-disable-next-line no-duplicate-imports
+import {JBTimeInputWebComponent} from 'jb-time-input';
 import {useEvent} from '../../../common/hooks/use-event';
 
-//TODO: replace it after you migrate web-component to typescript
-type JBTimeInputWebComponent = any;
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace JSX {
@@ -70,13 +70,15 @@ const JBTimeInput = React.forwardRef((props:any, ref)=>{
     element.current.value = value;
   }, [props.value]);
   useEffect(()=>{
-    element.current.setAttribute('direction',props.direction);
+    element.current?.setAttribute('direction',props.direction);
   },[props.direction]);
   useEffect(()=>{
-    element.current.validationList = props.validationList;
+    if(Array.isArray( props.validationList) && element.current){
+      element.current.validation.list = props.validationList;
+    }
   },[props.validationList]);
   useEffect(()=>{
-    if(props.secondEnabled !== null && props.secondEnabled !== undefined){
+    if(element.current,props.secondEnabled !== null && props.secondEnabled !== undefined){
       element.current.secondEnabled = props.secondEnabled;
     }
   },[props.secondEnabled]);

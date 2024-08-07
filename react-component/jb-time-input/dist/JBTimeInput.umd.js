@@ -68,7 +68,7 @@
           element.current.setAttribute('direction', props.direction);
       }, [props.direction]);
       React.useEffect(() => {
-          element.current.validationList = props.validationList;
+          element.current.validation.list = props.validationList;
       }, [props.validationList]);
       React.useEffect(() => {
           if (props.secondEnabled !== null && props.secondEnabled !== undefined) {
