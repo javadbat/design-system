@@ -152,3 +152,9 @@
 [submodule "react-component/web-component/jb-popover"]
 	path = react-component/web-component/jb-popover
 	url = https://github.com/javadbat/jb-popover.git
+[submodule "modules/modules/jb-validation"]
+	path = modules/modules/jb-validation
+	url = https://github.com/javadbat/jb-validation.git
+[submodule "modules/jb-validation"]
+	path = modules/jb-validation
+	url = https://github.com/javadbat/jb-validation.git

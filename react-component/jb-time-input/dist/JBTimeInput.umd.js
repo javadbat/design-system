@@ -65,13 +65,15 @@
           element.current.value = value;
       }, [props.value]);
       React.useEffect(() => {
-          element.current.setAttribute('direction', props.direction);
+          element.current?.setAttribute('direction', props.direction);
       }, [props.direction]);
       React.useEffect(() => {
-          element.current.validation.list = props.validationList;
+          if (Array.isArray(props.validationList) && element.current) {
+              element.current.validation.list = props.validationList;
+          }
       }, [props.validationList]);
       React.useEffect(() => {
-          if (props.secondEnabled !== null && props.secondEnabled !== undefined) {
+          if (element.current, props.secondEnabled !== null && props.secondEnabled !== undefined) {
               element.current.secondEnabled = props.secondEnabled;
           }
       }, [props.secondEnabled]);

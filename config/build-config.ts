@@ -19,6 +19,19 @@ export type ReactComponentBuildConfig = {
   tsconfigPath?:string;
 };
 const webComponentList: WebComponentBuildConfig[] = [
+  //TODO: separate modules from web-components
+  {
+    name: "jb-validation",
+    path: "/modules/jb-validation/lib/jb-validation.ts",
+    outputPath: "/modules/jb-validation/dist/jb-validation.js",
+    umdName: "JBValidation",
+  },
+  {
+    name: "jb-message",
+    path: "/modules/jb-message/lib/JBMessage.ts",
+    outputPath: "/modules/jb-message/dist/JBMessage.js",
+    umdName: "JBMessage",
+  },
   {
     name: "jb-input",
     path: "/web-component/jb-input/lib/jb-input.ts",
@@ -80,12 +93,6 @@ const webComponentList: WebComponentBuildConfig[] = [
     path: "/web-component/jb-textarea/lib/JBTextarea.ts",
     outputPath: "/web-component/jb-textarea/dist/JBTextarea.js",
     umdName: "JBTextarea",
-  },
-  {
-    name: "jb-message",
-    path: "/modules/jb-message/lib/JBMessage.ts",
-    outputPath: "/modules/jb-message/dist/JBMessage.js",
-    umdName: "JBMessage",
   },
   {
     name: "jb-searchbar",
@@ -391,11 +398,12 @@ const reactComponentList: ReactComponentBuildConfig[] = [
     name: "jb-date-input-react",
     path: "/react-component/jb-date-input/lib/JBDateInput.tsx",
     outputPath: "/react-component/jb-date-input/dist/JBDateInput.js",
-    external: ["react", "prop-types", "jb-date-input"],
+    external: ["react", "prop-types", "jb-date-input", "jb-validation"],
     globals: {
       react: "React",
       "prop-types": "PropTypes",
       "jb-date-input": "JBDateInput",
+      "jb-validation":"JBValidation",
     },
   },
   {

@@ -18,6 +18,11 @@ function useEvent(dom, event, handler, passive = false) {
     });
 }
 
+function _assertThisInitialized(e) {
+  if (void 0 === e) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  return e;
+}
+
 function _typeof(o) {
   "@babel/helpers - typeof";
 
@@ -26,11 +31,6 @@ function _typeof(o) {
   } : function (o) {
     return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o;
   }, _typeof(o);
-}
-
-function _assertThisInitialized(e) {
-  if (void 0 === e) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  return e;
 }
 
 function _possibleConstructorReturn(t, e) {
@@ -146,274 +146,180 @@ function _createClass(e, r, t) {
 
 function _callSuper(t, o, e) { return o = _getPrototypeOf(o), _possibleConstructorReturn(t, _isNativeReflectConstruct() ? Reflect.construct(o, [], _getPrototypeOf(t).constructor) : o.apply(t, e)); }
 function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct = function _isNativeReflectConstruct() { return !!t; })(); }
-
-/******************************************************************************
-Copyright (c) Microsoft Corporation.
-
-Permission to use, copy, modify, and/or distribute this software for any
-purpose with or without fee is hereby granted.
-
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
-AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
-LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
-OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
-PERFORMANCE OF THIS SOFTWARE.
-***************************************************************************** */
-/* global Reflect, Promise, SuppressedError, Symbol */
-
-function __classPrivateFieldGet(receiver, state, kind, f) {
-  if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a getter");
-  if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
-  return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
+function e(e, t, n, i) {
+  if ("a" === n && !i) throw new TypeError("Private accessor was defined without a getter");
+  if ("function" == typeof t ? e !== t || !i : !t.has(e)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
+  return "m" === n ? i : "a" === n ? i.call(e) : i ? i.value : t.get(e);
 }
-function __classPrivateFieldSet(receiver, state, value, kind, f) {
-  if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot write private member to an object whose class did not declare it");
-  return state.set(receiver, value), value;
+function t(e, t, n, i, r) {
+  if ("function" == typeof t ? e !== t || !r : !t.has(e)) throw new TypeError("Cannot write private member to an object whose class did not declare it");
+  return t.set(e, n), n;
 }
-typeof SuppressedError === "function" ? SuppressedError : function (error, suppressed, message) {
-  var e = new Error(message);
-  return e.name = "SuppressedError", e.error = error, e.suppressed = suppressed, e;
-};
-var HTML = "<div class=\"jb-searchbar-web-component\">\r\n    <div class=\"search-dynamic-wrapper\">\r\n        <section class=\"filter-list-section\"></section>\r\n        <section class=\"filter-input-section\">\r\n            <div class=\"column-select-wrapper\">\r\n                 <jb-select class=\"column-select\" placeholder=\"\"></jb-select>\r\n            </div>\r\n            <div class=\"intent-wrapper --hide\">\r\n                <div class=\"intent-column\"></div>\r\n                <div class=\"intent-input-wrapper\"></div>\r\n                <div class=\"intent-submit-button\">\r\n                    <svg x=\"0px\" y=\"0px\" viewBox=\"0 0 493.464 493.464\" space=\"preserve\">\r\n                        <g>\r\n                            <g>\r\n                                <path d=\"M246.736,0C110.692,0,0.004,110.68,0.004,246.732c0,136.06,110.688,246.732,246.732,246.732    c136.048,0,246.724-110.672,246.724-246.732C493.456,110.68,382.78,0,246.736,0z M360.524,208.716L230.98,338.268    c-2.82,2.824-7.816,2.824-10.64,0l-86.908-86.912c-1.412-1.416-2.192-3.3-2.192-5.324c0.004-2.016,0.784-3.912,2.192-5.336    l11.108-11.104c1.412-1.408,3.3-2.18,5.328-2.18c2.016,0,3.908,0.772,5.316,2.18l67.752,67.752c1.5,1.516,3.94,1.516,5.444,0    l110.392-110.392c2.824-2.824,7.828-2.824,10.644,0l11.108,11.124c1.412,1.4,2.208,3.304,2.208,5.308    C362.732,205.412,361.936,207.3,360.524,208.716z\"/>\r\n                            </g>\r\n                        </g>\r\n                    </svg>\r\n                </div>\r\n            </div>\r\n        </section>\r\n    </div>\r\n    <div class=\"search-button-wrapper\">\r\n        <svg viewBox=\"0 0 512 512\" xmlns=\"http://www.w3.org/2000/svg\">\r\n            <circle cx=\"255\" cy=\"255\" r=\"170\"></circle>\r\n            <g class=\"spin-line-group\">\r\n                <rect x=\"0\" y=\"0\" width=\"512\" height=\"512\"/>\r\n                <path class=\"convertable-line\" d=\"M400 400 L 450 450\"></path>\r\n            </g>\r\n        </svg>\r\n    </div>\r\n</div>";
-var css_248z = ".jb-searchbar-web-component {\n  width: 100%;\n  height: auto;\n  min-height: 48px;\n  display: flex;\n}\n.jb-searchbar-web-component .search-dynamic-wrapper {\n  width: calc(100% - 48px);\n  height: auto;\n  min-height: 48px;\n  display: inline-flex;\n  flex-wrap: wrap;\n  gap: 0.5rem;\n}\n.jb-searchbar-web-component .search-dynamic-wrapper .filter-list-section {\n  display: inline-flex;\n  align-items: center;\n  flex-wrap: wrap;\n  row-gap: 8px;\n  column-gap: 8px;\n}\n.jb-searchbar-web-component .search-dynamic-wrapper .filter-list-section .filter-item {\n  display: inline-flex;\n  justify-content: center;\n  align-items: center;\n  margin: 0px 0px;\n  background-color: var(--jb-searchbar-filter-item-bg-color, #408cff);\n  color: var(--jb-searchbar-filter-item-color, #fff);\n  border-radius: 36px;\n  gap: 0.25rem;\n  padding: 0.25rem 0.5rem;\n}\n.jb-searchbar-web-component .search-dynamic-wrapper .filter-list-section .filter-item .delete-btn {\n  cursor: pointer;\n  display: block;\n  box-sizing: border-box;\n}\n.jb-searchbar-web-component .search-dynamic-wrapper .filter-list-section .filter-item .delete-btn svg {\n  fill: #fff;\n  height: 0.75rem;\n  display: block;\n}\n.jb-searchbar-web-component .search-dynamic-wrapper .filter-list-section .filter-item .filter-label {\n  display: block;\n  box-sizing: border-box;\n}\n.jb-searchbar-web-component .search-dynamic-wrapper .filter-input-section {\n  --jb-select-margin: 0 0;\n  --jb-select-border-radius: 24px;\n  --jb-select-border-color: transparent;\n  --jb-select-border-color-selected: transparent;\n  --jb-select-bgcolor: #fff;\n  --jb-select-list-box-shadow: 0px 15px 20px -6px #d8d8d8;\n  display: inline-block;\n}\n.jb-searchbar-web-component .search-dynamic-wrapper .filter-input-section .column-select-wrapper {\n  width: 240px;\n}\n.jb-searchbar-web-component .search-dynamic-wrapper .filter-input-section .column-select-wrapper.--hide {\n  display: none;\n}\n.jb-searchbar-web-component .search-dynamic-wrapper .filter-input-section .intent-wrapper {\n  display: flex;\n  align-items: center;\n}\n.jb-searchbar-web-component .search-dynamic-wrapper .filter-input-section .intent-wrapper .intent-input-wrapper {\n  width: 180px;\n  --jb-input-margin: 0 0;\n  --jb-input-border-radius: 0px;\n  --jb-input-border-color: transparent;\n  --jb-input-border-color-focus: transparent;\n  --jb-input-bgcolor: #fff;\n  --jb-input-message-box-display:none;\n  --jb-select-margin: 0 0;\n  --jb-select-border-radius: 24px;\n  --jb-select-border-color: transparent;\n  --jb-select-border-color-selected: transparent;\n  --jb-select-bgcolor: #fff;\n  --jb-date-input-margin: 0 0;\n  --jb-date-input-border-radius: 0px;\n  --jb-date-input-border-color: transparent;\n  --jb-date-input-border-color-focus: transparent;\n  --jb-date-input-bgcolor: #fff;\n  --jb-date-input-message-box-display: none;\n  --jb-date-input-calendar-trigger-display:none;\n}\n.jb-searchbar-web-component .search-dynamic-wrapper .filter-input-section .intent-wrapper .intent-submit-button {\n  width: 32px;\n  height: 32px;\n  float: right;\n  padding: 4px 0 4px 0;\n  cursor: not-allowed;\n}\n.jb-searchbar-web-component .search-dynamic-wrapper .filter-input-section .intent-wrapper .intent-submit-button.--active {\n  cursor: pointer;\n}\n.jb-searchbar-web-component .search-dynamic-wrapper .filter-input-section .intent-wrapper .intent-submit-button.--active svg {\n  fill: #28BD48;\n}\n.jb-searchbar-web-component .search-dynamic-wrapper .filter-input-section .intent-wrapper .intent-submit-button svg {\n  fill: #929292;\n}\n.jb-searchbar-web-component .search-dynamic-wrapper .filter-input-section .intent-wrapper.--hide {\n  display: none;\n}\n.jb-searchbar-web-component .search-button-wrapper {\n  width: 48px;\n  height: auto;\n  min-height: 48px;\n  cursor: pointer;\n}\n.jb-searchbar-web-component .search-button-wrapper svg {\n  width: 36px;\n  height: 36px;\n  margin: 4px 8px;\n  box-sizing: border-box;\n  background-color: transparent;\n}\n.jb-searchbar-web-component .search-button-wrapper svg circle {\n  stroke: #7b7b7b;\n  fill: white;\n  stroke-width: 25px;\n}\n.jb-searchbar-web-component .search-button-wrapper svg .spin-line-group {\n  transform-origin: center;\n  fill: transparent;\n}\n.jb-searchbar-web-component .search-button-wrapper svg .spin-line-group rect {\n  fill: transparent;\n}\n.jb-searchbar-web-component .search-button-wrapper svg .spin-line-group path {\n  fill: none;\n  stroke: #9b9b9b;\n  stroke-linecap: round;\n  stroke-linejoin: round;\n  transition: 0.2s;\n  stroke-width: 35px;\n  transform-origin: center;\n}";
-
-/* eslint-disable no-duplicate-imports */
-var InputFactory = /*#__PURE__*/function () {
-  function InputFactory() {
-    _classCallCheck(this, InputFactory);
+"function" == typeof SuppressedError && SuppressedError;
+var n, i, r, s, a, l, o;
+var c = /*#__PURE__*/function () {
+  function c() {
+    _classCallCheck(this, c);
   }
-  return _createClass(InputFactory, [{
+  return _createClass(c, [{
     key: "createTextInput",
-    value: function createTextInput(args) {
-      var column = args.column,
-        onIntentSubmitted = args.onIntentSubmitted,
-        setIntentActive = args.setIntentActive,
-        setIntentColumnValue = args.setIntentColumnValue;
-      var input = document.createElement('jb-input');
-      input.addEventListener('keydown', function (e) {
-        var target = e.target;
-        if (e.keyCode == 13 && target.value.trim() != "") {
-          onIntentSubmitted();
-        }
-      });
-      input.addEventListener('keyup', function (e) {
-        var _target$validation;
-        var target = e.target;
-        setIntentColumnValue(target.value, target.value, column.label);
-        if ((_target$validation = target.validation) !== null && _target$validation !== void 0 && _target$validation.resultSummary.isValid) {
-          setIntentActive(true);
-        } else {
-          setIntentActive(false, target.validation.resultSummary.message || undefined);
-        }
-      });
-      input.addEventListener('init', function () {
-        input.focus();
-        input.validation.list = [{
+    value: function createTextInput(e) {
+      var t = e.column,
+        n = e.onIntentSubmitted,
+        i = e.setIntentActive,
+        r = e.setIntentColumnValue,
+        s = document.createElement("jb-input");
+      return s.addEventListener("keydown", function (e) {
+        var t = e.target;
+        13 == e.keyCode && "" != t.value.trim() && n();
+      }), s.addEventListener("keyup", function (e) {
+        var _n$validation;
+        var n = e.target;
+        r(n.value, n.value, t.label), (_n$validation = n.validation) !== null && _n$validation !== void 0 && _n$validation.resultSummary.isValid ? i(!0) : i(!1, n.validation.resultSummary.message || void 0);
+      }), s.addEventListener("init", function () {
+        s.focus(), s.validation.list = [{
           validator: /.{1}/g,
-          message: 'پر کردن فیلد اجباری است'
+          message: "پر کردن فیلد اجباری است"
         }];
-      });
-      input.addEventListener('init', function () {
-        input.focus();
-      });
-      return input;
+      }), s.addEventListener("init", function () {
+        s.focus();
+      }), s;
     }
   }, {
     key: "createNumberInput",
-    value: function createNumberInput(args) {
-      var column = args.column,
-        onIntentSubmitted = args.onIntentSubmitted,
-        setIntentActive = args.setIntentActive,
-        setIntentColumnValue = args.setIntentColumnValue;
-      var input = document.createElement('jb-input');
-      input.addEventListener('keydown', function (e) {
-        var target = e.target;
-        if (e.keyCode == 13 && target.value.trim() != "") {
-          onIntentSubmitted();
-        }
-      });
-      input.addEventListener('keyup', function (e) {
-        var target = e.target;
-        var value = parseInt(target.value);
-        setIntentColumnValue(value, target.value, column.label);
-        if (target.validation && target.validation.resultSummary.isValid) {
-          setIntentActive(true);
-        } else {
-          var _target$validation2;
-          setIntentActive(false, ((_target$validation2 = target.validation) === null || _target$validation2 === void 0 ? void 0 : _target$validation2.resultSummary.message) || undefined);
-        }
-      });
-      input.addEventListener('init', function () {
-        input.focus();
-        input.validation.list = [{
+    value: function createNumberInput(e) {
+      var t = e.column,
+        n = e.onIntentSubmitted,
+        i = e.setIntentActive,
+        r = e.setIntentColumnValue,
+        s = document.createElement("jb-input");
+      return s.addEventListener("keydown", function (e) {
+        var t = e.target;
+        13 == e.keyCode && "" != t.value.trim() && n();
+      }), s.addEventListener("keyup", function (e) {
+        var _n$validation2;
+        var n = e.target,
+          s = parseInt(n.value);
+        r(s, n.value, t.label), n.validation && n.validation.resultSummary.isValid ? i(!0) : i(!1, ((_n$validation2 = n.validation) === null || _n$validation2 === void 0 ? void 0 : _n$validation2.resultSummary.message) || void 0);
+      }), s.addEventListener("init", function () {
+        s.focus(), s.validation.list = [{
           validator: /.{1}/g,
-          message: 'پر کردن فیلد اجباری است'
+          message: "پر کردن فیلد اجباری است"
         }, {
           validator: /^[0-9]*$/g,
-          message: 'تنها میتوانید عدد وارد نمایید'
+          message: "تنها میتوانید عدد وارد نمایید"
         }];
-      });
-      return input;
+      }), s;
     }
   }, {
     key: "createSelectInput",
-    value: function createSelectInput(args) {
-      var column = args.column,
-        onIntentSubmitted = args.onIntentSubmitted,
-        setIntentActive = args.setIntentActive,
-        setIntentColumnValue = args.setIntentColumnValue;
-      var select = document.createElement('jb-select');
-      var columnConfig = column.config;
-      select.callbacks.getOptionTitle = columnConfig.getOptionTitle;
-      select.callbacks.getOptionValue = columnConfig.getOptionValue;
-      select.optionList = columnConfig.optionList;
-      select.addEventListener('change', function (e) {
-        var target = e.target;
-        var title = "";
-        title = target.selectedOptionTitle;
-        setIntentColumnValue(target.value, title, column.label);
-        setIntentActive(true);
-        onIntentSubmitted();
-      });
-      select.addEventListener('init', function () {
-        select.focus();
-      });
-      return select;
+    value: function createSelectInput(e) {
+      var t = e.column,
+        n = e.onIntentSubmitted,
+        i = e.setIntentActive,
+        r = e.setIntentColumnValue,
+        s = document.createElement("jb-select"),
+        a = t.config;
+      return s.callbacks.getOptionTitle = a.getOptionTitle, s.callbacks.getOptionValue = a.getOptionValue, s.optionList = a.optionList, s.addEventListener("change", function (e) {
+        var s = e.target;
+        var a = "";
+        a = s.selectedOptionTitle, r(s.value, a, t.label), i(!0), n();
+      }), s.addEventListener("init", function () {
+        s.focus();
+      }), s;
     }
   }, {
     key: "createDateInput",
-    value: function createDateInput(args) {
-      var column = args.column,
-        onIntentSubmitted = args.onIntentSubmitted,
-        setIntentActive = args.setIntentActive,
-        setIntentColumnValue = args.setIntentColumnValue;
-      var dateInput = document.createElement('jb-date-input');
-      dateInput.required = true;
-      dateInput.valueType = "JALALI";
-      dateInput.setAttribute("format", "YYYY/MM/DD");
-      dateInput.addEventListener('init', function () {
-        dateInput.focus();
-      });
-      dateInput.addEventListener('keyup', function (e) {
-        var target = e.target;
-        if (target.validation.resultSummary.isValid) {
-          setIntentActive(true);
-          var value = target.valueInDate;
-          var valueString = target.value;
-          setIntentColumnValue(value, valueString, column.label);
-        } else {
-          setIntentActive(false, target.validation.resultSummary.message || undefined);
-        }
-      });
-      dateInput.addEventListener('select', function (e) {
-        var target = e.target;
-        setIntentActive(true);
-        var value = target.valueInDate;
-        var valueString = target.value;
-        setIntentColumnValue(value, valueString, column.label);
-        onIntentSubmitted();
-      });
-      return dateInput;
+    value: function createDateInput(e) {
+      var t = e.column,
+        n = e.onIntentSubmitted,
+        i = e.setIntentActive,
+        r = e.setIntentColumnValue,
+        s = document.createElement("jb-date-input");
+      return s.required = !0, s.valueType = "JALALI", s.setAttribute("format", "YYYY/MM/DD"), s.addEventListener("init", function () {
+        s.focus();
+      }), s.addEventListener("keyup", function (e) {
+        var n = e.target;
+        if (n.validation.resultSummary.isValid) {
+          i(!0);
+          var _e = n.valueInDate,
+            _s = n.value;
+          r(_e, _s, t.label);
+        } else i(!1, n.validation.resultSummary.message || void 0);
+      }), s.addEventListener("select", function (e) {
+        var s = e.target;
+        i(!0);
+        var a = s.valueInDate,
+          l = s.value;
+        r(a, l, t.label), n();
+      }), s;
     }
   }]);
 }();
-var _JBSearchbarWebComponent_instances, _JBSearchbarWebComponent_isLoading, _JBSearchbarWebComponent_inputState, _JBSearchbarWebComponent_columnList, _JBSearchbarWebComponent_inputFactory, _JBSearchbarWebComponent_searchOnChange, _JBSearchbarWebComponent_showColumnSelect;
-var JBSearchbarWebComponent = /*#__PURE__*/function (_HTMLElement) {
-  function JBSearchbarWebComponent() {
+var p = /*#__PURE__*/function (_HTMLElement) {
+  function p() {
     var _this;
-    _classCallCheck(this, JBSearchbarWebComponent);
-    _this = _callSuper(this, JBSearchbarWebComponent);
-    _JBSearchbarWebComponent_instances.add(_this);
-    _JBSearchbarWebComponent_isLoading.set(_this, false);
-    _JBSearchbarWebComponent_inputState.set(_this, "SELECT_COLUMN");
-    _JBSearchbarWebComponent_columnList.set(_this, []);
-    _JBSearchbarWebComponent_inputFactory.set(_this, new InputFactory());
-    _this.intentColumn = {
+    _classCallCheck(this, p);
+    _this = _callSuper(this, p), n.add(_assertThisInitialized(_this)), i.set(_assertThisInitialized(_this), !1), r.set(_assertThisInitialized(_this), "SELECT_COLUMN"), s.set(_assertThisInitialized(_this), []), a.set(_assertThisInitialized(_this), new c()), _this.intentColumn = {
       column: null,
       value: null,
       valueString: null,
       label: null,
-      active: false
-    };
-    _this.filterList = [];
-    _JBSearchbarWebComponent_searchOnChange.set(_this, false);
-    _this.initWebComponent();
+      active: !1
+    }, _this.filterList = [], l.set(_assertThisInitialized(_this), !1), _this.initWebComponent();
     return _this;
   }
-  _inherits(JBSearchbarWebComponent, _HTMLElement);
-  return _createClass(JBSearchbarWebComponent, [{
+  _inherits(p, _HTMLElement);
+  return _createClass(p, [{
     key: "isLoading",
     get: function get() {
-      return __classPrivateFieldGet(this, _JBSearchbarWebComponent_isLoading, "f");
+      return e(this, i, "f");
     },
-    set: function set(value) {
-      if (!__classPrivateFieldGet(this, _JBSearchbarWebComponent_isLoading, "f") && value) {
-        this.playSearchIconAnimation();
-      }
-      __classPrivateFieldSet(this, _JBSearchbarWebComponent_isLoading, value);
+    set: function set(n) {
+      !e(this, i, "f") && n && this.playSearchIconAnimation(), t(this, i, n);
     }
   }, {
     key: "inputState",
     get: function get() {
-      return __classPrivateFieldGet(this, _JBSearchbarWebComponent_inputState, "f");
+      return e(this, r, "f");
     },
-    set: function set(value) {
-      if (value == "SELECT_COLUMN") {
-        this.elements.columnSelect.value = null;
-        this.elements.intent.wrapper.classList.add("--hide");
-        if (this.elements.columnSelect.optionList.length) {
-          __classPrivateFieldGet(this, _JBSearchbarWebComponent_instances, "m", _JBSearchbarWebComponent_showColumnSelect).call(this);
-          this.elements.columnSelect.focus();
-        }
-      } else if (value == "FILL_VALUE") {
-        var _this$elements$column;
-        this.elements.intent.wrapper.classList.remove("--hide");
-        this.elements.intent.input.wrapper.innerHTML = "";
-        (_this$elements$column = this.elements.columnSelect.parentElement) === null || _this$elements$column === void 0 || _this$elements$column.classList.add("--hide");
-      }
-      __classPrivateFieldSet(this, _JBSearchbarWebComponent_inputState, value);
+    set: function set(i) {
+      var _this$elements$column;
+      "SELECT_COLUMN" == i ? (this.elements.columnSelect.value = null, this.elements.intent.wrapper.classList.add("--hide"), this.elements.columnSelect.optionList.length && (e(this, n, "m", o).call(this), this.elements.columnSelect.focus())) : "FILL_VALUE" == i && (this.elements.intent.wrapper.classList.remove("--hide"), this.elements.intent.input.wrapper.innerHTML = "", (_this$elements$column = this.elements.columnSelect.parentElement) === null || _this$elements$column === void 0 ? void 0 : _this$elements$column.classList.add("--hide")), t(this, r, i);
     }
   }, {
     key: "value",
     get: function get() {
-      return this.filterList.map(function (x) {
+      return this.filterList.map(function (e) {
         return {
-          column: x.column,
-          value: x.value
+          column: e.column,
+          value: e.value
         };
       });
     }
   }, {
     key: "columnList",
     get: function get() {
-      return __classPrivateFieldGet(this, _JBSearchbarWebComponent_columnList, "f");
+      return e(this, s, "f");
     },
-    set: function set(value) {
-      //TODO: check validation of column to be array ind has necessary prop
-      this.setColumnList(value);
+    set: function set(e) {
+      this.setColumnList(e);
     }
   }, {
     key: "searchOnChange",
     get: function get() {
-      return __classPrivateFieldGet(this, _JBSearchbarWebComponent_searchOnChange, "f");
+      return e(this, l, "f");
     },
-    set: function set(value) {
-      if (typeof value == "boolean") {
-        __classPrivateFieldSet(this, _JBSearchbarWebComponent_searchOnChange, value);
-      }
+    set: function set(e) {
+      "boolean" == typeof e && t(this, l, e);
     }
   }, {
     key: "registerEventListener",
     value: function registerEventListener() {
       var _this2 = this;
-      this.elements.columnSelect.addEventListener("change", this.onColumnSelected.bind(this));
-      this.elements.intent.submitButton.addEventListener("click", this.onIntentSubmitted.bind(this));
-      this.elements.columnSelect.addEventListener("init", function () {
+      this.elements.columnSelect.addEventListener("change", this.onColumnSelected.bind(this)), this.elements.intent.submitButton.addEventListener("click", this.onIntentSubmitted.bind(this)), this.elements.columnSelect.addEventListener("init", function () {
         _this2.elements.columnSelect.focus();
-      });
-      this.elements.searchButton.wrapper.addEventListener("click", this.search.bind(this));
+      }), this.elements.searchButton.wrapper.addEventListener("click", this.search.bind(this));
     }
   }, {
     key: "initProp",
@@ -424,286 +330,221 @@ var JBSearchbarWebComponent = /*#__PURE__*/function (_HTMLElement) {
     key: "createFilterList",
     value: function createFilterList() {
       var _this3 = this;
-      var flProxy = new Proxy([], {
-        get: function get(target, property, receiver) {
-          if (property == "splice") {
-            //when we remove filter
-            var origMethod = target[property];
-            var customSplice = function customSplice() {
-              for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-                args[_key] = arguments[_key];
+      return new Proxy([], {
+        get: function get(t, i, r) {
+          if ("splice" == i) {
+            var _s2 = t[i];
+            return function () {
+              for (var _len = arguments.length, t = new Array(_len), _key = 0; _key < _len; _key++) {
+                t[_key] = arguments[_key];
               }
-              var domIndex = args[0];
-              _this3.elements.filterListWrapper.children[domIndex].remove();
-              setTimeout(function () {
-                if (_this3.elements.columnSelect.optionList.length && _this3.inputState == "SELECT_COLUMN") {
-                  __classPrivateFieldGet(_this3, _JBSearchbarWebComponent_instances, "m", _JBSearchbarWebComponent_showColumnSelect).call(_this3);
-                }
-              }, 0);
-              //because we apply function like this the get wont call again in proxy
-              //we apply into proxy not original obj so setter hooks for splice in setter do their job
-              return origMethod.apply(receiver, args);
+              var i = t[0];
+              return _this3.elements.filterListWrapper.children[i].remove(), setTimeout(function () {
+                _this3.elements.columnSelect.optionList.length && "SELECT_COLUMN" == _this3.inputState && e(_this3, n, "m", o).call(_this3);
+              }, 0), _s2.apply(r, t);
             };
-            return customSplice;
           }
-          //@ts-ignore
-          return target[property];
+          return t[i];
         },
-        set: function set(target, property, value) {
-          if (!(property == "length") && typeof property == "string") {
-            if (parseInt(property) == target.length) {
-              //when push
-              var dom = _this3.createFilterDOM(value.valueString, value.label);
-              value.dom = dom;
-              _this3.elements.filterListWrapper.appendChild(dom);
+        set: function set(e, t, n) {
+          if ("length" != t && "string" == typeof t) {
+            if (parseInt(t) == e.length) {
+              var _e2 = _this3.createFilterDOM(n.valueString, n.label);
+              n.dom = _e2, _this3.elements.filterListWrapper.appendChild(_e2);
             }
-            if (!Number.isNaN(Number(property)) && parseInt(property) < target.length) {
-              //when splice
-              //we do dom delete in proxy getter
-              value.dom.dataset.filterIndex = property;
-            }
+            !Number.isNaN(Number(t)) && parseInt(t) < e.length && (n.dom.dataset.filterIndex = t);
           }
-          //@ts-ignore
-          target[property] = value;
-          return true;
+          return e[t] = n, !0;
         }
       });
-      return flProxy;
     }
   }, {
     key: "createFilterDOM",
-    value: function createFilterDOM(label, columnLabel) {
+    value: function createFilterDOM(e, t) {
       var _this4 = this;
-      var dom = document.createElement("div");
-      dom.classList.add("filter-item");
-      var deleteButtonDom = document.createElement("div");
-      deleteButtonDom.classList.add("delete-btn");
-      deleteButtonDom.innerHTML = "<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"1.1\" id=\"Capa_1\" x=\"0px\" y=\"0px\" viewBox=\"0 0 298.667 298.667\" style=\"enable-background:new 0 0 298.667 298.667;\" xml:space=\"preserve\"><g><polygon points=\"298.667,30.187 268.48,0 149.333,119.147 30.187,0 0,30.187 119.147,149.333 0,268.48 30.187,298.667     149.333,179.52 268.48,298.667 298.667,268.48 179.52,149.333   \"/></g></svg>";
-      var labelDom = document.createElement("div");
-      labelDom.classList.add("filter-label");
-      labelDom.innerHTML = "".concat(columnLabel, ": ").concat(label);
-      var filterIndex = this.filterList.length;
-      dom.dataset.filterIndex = filterIndex.toString();
-      deleteButtonDom.addEventListener("click", function (e) {
-        var currentTarget = e.currentTarget;
-        var filterIndex = parseInt(currentTarget.parentElement.dataset.filterIndex);
-        _this4.deleteFilter(filterIndex);
-      });
-      dom.appendChild(deleteButtonDom);
-      dom.appendChild(labelDom);
-      return dom;
+      var n = document.createElement("div");
+      n.classList.add("filter-item");
+      var i = document.createElement("div");
+      i.classList.add("delete-btn"), i.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 298.667 298.667" style="enable-background:new 0 0 298.667 298.667;" xml:space="preserve"><g><polygon points="298.667,30.187 268.48,0 149.333,119.147 30.187,0 0,30.187 119.147,149.333 0,268.48 30.187,298.667     149.333,179.52 268.48,298.667 298.667,268.48 179.52,149.333   "/></g></svg>';
+      var r = document.createElement("div");
+      r.classList.add("filter-label"), r.innerHTML = "".concat(t, ": ").concat(e);
+      var s = this.filterList.length;
+      return n.dataset.filterIndex = s.toString(), i.addEventListener("click", function (e) {
+        var t = e.currentTarget,
+          n = parseInt(t.parentElement.dataset.filterIndex);
+        _this4.deleteFilter(n);
+      }), n.appendChild(i), n.appendChild(r), n;
     }
   }, {
     key: "deleteFilter",
-    value: function deleteFilter(filterIndex) {
-      this.filterList.splice(filterIndex, 1);
-      this.triggerOnChange();
-      this.setColumnListSelectOptionList();
+    value: function deleteFilter(e) {
+      this.filterList.splice(e, 1), this.triggerOnChange(), this.setColumnListSelectOptionList();
     }
   }, {
     key: "connectedCallback",
     value: function connectedCallback() {
-      // standard web component event that called when all of dom is binded
-      this.callOnLoadEvent();
-      this.initProp();
+      this.callOnLoadEvent(), this.initProp();
     }
   }, {
     key: "callOnLoadEvent",
     value: function callOnLoadEvent() {
-      var event = new CustomEvent("load", {
-        bubbles: true,
-        composed: true
+      var e = new CustomEvent("load", {
+        bubbles: !0,
+        composed: !0
       });
-      this.dispatchEvent(event);
+      this.dispatchEvent(e);
     }
   }, {
     key: "initWebComponent",
     value: function initWebComponent() {
-      var shadowRoot = this.attachShadow({
-        mode: "open"
-      });
-      var html = "<style>".concat(css_248z, "</style>") + "\n" + HTML;
-      var element = document.createElement("template");
-      element.innerHTML = html;
-      shadowRoot.appendChild(element.content.cloneNode(true));
-      this.elements = {
-        filterListWrapper: shadowRoot.querySelector(".filter-list-section"),
+      var e = this.attachShadow({
+          mode: "open"
+        }),
+        t = document.createElement("template");
+      t.innerHTML = '<style>.jb-searchbar-web-component {\n  width: 100%;\n  height: auto;\n  min-height: 48px;\n  display: flex;\n}\n.jb-searchbar-web-component .search-dynamic-wrapper {\n  width: calc(100% - 48px);\n  height: auto;\n  min-height: 48px;\n  display: inline-flex;\n  flex-wrap: wrap;\n  gap: 0.5rem;\n}\n.jb-searchbar-web-component .search-dynamic-wrapper .filter-list-section {\n  display: inline-flex;\n  align-items: center;\n  flex-wrap: wrap;\n  row-gap: 8px;\n  column-gap: 8px;\n}\n.jb-searchbar-web-component .search-dynamic-wrapper .filter-list-section .filter-item {\n  display: inline-flex;\n  justify-content: center;\n  align-items: center;\n  margin: 0px 0px;\n  background-color: var(--jb-searchbar-filter-item-bg-color, #408cff);\n  color: var(--jb-searchbar-filter-item-color, #fff);\n  border-radius: 36px;\n  gap: 0.25rem;\n  padding: 0.25rem 0.5rem;\n}\n.jb-searchbar-web-component .search-dynamic-wrapper .filter-list-section .filter-item .delete-btn {\n  cursor: pointer;\n  display: block;\n  box-sizing: border-box;\n}\n.jb-searchbar-web-component .search-dynamic-wrapper .filter-list-section .filter-item .delete-btn svg {\n  fill: #fff;\n  height: 0.75rem;\n  display: block;\n}\n.jb-searchbar-web-component .search-dynamic-wrapper .filter-list-section .filter-item .filter-label {\n  display: block;\n  box-sizing: border-box;\n}\n.jb-searchbar-web-component .search-dynamic-wrapper .filter-input-section {\n  --jb-select-margin: 0 0;\n  --jb-select-border-radius: 24px;\n  --jb-select-border-color: transparent;\n  --jb-select-border-color-selected: transparent;\n  --jb-select-bgcolor: #fff;\n  --jb-select-list-box-shadow: 0px 15px 20px -6px #d8d8d8;\n  display: inline-block;\n}\n.jb-searchbar-web-component .search-dynamic-wrapper .filter-input-section .column-select-wrapper {\n  width: 240px;\n}\n.jb-searchbar-web-component .search-dynamic-wrapper .filter-input-section .column-select-wrapper.--hide {\n  display: none;\n}\n.jb-searchbar-web-component .search-dynamic-wrapper .filter-input-section .intent-wrapper {\n  display: flex;\n  align-items: center;\n}\n.jb-searchbar-web-component .search-dynamic-wrapper .filter-input-section .intent-wrapper .intent-input-wrapper {\n  width: 180px;\n  --jb-input-margin: 0 0;\n  --jb-input-border-radius: 0px;\n  --jb-input-border-color: transparent;\n  --jb-input-border-color-focus: transparent;\n  --jb-input-bgcolor: #fff;\n  --jb-input-message-box-display:none;\n  --jb-select-margin: 0 0;\n  --jb-select-border-radius: 24px;\n  --jb-select-border-color: transparent;\n  --jb-select-border-color-selected: transparent;\n  --jb-select-bgcolor: #fff;\n  --jb-date-input-margin: 0 0;\n  --jb-date-input-border-radius: 0px;\n  --jb-date-input-border-color: transparent;\n  --jb-date-input-border-color-focus: transparent;\n  --jb-date-input-bgcolor: #fff;\n  --jb-date-input-message-box-display: none;\n  --jb-date-input-calendar-trigger-display:none;\n}\n.jb-searchbar-web-component .search-dynamic-wrapper .filter-input-section .intent-wrapper .intent-submit-button {\n  width: 32px;\n  height: 32px;\n  float: right;\n  padding: 4px 0 4px 0;\n  cursor: not-allowed;\n}\n.jb-searchbar-web-component .search-dynamic-wrapper .filter-input-section .intent-wrapper .intent-submit-button.--active {\n  cursor: pointer;\n}\n.jb-searchbar-web-component .search-dynamic-wrapper .filter-input-section .intent-wrapper .intent-submit-button.--active svg {\n  fill: #28BD48;\n}\n.jb-searchbar-web-component .search-dynamic-wrapper .filter-input-section .intent-wrapper .intent-submit-button svg {\n  fill: #929292;\n}\n.jb-searchbar-web-component .search-dynamic-wrapper .filter-input-section .intent-wrapper.--hide {\n  display: none;\n}\n.jb-searchbar-web-component .search-button-wrapper {\n  width: 48px;\n  height: auto;\n  min-height: 48px;\n  cursor: pointer;\n}\n.jb-searchbar-web-component .search-button-wrapper svg {\n  width: 36px;\n  height: 36px;\n  margin: 4px 8px;\n  box-sizing: border-box;\n  background-color: transparent;\n}\n.jb-searchbar-web-component .search-button-wrapper svg circle {\n  stroke: #7b7b7b;\n  fill: white;\n  stroke-width: 25px;\n}\n.jb-searchbar-web-component .search-button-wrapper svg .spin-line-group {\n  transform-origin: center;\n  fill: transparent;\n}\n.jb-searchbar-web-component .search-button-wrapper svg .spin-line-group rect {\n  fill: transparent;\n}\n.jb-searchbar-web-component .search-button-wrapper svg .spin-line-group path {\n  fill: none;\n  stroke: #9b9b9b;\n  stroke-linecap: round;\n  stroke-linejoin: round;\n  transition: 0.2s;\n  stroke-width: 35px;\n  transform-origin: center;\n}</style>\n<div class="jb-searchbar-web-component">\r\n    <div class="search-dynamic-wrapper">\r\n        <section class="filter-list-section"></section>\r\n        <section class="filter-input-section">\r\n            <div class="column-select-wrapper">\r\n                 <jb-select class="column-select" placeholder=""></jb-select>\r\n            </div>\r\n            <div class="intent-wrapper --hide">\r\n                <div class="intent-column"></div>\r\n                <div class="intent-input-wrapper"></div>\r\n                <div class="intent-submit-button">\r\n                    <svg x="0px" y="0px" viewBox="0 0 493.464 493.464" space="preserve">\r\n                        <g>\r\n                            <g>\r\n                                <path d="M246.736,0C110.692,0,0.004,110.68,0.004,246.732c0,136.06,110.688,246.732,246.732,246.732    c136.048,0,246.724-110.672,246.724-246.732C493.456,110.68,382.78,0,246.736,0z M360.524,208.716L230.98,338.268    c-2.82,2.824-7.816,2.824-10.64,0l-86.908-86.912c-1.412-1.416-2.192-3.3-2.192-5.324c0.004-2.016,0.784-3.912,2.192-5.336    l11.108-11.104c1.412-1.408,3.3-2.18,5.328-2.18c2.016,0,3.908,0.772,5.316,2.18l67.752,67.752c1.5,1.516,3.94,1.516,5.444,0    l110.392-110.392c2.824-2.824,7.828-2.824,10.644,0l11.108,11.124c1.412,1.4,2.208,3.304,2.208,5.308    C362.732,205.412,361.936,207.3,360.524,208.716z"/>\r\n                            </g>\r\n                        </g>\r\n                    </svg>\r\n                </div>\r\n            </div>\r\n        </section>\r\n    </div>\r\n    <div class="search-button-wrapper">\r\n        <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">\r\n            <circle cx="255" cy="255" r="170"></circle>\r\n            <g class="spin-line-group">\r\n                <rect x="0" y="0" width="512" height="512"/>\r\n                <path class="convertable-line" d="M400 400 L 450 450"></path>\r\n            </g>\r\n        </svg>\r\n    </div>\r\n</div>', e.appendChild(t.content.cloneNode(!0)), this.elements = {
+        filterListWrapper: e.querySelector(".filter-list-section"),
         searchButton: {
-          wrapper: shadowRoot.querySelector(".search-button-wrapper"),
+          wrapper: e.querySelector(".search-button-wrapper"),
           svg: {
-            spinnerLine: shadowRoot.querySelector(".search-button-wrapper .convertable-line"),
-            spinnerBox: shadowRoot.querySelector(".search-button-wrapper .spin-line-group")
+            spinnerLine: e.querySelector(".search-button-wrapper .convertable-line"),
+            spinnerBox: e.querySelector(".search-button-wrapper .spin-line-group")
           }
         },
-        columnSelect: shadowRoot.querySelector(".column-select"),
+        columnSelect: e.querySelector(".column-select"),
         intent: {
-          column: shadowRoot.querySelector(".intent-wrapper .intent-column"),
+          column: e.querySelector(".intent-wrapper .intent-column"),
           input: {
-            wrapper: shadowRoot.querySelector(".intent-wrapper .intent-input-wrapper"),
+            wrapper: e.querySelector(".intent-wrapper .intent-input-wrapper"),
             input: null
           },
-          submitButton: shadowRoot.querySelector(".intent-wrapper .intent-submit-button"),
-          wrapper: shadowRoot.querySelector(".intent-wrapper")
+          submitButton: e.querySelector(".intent-wrapper .intent-submit-button"),
+          wrapper: e.querySelector(".intent-wrapper")
         }
-      };
-      this.registerEventListener();
+      }, this.registerEventListener();
     }
   }, {
     key: "attributeChangedCallback",
-    value: function attributeChangedCallback(name, oldValue, newValue) {
-      // do something when an attribute has changed
-      this.onAttributeChange(name, newValue);
+    value: function attributeChangedCallback(e, t, n) {
+      this.onAttributeChange(e, n);
     }
   }, {
     key: "onAttributeChange",
-    value: function onAttributeChange(name, value) {
-      switch (name) {
-        case "placeholder":
-          this.elements.columnSelect.setAttribute("placeholder", value);
-          break;
-      }
+    value: function onAttributeChange(e, t) {
+      if ("placeholder" === e) this.elements.columnSelect.setAttribute("placeholder", t);
     }
   }, {
     key: "setColumnList",
-    value: function setColumnList(columnList) {
-      __classPrivateFieldSet(this, _JBSearchbarWebComponent_columnList, columnList);
-      this.setColumnListSelectOptionList();
+    value: function setColumnList(e) {
+      t(this, s, e), this.setColumnListSelectOptionList();
     }
   }, {
     key: "setColumnListSelectOptionList",
     value: function setColumnListSelectOptionList() {
-      var currentFilterKeys = this.filterList.map(function (filter) {
-        return filter.column.key;
+      var e = this.filterList.map(function (e) {
+        return e.column.key;
       });
       if (this.columnList) {
-        var columnList = this.columnList.filter(function (column) {
-          var maxUsageCount = column.maxUsageCount || 1;
-          var usedCount = currentFilterKeys.filter(function (key) {
-            return key == column.key;
-          }).length;
-          if (usedCount >= maxUsageCount) {
-            return false;
-          }
-          return true;
+        var _t = this.columnList.filter(function (t) {
+          var n = t.maxUsageCount || 1;
+          return !(e.filter(function (e) {
+            return e == t.key;
+          }).length >= n);
         });
-        this.elements.columnSelect.callbacks.getOptionTitle = function (column) {
-          return column.label;
-        };
-        this.elements.columnSelect.optionList = columnList;
+        this.elements.columnSelect.callbacks.getOptionTitle = function (e) {
+          return e.label;
+        }, this.elements.columnSelect.optionList = _t;
       }
     }
   }, {
     key: "onColumnSelected",
     value: function onColumnSelected(e) {
-      var target = e.target;
-      var column = target.value;
-      this.intentColumn.column = column;
-      this.inputState = "FILL_VALUE";
-      this.elements.intent.column.innerHTML = column.label;
-      var inputDom = this.createIntentInputDom(column);
-      this.elements.intent.input.input = inputDom;
-      this.elements.intent.input.wrapper.appendChild(inputDom);
+      var t = e.target.value;
+      this.intentColumn.column = t, this.inputState = "FILL_VALUE", this.elements.intent.column.innerHTML = t.label;
+      var n = this.createIntentInputDom(t);
+      this.elements.intent.input.input = n, this.elements.intent.input.wrapper.appendChild(n);
     }
   }, {
     key: "createIntentInputDom",
-    value: function createIntentInputDom(column) {
+    value: function createIntentInputDom(t) {
       var _this5 = this;
-      var setIntentActive = function setIntentActive(value) {
-        var err = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "";
-        _this5.intentColumn.active = value;
-        if (value) {
-          _this5.elements.intent.submitButton.classList.add("--active");
-          _this5.elements.intent.submitButton.setAttribute("title", "ثبت فیلتر");
-        } else {
-          _this5.elements.intent.submitButton.classList.remove("--active");
-          _this5.elements.intent.submitButton.setAttribute("title", err);
-        }
-      };
-      var setIntentColumnValue = function setIntentColumnValue(value, valueString, label) {
-        _this5.intentColumn.value = value;
-        _this5.intentColumn.label = label;
-        _this5.intentColumn.valueString = valueString;
-      };
-      switch (column.type) {
+      var n = function n(e) {
+          var t = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "";
+          _this5.intentColumn.active = e, e ? (_this5.elements.intent.submitButton.classList.add("--active"), _this5.elements.intent.submitButton.setAttribute("title", "ثبت فیلتر")) : (_this5.elements.intent.submitButton.classList.remove("--active"), _this5.elements.intent.submitButton.setAttribute("title", t));
+        },
+        i = function i(e, t, n) {
+          _this5.intentColumn.value = e, _this5.intentColumn.label = n, _this5.intentColumn.valueString = t;
+        };
+      switch (t.type) {
         case "TEXT":
-          return __classPrivateFieldGet(this, _JBSearchbarWebComponent_inputFactory, "f").createTextInput({
-            column: column,
+          return e(this, a, "f").createTextInput({
+            column: t,
             onIntentSubmitted: this.onIntentSubmitted.bind(this),
-            setIntentActive: setIntentActive,
-            setIntentColumnValue: setIntentColumnValue
+            setIntentActive: n,
+            setIntentColumnValue: i
           });
         case "NUMBER":
-          return __classPrivateFieldGet(this, _JBSearchbarWebComponent_inputFactory, "f").createNumberInput({
-            column: column,
+          return e(this, a, "f").createNumberInput({
+            column: t,
             onIntentSubmitted: this.onIntentSubmitted.bind(this),
-            setIntentActive: setIntentActive,
-            setIntentColumnValue: setIntentColumnValue
+            setIntentActive: n,
+            setIntentColumnValue: i
           });
         case "SELECT":
-          return __classPrivateFieldGet(this, _JBSearchbarWebComponent_inputFactory, "f").createSelectInput({
-            column: column,
+          return e(this, a, "f").createSelectInput({
+            column: t,
             onIntentSubmitted: this.onIntentSubmitted.bind(this),
-            setIntentActive: setIntentActive,
-            setIntentColumnValue: setIntentColumnValue
+            setIntentActive: n,
+            setIntentColumnValue: i
           });
         case "DATE":
-          return __classPrivateFieldGet(this, _JBSearchbarWebComponent_inputFactory, "f").createDateInput({
-            column: column,
+          return e(this, a, "f").createDateInput({
+            column: t,
             onIntentSubmitted: this.onIntentSubmitted.bind(this),
-            setIntentActive: setIntentActive,
-            setIntentColumnValue: setIntentColumnValue
+            setIntentActive: n,
+            setIntentColumnValue: i
           });
       }
     }
   }, {
     key: "onIntentSubmitted",
     value: function onIntentSubmitted() {
-      if (this.intentColumn.column && this.intentColumn.value && this.intentColumn.valueString && this.intentColumn.label && this.intentColumn.active) {
-        this.submitIntent(this.intentColumn.column, this.intentColumn.value, this.intentColumn.valueString, this.intentColumn.label);
-        this.inputState = "SELECT_COLUMN";
-        this.intentColumn = {
-          column: null,
-          value: null,
-          valueString: null,
-          label: null,
-          active: false
-        };
-        this.elements.intent.submitButton.classList.remove("--active");
-      }
+      this.intentColumn.column && this.intentColumn.value && this.intentColumn.valueString && this.intentColumn.label && this.intentColumn.active && (this.submitIntent(this.intentColumn.column, this.intentColumn.value, this.intentColumn.valueString, this.intentColumn.label), this.inputState = "SELECT_COLUMN", this.intentColumn = {
+        column: null,
+        value: null,
+        valueString: null,
+        label: null,
+        active: !1
+      }, this.elements.intent.submitButton.classList.remove("--active"));
     }
   }, {
     key: "submitIntent",
-    value: function submitIntent(column, value, valueString, label) {
+    value: function submitIntent(e, t, n, i) {
       this.filterList.push({
-        column: column,
-        valueString: valueString,
-        value: value,
-        label: label
-      });
-      this.setColumnListSelectOptionList();
-      this.triggerOnChange();
+        column: e,
+        valueString: n,
+        value: t,
+        label: i
+      }), this.setColumnListSelectOptionList(), this.triggerOnChange();
     }
   }, {
     key: "playSearchIconAnimation",
     value: function playSearchIconAnimation() {
-      var spinnerLine = this.elements.searchButton.svg.spinnerLine;
-      var spinnerBox = this.elements.searchButton.svg.spinnerBox;
-      var self = this;
-      var ShrinkLineAnimation = spinnerLine.animate([{
-        d: 'path("M400 400 L 450 450")'
-      }, {
-        d: 'path("M410 410 L 415 415")'
-      }], {
-        id: "ShrinkLine",
-        duration: 400
-      });
-      ShrinkLineAnimation.cancel();
-      var shrinkLineFunction = function shrinkLineFunction() {
-        spinnerLine.setAttribute("d", "M 407.82484150097946 413.25475607450323 A 220 220 0 0 0 413.25475607450323 407.8248415009794");
-        curveLineAnimation.play();
+      var e = this.elements.searchButton.svg.spinnerLine,
+        t = this.elements.searchButton.svg.spinnerBox,
+        n = this,
+        i = e.animate([{
+          d: 'path("M400 400 L 450 450")'
+        }, {
+          d: 'path("M410 410 L 415 415")'
+        }], {
+          id: "ShrinkLine",
+          duration: 400
+        });
+      i.cancel();
+      i.onfinish = function () {
+        e.setAttribute("d", "M 407.82484150097946 413.25475607450323 A 220 220 0 0 0 413.25475607450323 407.8248415009794"), r.play();
       };
-      ShrinkLineAnimation.onfinish = shrinkLineFunction;
-      var curveLineAnimation = spinnerLine.animate([{
+      var r = e.animate([{
         d: 'path("M 407.82484150097946 413.25475607450323 A 220 220 0 0 0 413.25475607450323 407.8248415009794")'
       }, {
         d: 'path("M 255 475 A 220 220 0 0 0 475 255")'
@@ -711,13 +552,11 @@ var JBSearchbarWebComponent = /*#__PURE__*/function (_HTMLElement) {
         id: "CurveLine",
         duration: 400
       });
-      curveLineAnimation.cancel();
-      var curveLineFunction = function curveLineFunction() {
-        spinnerLine.setAttribute("d", "M 255 475 A 220 220 0 0 0 475 255");
-        spinAnimation.play();
+      r.cancel();
+      r.onfinish = function () {
+        e.setAttribute("d", "M 255 475 A 220 220 0 0 0 475 255"), s.play();
       };
-      curveLineAnimation.onfinish = curveLineFunction;
-      var spinAnimation = spinnerBox.animate([{
+      var s = t.animate([{
         transform: "rotate(0deg)"
       }, {
         transform: "rotate(180deg)"
@@ -725,19 +564,14 @@ var JBSearchbarWebComponent = /*#__PURE__*/function (_HTMLElement) {
         transform: "rotate(360deg)"
       }], {
         id: "Spin",
-        duration: 1000,
+        duration: 1e3,
         iterations: 1
       });
-      spinAnimation.cancel();
-      var spinFunction = function spinFunction() {
-        if (self.isLoading == true) {
-          spinAnimation.play();
-        } else {
-          ReverseCurveLineAnimation.play();
-        }
+      s.cancel();
+      s.onfinish = function () {
+        1 == n.isLoading ? s.play() : l.play();
       };
-      spinAnimation.onfinish = spinFunction;
-      var growLineAnimation = spinnerLine.animate([{
+      var a = e.animate([{
         d: 'path("M410 410 L 415 415")'
       }, {
         d: 'path("M400 400 L 450 450")'
@@ -745,12 +579,11 @@ var JBSearchbarWebComponent = /*#__PURE__*/function (_HTMLElement) {
         id: "GrowLine",
         duration: 400
       });
-      growLineAnimation.cancel();
-      var growLineFunction = function growLineFunction() {
-        spinnerLine.setAttribute("d", "M400 400 L 450 450");
+      a.cancel();
+      a.onfinish = function () {
+        e.setAttribute("d", "M400 400 L 450 450");
       };
-      growLineAnimation.onfinish = growLineFunction;
-      var ReverseCurveLineAnimation = spinnerLine.animate([{
+      var l = e.animate([{
         d: 'path("M 255 475 A 220 220 0 0 0 475 255")'
       }, {
         d: 'path("M 407.82484150097946 413.25475607450323 A 220 220 0 0 0 413.25475607450323 407.8248415009794")'
@@ -758,28 +591,22 @@ var JBSearchbarWebComponent = /*#__PURE__*/function (_HTMLElement) {
         id: "ReverseCurveLine",
         duration: 400
       });
-      ReverseCurveLineAnimation.cancel();
-      var ReverseCurveLineFunction = function ReverseCurveLineFunction() {
-        spinnerLine.setAttribute("d", "M410 410 L 415 415");
-        growLineAnimation.play();
-      };
-      ReverseCurveLineAnimation.onfinish = ReverseCurveLineFunction;
-      ShrinkLineAnimation.play();
+      l.cancel();
+      l.onfinish = function () {
+        e.setAttribute("d", "M410 410 L 415 415"), a.play();
+      }, i.play();
     }
   }, {
     key: "triggerOnChange",
     value: function triggerOnChange() {
-      var event = new CustomEvent("change");
-      this.dispatchEvent(event);
-      if (this.searchOnChange) {
-        this.search();
-      }
+      var e = new CustomEvent("change");
+      this.dispatchEvent(e), this.searchOnChange && this.search();
     }
   }, {
     key: "search",
     value: function search() {
-      var event = new CustomEvent("search");
-      this.dispatchEvent(event);
+      var e = new CustomEvent("search");
+      this.dispatchEvent(e);
     }
   }], [{
     key: "observedAttributes",
@@ -788,14 +615,11 @@ var JBSearchbarWebComponent = /*#__PURE__*/function (_HTMLElement) {
     }
   }]);
 }( /*#__PURE__*/_wrapNativeSuper(HTMLElement));
-_JBSearchbarWebComponent_isLoading = new WeakMap(), _JBSearchbarWebComponent_inputState = new WeakMap(), _JBSearchbarWebComponent_columnList = new WeakMap(), _JBSearchbarWebComponent_inputFactory = new WeakMap(), _JBSearchbarWebComponent_searchOnChange = new WeakMap(), _JBSearchbarWebComponent_instances = new WeakSet(), _JBSearchbarWebComponent_showColumnSelect = function _JBSearchbarWebComponent_showColumnSelect() {
+i = new WeakMap(), r = new WeakMap(), s = new WeakMap(), a = new WeakMap(), l = new WeakMap(), n = new WeakSet(), o = function o() {
   var _this$elements$column2;
   (_this$elements$column2 = this.elements.columnSelect.parentElement) === null || _this$elements$column2 === void 0 || _this$elements$column2.classList.remove("--hide");
 };
-var myElementNotExists = !customElements.get("jb-searchbar");
-if (myElementNotExists) {
-  window.customElements.define("jb-searchbar", JBSearchbarWebComponent);
-}
+!customElements.get("jb-searchbar") && window.customElements.define("jb-searchbar", p);
 
 function JBSearchbar(props) {
     const element = useRef();

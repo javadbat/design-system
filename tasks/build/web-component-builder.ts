@@ -1,8 +1,5 @@
 import chalk from "npm:chalk";
-import {
-  webComponentList,
-  type WebComponentBuildConfig,
-} from "../../config/build-config.ts";
+import {webComponentList,type WebComponentBuildConfig,} from "../../config/build-config.ts";
 import {generalConfig} from "../../config/general-config.ts";
 import * as path from "https://deno.land/std@0.207.0/path/mod.ts";
 //rollup
@@ -17,7 +14,10 @@ import rollupReplace from "npm:@rollup/plugin-replace";
 import typescript from "npm:rollup-plugin-typescript2";
 // import InlineSvg from 'rollup-plugin-inline-svg';
 import svg from "npm:rollup-plugin-svg";
-import { ModuleFormat } from "npm:rollup";
+import gzipPlugin from "npm:rollup-plugin-gzip";
+import brotli from "npm:rollup-plugin-brotli";
+import terser from "npm:@rollup/plugin-terser";
+import { type ModuleFormat } from "npm:rollup";
 export class WebComponentBuilder {
   async buildAllComponents() {
     for (const component of webComponentList) {
@@ -128,6 +128,10 @@ export class WebComponentBuilder {
       }),
       //@ts-ignore
       rollupJson(),
+      terser(),
+      gzipPlugin(),
+      brotli(),
+
     ];
     const isTypeScriptModule = this.#isTypeScriptModule(module);
     if (isTypeScriptModule) {
@@ -196,4 +200,8 @@ export class WebComponentBuilder {
     }
     return outputOptions;
   }
+}
+
+function brotliPromise(arg0: any) {
+  throw new Error("Function not implemented.");
 }
