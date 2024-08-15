@@ -128,7 +128,7 @@ export class WebComponentBuilder {
       }),
       //@ts-ignore
       rollupJson(),
-      terser(),
+      terser({compress:{drop_debugger:false}}),
       gzipPlugin(),
       brotli(),
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import 'jb-time-picker';
-import JBTimePickerValueTest from './pages/JBTimePickerValueTest';
+import JBTimePickerValueTest from './pages/jb-time-input/JBTimePickerValueTest';
 export default {
   title: 'Example/JBTimePicker',
   // component:

@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState, useImperativeHandle } from 'react';
-import PropTypes from 'prop-types';
 import 'jb-time-input';
 
 function useEvent(dom, event, handler, passive = false) {
@@ -26,23 +25,38 @@ const JBTimeInput = React.forwardRef((props, ref) => {
         refChangeCountSetter(refChangeCount + 1);
     }, [element.current]);
     function onChange(e) {
-        if (props.onChange) {
+        if (typeof props.onChange == "function") {
             props.onChange(e);
         }
     }
     function onKeydown(e) {
-        if (props.onKeydown) {
-            props.onKeydown(e);
+        if (typeof props.onKeyDown == "function") {
+            props.onKeyDown(e);
         }
     }
     function onKeyup(e) {
-        if (props.onKeyup) {
-            props.onKeyup(e);
+        if (typeof props.onKeyUp == "function") {
+            props.onKeyUp(e);
+        }
+    }
+    function onKeyPress(e) {
+        if (typeof props.onKeyPress == "function") {
+            props.onKeyPress(e);
         }
     }
     function onEnter(e) {
-        if (props.onEnter) {
+        if (typeof props.onEnter == "function") {
             props.onEnter(e);
+        }
+    }
+    function onInput(e) {
+        if (typeof props.onInput == "function") {
+            props.onInput(e);
+        }
+    }
+    function onBeforeinput(e) {
+        if (typeof props.onInput == "function") {
+            props.onInput(e);
         }
     }
     function onFocus(e) {
@@ -85,29 +99,22 @@ const JBTimeInput = React.forwardRef((props, ref) => {
             element.current.optionalUnits = props.optionalUnits;
         }
     }, [props.optionalUnits]);
+    useEffect(() => {
+        if (props.showPersianNumber !== null && props.showPersianNumber !== undefined) {
+            element.current.showPersianNumber = props.showPersianNumber;
+        }
+    }, [props.showPersianNumber]);
     useEvent(element.current, 'change', onChange);
     useEvent(element.current, 'keydown', onKeydown);
+    useEvent(element.current, 'keypress', onKeyPress);
     useEvent(element.current, 'keyup', onKeyup);
     useEvent(element.current, 'focus', onFocus);
     useEvent(element.current, 'blur', onBlur);
+    useEvent(element.current, 'input', onInput);
+    useEvent(element.current, 'beforeinput', onBeforeinput);
     useEvent(element.current, 'enter', onEnter);
     return (React.createElement("jb-time-input", { placeholder: props.placeholder, ref: element, class: props.className, label: props.label, message: props.message, "close-button-text": props.closeButtonText }));
 });
-JBTimeInput.propTypes = {
-    label: PropTypes.string,
-    closeButtonText: PropTypes.string,
-    value: PropTypes.string,
-    onChange: PropTypes.func,
-    onKeyUp: PropTypes.func,
-    onEnter: PropTypes.func,
-    className: PropTypes.string,
-    placeholder: PropTypes.string,
-    direction: PropTypes.string,
-    validationList: PropTypes.array,
-    secondEnabled: PropTypes.bool,
-    frontalZero: PropTypes.bool,
-    optionalUnits: PropTypes.array
-};
 
 export { JBTimeInput as default };
 //# sourceMappingURL=JBTimeInput.js.map

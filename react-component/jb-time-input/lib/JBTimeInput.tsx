@@ -4,6 +4,8 @@ import 'jb-time-input';
 // eslint-disable-next-line no-duplicate-imports
 import {JBTimeInputWebComponent} from 'jb-time-input';
 import {useEvent} from '../../../common/hooks/use-event';
+import { ValidationItem } from 'jb-validation/types';
+import { JBTimeInputValidationValue, TimeUnits } from 'jb-time-input/types';
 
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace
@@ -21,7 +23,7 @@ declare global {
   }
 }
 // eslint-disable-next-line react/display-name
-const JBTimeInput = React.forwardRef((props:any, ref)=>{
+const JBTimeInput = React.forwardRef((props:JBTimeInputProps, ref)=>{
   const element = useRef<JBTimeInputWebComponent>(null);
   const [refChangeCount, refChangeCountSetter] = useState(0);
   useImperativeHandle(
@@ -32,32 +34,47 @@ const JBTimeInput = React.forwardRef((props:any, ref)=>{
   useEffect(() => {
     refChangeCountSetter(refChangeCount + 1);
   }, [element.current]);
-  function onChange(e) {
-    if (props.onChange) {
+  function onChange(e:JBTimeInputEventType<Event>) {
+    if (typeof props.onChange == "function") {
       props.onChange(e);
     }
   }
-  function onKeydown(e) {
-    if (props.onKeydown) {
-      props.onKeydown(e);
+  function onKeydown(e:JBTimeInputEventType<KeyboardEvent>) {
+    if (typeof props.onKeyDown == "function") {
+      props.onKeyDown(e);
     }
   }
-  function onKeyup(e) {
-    if (props.onKeyup) {
-      props.onKeyup(e);
+  function onKeyup(e:JBTimeInputEventType<KeyboardEvent>) {
+    if (typeof props.onKeyUp == "function") {
+      props.onKeyUp(e);
     }
   }
-  function onEnter(e) {
-    if (props.onEnter) {
+  function onKeyPress(e:JBTimeInputEventType<KeyboardEvent>) {
+    if (typeof props.onKeyPress == "function") {
+      props.onKeyPress(e);
+    }
+  }
+  function onEnter(e:JBTimeInputEventType<KeyboardEvent>) {
+    if (typeof props.onEnter == "function") {
       props.onEnter(e);
     }
   }
-  function onFocus(e) {
+  function onInput(e:JBTimeInputEventType<InputEvent>) {
+    if (typeof props.onInput == "function") {
+      props.onInput(e);
+    }
+  }
+  function onBeforeinput(e:JBTimeInputEventType<InputEvent>) {
+    if ( typeof props.onInput == "function") {
+      props.onInput(e);
+    }
+  }
+  function onFocus(e:JBTimeInputEventType<FocusEvent>) {
     if (props.onFocus && e instanceof FocusEvent) {
       props.onFocus(e);
     }
   }
-  function onBlur(e) {
+  function onBlur(e:JBTimeInputEventType<FocusEvent>) {
     if (props.onBlur && e instanceof FocusEvent) {
       props.onBlur(e);
     }
@@ -92,32 +109,52 @@ const JBTimeInput = React.forwardRef((props:any, ref)=>{
       element.current.optionalUnits = props.optionalUnits;
     }
   }, [props.optionalUnits]);
+  useEffect(() => {
+    if(props.showPersianNumber !== null && props.showPersianNumber !== undefined){
+      element.current.showPersianNumber = props.showPersianNumber;
+    }
+  }, [props.showPersianNumber]);
   useEvent(element.current, 'change', onChange);
   useEvent(element.current, 'keydown', onKeydown);
+  useEvent(element.current, 'keypress', onKeyPress);
   useEvent(element.current, 'keyup', onKeyup);
   useEvent(element.current, 'focus', onFocus);
   useEvent(element.current, 'blur', onBlur);
+  useEvent(element.current, 'input', onInput);
+  useEvent(element.current, 'beforeinput', onBeforeinput);
   useEvent(element.current, 'enter', onEnter);
   return (
     <jb-time-input placeholder={props.placeholder} ref={element} class={props.className} label={props.label} message={props.message} close-button-text={props.closeButtonText}></jb-time-input>
   );
 });
 
-JBTimeInput.propTypes = {
-  label: PropTypes.string,
-  closeButtonText: PropTypes.string,
-  value: PropTypes.string,
-  onChange: PropTypes.func,
-  onKeyUp: PropTypes.func,
-  onEnter: PropTypes.func,
-  className: PropTypes.string,
-  placeholder: PropTypes.string,
-  direction: PropTypes.string,
-  validationList: PropTypes.array,
-  secondEnabled: PropTypes.bool,
-  frontalZero: PropTypes.bool,
-  optionalUnits: PropTypes.array
-};
+export type JBTimeInputEventType<T> = T & {
+  target: JBTimeInputWebComponent
+}
 
+export type JBTimeInputProps = {
+  label?: string | null,
+  closeButtonText?: string | null,
+  value?: string | null,
+  onChange?: (e: JBTimeInputEventType<Event>) => void,
+  onKeyUp?: (e: JBTimeInputEventType<KeyboardEvent>) => void,
+  onKeyDown?: (e: JBTimeInputEventType<KeyboardEvent>) => void,
+  onKeyPress?: (e: JBTimeInputEventType<KeyboardEvent>) => void,
+  onEnter?: (e: JBTimeInputEventType<KeyboardEvent>) => void,
+  onInput?: (e: JBTimeInputEventType<InputEvent>) => void,
+  onBeforeInput?: (e: JBTimeInputEventType<InputEvent>) => void,
+  onFocus:(e: JBTimeInputEventType<FocusEvent>) => void
+  onBlur:(e: JBTimeInputEventType<FocusEvent>) => void
+  className: string,
+  placeholder: string,
+  message:string
+  //TODO: remove this and handle internally
+  direction: 'ltr' | 'rtl',
+  validationList: ValidationItem<JBTimeInputValidationValue>[],
+  secondEnabled: boolean,
+  frontalZero: boolean,
+  optionalUnits: TimeUnits[],
+  showPersianNumber:true
+}
 export default JBTimeInput;
 
