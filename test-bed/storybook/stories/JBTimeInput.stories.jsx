@@ -30,11 +30,19 @@ export const EventTestPage = EventTestPageTemplate.bind({});
 
 export const ValidationSample = Template.bind({});
 ValidationSample.args = {
-  label:'زمان',
+  label:'time:',
   validationList: [
     {
       validator: /^[1][1234].*$/g,
-      message:"ساعت انتخابی شما می‌تواند بین 11 تا 14 باشد"
+      message:"hour  must be between 11 and 14"
+    },{
+      validator:({displayValue,value,valueObject})=>{
+        if(valueObject.minute<30){
+          return false;
+        }
+        return true;
+      },
+      message:'minute must be 30 to 60'
     }
   ]
 };
