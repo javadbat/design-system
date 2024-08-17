@@ -37,6 +37,10 @@ const webComponentList: WebComponentBuildConfig[] = [
     path: "/web-component/jb-input/lib/jb-input.ts",
     outputPath: "/web-component/jb-input/dist/jb-input.js",
     umdName: "JBInput",
+    external: ["jb-validation"],
+    globals: {
+      "jb-validation": "JBValidation",
+    },
   },
   {
     name: "jb-button",
@@ -124,12 +128,13 @@ const webComponentList: WebComponentBuildConfig[] = [
     name: "jb-time-input",
     path: "/web-component/jb-time-input/lib/jb-time-input.ts",
     outputPath: "/web-component/jb-time-input/dist/jb-time-input.js",
-    external: ["jb-time-picker","jb-input","jb-popover"],
+    external: ["jb-time-picker","jb-input","jb-popover","jb-validation"],
     umdName: "JBTimeInput",
     globals: {
       "jb-time-picker": "JBTimePicker",
       "jb-input": "JBInput",
       "jb-popover": "JBPopover",
+      "jb-validation":"JBValidation"
     },
   },
   {

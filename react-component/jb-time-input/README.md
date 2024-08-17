@@ -1,6 +1,7 @@
 # jb-time-input react component
 
-[![GitHub license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://raw.githubusercontent.com/javadbat/jb-time-input/master/LICENSE)
+[![GitHub license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://raw.githubusercontent.com/javadbat/jb-time-input-react/master/LICENSE)
+[![NPM Downloads](https://img.shields.io/npm/dw/jb-time-input-react)](https://www.npmjs.com/package/jb-time-input-react)
 
 in jb-time-input you can create a input special for time the advantage is:
 
@@ -130,56 +131,48 @@ you can also get validation result of your time input by following way:
 
 you can change some attribute in html like label or message configurable attribute are:
 
-```HTML
-<jb-time-input close-button-text="بستن"></jb-time-input>
+```jsx
+<JBTimeInput closeButtonText="بستن"></JBTimeInput>
 ```
 
 ### disable second
 if you want to just input minute and hour and disable second in picker and input just set `secondEnabled` to `false`
-```javascript
-    document.querySelector('jb-time-input').secondEnabled = false;
+```jsx
+<JBTimeInput secondEnabled={false}></JBTimeInput>
 ```
 ### frontal zero
 if you want picker to show `02` instead of `2` when number is less than 10 just set `frontalZero` of time picker default is `false`.    
-```js
-document.querySelector('jb-time-input').frontalZero = true;
-```
-or
-```html
-<jb-time-input frontal-zero="true"></jb-time-input>
+```jsx
+<JBTimeInput frontalZero={true}></JBTimeInput>
+
 ```
 ### optional units
-if you want to tell user some units is optional and greyout the numbers in picker you can set `optionalUnits`
-```js
+if you want to tell user some units is optional and make it less visible by set light grey color the numbers in picker you can set `optionalUnits`
+```jsx
 //it could be 'hour' or 'minute' or 'second'
-document.querySelector('jb-time-input').optionalUnits = ['hour'];
+<JBTimeInput optionalUnits={[hour]}></JBTimeInput>
+
 ```
 ### show persian number
 if you want to show persian number instead of english number chars. you can set `showPersianNumber`:
 ```js 
-document.querySelector('jb-time-input').showPersianNumber = true
+<JBTimeInput showPersianNumber={true}></JBTimeInput>
+
 ```
 
 ### set custom style
 
-in some cases in your project you need to change default style of web-component for example you need zero margin or different border-radius and etc.
-if you want to set a custom style to this web-component all you need is to set this css variable in parent scope of web-component.
+jb-time-input use [jb-input](https://github.com/javadbat/jb-input) and [jb-time-picker](https://github.com/javadbat/jb-time-picker) and [jb-popover](https://github.com/javadbat/jb-popover) underneath so to change the styles of your component read custom style section of these components.
+more than above here is the css variable that we use in jb-time-input itself:
+
 | css variable name                       | description                                                                                              |
 | -------------                           | -------------                                                                                            |
-| --jb-time-input-label-font-size         | change font size of web component label default is `0.8em`                                               |
 | --jb-time-input-margin                  | outer margin of web component default is `12px 0`                                                        |
-| --jb-time-input-height                  | height of input element default is `40px`                                                                |
-| --jb-time-input-border-color            | input box border color default is `f7f6f6`                                                               |
-| --jb-time-input-bgcolor                 | background color of input box default is `#f7f6f6`                                                       |
-| --jb-time-input-border-botton-width     | border bottom width on input box default is `3px`                                                        |
-| --jb-time-input-border-radius           | input box border radius  default is `16px`                                                               |
-| --jb-time-input-border-color-focus      | input box border-color when user focus                                                                   |
-| --jb-time-input-input-padding           | inner padding of input element default is `2px 12px 0 12px`                                              |
-| --jb-time-input-value-font-size         | font size of input value default is `1.1em`                                                              |
-| --jb-time-input-value-color             | color of input value default is `#1f1735`                                                                |
-| --jb-time-input-placeholder-color       | color of input placeholder                                                                               |
-| --jb-time-input-placeholder-font-size   | font size of placeholder                                                                                 |
-| --jb-time-input-message-font-size       | message and error message under input box font size defaulyt is `0.7em`                                  |
-| --jb-time-input-message-box-display     | if you want to hide a error message under the inputbox and show message in your own way set it to `none` |
-| --jb-time-input-message-error-color     | color of message error default is `red` but you can change it to what you want                           |
-| --jb-time-input-label-color             | input label color                                                                                        |
+
+
+## Other Related Docs:
+- see [jb-time-input](https://github.com/javadbat/jb-time-input) if you want to use this component as a pure-js web-component
+
+- see [All JB Design system Component List](https://github.com/javadbat/design-system/blob/master/docs/component-list.md) for more components
+
+- use [Contribution Guide](https://github.com/javadbat/design-system/blob/master/docs/contribution-guide.md) if you want to contribute in this component.
