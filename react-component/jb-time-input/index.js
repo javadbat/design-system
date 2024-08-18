@@ -1,2 +1,1 @@
-import JBTimeInput from './dist/JBTimeInput.js';
-export default JBTimeInput;
+export {JBTimeInput} from './dist/JBTimeInput.js';

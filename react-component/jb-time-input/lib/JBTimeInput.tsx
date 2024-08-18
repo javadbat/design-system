@@ -1,11 +1,10 @@
 import React, {useRef, useEffect, useImperativeHandle, useState} from 'react';
-import PropTypes from 'prop-types';
 import 'jb-time-input';
 // eslint-disable-next-line no-duplicate-imports
 import {JBTimeInputWebComponent} from 'jb-time-input';
 import {useEvent} from '../../../common/hooks/use-event';
-import { ValidationItem } from 'jb-validation/types';
-import { JBTimeInputValidationValue, TimeUnits } from 'jb-time-input/types';
+import { type ValidationItem } from 'jb-validation/types';
+import { type JBTimeInputValidationValue, type TimeUnits } from 'jb-time-input/types';
 
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace
@@ -156,5 +155,5 @@ export type JBTimeInputProps = {
   optionalUnits: TimeUnits[],
   showPersianNumber:true
 }
-export default JBTimeInput;
+export {JBTimeInput};
 
