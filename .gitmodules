@@ -158,3 +158,6 @@
 [submodule "modules/jb-validation"]
 	path = modules/jb-validation
 	url = https://github.com/javadbat/jb-validation.git
+[submodule "react-component/jb-time-input"]
+	path = react-component/jb-time-input
+	url = https://github.com/javadbat/jb-time-input-react.git
