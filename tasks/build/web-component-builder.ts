@@ -128,6 +128,8 @@ export class WebComponentBuilder {
       }),
       //@ts-ignore
       rollupJson(),
+      //TODO: disable these 3 minifier in watch mode
+      //@ts-ignore
       terser({compress:{drop_debugger:false}}),
       gzipPlugin(),
       brotli(),

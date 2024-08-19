@@ -1,5 +1,5 @@
 import React from 'react';
-import JBTimeInput from '../../../react-component/jb-time-input/dist/JBTimeInput';
+import {JBTimeInput} from 'jb-time-input-react';
 import JBTimeInputEventTestPage from './pages/jb-time-input/JBTimeInputEventTestPage';
 import JBTimeInputWebComponentEventTestPage from './pages/jb-time-input/JBTimeInputWebComponentEventTestPage';
 export default {
@@ -15,6 +15,11 @@ export const PersianNumber = Template.bind({});
 PersianNumber.args = {
   label:'Persian number',
   showPersianNumber:true
+};
+export const withValue = Template.bind({});
+withValue.args = {
+  label:'with value',
+  value:"13:24:48"
 };
 const RTLTemplate = (args) => <div style={{direction:'rtl'}}><JBTimeInput {...args}></JBTimeInput></div>;
 export const RTLSample = RTLTemplate.bind({});
