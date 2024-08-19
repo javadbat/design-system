@@ -16,7 +16,7 @@ class JBGridTest extends Component {
     const { vm } = this;
     return (
       <div className="grid-wrapper">
-        <JBGrid config={vm.jbGridConfig} bridge={JBGridBridge} title="لیست کاربران" searchbarConfig={vm.filterConfig}>
+        <JBGrid config={vm.jbGridConfig} bridge={JBGridBridge} title="لیست کاربران" searchbarConfig={vm.filterConfig} i18n={this.props.i18n}>
           {
             vm.jbGridConfig.data.data.map(
               (item) => {

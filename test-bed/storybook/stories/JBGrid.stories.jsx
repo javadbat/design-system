@@ -11,7 +11,11 @@ export const Normal = Template.bind({});
 Normal.args = {
   config: new JBGridData()
 };
-    
+export const WithPersianNumber = Template.bind({});
+WithPersianNumber.args = {
+  config: new JBGridData(),
+  i18n:{showPersianNumber:true}
+};  
 const ContentErrorTemplate = (args) => <CustomErrorTest {...args}></CustomErrorTest>;
 export const ContentError = ContentErrorTemplate.bind({});
 ContentError.args = {
