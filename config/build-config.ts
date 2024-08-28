@@ -177,9 +177,10 @@ const webComponentList: WebComponentBuildConfig[] = [
     path: "/web-component/jb-mobile-input/lib/jb-mobile-input.ts",
     outputPath: "/web-component/jb-mobile-input/dist/jb-mobile-input.js",
     umdName: "JBMobileInput",
-    external: ["jb-input"],
+    external: ["jb-input","jb-validation"],
     globals: {
       "jb-input": "JBInput",
+      "jb-validation":"JBValidation"
     },
   },
   {
@@ -495,6 +496,7 @@ const reactComponentList: ReactComponentBuildConfig[] = [
     external: ["jb-number-input","jb-input-react", "jb-input", "prop-types", "react"],
     globals: {
       react: "React",
+      "jb-number-input":"JBNumberInput",
       "jb-input-react":"JBInputReact"
     },
   },
