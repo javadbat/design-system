@@ -207,9 +207,10 @@ const webComponentList: WebComponentBuildConfig[] = [
     path: "/web-component/jb-password-input/lib/jb-password-input.ts",
     outputPath: "/web-component/jb-password-input/dist/jb-password-input.js",
     umdName: "JBPasswordInput",
-    external: ["jb-input"],
+    external: ["jb-input","jb-validation"],
     globals: {
       "jb-input": "JBInput",
+      "jb-validation":"JBValidation"
     },
   },
   {
