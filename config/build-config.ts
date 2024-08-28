@@ -199,9 +199,10 @@ const webComponentList: WebComponentBuildConfig[] = [
     path: "/web-component/jb-national-input/lib/jb-national-input.ts",
     outputPath: "/web-component/jb-national-input/dist/jb-national-input.js",
     umdName: "JBNationalInput",
-    external: ["jb-input"],
+    external: ["jb-input","jb-validation"],
     globals: {
       "jb-input": "JBInput",
+      "jb-validation":"JBValidation"
     },
   },
   {
@@ -485,8 +486,9 @@ const reactComponentList: ReactComponentBuildConfig[] = [
     outputPath: "/react-component/jb-national-input/dist/JBNationalInput.js",
     external: ["jb-national-input","jb-input-react","jb-input", "prop-types", "react"],
     globals: {
-      react: "React",
-      "jb-input-react":"JBInputReact"
+      "react": "React",
+      "jb-input-react":"JBInputReact",
+      "jb-national-input":"JBNationalInput"
     },
   },
   {
