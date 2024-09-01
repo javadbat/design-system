@@ -111,13 +111,6 @@ const webComponentList: WebComponentBuildConfig[] = [
     },
   },
   {
-    name: "jb-editor",
-    path: "/web-component/jb-editor/lib/JBEditor.js",
-    outputPath: "/web-component/jb-editor/dist/JBEditor.js",
-    external: [],
-    umdName: "JBEditor",
-  },
-  {
     name: "jb-time-picker",
     path: "/web-component/jb-time-picker/lib/jb-time-picker.ts",
     outputPath: "/web-component/jb-time-picker/dist/jb-time-picker.js",

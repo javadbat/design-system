@@ -2,8 +2,7 @@
   "version": "3",
   "packages": {
     "specifiers": {
-      "jsr:@std/assert@^0.224.0": "jsr:@std/assert@0.224.0",
-      "jsr:@std/path@^0.224.0": "jsr:@std/path@0.224.0",
+      "jsr:@std/path@^1.0.3": "jsr:@std/path@1.0.3",
       "npm:@babel/core": "npm:@babel/core@7.24.9",
       "npm:@rollup/plugin-babel": "npm:@rollup/plugin-babel@6.0.4_@babel+core@7.24.9_rollup@4.19.0",
       "npm:@rollup/plugin-commonjs": "npm:@rollup/plugin-commonjs@26.0.1_rollup@4.19.0",
@@ -22,14 +21,8 @@
       "npm:rollup-plugin-typescript2": "npm:rollup-plugin-typescript2@0.36.0_rollup@4.19.0_typescript@5.5.3"
     },
     "jsr": {
-      "@std/assert@0.224.0": {
-        "integrity": "8643233ec7aec38a940a8264a6e3eed9bfa44e7a71cc6b3c8874213ff401967f"
-      },
-      "@std/path@0.224.0": {
-        "integrity": "55bca6361e5a6d158b9380e82d4981d82d338ec587de02951e2b7c3a24910ee6",
-        "dependencies": [
-          "jsr:@std/assert@^0.224.0"
-        ]
+      "@std/path@1.0.3": {
+        "integrity": "cd89d014ce7eb3742f2147b990f6753ee51d95276bfc211bc50c860c1bc7df6f"
       }
     },
     "npm": {
@@ -1820,7 +1813,7 @@
   },
   "workspace": {
     "dependencies": [
-      "jsr:@std/path@^0.224.0",
+      "jsr:@std/path@^1.0.3",
       "npm:rollup-plugin-gzip@^4.0.0"
     ],
     "packageJson": {

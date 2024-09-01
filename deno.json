@@ -10,7 +10,7 @@
   "imports": {
     "./": "./",
     "/": "./",
-    "@std/path": "jsr:@std/path@^0.224.0",
+    "@std/path": "jsr:@std/path@^1.0.3",
     "jb-button": "file:./web-component/jb-button",
     "jb-button-react": "file:./react-component/jb-button",
     "jb-calendar": "file:./web-component/jb-calendar",
