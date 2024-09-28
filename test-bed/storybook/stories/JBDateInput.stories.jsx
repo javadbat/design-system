@@ -1,111 +1,145 @@
-import React from 'react';
-import {JBDateInput} from 'jb-date-input-react';
-import JBDateInputGregorianTest from './pages/JBDateInput/JBDateInputGregorianTestPage';
-import JBDateInputJalaliTest from './pages/JBDateInput/JBDateInputJalaliTestPage';
-import JBDateInputTimeStampTest from './pages/JBDateInput/JBDateInputTimeStampTestPage';
-import DarkmodeTest from './pages/JBDateInput/DarkmodeTest';
-import JBDateInputSizeTest from './pages/JBDateInput/JBDateInputSizeTest';
-import InFormData from './pages/JBDateInput/InFormData';
+import React, { useRef } from "react";
+import { JBDateInput } from "jb-date-input-react";
+import JBDateInputGregorianTest from "./pages/JBDateInput/JBDateInputGregorianTestPage";
+import JBDateInputJalaliTest from "./pages/JBDateInput/JBDateInputJalaliTestPage";
+import JBDateInputTimeStampTest from "./pages/JBDateInput/JBDateInputTimeStampTestPage";
+import DarkmodeTest from "./pages/JBDateInput/DarkmodeTest";
+import JBDateInputSizeTest from "./pages/JBDateInput/JBDateInputSizeTest";
+import InFormData from "./pages/JBDateInput/InFormData";
 export default {
-  title: 'Example/JBDateInput',
-  component: JBDateInput
+  title: "Example/JBDateInput",
+  component: JBDateInput,
 };
-
 
 const Template = (args) => <JBDateInput {...args}></JBDateInput>;
 export const Normal = Template.bind({});
 Normal.args = {
-  label: 'تاریخ',
+  label: "تاریخ",
   valueType: "GREGORIAN",
   inputType: "JALALI",
-  direction: "ltr"
+  direction: "ltr",
 };
 export const CustomFormat = Template.bind({});
 CustomFormat.args = {
-  label: 'تاریخ',
-  valueType: "GREGORIAN",
-  inputType: "JALALI",
-  format: "YYYY/MM/DD",
-  direction: "ltr"
-};
-export const Placeholder = Template.bind({});
-Placeholder.args = {
-  label: 'تاریخ',
-  placeholder:'تاریخ را وارد کنید',
-  valueType: "GREGORIAN",
-  inputType: "JALALI",
-  direction: "ltr"
-};
-export const WithDefaultCalendarDate = Template.bind({});
-WithDefaultCalendarDate.args = {
-  label: 'تاریخ',
+  label: "تاریخ",
   valueType: "GREGORIAN",
   inputType: "JALALI",
   format: "YYYY/MM/DD",
   direction: "ltr",
-  calendarDefaultDateView: { year: 1360, month: 5 }
+};
+export const Placeholder = Template.bind({});
+Placeholder.args = {
+  label: "تاریخ",
+  placeholder: "تاریخ را وارد کنید",
+  valueType: "GREGORIAN",
+  inputType: "JALALI",
+  direction: "ltr",
+};
+export const WithDefaultCalendarDate = Template.bind({});
+WithDefaultCalendarDate.args = {
+  label: "تاریخ",
+  valueType: "GREGORIAN",
+  inputType: "JALALI",
+  format: "YYYY/MM/DD",
+  direction: "ltr",
+  calendarDefaultDateView: { year: 1360, month: 5 },
 };
 export const PersianNumber = Template.bind({});
 PersianNumber.args = {
-  label: 'با اعداد فارسی',
+  label: "با اعداد فارسی",
   valueType: "GREGORIAN",
   inputType: "JALALI",
   format: "YYYY/MM/DD",
   direction: "ltr",
   usePersianNumber: true,
-  calendarDefaultDateView: { year: 1360, month: 5 }
+  calendarDefaultDateView: { year: 1360, month: 5 },
 };
 export const CustomMonthName = Template.bind({});
 CustomMonthName.args = {
-  label: 'تاریخ',
+  label: "تاریخ",
   valueType: "GREGORIAN",
   inputType: "JALALI",
-  jalaliMonthList:['حَمَل','ثَور','جَوزا','سَرَطان','اَسَد','سُنبُله','میزان','عَقرَب','قَوس','جَدْی','دَلو','حوت']
+  jalaliMonthList: [
+    "حَمَل",
+    "ثَور",
+    "جَوزا",
+    "سَرَطان",
+    "اَسَد",
+    "سُنبُله",
+    "میزان",
+    "عَقرَب",
+    "قَوس",
+    "جَدْی",
+    "دَلو",
+    "حوت",
+  ],
 };
 export const Required = Template.bind({});
 Required.args = {
-  label: 'فیلد اجباری',
+  label: "فیلد اجباری",
   required: true,
   direction: "ltr",
 };
 export const WithOverflowHandler = Template.bind({});
 WithOverflowHandler.args = {
-  label: 'will jump on overflow',
-  overflowHandler:"JUMP"
+  label: "will jump on overflow",
+  overflowHandler: "SLIDE",
+};
+export const OverflowWithinParent = {
+  render:
+    (args) => {
+      const ref = useRef(null);
+      return (
+        <div ref={ref} style={{ height: "10rem", border: "solid 1px #666", overflow:"hidden" }}>
+          {/* 👇 Decorators in Storybook also accept a function. Replace <Story/> with Story() to enable it  */}
+          <JBDateInput {...args} overflowRef={ref} />
+        </div>
+      );
+    },
+};
+OverflowWithinParent.args = {
+  label: "will jump on overflow",
+  overflowHandler: "SLIDE",
 };
 const darkModeTemplate = () => <DarkmodeTest></DarkmodeTest>;
 export const DarkMode = darkModeTemplate.bind({});
 const sizeTestTemplate = () => <JBDateInputSizeTest></JBDateInputSizeTest>;
 export const sizeTes = sizeTestTemplate.bind({});
 
-const GregorianTestTemplate = (args) => <JBDateInputGregorianTest {...args}></JBDateInputGregorianTest>;
+const GregorianTestTemplate = (args) => (
+  <JBDateInputGregorianTest {...args}></JBDateInputGregorianTest>
+);
 export const GregorianTest = GregorianTestTemplate.bind({});
 GregorianTest.args = {
-  label: 'date',
+  label: "date",
   valueType: "GREGORIAN",
-  inputType: 'GREGORIAN',
-  direction: "ltr"
+  inputType: "GREGORIAN",
+  direction: "ltr",
 };
 export const GregorianMinMaxTest = GregorianTestTemplate.bind({});
 GregorianMinMaxTest.args = {
-  label: 'تاریخ',
+  label: "تاریخ",
   valueType: "GREGORIAN",
   min: "2020-09-05T08:51:23.176Z",
   max: "2020-10-15T08:51:23.176Z",
-  inputType: 'JALALI',
-  direction: "ltr"
+  inputType: "JALALI",
+  direction: "ltr",
 };
-const JalaliTestTemplate = (args) => <div style={{ direction: 'rtl' }}><JBDateInputJalaliTest {...args}></JBDateInputJalaliTest></div>;
+const JalaliTestTemplate = (args) => (
+  <div style={{ direction: "rtl" }}>
+    <JBDateInputJalaliTest {...args}></JBDateInputJalaliTest>
+  </div>
+);
 export const JalaliTest = JalaliTestTemplate.bind({});
 JalaliTest.args = {
-  label: 'تاریخ',
+  label: "تاریخ",
   valueType: "JALALI",
-  min:'1402-08-01T12:05:39.530Z',
-  max:'1402-09-01T12:05:39.530Z'
+  min: "1402-08-01T12:05:39.530Z",
+  max: "1402-09-01T12:05:39.530Z",
 };
 export const JalaliMinMaxTest = JalaliTestTemplate.bind({});
 JalaliMinMaxTest.args = {
-  label: 'تاریخ',
+  label: "تاریخ",
   valueType: "JALALI",
   min: "1399-05-01T12:05:39.530Z",
   max: "1400-08-01T12:05:39.530Z",
@@ -113,21 +147,29 @@ JalaliMinMaxTest.args = {
 export const JalaliMinMaxTestWithCustomFormat = JalaliTestTemplate.bind({});
 JalaliMinMaxTestWithCustomFormat.args = {
   format: "YYYY/MM/DD",
-  label: 'تاریخ',
+  label: "تاریخ",
   valueType: "JALALI",
   min: "1399/05/01",
   max: "1400/08/01",
 };
 
-const TimeStampTestTemplate = (args) => <JBDateInputTimeStampTest label={args.label} min={args.min} max={args.max} valueType={args.valueType}></JBDateInputTimeStampTest>;
+const TimeStampTestTemplate = (args) => (
+  <JBDateInputTimeStampTest
+    label={args.label}
+    min={args.min}
+    max={args.max}
+    valueType={args.valueType}
+  >
+  </JBDateInputTimeStampTest>
+);
 export const TimeStampTest = TimeStampTestTemplate.bind({});
 TimeStampTest.args = {
-  label: 'تاریخ',
+  label: "تاریخ",
   valueType: "TIME_STAMP",
 };
 export const TimeStampMinMaxTest = TimeStampTestTemplate.bind({});
 TimeStampMinMaxTest.args = {
-  label: 'تاریخ',
+  label: "تاریخ",
   valueType: "TIME_STAMP",
   min: "1596291030322",
   max: "1696291030322",
@@ -135,21 +177,27 @@ TimeStampMinMaxTest.args = {
 
 export const GregorianInputTest = Template.bind({});
 GregorianInputTest.args = {
-  label: 'تاریخ',
+  label: "تاریخ",
   valueType: "GREGORIAN",
-  inputType: "GREGORIAN"
+  inputType: "GREGORIAN",
 };
 export const LeftToRightTest = Template.bind({});
 LeftToRightTest.args = {
-  label: 'date',
+  label: "date",
   valueType: "GREGORIAN",
   inputType: "GREGORIAN",
-  direction: 'ltr'
+  direction: "ltr",
 };
 const WithCustomIconTemplate = (args) => (
   <JBDateInput {...args}>
     <div slot="calendar-trigger-icon">
-      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="0 0 610.398 610.398">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        version="1.1"
+        x="0px"
+        y="0px"
+        viewBox="0 0 610.398 610.398"
+      >
         <g>
           <g>
             <path d="M159.567,0h-15.329c-1.956,0-3.811,0.411-5.608,0.995c-8.979,2.912-15.616,12.498-15.616,23.997v10.552v27.009v14.052    c0,2.611,0.435,5.078,1.066,7.44c2.702,10.146,10.653,17.552,20.158,17.552h15.329c11.724,0,21.224-11.188,21.224-24.992V62.553    V35.544V24.992C180.791,11.188,171.291,0,159.567,0z" />
@@ -171,35 +219,41 @@ const WithCustomIconTemplate = (args) => (
 );
 export const WithCustomIcon = WithCustomIconTemplate.bind({});
 WithCustomIcon.args = {
-  label: 'تاریخ',
-  valueType: "GREGORIAN",
-  inputType: "JALALI",
-  direction: "ltr"
-};
-export const WithoutIcon = Normal.bind({});
-WithoutIcon.args = {
-  label: 'تاریخ',
+  label: "تاریخ",
   valueType: "GREGORIAN",
   inputType: "JALALI",
   direction: "ltr",
-  style:"--jb-date-input-calendar-trigger-display:none"
+};
+export const WithoutIcon = Normal.bind({});
+WithoutIcon.args = {
+  label: "تاریخ",
+  valueType: "GREGORIAN",
+  inputType: "JALALI",
+  direction: "ltr",
+  style: "--jb-date-input-calendar-trigger-display:none",
 };
 const WithStartSectionTemplate = (args) => (
   <JBDateInput {...args}>
-    <div slot="end-section" style={{ width: '24px', height: '24px', backgroundColor: '#262626' }}></div>
-    <div slot="start-section" style={{ width: '24px', height: '24px', backgroundColor: '#262626' }}></div>
+    <div
+      slot="end-section"
+      style={{ width: "24px", height: "24px", backgroundColor: "#262626" }}
+    >
+    </div>
+    <div
+      slot="start-section"
+      style={{ width: "24px", height: "24px", backgroundColor: "#262626" }}
+    >
+    </div>
   </JBDateInput>
 );
 
 export const WithStartSection = WithStartSectionTemplate.bind({});
 WithStartSection.args = {
-  label: 'تاریخ',
+  label: "تاریخ",
   valueType: "GREGORIAN",
   inputType: "JALALI",
-  direction: "ltr"
+  direction: "ltr",
 };
 const InFormTemplate = (args) => <InFormData {...args}></InFormData>;
 export const InFormTest = InFormTemplate.bind({});
-InFormTest.args = {
-};
-
+InFormTest.args = {};

@@ -58,8 +58,8 @@ const webComponentList: WebComponentBuildConfig[] = [
   },
   {
     name: "jb-calendar",
-    path: "/web-component/jb-calendar/lib/JBCalendar.ts",
-    outputPath: "/web-component/jb-calendar/dist/JBCalendar.js",
+    path: "/web-component/jb-calendar/lib/jb-calendar.ts",
+    outputPath: "/web-component/jb-calendar/dist/jb-calendar.js",
     external: ["date-fns", "date-fns-jalali"],
     umdName: "JBCalendar",
     //because date-fns dont have any umd module export i have to do this so it doenst exclude in umd build
@@ -70,9 +70,9 @@ const webComponentList: WebComponentBuildConfig[] = [
     path: "/web-component/jb-date-input/lib/jb-date-input.ts",
     outputPath: "/web-component/jb-date-input/dist/jb-date-input.js",
     umdName: "JBDateInput",
-    external: ["date-fns", "date-fns-jalali", "jb-calendar"],
+    external: ["date-fns", "date-fns-jalali", "jb-calendar","jb-input","jb-popover","jb-validation"],
     //because date-fns dont have any umd module export i have to do this so it doesn't exclude in umd build
-    umdIncludes: ["date-fns", "date-fns-jalali", "jb-calendar"],
+    umdIncludes: ["date-fns", "date-fns-jalali", "jb-calendar","jb-input","jb-popover","jb-validation"],
   },
   {
     name: "jb-file-input",

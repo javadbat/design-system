@@ -18,9 +18,9 @@
     width: 300px;
 }
 .self-pixel-height{
-    --jb-date-input-box-height:70px;
+    --jb-input-height:70px;
 }
 .parent-pixel-height{
-    --jb-date-input-box-height:70px;
+    --jb-input-height:70px;
 }
 

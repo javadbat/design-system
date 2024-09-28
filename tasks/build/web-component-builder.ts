@@ -1,6 +1,6 @@
 import chalk from "npm:chalk";
-import {webComponentList,type WebComponentBuildConfig,} from "../../config/build-config.ts";
-import {generalConfig} from "../../config/general-config.ts";
+import { webComponentList, type WebComponentBuildConfig, } from "../../config/build-config.ts";
+import { generalConfig } from "../../config/general-config.ts";
 import * as path from "https://deno.land/std@0.207.0/path/mod.ts";
 //rollup
 import * as rollup from "npm:rollup";
@@ -17,47 +17,47 @@ import svg from "npm:rollup-plugin-svg";
 import gzipPlugin from "npm:rollup-plugin-gzip";
 import brotli from "npm:rollup-plugin-brotli";
 import terser from "npm:@rollup/plugin-terser";
-import { type ModuleFormat } from "npm:rollup";
+import type { ModuleFormat } from "npm:rollup";
 export class WebComponentBuilder {
   async buildAllComponents() {
     for (const component of webComponentList) {
       await this.buildComponent(component);
     }
   }
-  async buildComponent(componentBuildConfig: WebComponentBuildConfig,watch = false) {
+  async buildComponent(componentBuildConfig: WebComponentBuildConfig, watchMode = false) {
     console.log(`start building ${componentBuildConfig.name}`);
-    const inputOptions = this.#getInputOption(componentBuildConfig,'es');
-    const cjsInputOptions = this.#getInputOption(componentBuildConfig,'cjs');
-    const umdInputOptions = this.#getInputOption(componentBuildConfig,'umd');
+    const inputOptions = this.#getInputOption(componentBuildConfig, 'es',watchMode);
+    const cjsInputOptions = this.#getInputOption(componentBuildConfig, 'cjs',watchMode);
+    const umdInputOptions = this.#getInputOption(componentBuildConfig, 'umd',watchMode);
     //
     const esOutputOptions = this.#getOutputOption(componentBuildConfig, "es");
     const cjsOutputOptions = this.#getOutputOption(componentBuildConfig, "cjs");
     const umdOutputOptions = this.#getOutputOption(componentBuildConfig, "umd");
     try {
-      if(watch){
-        this.#buildAndWatchModule(inputOptions,esOutputOptions,componentBuildConfig);
-      }else{
+      if (watchMode) {
+        this.#buildAndWatchModule(inputOptions, esOutputOptions, componentBuildConfig);
+      } else {
         await this.buildModule(inputOptions, esOutputOptions, "ES");
         await this.buildModule(cjsInputOptions, cjsOutputOptions, "CJS");
         await this.buildModule(umdInputOptions, umdOutputOptions, "UMD");
       }
-    }catch(e){
+    } catch (e) {
       console.error(componentBuildConfig.name + ' build failed');
     }
   }
-  buildModule(inputOptions:rollup.RollupOptions, outputOptions:rollup.OutputOptions, type:"ES" | "CJS" | "UMD"){
+  buildModule(inputOptions: rollup.RollupOptions, outputOptions: rollup.OutputOptions, type: "ES" | "CJS" | "UMD") {
     //build module with rollup without any watch or something
     const bundlePromise = rollup.rollup(inputOptions);
     bundlePromise.then(function (bundle) {
       bundle.write(outputOptions).then(function (output) {
-        console.log(chalk.greenBright(output.output[0].facadeModuleId), ' ',chalk.bgBlue(` ${type} `) , ' ', chalk.bgMagenta(' DONE '));
+        console.log(chalk.greenBright(output.output[0].facadeModuleId), ' ', chalk.bgBlue(` ${type} `), ' ', chalk.bgMagenta(' DONE '));
       });
     }).catch((e) => {
       console.error(e.message);
     });
     return bundlePromise;
   }
-  #buildAndWatchModule(inputOptions:rollup.RollupOptions, outputOptions:rollup.OutputOptions, module:WebComponentBuildConfig) {
+  #buildAndWatchModule(inputOptions: rollup.RollupOptions, outputOptions: rollup.OutputOptions, module: WebComponentBuildConfig) {
     return new Promise<void>((resolve, reject) => {
       const watcher = rollup.watch({
         ...inputOptions,
@@ -69,7 +69,7 @@ export class WebComponentBuilder {
       this.#watcherEventHandler(watcher, resolve, reject);
     });
   }
-  #watcherEventHandler(watcher:rollup.RollupWatcher, resolver:()=>void, rejecter:()=>void) {
+  #watcherEventHandler(watcher: rollup.RollupWatcher, resolver: () => void, rejecter: () => void) {
     watcher.on('event', event => {
       if (event.code === 'BUNDLE_START') {
         console.log('Bundling...');
@@ -78,7 +78,7 @@ export class WebComponentBuilder {
         resolver();
       } else if (event.code === 'ERROR') {
         console.log(event);
-        
+
         console.error(chalk.red((event as any).error));
         rejecter();
       }
@@ -88,7 +88,7 @@ export class WebComponentBuilder {
       }
     });
   }
-  #getInputOption(module: WebComponentBuildConfig, format: "es" | "cjs" | "umd" = "es"):rollup.RollupOptions{
+  #getInputOption(module: WebComponentBuildConfig, format: "es" | "cjs" | "umd" = "es", watchMode: boolean): rollup.RollupOptions {
     // remove filename and lib folder name result in web-component/jb-input
     const moduleFolderPathArr = path.join(...module.path.split('/').slice(0, -2));
     let externalList = module.external || [];
@@ -102,7 +102,7 @@ export class WebComponentBuilder {
       );
     }
     const env = generalConfig.env;
-    const plugins = [
+    let plugins = [
       html({
         include: "**/*.html",
       }),
@@ -128,16 +128,20 @@ export class WebComponentBuilder {
       }),
       //@ts-ignore
       rollupJson(),
-      //TODO: disable these 3 minifier in watch mode
-      //@ts-ignore
-      terser({compress:{drop_debugger:false}}),
-      gzipPlugin(),
-      brotli(),
 
     ];
+    if (!watchMode) {
+      //watch mode is for development and dont need minification
+      plugins = [
+        ...plugins,
+      //@ts-ignore
+        terser({ compress: { drop_debugger: false } }),
+        gzipPlugin(),
+        brotli(),];
+    }
     const isTypeScriptModule = this.#isTypeScriptModule(module);
     if (isTypeScriptModule) {
-      const tsConfigFilePath = module.tsconfigPath?module.tsconfigPath:path.join(moduleFolderPathArr,"tsconfig.json");
+      const tsConfigFilePath = module.tsconfigPath ? module.tsconfigPath : path.join(moduleFolderPathArr, "tsconfig.json");
       plugins.push(
         //@ts-ignore
         typescript({
@@ -158,13 +162,13 @@ export class WebComponentBuilder {
     };
     return inputOptions;
   }
-  #isTypeScriptModule(module:WebComponentBuildConfig) {
+  #isTypeScriptModule(module: WebComponentBuildConfig) {
     const filePaths = module.path.split('/');
     const fileName = filePaths[filePaths.length - 1];
     const fileExtension = fileName.split('.').pop();
     return fileExtension === 'ts';
   }
-  #getTypeScriptCompilerOptions(module:WebComponentBuildConfig, externalList:string[]) {
+  #getTypeScriptCompilerOptions(module: WebComponentBuildConfig, externalList: string[]) {
     const moduleFolderPath = module.path.split("/").slice(0, -1);
     const includePaths = path.join(
       ...moduleFolderPath,
@@ -180,7 +184,7 @@ export class WebComponentBuilder {
       exclude: [...externalList],
     };
   }
-  #getOutputOption(module:WebComponentBuildConfig, format:ModuleFormat = "es"):rollup.OutputOptions{
+  #getOutputOption(module: WebComponentBuildConfig, format: ModuleFormat = "es"): rollup.OutputOptions {
     const pathArr = module.outputPath.split('/');
     const fullFileName = pathArr[pathArr.length - 1];
     const fileName = path.parse(fullFileName).name;

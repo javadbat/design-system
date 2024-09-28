@@ -24,13 +24,13 @@ export class ReactComponentBuilder {
   }
   async buildComponent(component: ReactComponentBuildConfig,watch = false) {
     console.log(`start building ${component.name}`);
-    const inputOptions = this.#getInputOption(component);
+    const inputOptions = this.#getInputOption(component,watch);
     const esOutputOptions = this.#getOutputOption(component, "es");
     const cjsOutputOptions = this.#getOutputOption(component, "cjs");
     const umdOutputOptions = this.#getOutputOption(component, "umd");
     try{
       if(watch){
-        this.#buildAndWatchModule(inputOptions,esOutputOptions,component)
+        this.#buildAndWatchModule(inputOptions,esOutputOptions,component);
       }else{
         await this.buildModule(inputOptions, esOutputOptions, "ES");
         await this.buildModule(inputOptions, cjsOutputOptions, "CJS");
@@ -99,7 +99,7 @@ export class ReactComponentBuilder {
       }
     });
   }
-  #getInputOption(module: ReactComponentBuildConfig):rollup.InputOptions{
+  #getInputOption(module: ReactComponentBuildConfig, watchMode:boolean):rollup.InputOptions{
     const externalList = module.external || [];
     const plugins = [
       //@ts-ignore

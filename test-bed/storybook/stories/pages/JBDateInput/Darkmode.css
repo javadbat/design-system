@@ -1,10 +1,9 @@
 .darkmode-test-wrapper{
-  --jb-date-input-calender-wrapper-bg-color: rgb(53, 46, 46);
-  --jb-date-input-border-radius:6px;
-  --jb-date-input-text-align:center;
-  --jb-date-input-bgcolor:#0E1418;
-  --jb-date-input-border-bottom-width:1px;
-  --jb-date-input-value-color:#C4C2D6;
+  --jb-popover-bg-color: rgb(53, 46, 46);
+  --jb-input-border-radius:6px;
+  --jb-input-bgcolor:#0E1418;
+  --jb-input-border-bottom-width:1px;
+  --jb-input-value-color:#C4C2D6;
   --jb-calendar-color:#C4C2D6;
   --jb-calendar-arrow-fill-color:#FF9900;
   --jb-calendar-arrow-button-bgcolor:rgb(53, 46, 46);
