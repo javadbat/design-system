@@ -18,7 +18,7 @@ function JBDateInputJalaliTest(props) {
   return (
     <div>
       <JBDateInput name="first-date-input" format={props.format} value={value} label={props.label} min={props.min} max={props.max} valueType={props.valueType} onSelect={e => {valueSetter(e.target.value);}} onChange={e => {valueSetter(e.target.value);}}></JBDateInput>
-      <JBDateInput name="first-date-input" format={props.format} usePersianNumber={true} value={value} label={props.label+' با اعداد فارسی '} min={props.min} max={props.max} valueType={props.valueType} onSelect={e => {valueSetter(e.target.value);}} onChange={e => {valueSetter(e.target.value);}}></JBDateInput>
+      <JBDateInput name="first-date-input" format={props.format} showPersianNumber={true} value={value} label={props.label+' با اعداد فارسی '} min={props.min} max={props.max} valueType={props.valueType} onSelect={e => {valueSetter(e.target.value);}} onChange={e => {valueSetter(e.target.value);}}></JBDateInput>
       <div>
         <br /><br />valueType is {props.valueType}
         <br /><br />Min date is: {props.min? props.min:"Unlimited"}

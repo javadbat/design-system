@@ -37,7 +37,7 @@ module.exports = async ({ config }) => {
       'jb-mobile-input-react': path.resolve(__dirname, '..','..', '..', 'react-component','jb-mobile-input', 'index.js'),
       'jb-national-input-react': path.resolve(__dirname, '..','..', '..', 'react-component','jb-national-input', 'index.js'),
       'jb-grid': path.resolve(__dirname, '..','..', '..', 'react-component','jb-grid', 'index.js'),
-      'jb-calendar': path.resolve(__dirname, '..','..', '..', 'web-component','jb-calendar', 'dist', 'JBCalendar.js'),
+      'jb-calendar': path.resolve(__dirname, '..','..', '..', 'web-component','jb-calendar', 'dist', 'jb-calendar.js'),
       'jb-date-input': path.resolve(__dirname, '..','..', '..', 'web-component','jb-date-input', 'index.js'),
       'jb-time-input': path.resolve(__dirname, '..','..', '..', 'web-component','jb-time-input', 'dist', 'jb-time-input.js'),
       'jb-time-picker': path.resolve(__dirname, '..','..', '..', 'web-component','jb-time-picker', 'dist', 'jb-time-picker.js'),

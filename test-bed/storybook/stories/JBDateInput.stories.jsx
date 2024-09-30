@@ -51,7 +51,7 @@ PersianNumber.args = {
   inputType: "JALALI",
   format: "YYYY/MM/DD",
   direction: "ltr",
-  usePersianNumber: true,
+  showPersianNumber: true,
   calendarDefaultDateView: { year: 1360, month: 5 },
 };
 export const CustomMonthName = Template.bind({});
@@ -181,12 +181,10 @@ GregorianInputTest.args = {
   valueType: "GREGORIAN",
   inputType: "GREGORIAN",
 };
-export const LeftToRightTest = Template.bind({});
-LeftToRightTest.args = {
-  label: "date",
-  valueType: "GREGORIAN",
-  inputType: "GREGORIAN",
-  direction: "ltr",
+export const RightToLeftTest = Template.bind({});
+RightToLeftTest.args = {
+  label: "rtl",
+  style: "direction:rtl;"
 };
 const WithCustomIconTemplate = (args) => (
   <JBDateInput {...args}>
@@ -222,7 +220,6 @@ WithCustomIcon.args = {
   label: "تاریخ",
   valueType: "GREGORIAN",
   inputType: "JALALI",
-  direction: "ltr",
 };
 export const WithoutIcon = Normal.bind({});
 WithoutIcon.args = {
