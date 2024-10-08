@@ -7,7 +7,7 @@ import DarkmodeTest from "./pages/JBDateInput/DarkmodeTest";
 import JBDateInputSizeTest from "./pages/JBDateInput/JBDateInputSizeTest";
 import InFormData from "./pages/JBDateInput/InFormData";
 export default {
-  title: "Example/JBDateInput",
+  title: "Example/Input/JBDateInput",
   component: JBDateInput,
 };
 

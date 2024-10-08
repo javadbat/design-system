@@ -94,8 +94,8 @@ const webComponentList: WebComponentBuildConfig[] = [
   },
   {
     name: "jb-textarea",
-    path: "/web-component/jb-textarea/lib/JBTextarea.ts",
-    outputPath: "/web-component/jb-textarea/dist/JBTextarea.js",
+    path: "/web-component/jb-textarea/lib/jb-textarea.ts",
+    outputPath: "/web-component/jb-textarea/dist/jb-textarea.js",
     umdName: "JBTextarea",
   },
   {
@@ -411,12 +411,13 @@ const reactComponentList: ReactComponentBuildConfig[] = [
   },
   {
     name: "jb-textarea-react",
-    path: "/react-component/jb-textarea/lib/JBTextArea.tsx",
-    outputPath: "/react-component/jb-textarea/dist/JBTextArea.js",
-    external: ["react", "prop-types", "jb-textarea"],
+    path: "/react-component/jb-textarea/lib/JBTextarea.tsx",
+    outputPath: "/react-component/jb-textarea/dist/JBTextarea.js",
+    external: ["react", "prop-types", "jb-textarea", "jb-validation"],
     globals: {
       react: "React",
       "jb-textarea": "JBTextarea",
+      "jb-validation":"JBValidation"
     },
   },
   // {

@@ -1858,7 +1858,6 @@
         "npm:jalaliday@^2.3.0",
         "npm:jb-grid-react@^0.19.0",
         "npm:jb-image-input@^2.0.2",
-        "npm:jb-textarea@^2.1.0",
         "npm:lodash.clonedeep@^4.5.0",
         "npm:lodash@^4.17.21",
         "npm:mobx-react@^7.0.0",

@@ -20,7 +20,9 @@ module.exports = async ({ config }) => {
       ...(config.resolve.modules || []),
       //move thing here if you want to import package as real package and not a single file put it here
       path.resolve(__dirname, '..','..', '..', 'web-component','jb-payment-input'),
-      path.resolve(__dirname, '..','..', '..', 'web-component','jb-popover')
+      path.resolve(__dirname, '..','..', '..', 'web-component','jb-popover'),
+      path.resolve(__dirname, '..','..', '..', 'web-component','jb-textarea'),
+      path.resolve(__dirname, '..','..', '..', 'web-component','jb-calendar'),
     ],
     alias:{
       ...config.resolve.alias,
@@ -55,6 +57,8 @@ module.exports = async ({ config }) => {
       'jb-password-input-react': path.resolve(__dirname, '..','..', '..', 'react-component','jb-password-input', 'dist', 'JBPasswordInput.js'),
       'jb-modal':path.resolve(__dirname, '..','..', '..', 'web-component','jb-modal'),
       'jb-message':path.resolve(__dirname, '..','..', '..', 'modules','jb-message'),
+      'jb-calendar-react': path.resolve(__dirname, '..','..', '..', 'react-component','jb-calendar', 'dist', 'JBCalendar.js'),
+      'jb-textarea-react': path.resolve(__dirname, '..','..', '..', 'react-component','jb-textarea', 'dist', 'JBTextarea.js'),
     }
   }
   return config;
