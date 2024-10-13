@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState, useImperativeHandle } from 'react';
 import 'jb-calendar';
 // eslint-disable-next-line no-duplicate-imports
 import { JBCalendarWebComponent } from 'jb-calendar';
-import { useEvent } from '../../../common/hooks/use-event';
+import { useEvent } from '../../../common/hooks/use-event.js';
 import PropTypes from 'prop-types';
 
 declare global {

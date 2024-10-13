@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import JBCalendar from 'jb-calendar-react';
+import {JBCalendar} from 'jb-calendar-react';
 function JBCalendarTest (){
   const [selectedValueYear, selectedValueYearSetter] = useState("");
   const [selectedValueMonth, selectedValueMonthSetter] = useState("");

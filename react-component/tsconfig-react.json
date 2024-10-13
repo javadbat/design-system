@@ -2,7 +2,7 @@
     "compilerOptions": {
         "baseUrl": ".",
         "module": "ESNext",
-        "moduleResolution": "Bundler",
+        "moduleResolution": "NodeNext",
         "removeComments": false,
         "preserveConstEnums": true,
         "sourceMap": true,

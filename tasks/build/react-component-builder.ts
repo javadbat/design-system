@@ -1,7 +1,7 @@
 import * as path from "@std/path";
 //rollup
 import * as rollup from "npm:rollup";
-import rollupBabel from "npm:@rollup/plugin-babel";
+import {babel as rollupBabel} from "npm:@rollup/plugin-babel";
 import postcss from "npm:rollup-plugin-postcss";
 import commonjs from "npm:@rollup/plugin-commonjs";
 import rollupJson from "npm:@rollup/plugin-json";
@@ -115,7 +115,6 @@ export class ReactComponentBuilder {
         inject: true,
         sourceMap: true,
       }),
-      //@ts-ignore
       rollupBabel({
         exclude: ["node_modules/**", ...externalList],
         babelrc: false,

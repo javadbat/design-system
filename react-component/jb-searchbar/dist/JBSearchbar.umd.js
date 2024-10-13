@@ -4,6 +4,10 @@
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.JBSearchbar = {}, global.React));
 })(this, (function (exports, React) { 'use strict';
 
+  function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+
+  var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
+
   function useEvent(dom, event, handler, passive = false) {
       React.useEffect(() => {
           if (dom) {
@@ -19,39 +23,81 @@
       });
   }
 
+  function getDefaultExportFromCjs (x) {
+  	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
+  }
+
+  function createCommonjsModule(fn, basedir, module) {
+  	return module = {
+  		path: basedir,
+  		exports: {},
+  		require: function (path, base) {
+  			return commonjsRequire(path, (base === undefined || base === null) ? module.path : base);
+  		}
+  	}, fn(module, module.exports), module.exports;
+  }
+
+  function commonjsRequire () {
+  	throw new Error('Dynamic requires are not currently supported by @rollup/plugin-commonjs');
+  }
+
+  var assertThisInitialized = createCommonjsModule(function (module) {
   function _assertThisInitialized(e) {
     if (void 0 === e) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
     return e;
   }
+  module.exports = _assertThisInitialized, module.exports.__esModule = true, module.exports["default"] = module.exports;
+  });
 
+  var _assertThisInitialized = /*@__PURE__*/getDefaultExportFromCjs(assertThisInitialized);
+
+  var _typeof_1 = createCommonjsModule(function (module) {
   function _typeof(o) {
     "@babel/helpers - typeof";
 
-    return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) {
+    return (module.exports = _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) {
       return typeof o;
     } : function (o) {
       return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o;
-    }, _typeof(o);
+    }, module.exports.__esModule = true, module.exports["default"] = module.exports), _typeof(o);
   }
+  module.exports = _typeof, module.exports.__esModule = true, module.exports["default"] = module.exports;
+  });
+
+  var possibleConstructorReturn = createCommonjsModule(function (module) {
+  var _typeof = _typeof_1["default"];
 
   function _possibleConstructorReturn(t, e) {
     if (e && ("object" == _typeof(e) || "function" == typeof e)) return e;
     if (void 0 !== e) throw new TypeError("Derived constructors may only return object or undefined");
-    return _assertThisInitialized(t);
+    return assertThisInitialized(t);
   }
+  module.exports = _possibleConstructorReturn, module.exports.__esModule = true, module.exports["default"] = module.exports;
+  });
 
+  var _possibleConstructorReturn = /*@__PURE__*/getDefaultExportFromCjs(possibleConstructorReturn);
+
+  var getPrototypeOf = createCommonjsModule(function (module) {
   function _getPrototypeOf(t) {
-    return _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function (t) {
+    return (module.exports = _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function (t) {
       return t.__proto__ || Object.getPrototypeOf(t);
-    }, _getPrototypeOf(t);
+    }, module.exports.__esModule = true, module.exports["default"] = module.exports), _getPrototypeOf(t);
   }
+  module.exports = _getPrototypeOf, module.exports.__esModule = true, module.exports["default"] = module.exports;
+  });
 
+  var _getPrototypeOf = /*@__PURE__*/getDefaultExportFromCjs(getPrototypeOf);
+
+  var setPrototypeOf = createCommonjsModule(function (module) {
   function _setPrototypeOf(t, e) {
-    return _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function (t, e) {
+    return (module.exports = _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function (t, e) {
       return t.__proto__ = e, t;
-    }, _setPrototypeOf(t, e);
+    }, module.exports.__esModule = true, module.exports["default"] = module.exports), _setPrototypeOf(t, e);
   }
+  module.exports = _setPrototypeOf, module.exports.__esModule = true, module.exports["default"] = module.exports;
+  });
 
+  var inherits = createCommonjsModule(function (module) {
   function _inherits(t, e) {
     if ("function" != typeof e && null !== e) throw new TypeError("Super expression must either be null or a function");
     t.prototype = Object.create(e && e.prototype, {
@@ -62,9 +108,14 @@
       }
     }), Object.defineProperty(t, "prototype", {
       writable: !1
-    }), e && _setPrototypeOf(t, e);
+    }), e && setPrototypeOf(t, e);
   }
+  module.exports = _inherits, module.exports.__esModule = true, module.exports["default"] = module.exports;
+  });
 
+  var _inherits = /*@__PURE__*/getDefaultExportFromCjs(inherits);
+
+  var isNativeFunction = createCommonjsModule(function (module) {
   function _isNativeFunction(t) {
     try {
       return -1 !== Function.toString.call(t).indexOf("[native code]");
@@ -72,35 +123,44 @@
       return "function" == typeof t;
     }
   }
+  module.exports = _isNativeFunction, module.exports.__esModule = true, module.exports["default"] = module.exports;
+  });
 
-  function _isNativeReflectConstruct$1() {
+  var isNativeReflectConstruct = createCommonjsModule(function (module) {
+  function _isNativeReflectConstruct() {
     try {
       var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));
     } catch (t) {}
-    return (_isNativeReflectConstruct$1 = function _isNativeReflectConstruct() {
+    return (module.exports = _isNativeReflectConstruct = function _isNativeReflectConstruct() {
       return !!t;
-    })();
+    }, module.exports.__esModule = true, module.exports["default"] = module.exports)();
   }
+  module.exports = _isNativeReflectConstruct, module.exports.__esModule = true, module.exports["default"] = module.exports;
+  });
 
+  var construct = createCommonjsModule(function (module) {
   function _construct(t, e, r) {
-    if (_isNativeReflectConstruct$1()) return Reflect.construct.apply(null, arguments);
+    if (isNativeReflectConstruct()) return Reflect.construct.apply(null, arguments);
     var o = [null];
     o.push.apply(o, e);
     var p = new (t.bind.apply(t, o))();
-    return r && _setPrototypeOf(p, r.prototype), p;
+    return r && setPrototypeOf(p, r.prototype), p;
   }
+  module.exports = _construct, module.exports.__esModule = true, module.exports["default"] = module.exports;
+  });
 
+  var wrapNativeSuper = createCommonjsModule(function (module) {
   function _wrapNativeSuper(t) {
     var r = "function" == typeof Map ? new Map() : void 0;
-    return _wrapNativeSuper = function _wrapNativeSuper(t) {
-      if (null === t || !_isNativeFunction(t)) return t;
+    return (module.exports = _wrapNativeSuper = function _wrapNativeSuper(t) {
+      if (null === t || !isNativeFunction(t)) return t;
       if ("function" != typeof t) throw new TypeError("Super expression must either be null or a function");
       if (void 0 !== r) {
         if (r.has(t)) return r.get(t);
         r.set(t, Wrapper);
       }
       function Wrapper() {
-        return _construct(t, arguments, _getPrototypeOf(this).constructor);
+        return construct(t, arguments, getPrototypeOf(this).constructor);
       }
       return Wrapper.prototype = Object.create(t.prototype, {
         constructor: {
@@ -109,34 +169,53 @@
           writable: !0,
           configurable: !0
         }
-      }), _setPrototypeOf(Wrapper, t);
-    }, _wrapNativeSuper(t);
+      }), setPrototypeOf(Wrapper, t);
+    }, module.exports.__esModule = true, module.exports["default"] = module.exports), _wrapNativeSuper(t);
   }
+  module.exports = _wrapNativeSuper, module.exports.__esModule = true, module.exports["default"] = module.exports;
+  });
 
+  var _wrapNativeSuper = /*@__PURE__*/getDefaultExportFromCjs(wrapNativeSuper);
+
+  var classCallCheck = createCommonjsModule(function (module) {
   function _classCallCheck(a, n) {
     if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function");
   }
+  module.exports = _classCallCheck, module.exports.__esModule = true, module.exports["default"] = module.exports;
+  });
 
+  var _classCallCheck = /*@__PURE__*/getDefaultExportFromCjs(classCallCheck);
+
+  var toPrimitive_1 = createCommonjsModule(function (module) {
+  var _typeof = _typeof_1["default"];
   function toPrimitive(t, r) {
     if ("object" != _typeof(t) || !t) return t;
     var e = t[Symbol.toPrimitive];
     if (void 0 !== e) {
-      var i = e.call(t, r);
+      var i = e.call(t, r || "default");
       if ("object" != _typeof(i)) return i;
       throw new TypeError("@@toPrimitive must return a primitive value.");
     }
-    return (String )(t);
+    return ("string" === r ? String : Number)(t);
   }
+  module.exports = toPrimitive, module.exports.__esModule = true, module.exports["default"] = module.exports;
+  });
+
+  var toPropertyKey_1 = createCommonjsModule(function (module) {
+  var _typeof = _typeof_1["default"];
 
   function toPropertyKey(t) {
-    var i = toPrimitive(t, "string");
+    var i = toPrimitive_1(t, "string");
     return "symbol" == _typeof(i) ? i : i + "";
   }
+  module.exports = toPropertyKey, module.exports.__esModule = true, module.exports["default"] = module.exports;
+  });
 
+  var createClass = createCommonjsModule(function (module) {
   function _defineProperties(e, r) {
     for (var t = 0; t < r.length; t++) {
       var o = r[t];
-      o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, toPropertyKey(o.key), o);
+      o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, toPropertyKey_1(o.key), o);
     }
   }
   function _createClass(e, r, t) {
@@ -144,8 +223,12 @@
       writable: !1
     }), e;
   }
+  module.exports = _createClass, module.exports.__esModule = true, module.exports["default"] = module.exports;
+  });
 
-  function _callSuper(t, o, e) { return o = _getPrototypeOf(o), _possibleConstructorReturn(t, _isNativeReflectConstruct() ? Reflect.construct(o, [], _getPrototypeOf(t).constructor) : o.apply(t, e)); }
+  var _createClass = /*@__PURE__*/getDefaultExportFromCjs(createClass);
+
+  function _callSuper(t, o, e) { return o = _getPrototypeOf(o), _possibleConstructorReturn(t, _isNativeReflectConstruct() ? Reflect.construct(o, e || [], _getPrototypeOf(t).constructor) : o.apply(t, e)); }
   function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct = function _isNativeReflectConstruct() { return !!t; })(); }
   function e(e, t, n, i) {
     if ("a" === n && !i) throw new TypeError("Private accessor was defined without a getter");
@@ -153,8 +236,10 @@
     return "m" === n ? i : "a" === n ? i.call(e) : i ? i.value : t.get(e);
   }
   function t(e, t, n, i, r) {
+    if ("m" === i) throw new TypeError("Private method is not writable");
+    if ("a" === i && !r) throw new TypeError("Private accessor was defined without a setter");
     if ("function" == typeof t ? e !== t || !r : !t.has(e)) throw new TypeError("Cannot write private member to an object whose class did not declare it");
-    return t.set(e, n), n;
+    return "a" === i ? r.call(e, n) : r ? r.value = n : t.set(e, n), n;
   }
   "function" == typeof SuppressedError && SuppressedError;
   var n, i, r, s, a, l, o;
@@ -277,7 +362,7 @@
         return e(this, i, "f");
       },
       set: function set(n) {
-        !e(this, i, "f") && n && this.playSearchIconAnimation(), t(this, i, n);
+        !e(this, i, "f") && n && this.playSearchIconAnimation(), t(this, i, n, "f");
       }
     }, {
       key: "inputState",
@@ -286,7 +371,7 @@
       },
       set: function set(i) {
         var _this$elements$column;
-        "SELECT_COLUMN" == i ? (this.elements.columnSelect.value = null, this.elements.intent.wrapper.classList.add("--hide"), this.elements.columnSelect.optionList.length && (e(this, n, "m", o).call(this), this.elements.columnSelect.focus())) : "FILL_VALUE" == i && (this.elements.intent.wrapper.classList.remove("--hide"), this.elements.intent.input.wrapper.innerHTML = "", (_this$elements$column = this.elements.columnSelect.parentElement) === null || _this$elements$column === void 0 ? void 0 : _this$elements$column.classList.add("--hide")), t(this, r, i);
+        "SELECT_COLUMN" == i ? (this.elements.columnSelect.value = null, this.elements.intent.wrapper.classList.add("--hide"), this.elements.columnSelect.optionList.length && (e(this, n, "m", o).call(this), this.elements.columnSelect.focus())) : "FILL_VALUE" == i && (this.elements.intent.wrapper.classList.remove("--hide"), this.elements.intent.input.wrapper.innerHTML = "", (_this$elements$column = this.elements.columnSelect.parentElement) === null || _this$elements$column === void 0 ? void 0 : _this$elements$column.classList.add("--hide")), t(this, r, i, "f");
       }
     }, {
       key: "value",
@@ -312,7 +397,7 @@
         return e(this, l, "f");
       },
       set: function set(e) {
-        "boolean" == typeof e && t(this, l, e);
+        "boolean" == typeof e && t(this, l, e, "f");
       }
     }, {
       key: "registerEventListener",
@@ -436,7 +521,7 @@
     }, {
       key: "setColumnList",
       value: function setColumnList(e) {
-        t(this, s, e), this.setColumnListSelectOptionList();
+        t(this, s, e, "f"), this.setColumnListSelectOptionList();
       }
     }, {
       key: "setColumnListSelectOptionList",
@@ -645,10 +730,12 @@
           }
       }, [props.onSearch]);
       useEvent(element.current, 'search', onSearch);
-      return (React.createElement("jb-searchbar", { placeholder: props.placeholder, ref: element }));
+      return (React__default["default"].createElement("jb-searchbar", { placeholder: props.placeholder, ref: element }));
   }
 
   exports.JBSearchbar = JBSearchbar;
+
+  Object.defineProperty(exports, '__esModule', { value: true });
 
 }));
 //# sourceMappingURL=JBSearchbar.umd.js.map

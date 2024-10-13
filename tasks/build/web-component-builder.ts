@@ -40,6 +40,7 @@ export class WebComponentBuilder {
         await this.buildModule(inputOptions, esOutputOptions, "ES");
         await this.buildModule(cjsInputOptions, cjsOutputOptions, "CJS");
         await this.buildModule(umdInputOptions, umdOutputOptions, "UMD");
+        return;
       }
     } catch (e) {
       console.error(componentBuildConfig.name + ' build failed');

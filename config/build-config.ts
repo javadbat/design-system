@@ -262,6 +262,13 @@ const webComponentList: WebComponentBuildConfig[] = [
     external: [],
     umdName: "JBSwitch",
   },
+  {
+    name:"jb-form",
+    path:"/web-component/jb-form/lib/jb-form.ts",
+    outputPath:"/web-component/jb-form/dist/jb-form.js",
+    umdName:"JBForm",
+    external:[]
+  }
 ];
 const reactComponentList: ReactComponentBuildConfig[] = [
   {

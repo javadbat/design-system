@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import {useEvent} from '../../../common/hooks/use-event';
+import {useEvent} from '../../../common/hooks/use-event.js';
 import 'jb-searchbar';
 //TODO: replace it after you migrate web-component to typescript
 type JBSearchbarWebComponent = any;
