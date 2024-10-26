@@ -40,6 +40,7 @@
     "jb-textarea": "file:./web-component/jb-textarea",
     "jb-time-input": "file:./web-component/jb-time-input",
     "jb-time-picker": "file:./web-component/jb-time-picker",
+    "jb-form": "file:./web-component/jb-form",
     "jb-validation": "file:./modules/jb-validation",
     "rollup-plugin-gzip": "npm:rollup-plugin-gzip@^4.0.0"
   },

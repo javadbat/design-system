@@ -28,7 +28,7 @@ module.exports = async ({ config }) => {
     alias:{
       ...config.resolve.alias,
       react: path.resolve('node_modules/react'),
-      'jb-button': path.resolve(__dirname, '..','..', '..', 'web-component','jb-button', 'dist', 'JBButton.js'),
+      'jb-button': path.resolve(__dirname, '..','..', '..', 'web-component','jb-button', 'dist', 'jb-button.js'),
       'jb-button-react': path.resolve(__dirname, '..','..', '..', 'react-component','jb-button', 'dist', 'JBButton.js'),
       'jb-loading': path.resolve(__dirname, '..','..', '..', 'web-component','jb-loading', 'dist', 'JBLoading.js'),
       'jb-input': path.resolve(__dirname, '..','..', '..', 'web-component','jb-input', 'dist', 'jb-input.js'),

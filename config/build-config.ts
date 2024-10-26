@@ -44,8 +44,8 @@ const webComponentList: WebComponentBuildConfig[] = [
   },
   {
     name: "jb-button",
-    path: "/web-component/jb-button/lib/JBButton.ts",
-    outputPath: "/web-component/jb-button/dist/JBButton.js",
+    path: "/web-component/jb-button/lib/jb-button.ts",
+    outputPath: "/web-component/jb-button/dist/jb-button.js",
     external: [],
     umdName: "JBButton",
   },
