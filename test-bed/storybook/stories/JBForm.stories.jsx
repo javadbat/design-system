@@ -2,6 +2,8 @@ import React, { useRef,useEffect } from "react";
 import { JBDateInput } from "jb-date-input-react";
 import { JBInput } from "jb-input-react";
 import { JBButton } from "jb-button-react";
+import { JBSelect } from "jb-select-react";
+import { JBTextarea } from "jb-textarea-react";
 import 'jb-form';
 export default {
   title: "Example/JBForm",
@@ -13,11 +15,13 @@ export const Normal = Template.bind({});
 Normal.args = {
   name:"testForm"
 };
-
+const genderList = ["male","female"];
 const defaultFormValue = {
   name:"ali",
   birthDate:'2024-10-26',
-  applyDate:new Date().toISOString()
+  applyDate:new Date().toISOString(),
+  gender:"male",
+  description:"i'm ali"
 }
 export const FormTest = {
   render:
@@ -34,10 +38,12 @@ export const FormTest = {
         }
       },[ref]);
       return (
-        <form is="jb-form" ref={ref} {...args}>
+        <form is="jb-form" ref={ref} {...args} style={{display:'flex', flexDirection:"column", gap:'1rem'}}>
           <JBInput name="name" required label="name" />
           <JBDateInput name="birthDate" required label="birth date" format="YYYY-MM-DD" />
           <JBDateInput name="applyDate" required label="apply date" />
+          <JBSelect name="gender" optionList={genderList} label="جنسیت" required />
+          <JBTextarea label="توضیحات" name="description" required />
           <div style={{display:'flex', gap:'1rem'}}>
             <JBButton type="submit">submit</JBButton>
             <JBButton onClick={()=>alert(ref.current.checkValidity())}>check validity</JBButton>
