@@ -33,7 +33,7 @@ module.exports = async ({ config }) => {
       'jb-loading': path.resolve(__dirname, '..','..', '..', 'web-component','jb-loading', 'dist', 'JBLoading.js'),
       'jb-input': path.resolve(__dirname, '..','..', '..', 'web-component','jb-input', 'dist', 'jb-input.js'),
       'jb-pin-input': path.resolve(__dirname, '..','..', '..', 'web-component','jb-pin-input', 'dist', 'JBPinInput.js'),
-      'jb-select': path.resolve(__dirname, '..','..', '..', 'web-component','jb-select', 'dist', 'JBSelect.js'),
+      'jb-select': path.resolve(__dirname, '..','..', '..', 'web-component','jb-select', 'dist', 'jb-select.js'),
       'jb-select-react': path.resolve(__dirname, '..','..', '..', 'react-component','jb-select', 'index.js'),
       'jb-switch': path.resolve(__dirname, '..','..', '..', 'web-component','jb-switch', 'index.js'),
       'jb-switch-react': path.resolve(__dirname, '..','..', '..', 'react-component','jb-switch', 'index.js'),

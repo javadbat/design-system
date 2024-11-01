@@ -88,9 +88,13 @@ const webComponentList: WebComponentBuildConfig[] = [
   },
   {
     name: "jb-select",
-    path: "/web-component/jb-select/lib/JBSelect.ts",
-    outputPath: "/web-component/jb-select/dist/JBSelect.js",
+    path: "/web-component/jb-select/lib/jb-select.ts",
+    outputPath: "/web-component/jb-select/dist/jb-select.js",
     umdName: "JBSelect",
+    external: ["jb-validation"],
+    globals: {
+      "jb-validation": "JBValidation",
+    },
   },
   {
     name: "jb-textarea",
