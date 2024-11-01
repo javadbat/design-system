@@ -101,6 +101,10 @@ const webComponentList: WebComponentBuildConfig[] = [
     path: "/web-component/jb-textarea/lib/jb-textarea.ts",
     outputPath: "/web-component/jb-textarea/dist/jb-textarea.js",
     umdName: "JBTextarea",
+    external: ["jb-validation"],
+    globals: {
+      "jb-validation": "JBValidation",
+    },
   },
   {
     name: "jb-searchbar",
