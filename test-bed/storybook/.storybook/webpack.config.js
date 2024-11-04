@@ -20,6 +20,7 @@ module.exports = async ({ config }) => {
       ...(config.resolve.modules || []),
       //move thing here if you want to import package as real package and not a single file put it here
       path.resolve(__dirname, '..','..', '..', 'web-component','jb-payment-input'),
+      path.resolve(__dirname, '..','..', '..', 'web-component','jb-image-input'),
       path.resolve(__dirname, '..','..', '..', 'web-component','jb-popover'),
       path.resolve(__dirname, '..','..', '..', 'web-component','jb-textarea'),
       path.resolve(__dirname, '..','..', '..', 'web-component','jb-calendar'),
@@ -56,6 +57,7 @@ module.exports = async ({ config }) => {
       'jb-payment-input-react': path.resolve(__dirname, '..','..', '..', 'react-component','jb-payment-input', 'dist', 'JBPaymentInput.js'),
       'jb-password-input':path.resolve(__dirname, '..','..', '..', 'web-component','jb-password-input','dist','jb-password-input.js'),
       'jb-password-input-react': path.resolve(__dirname, '..','..', '..', 'react-component','jb-password-input', 'dist', 'JBPasswordInput.js'),
+      'jb-password-input-react': path.resolve(__dirname, '..','..', '..', 'react-component','jb-image-input', 'dist', 'JBImageInput.js'),
       'jb-modal':path.resolve(__dirname, '..','..', '..', 'web-component','jb-modal'),
       'jb-message':path.resolve(__dirname, '..','..', '..', 'modules','jb-message'),
       'jb-calendar-react': path.resolve(__dirname, '..','..', '..', 'react-component','jb-calendar', 'dist', 'JBCalendar.js'),

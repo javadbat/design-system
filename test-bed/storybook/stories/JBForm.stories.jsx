@@ -4,6 +4,7 @@ import { JBInput } from "jb-input-react";
 import { JBButton } from "jb-button-react";
 import { JBSelect } from "jb-select-react";
 import { JBTextarea } from "jb-textarea-react";
+import { JBImageInput } from "jb-image-input-react";
 import 'jb-form';
 export default {
   title: "Example/JBForm",
@@ -39,10 +40,11 @@ export const FormTest = {
       },[ref]);
       return (
         <form is="jb-form" ref={ref} {...args} style={{display:'flex', flexDirection:"column", gap:'1rem'}}>
-          <JBInput name="name" required label="name" />
-          <JBDateInput name="birthDate" required label="birth date" format="YYYY-MM-DD" />
+          <JBInput name="name" required label="نام" />
+          <JBDateInput name="birthDate" required label="تاریخ تولد" format="YYYY-MM-DD" />
           <JBDateInput name="applyDate" required label="apply date" />
           <JBSelect name="gender" optionList={genderList} label="جنسیت" required />
+          <JBImageInput name="avatar" label="نمایه" required />
           <JBTextarea label="توضیحات" name="description" required />
           <div style={{display:'flex', gap:'1rem'}}>
             <JBButton type="submit">submit</JBButton>

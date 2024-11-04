@@ -82,9 +82,13 @@ const webComponentList: WebComponentBuildConfig[] = [
   },
   {
     name: "jb-image-input",
-    path: "/web-component/jb-image-input/lib/JBImageInput.ts",
-    outputPath: "/web-component/jb-image-input/dist/JBImageInput.js",
+    path: "/web-component/jb-image-input/lib/jb-image-input.ts",
+    outputPath: "/web-component/jb-image-input/dist/jb-image-input.js",
     umdName: "JBDateImageInput",
+    external: ["jb-validation"],
+    globals: {
+      "jb-validation": "JBValidation",
+    },
   },
   {
     name: "jb-select",
