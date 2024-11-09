@@ -23,17 +23,17 @@ class MockServer {
     //create temp folder for image uploaded file then remove it on close
     this.createTempDirectory().then(() => {
       //do some stuff after directory created
+      const uploadModule = multer({ dest: this.tempFileDirectory });
+      this.app.post(
+        "/image/upload",
+        uploadModule.single("image"),
+        this.uploadImage.bind(this)
+      );
     });
-    const uploadModule = multer({ dest: this.tempFileDirectory });
-    this.app.post(
-      "/image/upload",
-      uploadModule.single("image"),
-      this.uploadImage.bind(this)
-    );
+
     this.app.get(
       "/image/download",
-      this.downloadImage,
-      this.uploadImage.bind(this)
+      this.downloadImage.bind(this),
     );
     // process.on("exit", this.exitHandler.bind(this));
   }

@@ -44,7 +44,7 @@ export const FormTest = {
           <JBDateInput name="birthDate" required label="تاریخ تولد" format="YYYY-MM-DD" />
           <JBDateInput name="applyDate" required label="apply date" />
           <JBSelect name="gender" optionList={genderList} label="جنسیت" required />
-          <JBImageInput name="avatar" label="نمایه" required />
+          <JBImageInput name="avatar" label="نمایه" required maxFileSize={500*1024} />
           <JBTextarea label="توضیحات" name="description" required />
           <div style={{display:'flex', gap:'1rem'}}>
             <JBButton type="submit">submit</JBButton>
