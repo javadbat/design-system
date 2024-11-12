@@ -169,9 +169,9 @@ const webComponentList: WebComponentBuildConfig[] = [
   },
   {
     name: "bank-indicator",
-    path: "/web-component/jb-payment-input/lib/bank-indicator/bank-indicator.ts",
+    path: "/web-component/jb-payment-input/bank-indicator/lib/bank-indicator.ts",
     outputPath:
-      "/web-component/jb-payment-input/dist/bank-indicator/bank-indicator.js",
+      "/web-component/jb-payment-input//bank-indicator/dist/bank-indicator.js",
     umdName: "BankIndicator",
     external: [],
     globals: {},

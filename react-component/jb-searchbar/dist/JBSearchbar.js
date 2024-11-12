@@ -18,81 +18,39 @@ function useEvent(dom, event, handler, passive = false) {
     });
 }
 
-function getDefaultExportFromCjs (x) {
-	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
-}
-
-function createCommonjsModule(fn, basedir, module) {
-	return module = {
-		path: basedir,
-		exports: {},
-		require: function (path, base) {
-			return commonjsRequire(path, (base === undefined || base === null) ? module.path : base);
-		}
-	}, fn(module, module.exports), module.exports;
-}
-
-function commonjsRequire () {
-	throw new Error('Dynamic requires are not currently supported by @rollup/plugin-commonjs');
-}
-
-var assertThisInitialized = createCommonjsModule(function (module) {
 function _assertThisInitialized(e) {
   if (void 0 === e) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
   return e;
 }
-module.exports = _assertThisInitialized, module.exports.__esModule = true, module.exports["default"] = module.exports;
-});
 
-var _assertThisInitialized = /*@__PURE__*/getDefaultExportFromCjs(assertThisInitialized);
-
-var _typeof_1 = createCommonjsModule(function (module) {
 function _typeof(o) {
   "@babel/helpers - typeof";
 
-  return (module.exports = _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) {
+  return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) {
     return typeof o;
   } : function (o) {
     return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o;
-  }, module.exports.__esModule = true, module.exports["default"] = module.exports), _typeof(o);
+  }, _typeof(o);
 }
-module.exports = _typeof, module.exports.__esModule = true, module.exports["default"] = module.exports;
-});
-
-var possibleConstructorReturn = createCommonjsModule(function (module) {
-var _typeof = _typeof_1["default"];
 
 function _possibleConstructorReturn(t, e) {
   if (e && ("object" == _typeof(e) || "function" == typeof e)) return e;
   if (void 0 !== e) throw new TypeError("Derived constructors may only return object or undefined");
-  return assertThisInitialized(t);
+  return _assertThisInitialized(t);
 }
-module.exports = _possibleConstructorReturn, module.exports.__esModule = true, module.exports["default"] = module.exports;
-});
 
-var _possibleConstructorReturn = /*@__PURE__*/getDefaultExportFromCjs(possibleConstructorReturn);
-
-var getPrototypeOf = createCommonjsModule(function (module) {
 function _getPrototypeOf(t) {
-  return (module.exports = _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function (t) {
+  return _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function (t) {
     return t.__proto__ || Object.getPrototypeOf(t);
-  }, module.exports.__esModule = true, module.exports["default"] = module.exports), _getPrototypeOf(t);
+  }, _getPrototypeOf(t);
 }
-module.exports = _getPrototypeOf, module.exports.__esModule = true, module.exports["default"] = module.exports;
-});
 
-var _getPrototypeOf = /*@__PURE__*/getDefaultExportFromCjs(getPrototypeOf);
-
-var setPrototypeOf = createCommonjsModule(function (module) {
 function _setPrototypeOf(t, e) {
-  return (module.exports = _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function (t, e) {
+  return _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function (t, e) {
     return t.__proto__ = e, t;
-  }, module.exports.__esModule = true, module.exports["default"] = module.exports), _setPrototypeOf(t, e);
+  }, _setPrototypeOf(t, e);
 }
-module.exports = _setPrototypeOf, module.exports.__esModule = true, module.exports["default"] = module.exports;
-});
 
-var inherits = createCommonjsModule(function (module) {
 function _inherits(t, e) {
   if ("function" != typeof e && null !== e) throw new TypeError("Super expression must either be null or a function");
   t.prototype = Object.create(e && e.prototype, {
@@ -103,14 +61,9 @@ function _inherits(t, e) {
     }
   }), Object.defineProperty(t, "prototype", {
     writable: !1
-  }), e && setPrototypeOf(t, e);
+  }), e && _setPrototypeOf(t, e);
 }
-module.exports = _inherits, module.exports.__esModule = true, module.exports["default"] = module.exports;
-});
 
-var _inherits = /*@__PURE__*/getDefaultExportFromCjs(inherits);
-
-var isNativeFunction = createCommonjsModule(function (module) {
 function _isNativeFunction(t) {
   try {
     return -1 !== Function.toString.call(t).indexOf("[native code]");
@@ -118,44 +71,35 @@ function _isNativeFunction(t) {
     return "function" == typeof t;
   }
 }
-module.exports = _isNativeFunction, module.exports.__esModule = true, module.exports["default"] = module.exports;
-});
 
-var isNativeReflectConstruct = createCommonjsModule(function (module) {
-function _isNativeReflectConstruct() {
+function _isNativeReflectConstruct$1() {
   try {
     var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));
   } catch (t) {}
-  return (module.exports = _isNativeReflectConstruct = function _isNativeReflectConstruct() {
+  return (_isNativeReflectConstruct$1 = function _isNativeReflectConstruct() {
     return !!t;
-  }, module.exports.__esModule = true, module.exports["default"] = module.exports)();
+  })();
 }
-module.exports = _isNativeReflectConstruct, module.exports.__esModule = true, module.exports["default"] = module.exports;
-});
 
-var construct = createCommonjsModule(function (module) {
 function _construct(t, e, r) {
-  if (isNativeReflectConstruct()) return Reflect.construct.apply(null, arguments);
+  if (_isNativeReflectConstruct$1()) return Reflect.construct.apply(null, arguments);
   var o = [null];
   o.push.apply(o, e);
   var p = new (t.bind.apply(t, o))();
-  return r && setPrototypeOf(p, r.prototype), p;
+  return r && _setPrototypeOf(p, r.prototype), p;
 }
-module.exports = _construct, module.exports.__esModule = true, module.exports["default"] = module.exports;
-});
 
-var wrapNativeSuper = createCommonjsModule(function (module) {
 function _wrapNativeSuper(t) {
   var r = "function" == typeof Map ? new Map() : void 0;
-  return (module.exports = _wrapNativeSuper = function _wrapNativeSuper(t) {
-    if (null === t || !isNativeFunction(t)) return t;
+  return _wrapNativeSuper = function _wrapNativeSuper(t) {
+    if (null === t || !_isNativeFunction(t)) return t;
     if ("function" != typeof t) throw new TypeError("Super expression must either be null or a function");
     if (void 0 !== r) {
       if (r.has(t)) return r.get(t);
       r.set(t, Wrapper);
     }
     function Wrapper() {
-      return construct(t, arguments, getPrototypeOf(this).constructor);
+      return _construct(t, arguments, _getPrototypeOf(this).constructor);
     }
     return Wrapper.prototype = Object.create(t.prototype, {
       constructor: {
@@ -164,53 +108,34 @@ function _wrapNativeSuper(t) {
         writable: !0,
         configurable: !0
       }
-    }), setPrototypeOf(Wrapper, t);
-  }, module.exports.__esModule = true, module.exports["default"] = module.exports), _wrapNativeSuper(t);
+    }), _setPrototypeOf(Wrapper, t);
+  }, _wrapNativeSuper(t);
 }
-module.exports = _wrapNativeSuper, module.exports.__esModule = true, module.exports["default"] = module.exports;
-});
 
-var _wrapNativeSuper = /*@__PURE__*/getDefaultExportFromCjs(wrapNativeSuper);
-
-var classCallCheck = createCommonjsModule(function (module) {
 function _classCallCheck(a, n) {
   if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function");
 }
-module.exports = _classCallCheck, module.exports.__esModule = true, module.exports["default"] = module.exports;
-});
 
-var _classCallCheck = /*@__PURE__*/getDefaultExportFromCjs(classCallCheck);
-
-var toPrimitive_1 = createCommonjsModule(function (module) {
-var _typeof = _typeof_1["default"];
 function toPrimitive(t, r) {
   if ("object" != _typeof(t) || !t) return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
-    var i = e.call(t, r || "default");
+    var i = e.call(t, r);
     if ("object" != _typeof(i)) return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
-  return ("string" === r ? String : Number)(t);
+  return (String )(t);
 }
-module.exports = toPrimitive, module.exports.__esModule = true, module.exports["default"] = module.exports;
-});
-
-var toPropertyKey_1 = createCommonjsModule(function (module) {
-var _typeof = _typeof_1["default"];
 
 function toPropertyKey(t) {
-  var i = toPrimitive_1(t, "string");
+  var i = toPrimitive(t, "string");
   return "symbol" == _typeof(i) ? i : i + "";
 }
-module.exports = toPropertyKey, module.exports.__esModule = true, module.exports["default"] = module.exports;
-});
 
-var createClass = createCommonjsModule(function (module) {
 function _defineProperties(e, r) {
   for (var t = 0; t < r.length; t++) {
     var o = r[t];
-    o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, toPropertyKey_1(o.key), o);
+    o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, toPropertyKey(o.key), o);
   }
 }
 function _createClass(e, r, t) {
@@ -218,10 +143,6 @@ function _createClass(e, r, t) {
     writable: !1
   }), e;
 }
-module.exports = _createClass, module.exports.__esModule = true, module.exports["default"] = module.exports;
-});
-
-var _createClass = /*@__PURE__*/getDefaultExportFromCjs(createClass);
 
 function _callSuper(t, o, e) { return o = _getPrototypeOf(o), _possibleConstructorReturn(t, _isNativeReflectConstruct() ? Reflect.construct(o, [], _getPrototypeOf(t).constructor) : o.apply(t, e)); }
 function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct = function _isNativeReflectConstruct() { return !!t; })(); }
@@ -693,7 +614,7 @@ var p = /*#__PURE__*/function (_HTMLElement) {
       return ["placeholder"];
     }
   }]);
-}( /*#__PURE__*/_wrapNativeSuper(HTMLElement));
+}(/*#__PURE__*/_wrapNativeSuper(HTMLElement));
 i = new WeakMap(), r = new WeakMap(), s = new WeakMap(), a = new WeakMap(), l = new WeakMap(), n = new WeakSet(), o = function o() {
   var _this$elements$column2;
   (_this$elements$column2 = this.elements.columnSelect.parentElement) === null || _this$elements$column2 === void 0 || _this$elements$column2.classList.remove("--hide");

@@ -90,7 +90,8 @@
     "rollup-plugin-svg": "^2.0.0",
     "rollup-plugin-typescript2": "^0.36.0",
     "sass": "^1.35.1",
-    "style-loader": "^1.2.1"
+    "style-loader": "^1.2.1",
+    "tslib": "^2.8.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.31",
