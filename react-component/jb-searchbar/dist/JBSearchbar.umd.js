@@ -4,10 +4,6 @@
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.JBSearchbar = {}, global.React));
 })(this, (function (exports, React) { 'use strict';
 
-  function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
-
-  var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
-
   function useEvent(dom, event, handler, passive = false) {
       React.useEffect(() => {
           if (dom) {
@@ -228,7 +224,7 @@
 
   var _createClass = /*@__PURE__*/getDefaultExportFromCjs(createClass);
 
-  function _callSuper(t, o, e) { return o = _getPrototypeOf(o), _possibleConstructorReturn(t, _isNativeReflectConstruct() ? Reflect.construct(o, e || [], _getPrototypeOf(t).constructor) : o.apply(t, e)); }
+  function _callSuper(t, o, e) { return o = _getPrototypeOf(o), _possibleConstructorReturn(t, _isNativeReflectConstruct() ? Reflect.construct(o, [], _getPrototypeOf(t).constructor) : o.apply(t, e)); }
   function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct = function _isNativeReflectConstruct() { return !!t; })(); }
   function e(e, t, n, i) {
     if ("a" === n && !i) throw new TypeError("Private accessor was defined without a getter");
@@ -236,10 +232,8 @@
     return "m" === n ? i : "a" === n ? i.call(e) : i ? i.value : t.get(e);
   }
   function t(e, t, n, i, r) {
-    if ("m" === i) throw new TypeError("Private method is not writable");
-    if ("a" === i && !r) throw new TypeError("Private accessor was defined without a setter");
     if ("function" == typeof t ? e !== t || !r : !t.has(e)) throw new TypeError("Cannot write private member to an object whose class did not declare it");
-    return "a" === i ? r.call(e, n) : r ? r.value = n : t.set(e, n), n;
+    return t.set(e, n), n;
   }
   "function" == typeof SuppressedError && SuppressedError;
   var n, i, r, s, a, l, o;
@@ -362,7 +356,7 @@
         return e(this, i, "f");
       },
       set: function set(n) {
-        !e(this, i, "f") && n && this.playSearchIconAnimation(), t(this, i, n, "f");
+        !e(this, i, "f") && n && this.playSearchIconAnimation(), t(this, i, n);
       }
     }, {
       key: "inputState",
@@ -371,7 +365,7 @@
       },
       set: function set(i) {
         var _this$elements$column;
-        "SELECT_COLUMN" == i ? (this.elements.columnSelect.value = null, this.elements.intent.wrapper.classList.add("--hide"), this.elements.columnSelect.optionList.length && (e(this, n, "m", o).call(this), this.elements.columnSelect.focus())) : "FILL_VALUE" == i && (this.elements.intent.wrapper.classList.remove("--hide"), this.elements.intent.input.wrapper.innerHTML = "", (_this$elements$column = this.elements.columnSelect.parentElement) === null || _this$elements$column === void 0 ? void 0 : _this$elements$column.classList.add("--hide")), t(this, r, i, "f");
+        "SELECT_COLUMN" == i ? (this.elements.columnSelect.value = null, this.elements.intent.wrapper.classList.add("--hide"), this.elements.columnSelect.optionList.length && (e(this, n, "m", o).call(this), this.elements.columnSelect.focus())) : "FILL_VALUE" == i && (this.elements.intent.wrapper.classList.remove("--hide"), this.elements.intent.input.wrapper.innerHTML = "", (_this$elements$column = this.elements.columnSelect.parentElement) === null || _this$elements$column === void 0 ? void 0 : _this$elements$column.classList.add("--hide")), t(this, r, i);
       }
     }, {
       key: "value",
@@ -397,7 +391,7 @@
         return e(this, l, "f");
       },
       set: function set(e) {
-        "boolean" == typeof e && t(this, l, e, "f");
+        "boolean" == typeof e && t(this, l, e);
       }
     }, {
       key: "registerEventListener",
@@ -521,7 +515,7 @@
     }, {
       key: "setColumnList",
       value: function setColumnList(e) {
-        t(this, s, e, "f"), this.setColumnListSelectOptionList();
+        t(this, s, e), this.setColumnListSelectOptionList();
       }
     }, {
       key: "setColumnListSelectOptionList",
@@ -730,12 +724,10 @@
           }
       }, [props.onSearch]);
       useEvent(element.current, 'search', onSearch);
-      return (React__default["default"].createElement("jb-searchbar", { placeholder: props.placeholder, ref: element }));
+      return (React.createElement("jb-searchbar", { placeholder: props.placeholder, ref: element }));
   }
 
   exports.JBSearchbar = JBSearchbar;
-
-  Object.defineProperty(exports, '__esModule', { value: true });
 
 }));
 //# sourceMappingURL=JBSearchbar.umd.js.map

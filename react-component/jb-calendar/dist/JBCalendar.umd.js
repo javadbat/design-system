@@ -4,11 +4,6 @@
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.JBCalendar = {}, global.React, null, global.PropTypes));
 })(this, (function (exports, React, jbCalendar, PropTypes) { 'use strict';
 
-  function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
-
-  var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
-  var PropTypes__default = /*#__PURE__*/_interopDefaultLegacy(PropTypes);
-
   function useEvent(dom, event, handler, passive = false) {
       React.useEffect(() => {
           if (dom) {
@@ -25,7 +20,7 @@
   }
 
   // eslint-disable-next-line react/display-name
-  const JBCalendar = React__default["default"].forwardRef((props, ref) => {
+  const JBCalendar = React.forwardRef((props, ref) => {
       const element = React.useRef(null);
       const [refChangeCount, refChangeCountSetter] = React.useState(0);
       React.useImperativeHandle(ref, () => (element ? element.current : {}), [element]);
@@ -51,18 +46,16 @@
           }
       }
       useEvent(element.current, 'select', onSelect);
-      return (React__default["default"].createElement("jb-calendar", { ref: element }));
+      return (React.createElement("jb-calendar", { ref: element }));
   });
   JBCalendar.propTypes = {
-      onSelect: PropTypes__default["default"].func,
-      value: PropTypes__default["default"].string,
-      jalaliMonthList: PropTypes__default["default"].array,
-      inputType: PropTypes__default["default"].oneOf(['GREGORIAN', 'JALALI'])
+      onSelect: PropTypes.func,
+      value: PropTypes.string,
+      jalaliMonthList: PropTypes.array,
+      inputType: PropTypes.oneOf(['GREGORIAN', 'JALALI'])
   };
 
   exports.JBCalendar = JBCalendar;
-
-  Object.defineProperty(exports, '__esModule', { value: true });
 
 }));
 //# sourceMappingURL=JBCalendar.umd.js.map
