@@ -463,9 +463,10 @@ const reactComponentList: ReactComponentBuildConfig[] = [
   },
   {
     name: "bank-indicator-react",
-    path: "/react-component/jb-payment-input/lib/BankIndicator.tsx",
-    outputPath: "/react-component/jb-payment-input/dist/BankIndicator.js",
+    path: "/react-component/jb-payment-input/bank-indicator/lib/BankIndicator.tsx",
+    outputPath: "/react-component/jb-payment-input/bank-indicator/dist/BankIndicator.js",
     external: ["jb-payment-input",'jb-payment-input/bank-indicator', "prop-types", "react"],
+    tsconfigPath:"react-component/jb-payment-input/tsconfig.json",
     globals: {
       react: "React",
       "prop-types": "PropTypes",
