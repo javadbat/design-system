@@ -24,6 +24,7 @@ module.exports = async ({ config }) => {
       path.resolve(__dirname, '..','..', '..', 'web-component','jb-popover'),
       path.resolve(__dirname, '..','..', '..', 'web-component','jb-textarea'),
       path.resolve(__dirname, '..','..', '..', 'web-component','jb-calendar'),
+      path.resolve(__dirname, '..','..', '..', 'web-component','jb-input'),
       path.resolve(__dirname, '..','..', '..', 'web-component','jb-form'),
     ],
     alias:{
@@ -32,7 +33,6 @@ module.exports = async ({ config }) => {
       'jb-button': path.resolve(__dirname, '..','..', '..', 'web-component','jb-button', 'dist', 'jb-button.js'),
       'jb-button-react': path.resolve(__dirname, '..','..', '..', 'react-component','jb-button', 'dist', 'JBButton.js'),
       'jb-loading': path.resolve(__dirname, '..','..', '..', 'web-component','jb-loading', 'dist', 'JBLoading.js'),
-      'jb-input': path.resolve(__dirname, '..','..', '..', 'web-component','jb-input', 'dist', 'jb-input.js'),
       'jb-pin-input': path.resolve(__dirname, '..','..', '..', 'web-component','jb-pin-input', 'dist', 'JBPinInput.js'),
       'jb-select': path.resolve(__dirname, '..','..', '..', 'web-component','jb-select', 'dist', 'jb-select.js'),
       'jb-select-react': path.resolve(__dirname, '..','..', '..', 'react-component','jb-select', 'index.js'),
