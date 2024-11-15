@@ -22,7 +22,8 @@ const defaultFormValue = {
   birthDate:'2024-10-26',
   applyDate:new Date().toISOString(),
   gender:"male",
-  description:"i'm ali"
+  description:"i'm ali",
+  avatar:"https://www.wikipedia.org/portal/wikipedia.org/assets/img/Wikipedia-logo-v2.png"
 }
 export const FormTest = {
   render:
