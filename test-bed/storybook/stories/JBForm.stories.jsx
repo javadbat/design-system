@@ -1,4 +1,4 @@
-import React, { useRef,useEffect } from "react";
+import React, { useRef,useEffect, useState } from "react";
 import { JBDateInput } from "jb-date-input-react";
 import { JBInput } from "jb-input-react";
 import { JBButton } from "jb-button-react";
@@ -29,14 +29,23 @@ export const FormTest = {
   render:
     (args) => {
       const ref = useRef(null);
-      /**@type {HTMLFormElement} */
-      const form = ref.current;
+      const [isDirty,setIsDirty] = useState(false);
+      const [isValid,setIsValid] = useState(true);
       const onSubmit = ()=>{
         alert("submit");
       };
+      const onDirtyChange = (e)=>{
+        setIsDirty(e.detail.isDirty);
+      };
+      const onValidityChange = (e)=>{
+        setIsValid(e.detail.isValid);
+      };
       useEffect(()=>{
-        if(form){
-          form.addEventListener('submit',onSubmit);
+        if(ref.current){
+          setIsValid(ref.current.checkValidity());
+          ref.current.addEventListener('submit',onSubmit);
+          ref.current.addEventListener('dirty-change',onDirtyChange);
+          ref.current.addEventListener('validity-change',onValidityChange);
         }
       },[ref]);
       return (
@@ -48,8 +57,8 @@ export const FormTest = {
           <JBImageInput name="avatar" label="نمایه" required maxFileSize={500*1024} />
           <JBTextarea label="توضیحات" name="description" required />
           <div style={{display:'flex', gap:'1rem'}}>
-            <JBButton type="submit">submit</JBButton>
-            <JBButton onClick={()=>alert(ref.current.checkValidity())}>check validity</JBButton>
+            <JBButton disabled={!isDirty} type="submit">submit</JBButton>
+            <JBButton onClick={()=>alert(ref.current.checkValidity())}>check validity({isValid?'valid':'invalid'})</JBButton>
             <JBButton onClick={()=>alert(ref.current.reportValidity())}>report validity</JBButton>
             <JBButton onClick={()=>console.debug(ref.current.getValidationMessages())}>getValidationMessages</JBButton>
             <JBButton onClick={()=>console.debug(ref.current.getValidationSummary())}>getValidationSummary</JBButton>
