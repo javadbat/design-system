@@ -37,13 +37,16 @@ export class WebComponentBuilder {
       if (watchMode) {
         this.#buildAndWatchModule(inputOptions, esOutputOptions, componentBuildConfig);
       } else {
-        await this.buildModule(inputOptions, esOutputOptions, "ES");
-        await this.buildModule(cjsInputOptions, cjsOutputOptions, "CJS");
-        await this.buildModule(umdInputOptions, umdOutputOptions, "UMD");
-        return;
+        const p1 = this.buildModule(inputOptions, esOutputOptions, "ES");
+        await p1;
+        const p2 = this.buildModule(cjsInputOptions, cjsOutputOptions, "CJS");
+        await p2;
+        const p3 = this.buildModule(umdInputOptions, umdOutputOptions, "UMD");
+        return await Promise.allSettled([p1,p2,p3]);
       }
     } catch (e) {
       console.error(componentBuildConfig.name + ' build failed');
+      return Promise.reject(e);
     }
   }
   buildModule(inputOptions: rollup.RollupOptions, outputOptions: rollup.OutputOptions, type: "ES" | "CJS" | "UMD") {
@@ -146,6 +149,7 @@ export class WebComponentBuilder {
       plugins.push(
         //@ts-ignore
         typescript({
+          // tsconfigOverride:override,
           tsconfig: tsConfigFilePath,
           tsconfigDefaults: this.#getTypeScriptCompilerOptions(
             module,
@@ -191,6 +195,7 @@ export class WebComponentBuilder {
     const fileName = path.parse(fullFileName).name;
     const fileExtension = path.parse(fullFileName).ext;
     const outputFileName = `${fileName}${format == 'es' ? '' : ('.' + format)}${fileExtension}`;
+    
     const dir = pathArr.slice(0, pathArr.length - 1);
     const outputOptions = {
       // core output options
