@@ -271,7 +271,11 @@ const webComponentList: WebComponentBuildConfig[] = [
     name: "jb-switch",
     path: "/web-component/jb-switch/lib/jb-switch.ts",
     outputPath: "/web-component/jb-switch/dist/jb-switch.js",
-    external: [],
+    external: ['jb-validation','jb-form'],
+    globals: {
+      'jb-validation': "JBValidation",
+      'jb-form':"JBForm"
+    },
     umdName: "JBSwitch",
   },
   {
