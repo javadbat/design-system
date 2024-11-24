@@ -37,7 +37,7 @@ const webComponentList: WebComponentBuildConfig[] = [
     path: "/web-component/jb-input/lib/index.ts",
     outputPath: "/web-component/jb-input/dist/index.js",
     umdName: "JBInput",
-    external: ["jb-validation","jb-form"],
+    external: ["jb-validation"],
     globals: {
       "jb-validation": "JBValidation",
     },
@@ -157,6 +157,16 @@ const webComponentList: WebComponentBuildConfig[] = [
     umdName: "JBPinInput",
   },
   {
+    name: "bank-indicator",
+    path: "/web-component/jb-payment-input/bank-indicator/lib/bank-indicator.ts",
+    outputPath:
+      "/web-component/jb-payment-input//bank-indicator/dist/bank-indicator.js",
+    umdName: "BankIndicator",
+    external: [],
+    globals: {},
+    tsconfigPath:"web-component/jb-payment-input/tsconfig.json"
+  },
+  {
     name: "jb-payment-input",
     path: "/web-component/jb-payment-input/lib/jb-payment-input.ts",
     outputPath: "/web-component/jb-payment-input/dist/jb-payment-input.js",
@@ -166,16 +176,6 @@ const webComponentList: WebComponentBuildConfig[] = [
       "jb-input": "JBInput",
       "jb-validation":"JBValidation"
     },
-  },
-  {
-    name: "bank-indicator",
-    path: "/web-component/jb-payment-input/bank-indicator/lib/bank-indicator.ts",
-    outputPath:
-      "/web-component/jb-payment-input//bank-indicator/dist/bank-indicator.js",
-    umdName: "BankIndicator",
-    external: [],
-    globals: {},
-    tsconfigPath:"web-component/jb-payment-input/tsconfig.json"
   },
   {
     name: "jb-mobile-input",
