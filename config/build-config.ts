@@ -561,6 +561,17 @@ const reactComponentList: ReactComponentBuildConfig[] = [
     },
   },
   {
+    name: "jb-form-react",
+    path: "/web-component/jb-form/react/lib/JBForm.tsx",
+    outputPath: "/web-component/jb-form/react/dist/JBForm.js",
+    external: ["jb-form", "react"],
+    globals: {
+      react: "React",
+      'jb-form': "JBForm",
+      "prop-types": "PropTypes",
+    },
+  },
+  {
     name: "jb-file-input-react",
     path: "/react-component/jb-file-input/lib/JBFileInput.tsx",
     outputPath: "/react-component/jb-file-input/dist/JBFileInput.js",
