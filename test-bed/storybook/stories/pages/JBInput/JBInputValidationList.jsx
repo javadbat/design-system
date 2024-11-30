@@ -14,7 +14,7 @@ function JBInputValidationList(props) {
       message: props.passwordMessage
     }
   ];
-  var emailValidation=[
+  const emailValidation=[
     {
       validator: props.emailRegex,
       message: props.emailMessage
@@ -27,6 +27,22 @@ function JBInputValidationList(props) {
         return true;
       },
       message:"email must be gmail"
+    },
+    {
+      validator:({displayValue,value})=>{
+        return new Promise((resolve)=>{
+          setTimeout(()=>{
+            if(value.includes('outlook')){
+              resolve('you cant enter outlook email') ;
+            }
+            resolve(true);
+          },3000);
+          
+        });
+
+      },
+      message:"outlook doesn't respond",
+      defer:true
     }
   ];
   var mobileValidation=[
@@ -37,16 +53,16 @@ function JBInputValidationList(props) {
   ];
   const passwordInputDom = useRef();
   function onButtonClicked(){
-    console.log(passwordInputDom.current.validation);   
+    console.log(passwordInputDom.current.validation.result);   
   }
   return (
     <div style={{direction:'rtl'}}>
       <JBInput label='ورودی' validationList={inputValidation}></JBInput>
       <JBInput ref={passwordInputDom} label='رمز' validationList={passwordValidation}></JBInput>
-      <JBInput label='ایمیل' validationList={emailValidation}></JBInput>
+      <JBInput label='ایمیل' validationList={emailValidation} message="enter outlook and see async validation result after 3sec"></JBInput>
       <JBInput label='شماره موبایل' validationList={mobileValidation}></JBInput>
-      <JBInput label='پسورد' validationList={mobileValidation} type="password"></JBInput>
-      <button onClick={onButtonClicked}>check password validation</button>
+      <JBInput label='پسورد' validationList={passwordValidation} type="password"></JBInput>
+      <button onClick={onButtonClicked}>log password validation(see console)</button>
     </div>
   );
 }
