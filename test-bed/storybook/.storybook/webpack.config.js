@@ -26,6 +26,7 @@ module.exports = async ({ config }) => {
       path.resolve(__dirname, '..','..', '..', 'web-component','jb-calendar'),
       path.resolve(__dirname, '..','..', '..', 'web-component','jb-input'),
       path.resolve(__dirname, '..','..', '..', 'web-component','jb-form'),
+      path.resolve(__dirname, '..','..', '..', 'web-component','jb-form'),
     ],
     alias:{
       ...config.resolve.alias,
@@ -62,7 +63,7 @@ module.exports = async ({ config }) => {
       'jb-message':path.resolve(__dirname, '..','..', '..', 'modules','jb-message'),
       'jb-calendar-react': path.resolve(__dirname, '..','..', '..', 'react-component','jb-calendar', 'dist', 'JBCalendar.js'),
       'jb-textarea-react': path.resolve(__dirname, '..','..', '..', 'react-component','jb-textarea', 'dist', 'JBTextarea.js'),
-      'jb-form':path.resolve(__dirname, '..','..', '..', 'web-component','jb-form','dist','jb-form.js'),
+      // 'jb-form':path.resolve(__dirname, '..','..', '..', 'web-component','jb-form','dist','jb-form.js'),
     }
   }
   return config;

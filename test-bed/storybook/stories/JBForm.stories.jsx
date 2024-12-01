@@ -3,6 +3,7 @@ import { JBDateInput } from "jb-date-input-react";
 import { JBButton } from "jb-button-react";
 
 import 'jb-form';
+import {JBForm} from 'jb-form/react';
 import { PersonForm, BankForm } from "./pages/jb-form/TestForms";
 export default {
   title: "Example/JBForm",
@@ -41,13 +42,10 @@ export const FormTest = {
       useEffect(()=>{
         if(ref.current){
           setIsValid(ref.current.checkValidity());
-          ref.current.addEventListener('submit',onSubmit);
-          ref.current.addEventListener('dirty-change',onDirtyChange);
-          ref.current.addEventListener('validity-change',onValidityChange);
         }
       },[ref]);
       return (
-        <form is="jb-form" ref={ref} {...args} style={{display:'flex', flexDirection:"column", gap:'1rem'}}>
+        <JBForm ref={ref} {...args} style={{display:'flex', flexDirection:"column", gap:'1rem'}} onSubmit={onSubmit} onDirtyChange={onDirtyChange} onValidityChange={onValidityChange}>
           <PersonForm />
           <div style={{display:'flex', gap:'1rem'}}>
             <JBButton disabled={!isDirty} type="submit">submit</JBButton>
@@ -60,7 +58,7 @@ export const FormTest = {
             <JBButton onClick={()=>console.debug(ref.current.setFormValues(defaultFormValue,true))}>setFormDefaultValue</JBButton>
             <JBButton onClick={()=>console.debug(ref.current.getFormDirtyStatus())}>getFormDirtyStatus</JBButton>
           </div>
-        </form>
+        </JBForm>
 
       );
     },
