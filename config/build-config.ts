@@ -292,8 +292,8 @@ const webComponentList: WebComponentBuildConfig[] = [
 const reactComponentList: ReactComponentBuildConfig[] = [
   {
     name: "jb-input-react",
-    path: "/react-component/jb-input/lib/JBInput.tsx",
-    outputPath: "/react-component/jb-input/dist/JBInput.js",
+    path: "/web-component/jb-input//react/lib/JBInput.tsx",
+    outputPath: "/web-component/jb-input/react/dist/JBInput.js",
     external: ["jb-input", "prop-types", "react"],
     globals: {
       react: "React",
