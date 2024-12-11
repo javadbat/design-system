@@ -50,7 +50,6 @@
     "jb-image-input": "file:./web-component/jb-image-input",
     "jb-image-input-react": "file:./react-component/jb-image-input",
     "jb-input": "file:./web-component/jb-input",
-    "jb-input-react": "file:./react-component/jb-input",
     "jb-textarea-react": "file:./react-component/jb-textarea",
     "jb-loading": "file:./web-component/jb-loading",
     "jb-mobile-input": "file:./web-component/jb-mobile-input",

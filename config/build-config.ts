@@ -493,12 +493,12 @@ const reactComponentList: ReactComponentBuildConfig[] = [
   },
   {
     name: "jb-mobile-input-react",
-    path: "/react-component/jb-mobile-input/lib/JBMobileInput.tsx",
-    outputPath: "/react-component/jb-mobile-input/dist/JBMobileInput.js",
-    external: ["jb-input","jb-input-react", "jb-mobile-input", "prop-types", "react"],
+    path: "/web-component/jb-mobile-input/react/lib/JBMobileInput.tsx",
+    outputPath: "/web-component/jb-mobile-input/react/dist/JBMobileInput.js",
+    external: ["jb-input", "jb-mobile-input", "prop-types", "react"],
     globals: {
       react: "React",
-      "jb-input-react":"JBInputReact"
+      "jb-input":"JBInput"
     },
   },
   {
