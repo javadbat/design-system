@@ -121,10 +121,6 @@
 	path = web-component/jb-mobile-input
 	url = https://github.com/javadbat/jb-mobile-input.git
 	branch = main
-[submodule "react-component/jb-mobile-input"]
-	path = react-component/jb-mobile-input
-	url = https://github.com/javadbat/jb-mobile-input-react.git
-	branch = main
 [submodule "react-component/jb-loading"]
 	path = react-component/jb-loading
 	url = https://github.com/javadbat/jb-loading-react.git
