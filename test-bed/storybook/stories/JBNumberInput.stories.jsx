@@ -1,5 +1,5 @@
 import React from 'react';
-import {JBNumberInput} from 'jb-number-input-react';
+import {JBNumberInput} from 'jb-number-input/react';
 import JBInputNumberTest from './pages/JBInput/JBInputNumberTest';
 export default {
   title: 'Example/Input/JBNumberInput',

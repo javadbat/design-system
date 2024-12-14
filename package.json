@@ -59,7 +59,6 @@
     "jb-national-input-react": "file:./react-component/jb-national-input",
     "jb-notification": "file:./web-component/jb-notification",
     "jb-number-input": "file:./web-component/jb-number-input",
-    "jb-number-input-react": "file:./react-component/jb-number-input",
     "jb-password-input": "file:./web-component/jb-password-input",
     "jb-password-input-react": "file:./react-component/jb-password-input",
     "jb-payment-input": "file:./web-component/jb-payment-input",
