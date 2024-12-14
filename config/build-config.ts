@@ -514,13 +514,14 @@ const reactComponentList: ReactComponentBuildConfig[] = [
   },
   {
     name: "jb-number-input-react",
-    path: "/react-component/jb-number-input/lib/JBNumberInput.tsx",
-    outputPath: "/react-component/jb-number-input/dist/JBNumberInput.js",
-    external: ["jb-number-input","jb-input-react", "jb-input", "prop-types", "react"],
+    path: "/web-component/jb-number-input/react/lib/JBNumberInput.tsx",
+    outputPath: "/web-component/jb-number-input/react/dist/JBNumberInput.js",
+    external: ["jb-number-input","jb-input/react", "jb-input", "react"],
     globals: {
       react: "React",
       "jb-number-input":"JBNumberInput",
-      "jb-input-react":"JBInputReact"
+      "jb-input":"JBInput",
+      "jb-input/react":"JBInputReact"
     },
   },
   {
