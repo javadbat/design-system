@@ -24,7 +24,7 @@ NumberWithComma.args = {
 export const NumberWithMinMax = Template.bind({});
 NumberWithMinMax.args = {
   label: 'تعداد به عدد',
-  message: 'عدد بین 1 تا 10000',
+  message: 'عدد بین 100 تا 10000',
   maxValue: 10000,
   minValue: 100,
   onChange: (e) => { console.log(`new number is ${e.target.value}`); }
