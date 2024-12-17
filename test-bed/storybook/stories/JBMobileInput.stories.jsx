@@ -1,5 +1,5 @@
 import React from 'react';
-import {JBMobileInput} from 'jb-mobile-input-react';
+import {JBMobileInput} from 'jb-mobile-input/react';
 export default {
   title: 'Example/Input/JBMobileInput',
   component: JBMobileInput
