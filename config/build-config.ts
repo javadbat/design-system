@@ -503,8 +503,8 @@ const reactComponentList: ReactComponentBuildConfig[] = [
   },
   {
     name: "jb-national-input-react",
-    path: "/react-component/jb-national-input/lib/JBNationalInput.tsx",
-    outputPath: "/react-component/jb-national-input/dist/JBNationalInput.js",
+    path: "/web-component/jb-national-input/react/lib/JBNationalInput.tsx",
+    outputPath: "/web-component/jb-national-input/react/dist/JBNationalInput.js",
     external: ["jb-national-input","jb-input-react","jb-input", "prop-types", "react"],
     globals: {
       "react": "React",
