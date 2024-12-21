@@ -82,10 +82,6 @@
 	path = web-component/jb-national-input
 	url = https://github.com/javadbat/jb-national-input.git
 	branch = main
-[submodule "react-component/jb-national-input"]
-	path = react-component/jb-national-input
-	url = https://github.com/javadbat/jb-national-input-react.git
-	branch = main
 [submodule "web-component/jb-modal"]
 	path = web-component/jb-modal
 	url = https://github.com/javadbat/jb-modal.git
