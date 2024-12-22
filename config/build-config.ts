@@ -482,13 +482,13 @@ const reactComponentList: ReactComponentBuildConfig[] = [
   },
   {
     name: "jb-password-input-react",
-    path: "/react-component/jb-password-input/lib/JBPasswordInput.tsx",
-    outputPath: "/react-component/jb-password-input/dist/JBPasswordInput.js",
-    external: ["jb-password-input","jb-input-react", "prop-types", "react"],
+    path: "/web-component/jb-password-input/react/lib/JBPasswordInput.tsx",
+    outputPath: "/web-component/jb-password-input/react/dist/JBPasswordInput.js",
+    external: ["jb-password-input","jb-input","jb-input/react", "prop-types", "react"],
     globals: {
       react: "React",
       "prop-types": "PropTypes",
-      "jb-input-react":"JBInputReact"
+      "jb-input/react":"JBInputReact"
     },
   },
   {
