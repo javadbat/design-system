@@ -1,5 +1,5 @@
 import React from 'react';
-import {JBPasswordInput} from 'jb-password-input-react';
+import {JBPasswordInput} from 'jb-password-input/react';
 export default {
   title: 'Example/Input/JBPasswordInput',
   component: JBPasswordInput

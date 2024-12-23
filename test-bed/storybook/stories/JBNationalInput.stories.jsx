@@ -1,5 +1,5 @@
 import React from 'react';
-import {JBNationalInput} from 'jb-national-input-react';
+import {JBNationalInput} from 'jb-national-input/react';
 export default {
   title: 'Example/Input/JBNationalInput',
   component: JBNationalInput

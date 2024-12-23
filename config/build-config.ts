@@ -415,8 +415,8 @@ const reactComponentList: ReactComponentBuildConfig[] = [
   // },
   {
     name: "jb-time-input-react",
-    path: "/react-component/jb-time-input/lib/JBTimeInput.tsx",
-    outputPath: "/react-component/jb-time-input/dist/JBTimeInput.js",
+    path: "/web-component/jb-time-input/react/lib/JBTimeInput.tsx",
+    outputPath: "/web-component/jb-time-input/react/dist/JBTimeInput.js",
     external: ["react", "prop-types", "jb-time-input"],
     globals: {
       react: "React",
@@ -425,8 +425,8 @@ const reactComponentList: ReactComponentBuildConfig[] = [
   },
   {
     name: "jb-date-input-react",
-    path: "/react-component/jb-date-input/lib/JBDateInput.tsx",
-    outputPath: "/react-component/jb-date-input/dist/JBDateInput.js",
+    path: "/web-component/jb-date-input/react/lib/JBDateInput.tsx",
+    outputPath: "/web-component/jb-date-input/react/dist/JBDateInput.js",
     external: ["react", "prop-types", "jb-date-input", "jb-validation"],
     globals: {
       react: "React",
