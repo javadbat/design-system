@@ -169,10 +169,6 @@
 	path = modules/jb-validation
 	url = https://github.com/javadbat/jb-validation.git
 	branch = main
-[submodule "react-component/jb-time-input"]
-	path = react-component/jb-time-input
-	url = https://github.com/javadbat/jb-time-input-react.git
-	branch = main
 [submodule "web-component/jb-form"]
 	path = web-component/jb-form
 	url = https://github.com/javadbat/jb-form.git
