@@ -153,10 +153,6 @@
 	path = web-component/jb-password-input
 	url = https://github.com/javadbat/jb-password-input.git
 	branch = main
-[submodule "react-component/jb-password-input"]
-	path = react-component/jb-password-input
-	url = https://github.com/javadbat/jb-password-input-react.git
-	branch = main
 [submodule "web-component/jb-popover"]
 	path = web-component/jb-popover
 	url = https://github.com/javadbat/jb-popover.git
