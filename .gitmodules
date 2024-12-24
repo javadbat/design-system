@@ -62,10 +62,6 @@
 	path = web-component/jb-loading
 	url = https://github.com/javadbat/jb-loading.git
 	branch = master
-[submodule "react-component/jb-date-input"]
-	path = react-component/jb-date-input
-	url = https://github.com/javadbat/jb-date-input-react.git
-	branch = main
 [submodule "web-component/jb-pin-input"]
 	path = web-component/jb-pin-input
 	url = https://github.com/javadbat/jb-pin-input.git
