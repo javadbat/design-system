@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {JBDateInput} from 'jb-date-input-react';
+import {JBDateInput} from 'jb-date-input/react';
 function JBDateInputJalaliTest(props) {
   const [value, valueSetter] = useState("");
   const [dateValue,setDateValue] = useState(new Date());

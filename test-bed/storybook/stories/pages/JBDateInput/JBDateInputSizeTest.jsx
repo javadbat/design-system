@@ -1,5 +1,5 @@
 import React from 'react';
-import {JBDateInput} from 'jb-date-input-react';
+import {JBDateInput} from 'jb-date-input/react';
 import './JBDateInputSizeTest.css';
 
 const JBDateInputSizeTest = () => {

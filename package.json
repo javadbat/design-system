@@ -42,7 +42,6 @@
     "jb-calendar": "file:./web-component/jb-calendar",
     "jb-checkbox-react": "file:./react-component/jb-checkbox",
     "jb-date-input": "file:./web-component/jb-date-input",
-    "jb-date-input-react": "file:react-component/jb-date-input",
     "jb-file-input": "file:./web-component/jb-file-input",
     "jb-form": "file:./web-component/jb-form",
     "jb-grid": "file:./react-component/jb-grid",

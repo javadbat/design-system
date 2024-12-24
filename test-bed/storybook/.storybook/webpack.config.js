@@ -31,6 +31,7 @@ module.exports = async ({ config }) => {
       path.resolve(__dirname, '..','..', '..', 'web-component','jb-time-input'),
       path.resolve(__dirname, '..','..', '..', 'web-component','jb-national-input'),
       path.resolve(__dirname, '..','..', '..', 'web-component','jb-password-input'),
+      path.resolve(__dirname, '..','..', '..', 'web-component','jb-date-input'),
     ],
     alias:{
       ...config.resolve.alias,
@@ -45,10 +46,8 @@ module.exports = async ({ config }) => {
       'jb-switch-react': path.resolve(__dirname, '..','..', '..', 'react-component','jb-switch', 'index.js'),
       'jb-grid': path.resolve(__dirname, '..','..', '..', 'react-component','jb-grid', 'index.js'),
       'jb-calendar': path.resolve(__dirname, '..','..', '..', 'web-component','jb-calendar', 'dist', 'jb-calendar.js'),
-      'jb-date-input': path.resolve(__dirname, '..','..', '..', 'web-component','jb-date-input', 'index.js'),
       'jb-time-picker': path.resolve(__dirname, '..','..', '..', 'web-component','jb-time-picker', 'dist', 'jb-time-picker.js'),
       'jb-searchbar': path.resolve(__dirname, '..','..', '..', 'web-component','jb-searchbar', 'dist', 'jb-searchbar.js'),
-      'jb-date-input-react': path.resolve(__dirname, '..','..', '..', 'react-component','jb-date-input', 'dist', 'JBDateInput.js'),
       'jb-pin-input-react': path.resolve(__dirname, '..','..', '..', 'react-component','jb-pin-input', 'dist', 'JBPinInput.js'),
       'jb-loading-react': path.resolve(__dirname, '..','..', '..', 'react-component','jb-loading', 'dist', 'JBLoading.js'),
       'jb-payment-input-react': path.resolve(__dirname, '..','..', '..', 'react-component','jb-payment-input', 'dist', 'JBPaymentInput.js'),
