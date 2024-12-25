@@ -458,8 +458,8 @@ const reactComponentList: ReactComponentBuildConfig[] = [
   // },
   {
     name: "jb-payment-input-react",
-    path: "/react-component/jb-payment-input/lib/JBPaymentInput.tsx",
-    outputPath: "/react-component/jb-payment-input/dist/JBPaymentInput.js",
+    path: "/web-component/jb-payment-input/react/lib/JBPaymentInput.tsx",
+    outputPath: "/web-component/jb-payment-input/react/dist/JBPaymentInput.js",
     external: ["jb-payment-input","jb-input-react", "prop-types", "react"],
     globals: {
       react: "React",
@@ -470,10 +470,10 @@ const reactComponentList: ReactComponentBuildConfig[] = [
   },
   {
     name: "bank-indicator-react",
-    path: "/react-component/jb-payment-input/bank-indicator/lib/BankIndicator.tsx",
-    outputPath: "/react-component/jb-payment-input/bank-indicator/dist/BankIndicator.js",
+    path: "/web-component/jb-payment-input/bank-indicator/react/lib/BankIndicator.tsx",
+    outputPath: "/web-component/jb-payment-input/bank-indicator/react/dist/BankIndicator.js",
     external: ["jb-payment-input",'jb-payment-input/bank-indicator', "prop-types", "react"],
-    tsconfigPath:"react-component/jb-payment-input/tsconfig.json",
+    tsconfigPath:"web-component/jb-payment-input/react/tsconfig.json",
     globals: {
       react: "React",
       "prop-types": "PropTypes",
