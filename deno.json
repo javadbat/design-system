@@ -12,7 +12,6 @@
     "/": "./",
     "@std/path": "jsr:@std/path@^1.0.3",
     "jb-button": "file:./web-component/jb-button",
-    "jb-button-react": "file:./react-component/jb-button",
     "jb-calendar": "file:./web-component/jb-calendar",
     "jb-checkbox-react": "file:./react-component/jb-checkbox",
     "jb-date-input": "file:./web-component/jb-date-input",

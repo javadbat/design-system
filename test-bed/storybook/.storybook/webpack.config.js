@@ -32,12 +32,11 @@ module.exports = async ({ config }) => {
       path.resolve(__dirname, '..','..', '..', 'web-component','jb-national-input'),
       path.resolve(__dirname, '..','..', '..', 'web-component','jb-password-input'),
       path.resolve(__dirname, '..','..', '..', 'web-component','jb-date-input'),
+      path.resolve(__dirname, '..','..', '..', 'web-component','jb-button'),
     ],
     alias:{
       ...config.resolve.alias,
       react: path.resolve('node_modules/react'),
-      'jb-button': path.resolve(__dirname, '..','..', '..', 'web-component','jb-button', 'dist', 'jb-button.js'),
-      'jb-button-react': path.resolve(__dirname, '..','..', '..', 'react-component','jb-button', 'dist', 'JBButton.js'),
       'jb-loading': path.resolve(__dirname, '..','..', '..', 'web-component','jb-loading', 'dist', 'JBLoading.js'),
       'jb-pin-input': path.resolve(__dirname, '..','..', '..', 'web-component','jb-pin-input', 'dist', 'JBPinInput.js'),
       'jb-select': path.resolve(__dirname, '..','..', '..', 'web-component','jb-select', 'dist', 'jb-select.js'),

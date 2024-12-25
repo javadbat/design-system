@@ -1,5 +1,5 @@
 import React from 'react';
-import JBButton from 'jb-button-react';
+import JBButton from 'jb-button/react';
 import JBMessage from '../../../../../modules/jb-message/dist/JBMessage';
 import './JBMessageCustomStylesTest.css';
 

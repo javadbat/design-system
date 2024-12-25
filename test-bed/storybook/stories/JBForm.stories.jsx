@@ -1,6 +1,6 @@
 import React, { useRef,useEffect, useState } from "react";
 import { JBDateInput } from "jb-date-input/react";
-import { JBButton } from "jb-button-react";
+import { JBButton } from "jb-button/react";
 
 import 'jb-form';
 import {JBForm} from 'jb-form/react';

@@ -38,7 +38,6 @@
     "dayjs": "^1.8.36",
     "eslint-plugin-import": "^2.22.0",
     "jb-button": "file:./web-component/jb-button",
-    "jb-button-react": "file:./react-component/jb-button",
     "jb-calendar": "file:./web-component/jb-calendar",
     "jb-checkbox-react": "file:./react-component/jb-checkbox",
     "jb-date-input": "file:./web-component/jb-date-input",
