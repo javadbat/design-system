@@ -1,5 +1,5 @@
 import React from 'react';
-import {JBTextarea} from 'jb-textarea-react';
+import {JBTextarea} from 'jb-textarea/react';
 import JBTextAreaTestPage from './pages/JBTextAreaTestPage';
 export default {
   title: 'Example/JBTextarea',

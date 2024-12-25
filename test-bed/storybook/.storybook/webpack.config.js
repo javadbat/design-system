@@ -55,7 +55,6 @@ module.exports = async ({ config }) => {
       'jb-modal':path.resolve(__dirname, '..','..', '..', 'web-component','jb-modal'),
       'jb-message':path.resolve(__dirname, '..','..', '..', 'modules','jb-message'),
       'jb-calendar-react': path.resolve(__dirname, '..','..', '..', 'react-component','jb-calendar', 'dist', 'JBCalendar.js'),
-      'jb-textarea-react': path.resolve(__dirname, '..','..', '..', 'react-component','jb-textarea', 'dist', 'JBTextarea.js'),
       // 'jb-form':path.resolve(__dirname, '..','..', '..', 'web-component','jb-form','dist','jb-form.js'),
     }
   }

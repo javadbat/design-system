@@ -2,7 +2,7 @@ import React from 'react'
 import { JBDateInput } from 'jb-date-input/react';
 import { JBInput } from 'jb-input/react';
 import { JBSelect } from "jb-select-react";
-import { JBTextarea } from "jb-textarea-react";
+import { JBTextarea } from "jb-textarea/react";
 import { JBPaymentInput } from "jb-payment-input-react";
 import { JBImageInput } from "jb-image-input-react";
 

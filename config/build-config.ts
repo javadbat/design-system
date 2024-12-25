@@ -437,8 +437,8 @@ const reactComponentList: ReactComponentBuildConfig[] = [
   },
   {
     name: "jb-textarea-react",
-    path: "/react-component/jb-textarea/lib/JBTextarea.tsx",
-    outputPath: "/react-component/jb-textarea/dist/JBTextarea.js",
+    path: "/web-component/jb-textarea/react/lib/JBTextarea.tsx",
+    outputPath: "/web-component/jb-textarea/react/dist/JBTextarea.js",
     external: ["react", "prop-types", "jb-textarea", "jb-validation"],
     globals: {
       react: "React",
