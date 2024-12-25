@@ -70,10 +70,6 @@
 	path = web-component/jb-payment-input
 	url = https://github.com/javadbat/jb-payment-input.git
 	branch = main
-[submodule "react-component/jb-payment-input"]
-	path = react-component/jb-payment-input
-	url = https://github.com/javadbat/jb-payment-input-react.git
-	branch = main
 [submodule "web-component/jb-national-input"]
 	path = web-component/jb-national-input
 	url = https://github.com/javadbat/jb-national-input.git
