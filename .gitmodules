@@ -129,10 +129,6 @@
 	path = web-component/jb-switch
 	url = https://github.com/javadbat/jb-switch.git
 	branch = main
-[submodule "react-component/jb-button"]
-	path = react-component/jb-button
-	url = https://github.com/javadbat/jb-button-react.git
-	branch = main
 [submodule "web-component/jb-number-input"]
 	path = web-component/jb-number-input
 	url = https://github.com/javadbat/jb-number-input.git
