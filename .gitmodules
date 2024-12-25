@@ -121,10 +121,6 @@
 	path = web-component/jb-notification
 	url = https://github.com/javadbat/jb-notification.git
 	branch = main
-[submodule "react-component/jb-textarea"]
-	path = react-component/jb-textarea
-	url = https://github.com/javadbat/jb-textarea-react.git
-	branch = main
 [submodule "react-component/jb-file-input"]
 	path = react-component/jb-file-input
 	url = https://github.com/javadbat/jb-file-input-react.git
