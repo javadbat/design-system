@@ -92,8 +92,8 @@ const webComponentList: WebComponentBuildConfig[] = [
   },
   {
     name: "jb-select",
-    path: "/web-component/jb-select/lib/jb-select.ts",
-    outputPath: "/web-component/jb-select/dist/jb-select.js",
+    path: "/web-component/jb-select/lib/index.ts",
+    outputPath: "/web-component/jb-select/dist/index.js",
     umdName: "JBSelect",
     external: ["jb-validation"],
     globals: {
@@ -302,8 +302,8 @@ const reactComponentList: ReactComponentBuildConfig[] = [
   },
   {
     name: "jb-select-react",
-    path: "/react-component/jb-select/lib/JBSelect.tsx",
-    outputPath: "/react-component/jb-select/dist/JBSelect.js",
+    path: "/web-component/jb-select/react/lib/index.tsx",
+    outputPath: "/web-component/jb-select/react/dist/index.js",
     external: ["jb-select", "prop-types", "react"],
     globals: {
       react: "React",
@@ -446,16 +446,6 @@ const reactComponentList: ReactComponentBuildConfig[] = [
       "jb-validation":"JBValidation"
     },
   },
-  // {
-  //     name: 'jb-select-react',
-  //     path: '/react-component/jb-select/lib/JBSelect.tsx',
-  //     outputPath:'/react-component/jb-select/dist/JBSelect.js',
-  //     external:[ 'jb-select', 'prop-types', 'react'],
-  //     globals:{
-  //         'react':'React',
-  //         'prop-types':'PropTypes',
-  //     }
-  // },
   {
     name: "jb-payment-input-react",
     path: "/web-component/jb-payment-input/react/lib/JBPaymentInput.tsx",

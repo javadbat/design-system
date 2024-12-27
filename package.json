@@ -64,7 +64,6 @@
     "jb-popover": "file:./web-component/jb-popover",
     "jb-searchbar": "file:./web-component/jb-searchbar",
     "jb-select": "file:./web-component/jb-select",
-    "jb-select-react": "file:./react-component/jb-select",
     "jb-switch": "file:./web-component/jb-switch",
     "jb-switch-react": "file:./react-component/jb-switch",
     "jb-textarea": "file:./web-component/jb-textarea",
