@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import { JBSelect } from "jb-select/react";
+import { JBSelect, JBOptionList } from "jb-select/react";
 function JBSelectDynamicList() {
   const [optionList, setOptionList] = useState([]);
   function fillList(text = "") {
@@ -20,10 +20,10 @@ function JBSelectDynamicList() {
   return (
     <div>
       <JBSelect
-        label="please type and see resault change"
-        optionList={optionList}
+        label="please type and see result change"
         onKeyup={onKeyup}
       >
+        <JBOptionList optionList={optionList}></JBOptionList>
       </JBSelect>
     </div>
   );

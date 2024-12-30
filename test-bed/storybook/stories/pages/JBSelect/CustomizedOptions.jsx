@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
-import { JBSelect } from "jb-select/react";
+import { JBOptionList, JBSelect, JBOption } from "jb-select/react";
 import "./CustomizedOptions.css";
-function CustomizedOptions(props) {
-  const [colorList, colorListSetter] = useState([
+function CustomizedOptions() {
+  const [colorList] = useState([
     {
       id: 1,
       name: "Red",
@@ -28,19 +27,22 @@ function CustomizedOptions(props) {
   function getOptionDOM(option, onOptionSelected) {
     const optionElement = document.createElement("div");
     optionElement.classList.add("select-option");
-    //it has defualt function who return wxact same input
+    //it has default function who return exact same input
     optionElement.innerHTML =
       '<span part="color-box" style="background-color:' + option.value +
-      ';width:16px;height:16px"></span>' + "&nbsp;" + option.name;
+      ';width:16px;height:16px;display:inline-block;"></span>' + "&nbsp;" +
+      option.name;
     optionElement.addEventListener("click", onOptionSelected);
     return optionElement;
   }
+
   function getSelectedValueDOM(option) {
     const optionElement = document.createElement("div");
     optionElement.classList.add("selected-value");
     optionElement.innerHTML =
       '<span part="color-box" style="background-color:' + option.value +
-      ';width:16px;height:16px"></span>' + "&nbsp;" + option.name;
+      ';width:16px;height:16px;display:inline-block;"></span>' + "&nbsp;" +
+      option.name;
     return optionElement;
   }
   function getOptionTitle(option) {
@@ -48,12 +50,22 @@ function CustomizedOptions(props) {
   }
   return (
     <div>
+      <JBSelect label="normal" getSelectedValueDOM={getSelectedValueDOM}>
+        {
+          colorList.map((color)=>{
+            return (<JBOption key={color.value} value={color}><span className="color-circle" style={{backgroundColor:color.value}}></span>{color.name}</JBOption>);
+          })
+        }
+      </JBSelect>
       <JBSelect
-        optionList={colorList}
         getSelectedValueDOM={getSelectedValueDOM}
-        getOptionDOM={getOptionDOM}
-        getOptionTitle={getOptionTitle}
+        label="with option list"
       >
+        <JBOptionList
+          optionList={colorList}
+          getTitle={getOptionTitle}
+          getContentDOM={getOptionDOM}
+        />
       </JBSelect>
     </div>
   );

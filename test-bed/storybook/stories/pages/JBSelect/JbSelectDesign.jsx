@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
-import { JBSelect } from "jb-select/react";
+import { JBSelect,JBOption } from "jb-select/react";
 import "./JBSelectDesign.css";
 
-function JBSelectDesign(props) {
-  const [colorList, colorListSetter] = useState([
+function JBSelectDesign() {
+  const [colorList] = useState([
     {
       id: 1,
       name: "Red",
@@ -26,16 +25,6 @@ function JBSelectDesign(props) {
       value: "#ff0",
     },
   ]);
-  function getOptionDOM(option, onOptionSelected) {
-    const optionElement = document.createElement("div");
-    optionElement.classList.add("select-option");
-    //it has defualt function who return wxact same input
-    optionElement.innerHTML =
-      '<span part="color-box" style="background-color:' + option.value +
-      ';width:16px;height:16px"></span>' + "&nbsp;" + option.name;
-    optionElement.addEventListener("click", onOptionSelected);
-    return optionElement;
-  }
   function getSelectedValueDOM(option) {
     const optionElement = document.createElement("div");
     optionElement.classList.add("selected-value");
@@ -44,18 +33,15 @@ function JBSelectDesign(props) {
       ';width:16px;height:16px"></span>' + "&nbsp;" + option.name;
     return optionElement;
   }
-  function getOptionTitle(option) {
-    return option.name;
-  }
   return (
     <div className="select-wrapper">
       <JBSelect
         searchPlaceholder="جست و جو"
-        optionList={colorList}
         getSelectedValueDOM={getSelectedValueDOM}
-        getOptionDOM={getOptionDOM}
-        getOptionTitle={getOptionTitle}
       >
+        {
+          colorList.map((o)=>(<JBOption value={o} key={o.value}><span className="color-circle" style={{backgroundColor:o.value}}></span>{o.name}</JBOption>))
+        }
         <div style={{ height: "24px" }} slot="select-arrow-icon">
           <svg
             width="24"
@@ -78,7 +64,4 @@ function JBSelectDesign(props) {
     </div>
   );
 }
-
-JBSelectDesign.propTypes = {};
-
 export default JBSelectDesign;
