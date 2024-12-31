@@ -560,9 +560,8 @@ const reactComponentList: ReactComponentBuildConfig[] = [
     outputPath: "/web-component/jb-form/react/dist/JBForm.js",
     external: ["jb-form", "react"],
     globals: {
-      react: "React",
+      'react': "React",
       'jb-form': "JBForm",
-      "prop-types": "PropTypes",
     },
   },
   {
