@@ -1,5 +1,5 @@
 import React from 'react';
-import {JBPaymentInput} from 'jb-payment-input-react';
+import {JBPaymentInput} from 'jb-payment-input/react';
 import 'jb-payment-input/bank-indicator';
 export default {
   title: 'Example/Input/JBPaymentInput',

@@ -1,10 +1,10 @@
-import React from 'react'
+import React from 'react';
 import { JBDateInput } from 'jb-date-input/react';
 import { JBInput } from 'jb-input/react';
-import { JBSelect } from "jb-select/react";
+import { JBOptionList, JBSelect } from "jb-select/react";
 import { JBTextarea } from "jb-textarea/react";
-import { JBPaymentInput } from "jb-payment-input-react";
-import { JBImageInput } from "jb-image-input-react";
+import { JBPaymentInput } from "jb-payment-input/react";
+import { JBImageInput } from "jb-image-input/react";
 
 const genderList = ["male","female"];
 export function PersonForm() {
@@ -13,7 +13,9 @@ export function PersonForm() {
       <JBInput name="name" required label="نام" />
       <JBDateInput name="birthDate" required label="تاریخ تولد" format="YYYY-MM-DD" />
       <JBDateInput name="applyDate" required label="apply date" />
-      <JBSelect name="gender" optionList={genderList} label="جنسیت" required />
+      <JBSelect name="gender" label="جنسیت" required>
+        <JBOptionList optionList={genderList}></JBOptionList>
+      </JBSelect>
       <JBImageInput name="avatar" label="نمایه" required maxFileSize={500 * 1024} />
       <JBTextarea label="توضیحات" name="description" required />
     </div>

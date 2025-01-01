@@ -1,6 +1,6 @@
 import React from "react";
 
-import { JBButton } from "../../../react-component/jb-button/";
+import { JBButton } from "jb-button/react";
 
 export default {
   title: "Example/JBButton",

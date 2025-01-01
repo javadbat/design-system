@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { JBImageInput } from "jb-image-input-react";
+import React from "react";
+import { JBImageInput } from "jb-image-input/react";
 import Axios from "axios";
 const bridge = {
   uploader: (file, config) => {

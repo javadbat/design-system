@@ -18,7 +18,6 @@
     "jb-file-input": "file:./web-component/jb-file-input",
     "jb-grid": "./react-component/jb-grid",
     "jb-image-input": "file:./web-component/jb-image-input",
-    "jb-image-input-react": "file:./react-component/jb-image-input",
     "jb-input": "file:./web-component/jb-input/index.js",
     "jb-loading": "file:./web-component/jb-loading",
     "jb-mobile-input": "file:./web-component/jb-mobile-input",
