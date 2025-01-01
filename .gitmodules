@@ -38,10 +38,6 @@
 	path = react-component/jb-checkbox
 	url = https://github.com/javadbat/jb-checkbox-react.git
 	branch = master
-[submodule "react-component/jb-switch"]
-	path = react-component/jb-switch
-	url = https://github.com/javadbat/jb-switch-react.git
-	branch = master
 [submodule "react-component/jb-grid"]
 	path = react-component/jb-grid
 	url = https://github.com/javadbat/jb-grid-react.git
