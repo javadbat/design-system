@@ -35,6 +35,7 @@ npm run build
 npm run build jb-input
 ```
 in deno (recommended):
+
 ```bash
 deno task build
 deno task build jb-input
