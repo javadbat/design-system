@@ -67,6 +67,11 @@ function CustomizedOptions() {
           getContentDOM={getOptionDOM}
         />
       </JBSelect>
+      <JBSelect>
+        <JBOption value={{ name: "ali", age: 10 }}>Ali</JBOption>
+        <JBOption value={{ name: "reza", age: 12 }}>Reza</JBOption>
+        <JBOption value={{ name: "joe", age: 14 }}>Joe</JBOption>
+      </JBSelect>
     </div>
   );
 }
