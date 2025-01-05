@@ -34,6 +34,7 @@ module.exports = async ({ config }) => {
       path.resolve(__dirname, '..','..', '..', 'web-component','jb-date-input'),
       path.resolve(__dirname, '..','..', '..', 'web-component','jb-button'),
       path.resolve(__dirname, '..','..', '..', 'web-component','jb-select'),
+      path.resolve(__dirname, '..','..', '..', 'web-component','jb-file-input'),
     ],
     alias:{
       ...config.resolve.alias,

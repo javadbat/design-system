@@ -566,8 +566,8 @@ const reactComponentList: ReactComponentBuildConfig[] = [
   },
   {
     name: "jb-file-input-react",
-    path: "/react-component/jb-file-input/lib/JBFileInput.tsx",
-    outputPath: "/react-component/jb-file-input/dist/JBFileInput.js",
+    path: "/web-component/jb-file-input/react/lib/JBFileInput.tsx",
+    outputPath: "/web-component/jb-file-input/react/dist/JBFileInput.js",
     external: ["jb-file-input", "prop-types", "react"],
     globals: {
       react: "React",
