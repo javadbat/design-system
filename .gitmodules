@@ -109,10 +109,6 @@
 	path = web-component/jb-notification
 	url = https://github.com/javadbat/jb-notification.git
 	branch = main
-[submodule "react-component/jb-file-input"]
-	path = react-component/jb-file-input
-	url = https://github.com/javadbat/jb-file-input-react.git
-	branch = main
 [submodule "web-component/jb-switch"]
 	path = web-component/jb-switch
 	url = https://github.com/javadbat/jb-switch.git
