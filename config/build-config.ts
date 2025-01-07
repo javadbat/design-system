@@ -151,8 +151,8 @@ const webComponentList: WebComponentBuildConfig[] = [
   },
   {
     name: "jb-pin-input",
-    path: "/web-component/jb-pin-input/lib/JBPinInput.ts",
-    outputPath: "/web-component/jb-pin-input/dist/JBPinInput.js",
+    path: "/web-component/jb-pin-input/lib/jb-pin-input.ts",
+    outputPath: "/web-component/jb-pin-input/dist/jb-pin-input.js",
     external: [],
     umdName: "JBPinInput",
   },
@@ -536,8 +536,8 @@ const reactComponentList: ReactComponentBuildConfig[] = [
   },
   {
     name: "jb-pin-input-react",
-    path: "/react-component/jb-pin-input/lib/JBPinInput.tsx",
-    outputPath: "/react-component/jb-pin-input/dist/JBPinInput.js",
+    path: "/web-component/jb-pin-input/react/lib/JBPinInput.tsx",
+    outputPath: "/web-component/jb-pin-input/react/dist/JBPinInput.js",
     external: ["jb-pin-input", "prop-types", "react"],
     globals: {
       react: "React",
