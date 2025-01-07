@@ -546,10 +546,11 @@ const reactComponentList: ReactComponentBuildConfig[] = [
   },
   {
     name: "jb-loading-react",
-    path: "/react-component/jb-loading/lib/JBLoading.tsx",
-    outputPath: "/react-component/jb-loading/dist/JBLoading.js",
+    path: "/web-component/jb-loading/react/lib/JBLoading.tsx",
+    outputPath: "/web-component/jb-loading/react/dist/JBLoading.js",
     external: ["jb-loading", "prop-types", "react"],
     globals: {
+      "jb-loading":"JBLoading",
       react: "React",
       "prop-types": "PropTypes",
     },
