@@ -153,8 +153,11 @@ const webComponentList: WebComponentBuildConfig[] = [
     name: "jb-pin-input",
     path: "/web-component/jb-pin-input/lib/jb-pin-input.ts",
     outputPath: "/web-component/jb-pin-input/dist/jb-pin-input.js",
-    external: [],
     umdName: "JBPinInput",
+    external: ["jb-validation","jb-form"],
+    globals: {
+      "jb-validation": "JBValidation",
+    },
   },
   {
     name: "bank-indicator",
