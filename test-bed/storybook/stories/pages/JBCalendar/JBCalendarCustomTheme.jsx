@@ -1,6 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import {JBCalendar} from 'jb-calendar-react';
+import {JBCalendar} from 'jb-calendar/react';
 import './JBCalendarCustomTheme.css';
 function JBCalendarCustomTheme(props) {
   return (

@@ -38,17 +38,16 @@ module.exports = async ({ config }) => {
       path.resolve(__dirname, '..','..', '..', 'web-component','jb-loading'),
       path.resolve(__dirname, '..','..', '..', 'web-component','jb-switch'),
       path.resolve(__dirname, '..','..', '..', 'web-component','jb-pin-input'),
+      path.resolve(__dirname, '..','..', '..', 'web-component','jb-calendar'),
     ],
     alias:{
       ...config.resolve.alias,
       react: path.resolve('node_modules/react'),
       'jb-grid': path.resolve(__dirname, '..','..', '..', 'react-component','jb-grid', 'index.js'),
-      'jb-calendar': path.resolve(__dirname, '..','..', '..', 'web-component','jb-calendar', 'dist', 'jb-calendar.js'),
       'jb-time-picker': path.resolve(__dirname, '..','..', '..', 'web-component','jb-time-picker', 'dist', 'jb-time-picker.js'),
       'jb-searchbar': path.resolve(__dirname, '..','..', '..', 'web-component','jb-searchbar', 'dist', 'jb-searchbar.js'),
       'jb-modal':path.resolve(__dirname, '..','..', '..', 'web-component','jb-modal'),
       'jb-message':path.resolve(__dirname, '..','..', '..', 'modules','jb-message'),
-      'jb-calendar-react': path.resolve(__dirname, '..','..', '..', 'react-component','jb-calendar', 'dist', 'JBCalendar.js'),
     }
   }
   return config;

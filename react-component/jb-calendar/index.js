@@ -1,1 +1,0 @@
-import {JBCalendar} from './dist/JBCalendar.js';

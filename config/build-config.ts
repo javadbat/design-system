@@ -325,8 +325,8 @@ const reactComponentList: ReactComponentBuildConfig[] = [
   },
   {
     name: "jb-calendar-react",
-    path: "/react-component/jb-calendar/lib/JBCalendar.tsx",
-    outputPath: "/react-component/jb-calendar/dist/JBCalendar.js",
+    path: "/web-component/jb-calendar/react/lib/JBCalendar.tsx",
+    outputPath: "/web-component/jb-calendar/react/dist/JBCalendar.js",
     external: ["jb-calendar", "prop-types", "react"],
     globals: {
       react: "React",
