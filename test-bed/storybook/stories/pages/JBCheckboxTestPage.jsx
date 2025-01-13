@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {JBCheckbox} from 'jb-checkbox-react';
+import {JBCheckbox} from 'jb-checkbox/react';
 function JBCheckboxTest (props){
   const [value, inputValueSetter] = useState("");
   return (

@@ -65,6 +65,7 @@
     "jb-switch": "file:./web-component/jb-switch",
     "jb-switch-react": "file:./react-component/jb-switch",
     "jb-textarea": "file:./web-component/jb-textarea",
+    "jb-checkbox": "file:./web-component/jb-checkbox",
     "jb-time-input": "file:./web-component/jb-time-input",
     "jb-time-picker": "file:./web-component/jb-time-picker",
     "jb-validation": "file:./modules/jb-validation",

@@ -1,5 +1,6 @@
 import React from 'react';
-import {JBCheckbox} from 'jb-checkbox-react';
+import {JBCheckbox} from 'jb-checkbox/react';
+import 'jb-checkbox';
 import { action } from '@storybook/addon-actions';
 import JBCheckboxTest from '../stories/pages/JBCheckboxTestPage';
 export default {
@@ -7,7 +8,8 @@ export default {
   component: JBCheckbox
 };
 
-const Template = (args) => <JBCheckbox label={args.label} value={args.value} onChange={args.onChange}></JBCheckbox>;
+// const Template = (args) => <JBCheckbox label={args.label} value={args.value} onChange={args.onChange}></JBCheckbox>;
+const Template = (args) => <jb-checkbox label={args.label} value={args.value} onChange={args.onChange}></jb-checkbox>;
 
 export const Normal = Template.bind({});
 Normal.args = {

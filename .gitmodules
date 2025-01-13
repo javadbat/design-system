@@ -132,3 +132,6 @@
 [submodule "web-component/jb-form"]
 	path = web-component/jb-form
 	url = https://github.com/javadbat/jb-form.git
+[submodule "web-component/jb-checkbox"]
+	path = web-component/jb-checkbox
+	url = https://github.com/javadbat/jb-checkbox

@@ -43,6 +43,16 @@ const webComponentList: WebComponentBuildConfig[] = [
     },
   },
   {
+    name: "jb-checkbox",
+    path: "/web-component/jb-checkbox/lib/jb-checkbox.ts",
+    outputPath: "/web-component/jb-checkbox/dist/jb-checkbox.js",
+    umdName: "JBCheckbox",
+    external: ["jb-validation","jb-form"],
+    globals: {
+      "jb-validation": "JBValidation",
+    },
+  },
+  {
     name: "jb-button",
     path: "/web-component/jb-button/lib/jb-button.ts",
     outputPath: "/web-component/jb-button/dist/jb-button.js",
