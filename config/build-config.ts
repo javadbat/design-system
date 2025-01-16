@@ -345,9 +345,9 @@ const reactComponentList: ReactComponentBuildConfig[] = [
   },
   {
     name: "jb-checkbox-react",
-    path: "/react-component/jb-checkbox/lib/JBCheckbox.tsx",
-    outputPath: "/react-component/jb-checkbox/dist/JBCheckbox.js",
-    external: ["prop-types", "react"],
+    path: "/web-component/jb-checkbox/react/lib/JBCheckbox.tsx",
+    outputPath: "/web-component/jb-checkbox/react/dist/JBCheckbox.js",
+    external: ["prop-types", "react", "jb-checkbox"],
     globals: {
       react: "React",
       "prop-types": "PropTypes",
