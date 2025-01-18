@@ -1,5 +1,5 @@
 import React from 'react';
-import {JBSearchbar} from '../../../react-component/jb-searchbar/dist/JBSearchbar';
+import {JBSearchbar} from 'jb-searchbar/react';
 export default {
   title: 'Example/JBSearchbar',
   component: JBSearchbar

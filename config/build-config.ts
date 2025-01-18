@@ -366,12 +366,13 @@ const reactComponentList: ReactComponentBuildConfig[] = [
   },
   {
     name: "jb-searchbar-react",
-    path: "/react-component/jb-searchbar/lib/JBSearchbar.tsx",
-    outputPath: "/react-component/jb-searchbar/dist/JBSearchbar.js",
-    external: ["prop-types", "react", "jb-input", "jb-select", "jb-date-input"],
+    path: "/web-component/jb-searchbar/react/lib/JBSearchbar.tsx",
+    outputPath: "/web-component/jb-searchbar/react/dist/JBSearchbar.js",
+    external: ["prop-types", "react", "jb-searchbar"],
     globals: {
       react: "React",
       "prop-types": "PropTypes",
+      "jb-searchbar":"JBSearchbar",
     },
   },
   {

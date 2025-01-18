@@ -40,13 +40,13 @@ module.exports = async ({ config }) => {
       path.resolve(__dirname, '..','..', '..', 'web-component','jb-pin-input'),
       path.resolve(__dirname, '..','..', '..', 'web-component','jb-calendar'),
       path.resolve(__dirname, '..','..', '..', 'web-component','jb-checkbox'),
+      path.resolve(__dirname, '..','..', '..', 'web-component','jb-searchbar'),
     ],
     alias:{
       ...config.resolve.alias,
       react: path.resolve('node_modules/react'),
       'jb-grid': path.resolve(__dirname, '..','..', '..', 'react-component','jb-grid', 'index.js'),
       'jb-time-picker': path.resolve(__dirname, '..','..', '..', 'web-component','jb-time-picker', 'dist', 'jb-time-picker.js'),
-      'jb-searchbar': path.resolve(__dirname, '..','..', '..', 'web-component','jb-searchbar', 'dist', 'jb-searchbar.js'),
       'jb-modal':path.resolve(__dirname, '..','..', '..', 'web-component','jb-modal'),
       'jb-message':path.resolve(__dirname, '..','..', '..', 'modules','jb-message'),
     }
