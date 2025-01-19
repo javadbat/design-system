@@ -386,9 +386,9 @@ const reactComponentList: ReactComponentBuildConfig[] = [
     },
   },
   {
-    name: "jb-grid",
-    path: "/react-component/jb-grid/lib/JBGrid.tsx",
-    outputPath: "/react-component/jb-grid/dist/JBGrid.js",
+    name: "jb-grid-react",
+    path: "/web-component/jb-grid/react/lib/JBGrid.tsx",
+    outputPath: "/web-component/jb-grid/react/dist/JBGrid.js",
     external: ["mobx-react", "react", "mobx", "prop-types", "jb-searchbar"],
     globals: {
       react: "React",

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './JBGridTest.css';
-import { Cell, Row, JBGrid, ExpandRow } from 'jb-grid';
+import { Cell, Row, JBGrid, ExpandRow } from 'jb-grid/react';
 
 import JBGridBridge from './JBGridBridge';
 import JBGridTestViewModel from './JBGridTestViewModel';

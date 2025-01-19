@@ -1,5 +1,5 @@
 import React from 'react';
-import {JBGridData, JBGrid} from 'jb-grid';
+import {JBGridData, JBGrid} from 'jb-grid/react';
 import JBGridTest from './pages/jb-grid/JBGridTest.jsx';
 import CustomErrorTest from './pages/jb-grid/custom-error/JBGridTest.jsx';
 export default {

@@ -16,7 +16,7 @@
     "jb-checkbox-react": "file:./react-component/jb-checkbox",
     "jb-date-input": "file:./web-component/jb-date-input",
     "jb-file-input": "file:./web-component/jb-file-input",
-    "jb-grid": "./react-component/jb-grid",
+    "jb-grid": "./web-component/jb-grid",
     "jb-image-input": "file:./web-component/jb-image-input",
     "jb-input": "file:./web-component/jb-input/index.js",
     "jb-loading": "file:./web-component/jb-loading",

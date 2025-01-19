@@ -1724,7 +1724,6 @@
         "npm:eslint-plugin-import@^2.22.0",
         "npm:eslint-plugin-react@^7.20.6",
         "npm:eslint@^7.9.0",
-        "npm:jb-grid-react@0.19",
         "npm:lodash.clonedeep@^4.5.0",
         "npm:lodash@^4.17.21",
         "npm:mobx-react@7",
