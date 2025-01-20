@@ -392,9 +392,10 @@ const reactComponentList: ReactComponentBuildConfig[] = [
     external: ["mobx-react", "react", "mobx", "prop-types", "jb-searchbar"],
     globals: {
       react: "React",
-      "prop-types": "PropTypes",
       mobx: "MobX",
+      "prop-types": "PropTypes",
       "mobx-react": "mobxReact",
+      "jb-searchbar":"JBSearchbar"
     },
   },
   // {
@@ -530,8 +531,8 @@ const reactComponentList: ReactComponentBuildConfig[] = [
   },
   {
     name: "jb-modal-react",
-    path: "/react-component/jb-modal/lib/JBModal.tsx",
-    outputPath: "/react-component/jb-modal/dist/JBModal.js",
+    path: "/web-component/jb-modal/react/lib/JBModal.tsx",
+    outputPath: "/web-component/jb-modal/react/dist/JBModal.js",
     external: ["jb-modal", "prop-types", "react"],
     globals: {
       react: "React",
