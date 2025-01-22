@@ -43,11 +43,11 @@ module.exports = async ({ config }) => {
       path.resolve(__dirname, '..','..', '..', 'web-component','jb-searchbar'),
       path.resolve(__dirname, '..','..', '..', 'web-component','jb-grid'),
       path.resolve(__dirname, '..','..', '..', 'web-component','jb-time-picker'),
+      path.resolve(__dirname, '..','..', '..', 'web-component','jb-time-modal'),
     ],
     alias:{
       ...config.resolve.alias,
       react: path.resolve('node_modules/react'),
-      'jb-modal':path.resolve(__dirname, '..','..', '..', 'web-component','jb-modal'),
       'jb-message':path.resolve(__dirname, '..','..', '..', 'modules','jb-message'),
     }
   }

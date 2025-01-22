@@ -1,11 +1,11 @@
 import React from 'react';
-import {JBModal} from '../../../react-component/jb-modal';
+import {JBModal} from 'jb-modal/react';
 import NormalP from './pages/JBModal/Normal';
 
 
 export default {
-    title: 'Example/JBModal',
-    component: JBModal
+  title: 'Example/JBModal',
+  component: JBModal
 };
 
 const Template = () => <NormalP></NormalP>;
