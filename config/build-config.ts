@@ -541,12 +541,13 @@ const reactComponentList: ReactComponentBuildConfig[] = [
   },
   {
     name: "jb-infinite-scroll-react",
-    path: "/react-component/jb-infinite-scroll/lib/JBInfiniteScroll.tsx",
-    outputPath: "/react-component/jb-infinite-scroll/dist/JBInfiniteScroll.js",
+    path: "/web-component/jb-infinite-scroll/react/lib/JBInfiniteScroll.tsx",
+    outputPath: "/web-component/jb-infinite-scroll/react/dist/JBInfiniteScroll.js",
     external: ["jb-infinite-scroll", "prop-types", "react"],
     globals: {
       react: "React",
       "prop-types": "PropTypes",
+      "jb-infinite-scroll":"JBInfiniteScroll",
     },
   },
   {

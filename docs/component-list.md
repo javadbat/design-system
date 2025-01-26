@@ -1,4 +1,11 @@
-## Components List
+# Components List
+
+## form elements:
+- [jb-select](https://github.com/javadbat/jb-select)
+- [jb-switch](https://github.com/javadbat/jb-switch)
+- [jb-checkbox](https://github.com/javadbat/jb-checkbox)
+- [jb-pin-input](https://github.com/javadbat/jb-pin-input)
+- [jb-textarea](https://github.com/javadbat/jb-textarea)
 
 ## inputs: 
 - [jb-input](https://github.com/javadbat/jb-input)
@@ -19,12 +26,7 @@
 - [jb-file-input](https://github.com/javadbat/jb-file-input)
 - [jb-image-input](https://github.com/javadbat/jb-image-input)
 
-## form elements:
-- [jb-select](https://github.com/javadbat/jb-select)
-- [jb-switch](https://github.com/javadbat/jb-switch)
-- [jb-checkbox](https://github.com/javadbat/jb-checkbox)
-- [jb-pin-input](https://github.com/javadbat/jb-pin-input)
-- [jb-textarea](https://github.com/javadbat/jb-textarea)
+
 
 ## basic elements:
 - [jb-loading](https://github.com/javadbat/jb-loading)

@@ -44,6 +44,7 @@ module.exports = async ({ config }) => {
       path.resolve(__dirname, '..','..', '..', 'web-component','jb-grid'),
       path.resolve(__dirname, '..','..', '..', 'web-component','jb-time-picker'),
       path.resolve(__dirname, '..','..', '..', 'web-component','jb-time-modal'),
+      path.resolve(__dirname, '..','..', '..', 'web-component','jb-infinite-scroll'),
     ],
     alias:{
       ...config.resolve.alias,

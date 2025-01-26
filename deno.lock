@@ -1701,6 +1701,7 @@
         "npm:@babel/preset-react@^7.10.4",
         "npm:@babel/preset-typescript@^7.23.3",
         "npm:@babel/runtime@^7.11.2",
+        "npm:@faker-js/faker@^9.4.0",
         "npm:@rollup/plugin-babel@^6.0.4",
         "npm:@rollup/plugin-commonjs@^28.0.1",
         "npm:@rollup/plugin-json@^6.1.0",
