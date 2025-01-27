@@ -1,11 +1,11 @@
-import React, { useRef, useState } from "react";
+import React, { Children, useRef, useState } from "react";
 import { JBInfiniteScroll } from "jb-infinite-scroll/react";
 export default {
   title: "Example/JBInfiniteScroll",
   component: JBInfiniteScroll,
 };
 
-const Template = (args) => <JBInfiniteScroll {...args}></JBInfiniteScroll>;
+const Template = (args) => <JBInfiniteScroll {...args} />;
 export const Normal = Template.bind({});
 Normal.args = {
 };
@@ -30,12 +30,12 @@ export const ActionTemplate = {
           setList([...list,...[i+1,i+2,i+3,i+4,i+5,i+6,i+7,i+8,i+9]]);
           setIsLoading(false);
         },1000);
-      }
+      };
       return (
         <div style={{ height: "10rem", border: "solid 1px #666", overflow:"hidden" }}>
           {/* 👇 Decorators in Storybook also accept a function. Replace <Story/> with Story() to enable it  */}
           <JBInfiniteScroll {...args} ref={ref} onScrollEnd={onScrollEnd} isLoading={isLoading} isListEnded={isListEnded} disableCaptureScroll={isLoading}>
-            <div slot="infinite-scroll-content">
+            <div slot="content">
               {
                 list.map((item)=>{
                   return(<div key={item} style={{border:'solid 1px #black', fontSize:'3rem', textAlign:'center', padding:'2rem'}}>{item}</div>);
@@ -50,5 +50,10 @@ export const ActionTemplate = {
 ActionTemplate.args = {
 };
 
+export const Empty = Template.bind({});
+Empty.args = {
+  isListEmpty:true,
+  children:<div slot="empty">list is empty</div>,
+};
 
 
