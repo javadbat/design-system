@@ -9,10 +9,6 @@
         "path": "../web-component"
       },
       {
-        "name": "front/react-components",
-        "path": "../react-component"
-      },
-      {
         "name": "front/common",
         "path": "../common"
       },
