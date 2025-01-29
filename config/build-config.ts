@@ -57,15 +57,15 @@ const webComponentList: WebComponentBuildConfig[] = [
     //because date-fns dont have any umd module export i have to do this so it doenst exclude in umd build
     umdIncludes: ["date-fns", "date-fns-jalali"],
   },
-  {
-    name: "jb-date-input",
-    path: "/web-component/jb-date-input/lib/jb-date-input.ts",
-    outputPath: "/web-component/jb-date-input/dist/jb-date-input.js",
-    umdName: "JBDateInput",
-    external: ["date-fns", "date-fns-jalali", "jb-calendar","jb-input","jb-popover","jb-validation"],
-    //because date-fns dont have any umd module export i have to do this so it doesn't exclude in umd build
-    umdIncludes: ["date-fns", "date-fns-jalali", "jb-calendar","jb-input","jb-popover","jb-validation"],
-  },
+  // {
+  //   name: "jb-date-input",
+  //   path: "/web-component/jb-date-input/lib/jb-date-input.ts",
+  //   outputPath: "/web-component/jb-date-input/dist/jb-date-input.js",
+  //   umdName: "JBDateInput",
+  //   external: ["date-fns", "date-fns-jalali", "jb-calendar","jb-input","jb-popover","jb-validation"],
+  //   //because date-fns dont have any umd module export i have to do this so it doesn't exclude in umd build
+  //   umdIncludes: ["date-fns", "date-fns-jalali", "jb-calendar","jb-input","jb-popover","jb-validation"],
+  // },
   {
     name: "jb-file-input",
     path: "/web-component/jb-file-input/lib/jb-file-input.ts",
@@ -390,18 +390,18 @@ const reactComponentList: ReactComponentBuildConfig[] = [
       "prop-types": "PropTypes",
     },
   },
-  {
-    name: "jb-date-input-react",
-    path: "/web-component/jb-date-input/react/lib/JBDateInput.tsx",
-    outputPath: "/web-component/jb-date-input/react/dist/JBDateInput.js",
-    external: ["react", "prop-types", "jb-date-input", "jb-validation"],
-    globals: {
-      react: "React",
-      "prop-types": "PropTypes",
-      "jb-date-input": "JBDateInput",
-      "jb-validation":"JBValidation",
-    },
-  },
+  // {
+  //   name: "jb-date-input-react",
+  //   path: "/web-component/jb-date-input/react/lib/JBDateInput.tsx",
+  //   outputPath: "/web-component/jb-date-input/react/dist/JBDateInput.js",
+  //   external: ["react", "prop-types", "jb-date-input", "jb-validation"],
+  //   globals: {
+  //     react: "React",
+  //     "prop-types": "PropTypes",
+  //     "jb-date-input": "JBDateInput",
+  //     "jb-validation":"JBValidation",
+  //   },
+  // },
   {
     name: "jb-textarea-react",
     path: "/web-component/jb-textarea/react/lib/JBTextarea.tsx",

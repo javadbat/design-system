@@ -3,7 +3,7 @@
   "version": "0.0.5",
   "exports": "./mod.ts",
   "tasks": {
-    "build": "deno run --allow-run --allow-read --allow-write --allow-net --allow-env --allow-sys --allow-ffi ./tasks/build/build.ts --path=file:///A:/Home/NeveshtAfzar/work/Azad/Azad/design-system/design-system/config/build-config.ts",
+    "build": "deno run --allow-run --allow-read --allow-write --allow-net --allow-env --allow-sys --allow-ffi ./tasks/build/build.ts --path=./config/build-config.ts",
     "start": "deno run --allow-read --allow-net --allow-env --allow-run ./tasks/start/start.ts"
   },
   "exclude": ["web-component/", "react-component/"],
