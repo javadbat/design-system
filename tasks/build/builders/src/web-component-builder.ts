@@ -1,25 +1,32 @@
-import chalk from "npm:chalk";
-import { webComponentList, type WebComponentBuildConfig, } from "../../config/build-config.ts";
-import { generalConfig } from "../../config/general-config.ts";
-import * as path from "https://deno.land/std@0.207.0/path/mod.ts";
+import chalk from "npm:chalk@5.4.1";
+import type { Envs, WebComponentBuildConfig} from './types.ts';
+import * as path from "@std/path";
 //rollup
-import * as rollup from "npm:rollup";
-import html from "npm:rollup-plugin-html";
-import postcss from "npm:rollup-plugin-postcss";
-import rollupJson from "npm:@rollup/plugin-json";
-import resolve from "npm:@rollup/plugin-node-resolve";
-import rollupReplace from "npm:@rollup/plugin-replace";
+import * as rollup from "npm:rollup@4.32.1";
+import html from "npm:rollup-plugin-html@0.2.1";
+import postcss from "npm:rollup-plugin-postcss@4.0.2";
+import rollupJson from "npm:@rollup/plugin-json@6.1.0";
+import resolve from "npm:@rollup/plugin-node-resolve@16.0.0";
+import rollupReplace from "npm:@rollup/plugin-replace@6.0.2";
 //config
 //import typescript from '@rollup/plugin-typescript';
-import typescript from "npm:rollup-plugin-typescript2";
+import typescript from "npm:rollup-plugin-typescript2@0.36.0";
 // import InlineSvg from 'rollup-plugin-inline-svg';
-import svg from "npm:rollup-plugin-svg";
-import gzipPlugin from "npm:rollup-plugin-gzip";
-import brotli from "npm:rollup-plugin-brotli";
-import terser from "npm:@rollup/plugin-terser";
-import type { ModuleFormat } from "npm:rollup";
+import svg from "npm:rollup-plugin-svg@2.0.0";
+import gzipPlugin from "npm:rollup-plugin-gzip@4.0.1";
+import brotli from "npm:rollup-plugin-brotli@3.1.0";
+import terser from "npm:@rollup/plugin-terser@0.4.4";
+import type { ModuleFormat } from "npm:rollup@4.32.1";
 export class WebComponentBuilder {
-  async buildAllComponents() {
+  envs:Envs = {
+    nodeEnv: "production"
+  }
+  constructor(envs?:Envs){
+    if(envs){
+      this.envs = envs;
+    }
+  }
+  async buildAllComponents(webComponentList:WebComponentBuildConfig[]) {
     for (const component of webComponentList) {
       await this.buildComponent(component);
     }
@@ -105,7 +112,7 @@ export class WebComponentBuilder {
         (el) => !module.umdIncludes?.includes(el)
       );
     }
-    const env = generalConfig.env;
+    const env = this.envs.nodeEnv;
     let plugins = [
       html({
         include: "**/*.html",

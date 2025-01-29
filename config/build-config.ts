@@ -1,23 +1,5 @@
-export type WebComponentBuildConfig = {
-  name: string;
-  path: string;
-  outputPath: string;
-  umdName: string;
-  external?: string[];
-  umdIncludes?: string[];
-  tsconfigPath?:string;
-  globals?: { [key: string]: string };
-};
-export type ReactComponentBuildConfig = {
-  name: string;
-  path: string;
-  outputPath: string;
-  umdName?: string;
-  external?: string[];
-  umdIncludes?: string[];
-  globals?: { [key: string]: string };
-  tsconfigPath?:string;
-};
+import type { ReactComponentBuildConfig, WebComponentBuildConfig } from "../tasks/build/builders/src/types.ts";
+
 const webComponentList: WebComponentBuildConfig[] = [
   //TODO: separate modules from web-components
   {
@@ -398,36 +380,6 @@ const reactComponentList: ReactComponentBuildConfig[] = [
       "jb-searchbar":"JBSearchbar"
     },
   },
-  // {
-  //     name: 'jb-grid-row',
-  //     path: '/react-component/jb-grid/lib/Components/Row.js',
-  //     outputPath:'/react-component/jb-grid/dist/Components/Row.js',
-  //     external:['react','prop-types'],
-  //     globals:{
-  //         'react':'React',
-  //         'prop-types':'PropTypes'
-  //     }
-  // },
-  // {
-  //     name: 'jb-grid-expand-row',
-  //     path: '/react-component/jb-grid/lib/Components/ExpandRow.js',
-  //     outputPath:'/react-component/jb-grid/dist/Components/ExpandRow.js',
-  //     external:['react','prop-types'],
-  //     globals:{
-  //         'react':'React',
-  //         'prop-types':'PropTypes'
-  //     }
-  // },
-  // {
-  //     name: 'jb-grid-cell',
-  //     path: '/react-component/jb-grid/lib/Components/Cell.js',
-  //     outputPath:'/react-component/jb-grid/dist/Components/Cell.js',
-  //     external:['react','prop-types'],
-  //     globals:{
-  //         'react':'React',
-  //         'prop-types':'PropTypes'
-  //     }
-  // },
   {
     name: "jb-time-input-react",
     path: "/web-component/jb-time-input/react/lib/JBTimeInput.tsx",

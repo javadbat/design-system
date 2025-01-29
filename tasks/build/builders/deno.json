@@ -1,0 +1,25 @@
+{
+  "name": "@design-system/builders",
+  "version": "0.0.1",
+  "exports": "./mod.ts",
+  "tasks": {
+    "build": "deno run --allow-run --allow-read --allow-write --allow-net --allow-env --allow-sys --allow-ffi ./tasks/build/build.ts ",
+    "start": "deno run --allow-read --allow-net --allow-env --allow-run ./tasks/start/start.ts"
+  },
+  "exclude": ["web-component/", "react-component/"],
+  "imports": {
+    "./": "./",
+    "/": "./",
+    "@std/path": "jsr:@std/path@^1.0.3",
+    "@std/cli": "jsr:@std/cli@^1.0.11",
+    "rollup-plugin-gzip": "npm:rollup-plugin-gzip@^4.0.0"
+  },
+  "compilerOptions": {
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "dom.asynciterable",
+      "deno.ns"
+    ]
+  }
+}

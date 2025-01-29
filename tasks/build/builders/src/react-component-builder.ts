@@ -1,42 +1,41 @@
 import * as path from "@std/path";
 //rollup
-import * as rollup from "npm:rollup";
-import {babel as rollupBabel} from "npm:@rollup/plugin-babel";
-import postcss from "npm:rollup-plugin-postcss";
-import commonjs from "npm:@rollup/plugin-commonjs";
-import rollupJson from "npm:@rollup/plugin-json";
-import resolve from "npm:@rollup/plugin-node-resolve";
-import rollupReplace from "npm:@rollup/plugin-replace";
+import * as rollup from "npm:rollup@4.32.1";
+import { babel as rollupBabel } from "npm:@rollup/plugin-babel@6.0.4";
+import postcss from "npm:rollup-plugin-postcss@4.0.2";
+import commonjs from "npm:@rollup/plugin-commonjs@28.0.2";
+import rollupJson from "npm:@rollup/plugin-json@6.1.0";
+import resolve from "npm:@rollup/plugin-node-resolve@16.0.0";
+import rollupReplace from "npm:@rollup/plugin-replace@6.0.2";
 //config
-import {
-  reactComponentList,
-  type ReactComponentBuildConfig,
-} from "../../config/build-config.ts";
-import { generalConfig } from "../../config/general-config.ts";
-import chalk from "npm:chalk";
-import typescript from "npm:rollup-plugin-typescript2";
-import { DEFAULT_EXTENSIONS } from "npm:@babel/core";
+import type { Envs, ReactComponentBuildConfig } from './types.ts';
+import chalk from "npm:chalk@5.4.1";
+import typescript from "npm:rollup-plugin-typescript2@0.36.0";
+import { DEFAULT_EXTENSIONS } from "npm:@babel/core@7.26.7";
 export class ReactComponentBuilder {
-  async buildAllComponent() {
+  envs: Envs = {
+    nodeEnv: "production"
+  }
+  async buildAllComponent(reactComponentList: ReactComponentBuildConfig[]) {
     for (const reactComponent of reactComponentList) {
       await this.buildComponent(reactComponent);
     }
   }
-  async buildComponent(component: ReactComponentBuildConfig,watch = false) {
+  async buildComponent(component: ReactComponentBuildConfig, watch = false) {
     console.log(`start building ${component.name}`);
-    const inputOptions = this.#getInputOption(component,watch);
+    const inputOptions = this.#getInputOption(component, watch);
     const esOutputOptions = this.#getOutputOption(component, "es");
     const cjsOutputOptions = this.#getOutputOption(component, "cjs");
     const umdOutputOptions = this.#getOutputOption(component, "umd");
-    try{
-      if(watch){
-        this.#buildAndWatchModule(inputOptions,esOutputOptions,component);
-      }else{
+    try {
+      if (watch) {
+        this.#buildAndWatchModule(inputOptions, esOutputOptions, component);
+      } else {
         await this.buildModule(inputOptions, esOutputOptions, "ES");
         await this.buildModule(inputOptions, cjsOutputOptions, "CJS");
         await this.buildModule(inputOptions, umdOutputOptions, "UMD");
       }
-    }catch(e){
+    } catch (e: any) {
       console.error(component.name + ' build failed');
       console.error(e.message);
     }
@@ -68,7 +67,7 @@ export class ReactComponentBuilder {
         });
     });
   }
-  #buildAndWatchModule(inputOptions:rollup.RollupOptions, outputOptions:rollup.OutputOptions, module:ReactComponentBuildConfig) {
+  #buildAndWatchModule(inputOptions: rollup.RollupOptions, outputOptions: rollup.OutputOptions, module: ReactComponentBuildConfig) {
     return new Promise<void>((resolve, reject) => {
       const watcher = rollup.watch({
         ...inputOptions,
@@ -80,7 +79,7 @@ export class ReactComponentBuilder {
       this.#watcherEventHandler(watcher, resolve, reject);
     });
   }
-  #watcherEventHandler(watcher:rollup.RollupWatcher, resolver:()=>void, rejecter:()=>void) {
+  #watcherEventHandler(watcher: rollup.RollupWatcher, resolver: () => void, rejecter: () => void) {
     watcher.on('event', event => {
       if (event.code === 'BUNDLE_START') {
         console.log('Bundling...');
@@ -89,7 +88,7 @@ export class ReactComponentBuilder {
         resolver();
       } else if (event.code === 'ERROR') {
         console.log(event);
-        
+
         console.error(chalk.red((event as any).error));
         rejecter();
       }
@@ -99,12 +98,12 @@ export class ReactComponentBuilder {
       }
     });
   }
-  #getInputOption(module: ReactComponentBuildConfig, watchMode:boolean):rollup.InputOptions{
+  #getInputOption(module: ReactComponentBuildConfig, watchMode: boolean): rollup.InputOptions {
     const externalList = module.external || [];
     const plugins = [
       //@ts-ignore
       rollupReplace({
-        "process.env.NODE_ENV": `"${generalConfig.env}"`,
+        "process.env.NODE_ENV": `"${this.envs.nodeEnv}"`,
         preventAssignment: true,
       }),
       //@ts-ignore
@@ -148,7 +147,7 @@ export class ReactComponentBuilder {
     const isTypeScriptModule = this.#isTypeScriptModule(module);
     if (isTypeScriptModule) {
       const moduleFolderPathArr = path.join(...module.path.split('/').slice(0, -2));
-      const tsConfigFilePath = module.tsconfigPath?module.tsconfigPath:path.join(moduleFolderPathArr,"tsconfig.json");
+      const tsConfigFilePath = module.tsconfigPath ? module.tsconfigPath : path.join(moduleFolderPathArr, "tsconfig.json");
       plugins.push(
         //@ts-ignore
         typescript({
@@ -168,7 +167,7 @@ export class ReactComponentBuilder {
     };
     return inputOptions;
   }
-  #getOutputOption(module: ReactComponentBuildConfig,format: "umd" | "es" | "cjs"):rollup.OutputOptions{
+  #getOutputOption(module: ReactComponentBuildConfig, format: "umd" | "es" | "cjs"): rollup.OutputOptions {
     const pathArr = module.outputPath.split("/");
     const fullFileName = pathArr[pathArr.length - 1];
     const fileName = path.parse(fullFileName).name;
