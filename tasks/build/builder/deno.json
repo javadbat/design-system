@@ -1,11 +1,7 @@
 {
-  "name": "@design-system/builders",
+  "name": "@design-system/builder",
   "version": "0.0.1",
   "exports": "./mod.ts",
-  "tasks": {
-    "build": "deno run --allow-run --allow-read --allow-write --allow-net --allow-env --allow-sys --allow-ffi ./tasks/build/build.ts ",
-    "start": "deno run --allow-read --allow-net --allow-env --allow-run ./tasks/start/start.ts"
-  },
   "exclude": ["web-component/", "react-component/"],
   "imports": {
     "./": "./",
@@ -17,8 +13,6 @@
   "compilerOptions": {
     "lib": [
       "dom",
-      "dom.iterable",
-      "dom.asynciterable",
       "deno.ns"
     ]
   }
