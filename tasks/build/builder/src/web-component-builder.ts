@@ -58,15 +58,18 @@ export class WebComponentBuilder {
   }
   buildModule(inputOptions: rollup.RollupOptions, outputOptions: rollup.OutputOptions, type: "ES" | "CJS" | "UMD") {
     //build module with rollup without any watch or something
-    const bundlePromise = rollup.rollup(inputOptions);
-    bundlePromise.then(function (bundle) {
-      bundle.write(outputOptions).then(function (output) {
-        console.log(chalk.greenBright(output.output[0].facadeModuleId), ' ', chalk.bgBlue(` ${type} `), ' ', chalk.bgMagenta(' DONE '));
+    return new Promise((resolve, reject) => {
+      const bundlePromise = rollup.rollup(inputOptions);
+      bundlePromise.then(function (bundle) {
+        bundle.write(outputOptions).then(function (output) {
+          console.log(chalk.greenBright(output.output[0].facadeModuleId), ' ', chalk.bgBlue(` ${type} `), ' ', chalk.bgMagenta(' DONE '));
+          resolve(output);
+        });
+      }).catch((e) => {
+        console.error(e.message);
+        reject(e);
       });
-    }).catch((e) => {
-      console.error(e.message);
     });
-    return bundlePromise;
   }
   #buildAndWatchModule(inputOptions: rollup.RollupOptions, outputOptions: rollup.OutputOptions, module: WebComponentBuildConfig) {
     return new Promise<void>((resolve, reject) => {
@@ -100,8 +103,9 @@ export class WebComponentBuilder {
     });
   }
   #getInputOption(module: WebComponentBuildConfig, format: "es" | "cjs" | "umd" = "es", watchMode: boolean): rollup.RollupOptions {
+    
     // remove filename and lib folder name result in web-component/jb-input
-    const moduleFolderPathArr = path.join(...module.path.split('/').slice(0, -2));
+    const moduleFolderPathArr = path.join(...module.path.split(path.SEPARATOR).slice(0, -2));
     let externalList = module.external || [];
     if (
       format == "umd" &&
@@ -166,7 +170,7 @@ export class WebComponentBuilder {
       );
     }
     const inputOptions = {
-      input: path.join(...module.path.split("/")),
+      input: path.join(module.path),
       external: externalList,
       plugins: plugins,
       // treeshake:"smallest"
@@ -175,10 +179,8 @@ export class WebComponentBuilder {
     return inputOptions;
   }
   #isTypeScriptModule(module: WebComponentBuildConfig) {
-    const filePaths = module.path.split('/');
-    const fileName = filePaths[filePaths.length - 1];
-    const fileExtension = fileName.split('.').pop();
-    return fileExtension === 'ts';
+    const url = path.parse(module.path);
+    return url.ext === '.ts';
   }
   #getTypeScriptCompilerOptions(module: WebComponentBuildConfig, externalList: string[]) {
     const moduleFolderPath = module.path.split("/").slice(0, -1);
@@ -197,17 +199,12 @@ export class WebComponentBuilder {
     };
   }
   #getOutputOption(module: WebComponentBuildConfig, format: ModuleFormat = "es"): rollup.OutputOptions {
-    const pathArr = module.outputPath.split('/');
-    const fullFileName = pathArr[pathArr.length - 1];
-    const fileName = path.parse(fullFileName).name;
-    const fileExtension = path.parse(fullFileName).ext;
-    const outputFileName = `${fileName}${format == 'es' ? '' : ('.' + format)}${fileExtension}`;
-    
-    const dir = pathArr.slice(0, pathArr.length - 1);
+    const pathURL = path.parse(module.outputPath);
+    const outputFileName = `${pathURL.name}${format == 'es' ? '' : ('.' + format)}${pathURL.ext}`;
     const outputOptions = {
       // core output options
       sourcemap: true,
-      dir: path.join(...dir),
+      dir: pathURL.dir,
       entryFileNames: outputFileName,
       format: format, //es for native code , system for systemjs known module, umd for umd package
     };

@@ -146,7 +146,7 @@ export class ReactComponentBuilder {
     ];
     const isTypeScriptModule = this.#isTypeScriptModule(module);
     if (isTypeScriptModule) {
-      const moduleFolderPathArr = path.join(...module.path.split('/').slice(0, -2));
+      const moduleFolderPathArr = path.join(...module.path.split(path.SEPARATOR).slice(0, -2));
       const tsConfigFilePath = module.tsconfigPath ? module.tsconfigPath : path.join(moduleFolderPathArr, "tsconfig.json");
       plugins.push(
         //@ts-ignore
@@ -168,7 +168,8 @@ export class ReactComponentBuilder {
     return inputOptions;
   }
   #getOutputOption(module: ReactComponentBuildConfig, format: "umd" | "es" | "cjs"): rollup.OutputOptions {
-    const pathArr = module.outputPath.split("/");
+    const pathArr = module.outputPath.split(path.SEPARATOR);
+    
     const fullFileName = pathArr[pathArr.length - 1];
     const fileName = path.parse(fullFileName).name;
     const fileExtension = path.parse(fullFileName).ext;

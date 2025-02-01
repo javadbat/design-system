@@ -1,547 +1,109 @@
 import type { ReactComponentBuildConfig, WebComponentBuildConfig } from "../tasks/build/builder/src/types.ts";
+import * as path from "@std/path";
+import { generalConfig } from "./general-config.ts";
+
+async function getBuildConfig(modulePath: string) {
+  const buildConfigPath = path.toFileUrl(path.join(generalConfig.basePath, modulePath, "/build-config.ts"));
+  const { webComponentList, reactComponentList } = await import(buildConfigPath.toString()) as { webComponentList: WebComponentBuildConfig[], reactComponentList: ReactComponentBuildConfig[] };
+  // update config path addresses to match monorepo cwd
+  const webComponents = webComponentList.map(wc => ({
+    ...wc,
+    path: path.resolve(modulePath, wc.path),
+    outputPath: path.resolve(modulePath, wc.outputPath)
+  }));
+  const reactComponents = reactComponentList.map(rc => ({
+    ...rc,
+    path: path.resolve(modulePath, rc.path),
+    outputPath: path.resolve(modulePath, rc.outputPath)
+  }));
+  return { webComponents, reactComponents };
+}
+
+const JBValidation = await getBuildConfig(`modules/jb-validation`);
+const JBMessage = await getBuildConfig(`modules/jb-message`);
+const JBInput = await getBuildConfig(`web-component/jb-input`);
+const JBCheckbox = await getBuildConfig(`web-component/jb-checkbox`);
+const JBButton = await getBuildConfig(`web-component/jb-button`);
+const JBPopover = await getBuildConfig(`web-component/jb-popover`);
+const JBCalendar = await getBuildConfig(`web-component/jb-calendar`);
+const JBDateInput = await getBuildConfig(`web-component/jb-date-input`);
+const JBFileInput = await getBuildConfig(`web-component/jb-file-input`);
+const JBImageInput = await getBuildConfig(`web-component/jb-image-input`);
+const JBSelect = await getBuildConfig(`web-component/jb-select`);
+const JBTextarea = await getBuildConfig(`web-component/jb-textarea`);
+const JBSearchbar = await getBuildConfig(`web-component/jb-searchbar`);
+const JBTimePicker = await getBuildConfig(`web-component/jb-time-picker`);
+const JBTimeInput = await getBuildConfig(`web-component/jb-time-input`);
+const JBLoading = await getBuildConfig(`web-component/jb-loading`);
+const JBPinInput = await getBuildConfig(`web-component/jb-pin-input`);
+const JBPaymentInput = await getBuildConfig(`web-component/jb-payment-input`);
+const JBMobileInput = await getBuildConfig(`web-component/jb-mobile-input`);
+const JBNumberInput = await getBuildConfig(`web-component/jb-number-input`);
+const JBNationalInput = await getBuildConfig(`web-component/jb-national-input`);
+const JBPasswordInput = await getBuildConfig(`web-component/jb-password-input`);
+const JBModal = await getBuildConfig(`web-component/jb-modal`);
+const JBTooltip = await getBuildConfig(`web-component/jb-tooltip`);
+const JBNotification = await getBuildConfig(`web-component/jb-notification`);
+const JBInfiniteScroll = await getBuildConfig(`web-component/jb-infinite-scroll`);
+const JBQrCode = await getBuildConfig(`web-component/jb-qrcode`);
+const JBSwitch = await getBuildConfig(`web-component/jb-switch`);
+const JBForm = await getBuildConfig(`web-component/jb-form`);
+const JBGrid = await getBuildConfig(`web-component/jb-grid`);
 
 const webComponentList: WebComponentBuildConfig[] = [
-  //TODO: separate modules from web-components
-  {
-    name: "jb-validation",
-    path: "/modules/jb-validation/lib/jb-validation.ts",
-    outputPath: "/modules/jb-validation/dist/jb-validation.js",
-    umdName: "JBValidation",
-  },
-  {
-    name: "jb-message",
-    path: "/modules/jb-message/lib/JBMessage.ts",
-    outputPath: "/modules/jb-message/dist/JBMessage.js",
-    umdName: "JBMessage",
-  },
-  {
-    name: "jb-input",
-    path: "/web-component/jb-input/lib/index.ts",
-    outputPath: "/web-component/jb-input/dist/index.js",
-    umdName: "JBInput",
-    external: ["jb-validation","jb-form"],
-    globals: {
-      "jb-validation": "JBValidation",
-    },
-  },
-  {
-    name: "jb-checkbox",
-    path: "/web-component/jb-checkbox/lib/jb-checkbox.ts",
-    outputPath: "/web-component/jb-checkbox/dist/jb-checkbox.js",
-    umdName: "JBCheckbox",
-    external: ["jb-validation","jb-form"],
-    globals: {
-      "jb-validation": "JBValidation",
-    },
-  },
-  {
-    name: "jb-button",
-    path: "/web-component/jb-button/lib/jb-button.ts",
-    outputPath: "/web-component/jb-button/dist/jb-button.js",
-    external: [],
-    umdName: "JBButton",
-  },
-  {
-    name: "jb-popover",
-    path: "/web-component/jb-popover/lib/jb-popover.ts",
-    outputPath: "/web-component/jb-popover/dist/jb-popover.js",
-    external: [],
-    umdName: "JBButton",
-  },
-  {
-    name: "jb-calendar",
-    path: "/web-component/jb-calendar/lib/jb-calendar.ts",
-    outputPath: "/web-component/jb-calendar/dist/jb-calendar.js",
-    external: ["date-fns", "date-fns-jalali"],
-    umdName: "JBCalendar",
-    //because date-fns dont have any umd module export i have to do this so it doenst exclude in umd build
-    umdIncludes: ["date-fns", "date-fns-jalali"],
-  },
-  // {
-  //   name: "jb-date-input",
-  //   path: "/web-component/jb-date-input/lib/jb-date-input.ts",
-  //   outputPath: "/web-component/jb-date-input/dist/jb-date-input.js",
-  //   umdName: "JBDateInput",
-  //   external: ["date-fns", "date-fns-jalali", "jb-calendar","jb-input","jb-popover","jb-validation"],
-  //   //because date-fns dont have any umd module export i have to do this so it doesn't exclude in umd build
-  //   umdIncludes: ["date-fns", "date-fns-jalali", "jb-calendar","jb-input","jb-popover","jb-validation"],
-  // },
-  {
-    name: "jb-file-input",
-    path: "/web-component/jb-file-input/lib/jb-file-input.ts",
-    outputPath: "/web-component/jb-file-input/dist/jb-file-input.js",
-    umdName: "JBFileInput",
-  },
-  {
-    name: "jb-image-input",
-    path: "/web-component/jb-image-input/lib/jb-image-input.ts",
-    outputPath: "/web-component/jb-image-input/dist/jb-image-input.js",
-    umdName: "JBDateImageInput",
-    external: ["jb-validation"],
-    globals: {
-      "jb-validation": "JBValidation",
-    },
-  },
-  {
-    name: "jb-select",
-    path: "/web-component/jb-select/lib/index.ts",
-    outputPath: "/web-component/jb-select/dist/index.js",
-    umdName: "JBSelect",
-    external: ["jb-validation"],
-    globals: {
-      "jb-validation": "JBValidation",
-    },
-  },
-  {
-    name: "jb-textarea",
-    path: "/web-component/jb-textarea/lib/jb-textarea.ts",
-    outputPath: "/web-component/jb-textarea/dist/jb-textarea.js",
-    umdName: "JBTextarea",
-    external: ["jb-validation"],
-    globals: {
-      "jb-validation": "JBValidation",
-    },
-  },
-  {
-    name: "jb-searchbar",
-    path: "/web-component/jb-searchbar/lib/jb-searchbar.ts",
-    outputPath: "/web-component/jb-searchbar/dist/jb-searchbar.js",
-    external: ["jb-input", "jb-select", "jb-date-input"],
-    umdName: "JBSearchbar",
-    globals: {
-      "jb-input": "JBInput",
-      "jb-select": "JBSelect",
-      "jb-date-input": "JBDateInput",
-    },
-  },
-  {
-    name: "jb-time-picker",
-    path: "/web-component/jb-time-picker/lib/jb-time-picker.ts",
-    outputPath: "/web-component/jb-time-picker/dist/jb-time-picker.js",
-    external: [],
-    umdName: "JBTimePicker",
-  },
-  {
-    name: "jb-time-input",
-    path: "/web-component/jb-time-input/lib/jb-time-input.ts",
-    outputPath: "/web-component/jb-time-input/dist/jb-time-input.js",
-    external: ["jb-time-picker","jb-input","jb-popover","jb-validation"],
-    umdName: "JBTimeInput",
-    globals: {
-      "jb-time-picker": "JBTimePicker",
-      "jb-input": "JBInput",
-      "jb-popover": "JBPopover",
-      "jb-validation":"JBValidation"
-    },
-  },
-  {
-    name: "jb-loading",
-    path: "/web-component/jb-loading/lib/JBLoading.js",
-    outputPath: "/web-component/jb-loading/dist/JBLoading.js",
-    external: [],
-    umdName: "JBLoading",
-  },
-  {
-    name: "jb-pin-input",
-    path: "/web-component/jb-pin-input/lib/jb-pin-input.ts",
-    outputPath: "/web-component/jb-pin-input/dist/jb-pin-input.js",
-    umdName: "JBPinInput",
-    external: ["jb-validation","jb-form"],
-    globals: {
-      "jb-validation": "JBValidation",
-    },
-  },
-  {
-    name: "bank-indicator",
-    path: "/web-component/jb-payment-input/bank-indicator/lib/bank-indicator.ts",
-    outputPath:
-      "/web-component/jb-payment-input//bank-indicator/dist/bank-indicator.js",
-    umdName: "BankIndicator",
-    external: [],
-    globals: {},
-    tsconfigPath:"web-component/jb-payment-input/tsconfig.json"
-  },
-  {
-    name: "jb-payment-input",
-    path: "/web-component/jb-payment-input/lib/jb-payment-input.ts",
-    outputPath: "/web-component/jb-payment-input/dist/jb-payment-input.js",
-    umdName: "JBPaymentInput",
-    external: ["jb-input","jb-validation"],
-    globals: {
-      "jb-input": "JBInput",
-      "jb-validation":"JBValidation"
-    },
-  },
-  {
-    name: "jb-mobile-input",
-    path: "/web-component/jb-mobile-input/lib/jb-mobile-input.ts",
-    outputPath: "/web-component/jb-mobile-input/dist/jb-mobile-input.js",
-    umdName: "JBMobileInput",
-    external: ["jb-input","jb-validation"],
-    globals: {
-      "jb-input": "JBInput",
-      "jb-validation":"JBValidation"
-    },
-  },
-  {
-    name: "jb-number-input",
-    path: "/web-component/jb-number-input/lib/jb-number-input.ts",
-    outputPath: "/web-component/jb-number-input/dist/jb-number-input.js",
-    umdName: "JBNumberInput",
-    external: ["jb-input","jb-validation"],
-    globals: {
-      "jb-input": "JBInput",
-      "jb-validation":"JBValidation"
-    },
-  },
-  {
-    name: "jb-national-input",
-    path: "/web-component/jb-national-input/lib/jb-national-input.ts",
-    outputPath: "/web-component/jb-national-input/dist/jb-national-input.js",
-    umdName: "JBNationalInput",
-    external: ["jb-input","jb-validation"],
-    globals: {
-      "jb-input": "JBInput",
-      "jb-validation":"JBValidation"
-    },
-  },
-  {
-    name: "jb-password-input",
-    path: "/web-component/jb-password-input/lib/jb-password-input.ts",
-    outputPath: "/web-component/jb-password-input/dist/jb-password-input.js",
-    umdName: "JBPasswordInput",
-    external: ["jb-input","jb-validation"],
-    globals: {
-      "jb-input": "JBInput",
-      "jb-validation":"JBValidation"
-    },
-  },
-  {
-    name: "jb-modal",
-    path: "/web-component/jb-modal/lib/JBModal.ts",
-    outputPath: "/web-component/jb-modal/dist/JBModal.js",
-    umdName: "JBModal",
-  },
-  {
-    name: "jb-tooltip",
-    path: "/web-component/jb-tooltip/lib/jb-tooltip.ts",
-    outputPath: "/web-component/jb-tooltip/dist/jb-tooltip.js",
-    umdName: "JBTooltip",
-  },
-  {
-    name: "jb-notification",
-    path: "/web-component/jb-notification/lib/jb-notification.ts",
-    outputPath: "/web-component/jb-notification/dist/jb-notification.js",
-    umdName: "JBNotification",
-  },
-  {
-    name: "jb-notification-wrapper",
-    path: "/web-component/jb-notification/lib/wrapper/jb-notification-wrapper.ts",
-    outputPath:
-      "/web-component/jb-notification/dist/wrapper/jb-notification-wrapper.js",
-    umdName: "JBNotificationWrapper",
-    tsconfigPath:"web-component/jb-notification/tsconfig.json"
-  },
-  {
-    name: "jb-infinite-scroll",
-    path: "/web-component/jb-infinite-scroll/lib/jb-infinite-scroll.ts",
-    outputPath: "/web-component/jb-infinite-scroll/dist/jb-infinite-scroll.js",
-    umdName: "JBInfiniteScroll",
-    external: ["jb-loading"],
-    globals: {
-      "jb-loading": "JBLoading",
-    },
-  },
-  {
-    name: "jb-qrcode",
-    path: "/web-component/jb-qrcode/lib/JBQrcode.ts",
-    outputPath: "/web-component/jb-qrcode/dist/JBQrcode.js",
-    umdName: "JBQrcode",
-    external: ["qrcode"],
-    globals: {
-      qrcode: "QRCode",
-    },
-  },
-  {
-    name: "jb-switch",
-    path: "/web-component/jb-switch/lib/jb-switch.ts",
-    outputPath: "/web-component/jb-switch/dist/jb-switch.js",
-    external: ['jb-validation','jb-form'],
-    globals: {
-      'jb-validation': "JBValidation",
-      'jb-form':"JBForm"
-    },
-    umdName: "JBSwitch",
-  },
-  {
-    name:"jb-form",
-    path:"/web-component/jb-form/lib/jb-form.ts",
-    outputPath:"/web-component/jb-form/dist/jb-form.js",
-    umdName:"JBForm",
-    external:["jb-validation"],
-    globals: {
-      'jb-validation': "JBValidation",
-    },
-  }
+  ...JBValidation.webComponents,
+  ...JBMessage.webComponents,
+  ...JBInput.webComponents,
+  ...JBCheckbox.webComponents,
+  ...JBButton.webComponents,
+  ...JBPopover.webComponents,
+  ...JBCalendar.webComponents,
+  ...JBDateInput.webComponents,
+  ...JBFileInput.webComponents,
+  ...JBImageInput.webComponents,
+  ...JBSelect.webComponents,
+  ...JBTextarea.webComponents,
+  ...JBSearchbar.webComponents,
+  ...JBTimePicker.webComponents,
+  ...JBTimeInput.webComponents,
+  ...JBLoading.webComponents,
+  ...JBPinInput.webComponents,
+  ...JBPaymentInput.webComponents,
+  ...JBMobileInput.webComponents,
+  ...JBNumberInput.webComponents,
+  ...JBNationalInput.webComponents,
+  ...JBPasswordInput.webComponents,
+  ...JBModal.webComponents,
+  ...JBTooltip.webComponents,
+  ...JBNotification.webComponents,
+  ...JBInfiniteScroll.webComponents,
+  ...JBQrCode.webComponents,
+  ...JBSwitch.webComponents,
+  ...JBForm.webComponents,
 ];
 const reactComponentList: ReactComponentBuildConfig[] = [
-  {
-    name: "jb-input-react",
-    path: "/web-component/jb-input//react/lib/JBInput.tsx",
-    outputPath: "/web-component/jb-input/react/dist/JBInput.js",
-    external: ["jb-input", "prop-types", "react"],
-    globals: {
-      react: "React",
-      "prop-types": "PropTypes",
-    },
-  },
-  {
-    name: "jb-select-react",
-    path: "/web-component/jb-select/react/lib/index.tsx",
-    outputPath: "/web-component/jb-select/react/dist/index.js",
-    external: ["jb-select", "prop-types", "react"],
-    globals: {
-      react: "React",
-      "prop-types": "PropTypes",
-    },
-  },
-  {
-    name: "jb-button-react",
-    path: "/web-component/jb-button/react/lib/JBButton.tsx",
-    outputPath: "/web-component/jb-button/react/dist/JBButton.js",
-    external: ["jb-button", "prop-types", "react"],
-    globals: {
-      react: "React",
-      "prop-types": "PropTypes",
-    },
-  },
-  {
-    name: "jb-calendar-react",
-    path: "/web-component/jb-calendar/react/lib/JBCalendar.tsx",
-    outputPath: "/web-component/jb-calendar/react/dist/JBCalendar.js",
-    external: ["jb-calendar", "prop-types", "react"],
-    globals: {
-      react: "React",
-      "prop-types": "PropTypes",
-    },
-  },
-  {
-    name: "jb-checkbox-react",
-    path: "/web-component/jb-checkbox/react/lib/JBCheckbox.tsx",
-    outputPath: "/web-component/jb-checkbox/react/dist/JBCheckbox.js",
-    external: ["prop-types", "react", "jb-checkbox"],
-    globals: {
-      react: "React",
-      "prop-types": "PropTypes",
-    },
-  },
-  {
-    name: "jb-switch-react",
-    path: "/web-component/jb-switch/react/lib/JBSwitch.tsx",
-    outputPath: "/web-component/jb-switch/react/dist/JBSwitch.js",
-    external: ["prop-types", "react", "jb-switch"],
-    globals: {
-      react: "React",
-      "jb-switch": "JBSwitch",
-      "prop-types": "PropTypes",
-    },
-  },
-  {
-    name: "jb-searchbar-react",
-    path: "/web-component/jb-searchbar/react/lib/JBSearchbar.tsx",
-    outputPath: "/web-component/jb-searchbar/react/dist/JBSearchbar.js",
-    external: ["prop-types", "react", "jb-searchbar"],
-    globals: {
-      react: "React",
-      "prop-types": "PropTypes",
-      "jb-searchbar":"JBSearchbar",
-    },
-  },
-  {
-    name: "jb-image-input-react",
-    path: "/web-component/jb-image-input/react/lib/JBImageInput.tsx",
-    outputPath: "/web-component/jb-image-input/react/dist/JBImageInput.js",
-    external: ["prop-types", "react", "jb-image-input", "jb-image-input/types"],
-    globals: {
-      react: "React",
-      "prop-types": "PropTypes",
-    },
-  },
-  {
-    name: "jb-grid-react",
-    path: "/web-component/jb-grid/react/lib/JBGrid.tsx",
-    outputPath: "/web-component/jb-grid/react/dist/JBGrid.js",
-    external: ["mobx-react", "react", "mobx", "prop-types", "jb-searchbar"],
-    globals: {
-      react: "React",
-      mobx: "MobX",
-      "prop-types": "PropTypes",
-      "mobx-react": "mobxReact",
-      "jb-searchbar":"JBSearchbar"
-    },
-  },
-  {
-    name: "jb-time-input-react",
-    path: "/web-component/jb-time-input/react/lib/JBTimeInput.tsx",
-    outputPath: "/web-component/jb-time-input/react/dist/JBTimeInput.js",
-    external: ["react", "prop-types", "jb-time-input"],
-    globals: {
-      react: "React",
-      "prop-types": "PropTypes",
-    },
-  },
-  // {
-  //   name: "jb-date-input-react",
-  //   path: "/web-component/jb-date-input/react/lib/JBDateInput.tsx",
-  //   outputPath: "/web-component/jb-date-input/react/dist/JBDateInput.js",
-  //   external: ["react", "prop-types", "jb-date-input", "jb-validation"],
-  //   globals: {
-  //     react: "React",
-  //     "prop-types": "PropTypes",
-  //     "jb-date-input": "JBDateInput",
-  //     "jb-validation":"JBValidation",
-  //   },
-  // },
-  {
-    name: "jb-textarea-react",
-    path: "/web-component/jb-textarea/react/lib/JBTextarea.tsx",
-    outputPath: "/web-component/jb-textarea/react/dist/JBTextarea.js",
-    external: ["react", "prop-types", "jb-textarea", "jb-validation"],
-    globals: {
-      react: "React",
-      "jb-textarea": "JBTextarea",
-      "jb-validation":"JBValidation"
-    },
-  },
-  {
-    name: "jb-payment-input-react",
-    path: "/web-component/jb-payment-input/react/lib/JBPaymentInput.tsx",
-    outputPath: "/web-component/jb-payment-input/react/dist/JBPaymentInput.js",
-    external: ["jb-payment-input","jb-input-react", "prop-types", "react"],
-    globals: {
-      react: "React",
-      "prop-types": "PropTypes",
-      "jb-input-react":"JBInputReact",
-      "jb-payment-input":"JBPaymentInput"
-    },
-  },
-  {
-    name: "bank-indicator-react",
-    path: "/web-component/jb-payment-input/bank-indicator/react/lib/BankIndicator.tsx",
-    outputPath: "/web-component/jb-payment-input/bank-indicator/react/dist/BankIndicator.js",
-    external: ["jb-payment-input",'jb-payment-input/bank-indicator', "prop-types", "react"],
-    tsconfigPath:"web-component/jb-payment-input/react/tsconfig.json",
-    globals: {
-      react: "React",
-      "prop-types": "PropTypes",
-      "jb-payment-input":"JBPaymentInput"
-    },
-  },
-  {
-    name: "jb-password-input-react",
-    path: "/web-component/jb-password-input/react/lib/JBPasswordInput.tsx",
-    outputPath: "/web-component/jb-password-input/react/dist/JBPasswordInput.js",
-    external: ["jb-password-input","jb-input","jb-input/react", "prop-types", "react"],
-    globals: {
-      react: "React",
-      "prop-types": "PropTypes",
-      "jb-input/react":"JBInputReact"
-    },
-  },
-  {
-    name: "jb-mobile-input-react",
-    path: "/web-component/jb-mobile-input/react/lib/JBMobileInput.tsx",
-    outputPath: "/web-component/jb-mobile-input/react/dist/JBMobileInput.js",
-    external: ["jb-input", "jb-mobile-input", "prop-types", "react"],
-    globals: {
-      react: "React",
-      "jb-input":"JBInput"
-    },
-  },
-  {
-    name: "jb-national-input-react",
-    path: "/web-component/jb-national-input/react/lib/JBNationalInput.tsx",
-    outputPath: "/web-component/jb-national-input/react/dist/JBNationalInput.js",
-    external: ["jb-national-input","jb-input-react","jb-input", "prop-types", "react"],
-    globals: {
-      "react": "React",
-      "jb-input-react":"JBInputReact",
-      "jb-national-input":"JBNationalInput"
-    },
-  },
-  {
-    name: "jb-number-input-react",
-    path: "/web-component/jb-number-input/react/lib/JBNumberInput.tsx",
-    outputPath: "/web-component/jb-number-input/react/dist/JBNumberInput.js",
-    external: ["jb-number-input","jb-input/react", "jb-input", "react"],
-    globals: {
-      react: "React",
-      "jb-number-input":"JBNumberInput",
-      "jb-input":"JBInput",
-      "jb-input/react":"JBInputReact"
-    },
-  },
-  {
-    name: "jb-modal-react",
-    path: "/web-component/jb-modal/react/lib/JBModal.tsx",
-    outputPath: "/web-component/jb-modal/react/dist/JBModal.js",
-    external: ["jb-modal", "prop-types", "react"],
-    globals: {
-      react: "React",
-      "prop-types": "PropTypes",
-    },
-  },
-  {
-    name: "jb-infinite-scroll-react",
-    path: "/web-component/jb-infinite-scroll/react/lib/JBInfiniteScroll.tsx",
-    outputPath: "/web-component/jb-infinite-scroll/react/dist/JBInfiniteScroll.js",
-    external: ["jb-infinite-scroll", "prop-types", "react"],
-    globals: {
-      react: "React",
-      "prop-types": "PropTypes",
-      "jb-infinite-scroll":"JBInfiniteScroll",
-    },
-  },
-  {
-    name: "jb-pin-input-react",
-    path: "/web-component/jb-pin-input/react/lib/JBPinInput.tsx",
-    outputPath: "/web-component/jb-pin-input/react/dist/JBPinInput.js",
-    external: ["jb-pin-input", "prop-types", "react"],
-    globals: {
-      react: "React",
-      "prop-types": "PropTypes",
-    },
-  },
-  {
-    name: "jb-loading-react",
-    path: "/web-component/jb-loading/react/lib/JBLoading.tsx",
-    outputPath: "/web-component/jb-loading/react/dist/JBLoading.js",
-    external: ["jb-loading", "prop-types", "react"],
-    globals: {
-      "jb-loading":"JBLoading",
-      react: "React",
-      "prop-types": "PropTypes",
-    },
-  },
-  {
-    name: "jb-form-react",
-    path: "/web-component/jb-form/react/lib/JBForm.tsx",
-    outputPath: "/web-component/jb-form/react/dist/JBForm.js",
-    external: ["jb-form", "react"],
-    globals: {
-      'react': "React",
-      'jb-form': "JBForm",
-    },
-  },
-  {
-    name: "jb-file-input-react",
-    path: "/web-component/jb-file-input/react/lib/JBFileInput.tsx",
-    outputPath: "/web-component/jb-file-input/react/dist/JBFileInput.js",
-    external: ["jb-file-input", "prop-types", "react"],
-    globals: {
-      react: "React",
-      "prop-types": "PropTypes",
-    },
-  },
+  ...JBInput.reactComponents,
+  ...JBCheckbox.reactComponents,
+  ...JBButton.reactComponents,
+  ...JBCalendar.reactComponents,
+  ...JBDateInput.reactComponents,
+  ...JBFileInput.reactComponents,
+  ...JBImageInput.reactComponents,
+  ...JBSelect.reactComponents,
+  ...JBTextarea.reactComponents,
+  ...JBSearchbar.reactComponents,
+  ...JBTimeInput.reactComponents,
+  ...JBLoading.reactComponents,
+  ...JBPinInput.reactComponents,
+  ...JBPaymentInput.reactComponents,
+  ...JBMobileInput.reactComponents,
+  ...JBNumberInput.reactComponents,
+  ...JBNationalInput.reactComponents,
+  ...JBPasswordInput.reactComponents,
+  ...JBModal.reactComponents,
+  ...JBInfiniteScroll.reactComponents,
+  ...JBSwitch.reactComponents,
+  ...JBForm.reactComponents,
+  ...JBGrid.reactComponents,
 ];
 export { webComponentList, reactComponentList };
