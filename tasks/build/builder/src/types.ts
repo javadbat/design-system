@@ -1,23 +1,24 @@
-export type WebComponentBuildConfig = {
+import type {ParsedPath} from "@std/path";
+type Optional<T, K extends keyof T> = Omit<T, K> & Partial<T>;
+export type BaseConfig = {
   name: string;
-  path: string;
-  outputPath: string;
   umdName: string;
   external?: string[];
   umdIncludes?: string[];
-  tsconfigPath?:string;
-  globals?: { [key: string]: string };
-};
-export type ReactComponentBuildConfig = {
-  name: string;
+  globals: Record<string, string>;
   path: string;
   outputPath: string;
-  umdName?: string;
-  external?: string[];
-  umdIncludes?: string[];
-  globals?: { [key: string]: string };
-  tsconfigPath?:string;
-};
+  dir: string;
+  tsConfigPath: string;
+}
+
+export type ModuleConfig = BaseConfig & {
+  outputPathParsed: ParsedPath;
+}
+
+export type WebComponentBuildConfig = Optional<BaseConfig,"dir" | "tsConfigPath" | "globals">
+export type ReactComponentBuildConfig = Optional<BaseConfig,"dir" | "tsConfigPath" | "globals">
+
 export type NodeEnv = "production" | "development" | "test"
 export type Envs = {
   nodeEnv:NodeEnv

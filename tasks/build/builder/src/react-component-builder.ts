@@ -8,7 +8,7 @@ import rollupJson from "npm:@rollup/plugin-json@6.1.0";
 import resolve from "npm:@rollup/plugin-node-resolve@16.0.0";
 import rollupReplace from "npm:@rollup/plugin-replace@6.0.2";
 //config
-import type { Envs, ReactComponentBuildConfig } from './types.ts';
+import type { Envs, ModuleConfig, ReactComponentBuildConfig } from './types.ts';
 import chalk from "npm:chalk@5.4.1";
 import typescript from "npm:rollup-plugin-typescript2@0.36.0";
 import { DEFAULT_EXTENSIONS } from "npm:@babel/core@7.26.7";
@@ -22,11 +22,12 @@ export class ReactComponentBuilder {
     }
   }
   async buildComponent(component: ReactComponentBuildConfig, watch = false) {
+    const moduleConfig = this.#createModuleConfig(component);
     console.log(`start building ${component.name}`);
-    const inputOptions = this.#getInputOption(component, watch);
-    const esOutputOptions = this.#getOutputOption(component, "es");
-    const cjsOutputOptions = this.#getOutputOption(component, "cjs");
-    const umdOutputOptions = this.#getOutputOption(component, "umd");
+    const inputOptions = this.#getInputOption(moduleConfig, watch);
+    const esOutputOptions = this.#getOutputOption(moduleConfig, "es");
+    const cjsOutputOptions = this.#getOutputOption(moduleConfig, "cjs");
+    const umdOutputOptions = this.#getOutputOption(moduleConfig, "umd");
     try {
       if (watch) {
         this.#buildAndWatchModule(inputOptions, esOutputOptions, component);
@@ -67,6 +68,16 @@ export class ReactComponentBuilder {
         });
     });
   }
+  #createModuleConfig(inputConfig: ReactComponentBuildConfig): ModuleConfig {
+    const dir = inputConfig.dir ?? Deno.cwd();
+    return {
+      ...inputConfig,
+      outputPathParsed: path.parse(inputConfig.outputPath),
+      dir,
+      tsConfigPath: inputConfig.tsConfigPath ?? path.join(dir, "tsconfig.json"),
+      globals: inputConfig.globals ?? {},
+    };
+  }
   #buildAndWatchModule(inputOptions: rollup.RollupOptions, outputOptions: rollup.OutputOptions, module: ReactComponentBuildConfig) {
     return new Promise<void>((resolve, reject) => {
       const watcher = rollup.watch({
@@ -98,7 +109,7 @@ export class ReactComponentBuilder {
       }
     });
   }
-  #getInputOption(module: ReactComponentBuildConfig, watchMode: boolean): rollup.InputOptions {
+  #getInputOption(module: ModuleConfig, watchMode: boolean): rollup.InputOptions {
     const externalList = module.external || [];
     const plugins = [
       //@ts-ignore
@@ -146,12 +157,10 @@ export class ReactComponentBuilder {
     ];
     const isTypeScriptModule = this.#isTypeScriptModule(module);
     if (isTypeScriptModule) {
-      const moduleFolderPathArr = path.join(...module.path.split(path.SEPARATOR).slice(0, -2));
-      const tsConfigFilePath = module.tsconfigPath ? module.tsconfigPath : path.join(moduleFolderPathArr, "tsconfig.json");
       plugins.push(
         //@ts-ignore
         typescript({
-          tsconfig: tsConfigFilePath,
+          tsconfig: module.tsConfigPath,
           tsconfigDefaults: this.#getTypeScriptCompilerOptions(
             module,
             externalList
@@ -167,34 +176,27 @@ export class ReactComponentBuilder {
     };
     return inputOptions;
   }
-  #getOutputOption(module: ReactComponentBuildConfig, format: "umd" | "es" | "cjs"): rollup.OutputOptions {
-    const pathArr = module.outputPath.split(path.SEPARATOR);
-    
-    const fullFileName = pathArr[pathArr.length - 1];
-    const fileName = path.parse(fullFileName).name;
-    const fileExtension = path.parse(fullFileName).ext;
-    const outputFileName = `${fileName}${format == "es" ? "" : "." + format}${fileExtension}`;
-    const dir = pathArr.slice(0, pathArr.length - 1);
+  #getOutputOption(module: ModuleConfig, format: "umd" | "es" | "cjs"): rollup.OutputOptions {
+
+    const outputFileName = `${module.outputPathParsed.name}${format == 'es' ? '' : ('.' + format)}${module.outputPathParsed.ext}`;
     const outputOptions = {
       // core output options
       sourcemap: true,
-      dir: path.join(...dir),
+      dir: path.join(module.outputPathParsed.dir),
       entryFileNames: outputFileName,
       format: format, //es for native code , system for systemjs known module
     };
     if (format == "umd") {
       //@ts-ignore
-      outputOptions.name = fileName;
+      outputOptions.name = module.umdName;
       //@ts-ignore
       outputOptions.globals = module.globals || {};
     }
     return outputOptions;
   }
   #isTypeScriptModule(module: ReactComponentBuildConfig) {
-    const filePaths = module.path.split("/");
-    const fileName = filePaths[filePaths.length - 1];
-    const fileExtension = fileName.split(".").pop();
-    return fileExtension === "ts" || fileExtension == "tsx";
+    const url = path.parse(module.path);
+    return url.ext === ".ts" || url.ext == ".tsx";
   }
   #getTypeScriptCompilerOptions(
     module: ReactComponentBuildConfig,

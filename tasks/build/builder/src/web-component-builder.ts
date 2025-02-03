@@ -1,5 +1,5 @@
 import chalk from "npm:chalk@5.4.1";
-import type { Envs, WebComponentBuildConfig} from './types.ts';
+import type { Envs, ModuleConfig, WebComponentBuildConfig} from './types.ts';
 import * as path from "@std/path";
 //rollup
 import * as rollup from "npm:rollup@4.32.1";
@@ -32,14 +32,15 @@ export class WebComponentBuilder {
     }
   }
   async buildComponent(componentBuildConfig: WebComponentBuildConfig, watchMode = false) {
+    const moduleConfig = this.#createModuleConfig(componentBuildConfig);
     console.log(`start building ${componentBuildConfig.name}`);
-    const inputOptions = this.#getInputOption(componentBuildConfig, 'es',watchMode);
-    const cjsInputOptions = this.#getInputOption(componentBuildConfig, 'cjs',watchMode);
-    const umdInputOptions = this.#getInputOption(componentBuildConfig, 'umd',watchMode);
+    const inputOptions = this.#getInputOption(moduleConfig, 'es',watchMode);
+    const cjsInputOptions = this.#getInputOption(moduleConfig, 'cjs',watchMode);
+    const umdInputOptions = this.#getInputOption(moduleConfig, 'umd',watchMode);
     //
-    const esOutputOptions = this.#getOutputOption(componentBuildConfig, "es");
-    const cjsOutputOptions = this.#getOutputOption(componentBuildConfig, "cjs");
-    const umdOutputOptions = this.#getOutputOption(componentBuildConfig, "umd");
+    const esOutputOptions = this.#getOutputOption(moduleConfig, "es");
+    const cjsOutputOptions = this.#getOutputOption(moduleConfig, "cjs");
+    const umdOutputOptions = this.#getOutputOption(moduleConfig, "umd");
     try {
       if (watchMode) {
         this.#buildAndWatchModule(inputOptions, esOutputOptions, componentBuildConfig);
@@ -55,6 +56,19 @@ export class WebComponentBuilder {
       console.error(componentBuildConfig.name + ' build failed');
       return Promise.reject(e);
     }
+  }
+  #createModuleConfig(inputConfig: WebComponentBuildConfig):ModuleConfig{
+    const dir = inputConfig.dir??Deno.cwd();
+    
+    const tsConfigPath = inputConfig.tsConfigPath?path.resolve(Deno.cwd(),inputConfig.tsConfigPath):path.resolve(dir,"tsconfig.json");
+    console.log(tsConfigPath);
+    return {
+      ...inputConfig,
+      outputPathParsed: path.parse(inputConfig.outputPath),
+      dir,
+      tsConfigPath,
+      globals: inputConfig.globals??{},
+    };
   }
   buildModule(inputOptions: rollup.RollupOptions, outputOptions: rollup.OutputOptions, type: "ES" | "CJS" | "UMD") {
     //build module with rollup without any watch or something
@@ -102,10 +116,9 @@ export class WebComponentBuilder {
       }
     });
   }
-  #getInputOption(module: WebComponentBuildConfig, format: "es" | "cjs" | "umd" = "es", watchMode: boolean): rollup.RollupOptions {
+  #getInputOption(module: ModuleConfig, format: "es" | "cjs" | "umd" = "es", watchMode: boolean): rollup.RollupOptions {
     
     // remove filename and lib folder name result in web-component/jb-input
-    const moduleFolderPathArr = path.join(...module.path.split(path.SEPARATOR).slice(0, -2));
     let externalList = module.external || [];
     if (
       format == "umd" &&
@@ -156,12 +169,11 @@ export class WebComponentBuilder {
     }
     const isTypeScriptModule = this.#isTypeScriptModule(module);
     if (isTypeScriptModule) {
-      const tsConfigFilePath = module.tsconfigPath ? module.tsconfigPath : path.join(moduleFolderPathArr, "tsconfig.json");
       plugins.push(
         //@ts-ignore
         typescript({
           // tsconfigOverride:override,
-          tsconfig: tsConfigFilePath,
+          tsconfig: module.tsConfigPath,
           tsconfigDefaults: this.#getTypeScriptCompilerOptions(
             module,
             externalList
@@ -182,10 +194,9 @@ export class WebComponentBuilder {
     const url = path.parse(module.path);
     return url.ext === '.ts';
   }
-  #getTypeScriptCompilerOptions(module: WebComponentBuildConfig, externalList: string[]) {
-    const moduleFolderPath = module.path.split("/").slice(0, -1);
+  #getTypeScriptCompilerOptions(module: ModuleConfig, externalList: string[]) {
     const includePaths = path.join(
-      ...moduleFolderPath,
+      module.dir,
       "**",
       "*"
     );
@@ -198,13 +209,12 @@ export class WebComponentBuilder {
       exclude: [...externalList],
     };
   }
-  #getOutputOption(module: WebComponentBuildConfig, format: ModuleFormat = "es"): rollup.OutputOptions {
-    const pathURL = path.parse(module.outputPath);
-    const outputFileName = `${pathURL.name}${format == 'es' ? '' : ('.' + format)}${pathURL.ext}`;
+  #getOutputOption(module: ModuleConfig, format: ModuleFormat = "es"): rollup.OutputOptions {
+    const outputFileName = `${module.outputPathParsed.name}${format == 'es' ? '' : ('.' + format)}${module.outputPathParsed.ext}`;
     const outputOptions = {
       // core output options
       sourcemap: true,
-      dir: pathURL.dir,
+      dir: module.outputPathParsed.dir,
       entryFileNames: outputFileName,
       format: format, //es for native code , system for systemjs known module, umd for umd package
     };
@@ -212,7 +222,7 @@ export class WebComponentBuilder {
       //@ts-ignore package is not standard
       outputOptions.name = module.umdName;
       //@ts-ignore package is not standard
-      outputOptions.globals = module.globals || {};
+      outputOptions.globals = module.globals;
     }
     return outputOptions;
   }

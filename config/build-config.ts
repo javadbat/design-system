@@ -2,19 +2,23 @@ import type { ReactComponentBuildConfig, WebComponentBuildConfig } from "../task
 import * as path from "@std/path";
 import { generalConfig } from "./general-config.ts";
 
-async function getBuildConfig(modulePath: string) {
+async function getBuildConfig(modulePath: string): Promise<{ webComponents: WebComponentBuildConfig[], reactComponents: ReactComponentBuildConfig[] }> {
   const buildConfigPath = path.toFileUrl(path.join(generalConfig.basePath, modulePath, "/build-config.ts"));
   const { webComponentList, reactComponentList } = await import(buildConfigPath.toString()) as { webComponentList: WebComponentBuildConfig[], reactComponentList: ReactComponentBuildConfig[] };
   // update config path addresses to match monorepo cwd
-  const webComponents = webComponentList.map(wc => ({
+  const webComponents : WebComponentBuildConfig []= webComponentList.map(wc => ({
     ...wc,
     path: path.resolve(modulePath, wc.path),
-    outputPath: path.resolve(modulePath, wc.outputPath)
+    outputPath: path.resolve(modulePath, wc.outputPath),
+    dir:path.resolve(modulePath, wc.dir??""),
+    tsConfigPath:wc.tsConfigPath?path.resolve(modulePath, wc.tsConfigPath):undefined,
   }));
   const reactComponents = reactComponentList.map(rc => ({
     ...rc,
     path: path.resolve(modulePath, rc.path),
-    outputPath: path.resolve(modulePath, rc.outputPath)
+    outputPath: path.resolve(modulePath, rc.outputPath),
+    dir:path.resolve(modulePath, rc.dir??""),
+    tsConfigPath:rc.tsConfigPath?path.resolve(modulePath, rc.tsConfigPath):undefined,
   }));
   return { webComponents, reactComponents };
 }
