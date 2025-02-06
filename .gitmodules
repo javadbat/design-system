@@ -129,3 +129,6 @@
 [submodule "web-component/jb-grid"]
 	path = web-component/jb-grid
 	url = https://github.com/javadbat/jb-grid.git
+[submodule "modules/jb-core"]
+	path = modules/jb-core
+	url = https://github.com/javadbat/jb-core.git

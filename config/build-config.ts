@@ -23,6 +23,7 @@ async function getBuildConfig(modulePath: string): Promise<{ webComponents: WebC
   return { webComponents, reactComponents };
 }
 
+const JBCore = await getBuildConfig(`modules/jb-core`);
 const JBValidation = await getBuildConfig(`modules/jb-validation`);
 const JBMessage = await getBuildConfig(`modules/jb-message`);
 const JBInput = await getBuildConfig(`web-component/jb-input`);
@@ -55,6 +56,7 @@ const JBForm = await getBuildConfig(`web-component/jb-form`);
 const JBGrid = await getBuildConfig(`web-component/jb-grid`);
 
 const webComponentList: WebComponentBuildConfig[] = [
+  ...JBCore.webComponents,
   ...JBValidation.webComponents,
   ...JBMessage.webComponents,
   ...JBInput.webComponents,
@@ -86,6 +88,7 @@ const webComponentList: WebComponentBuildConfig[] = [
   ...JBForm.webComponents,
 ];
 const reactComponentList: ReactComponentBuildConfig[] = [
+  ...JBCore.reactComponents,
   ...JBInput.reactComponents,
   ...JBCheckbox.reactComponents,
   ...JBButton.reactComponents,
