@@ -64,7 +64,7 @@
     "jb-time-input": "file:./web-component/jb-time-input",
     "jb-time-picker": "file:./web-component/jb-time-picker",
     "jb-validation": "file:./modules/jb-validation",
-    "jb-core": "file:./modules/jb-core",
+    "jb-core": "file:./web-component/jb-core",
     "lodash": "^4.17.21",
     "lodash.clonedeep": "^4.5.0",
     "mobx": "^6.0.1",

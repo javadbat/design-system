@@ -23,7 +23,7 @@ async function getBuildConfig(modulePath: string): Promise<{ webComponents: WebC
   return { webComponents, reactComponents };
 }
 
-const JBCore = await getBuildConfig(`modules/jb-core`);
+const JBCore = await getBuildConfig(`web-component/jb-core`);
 const JBValidation = await getBuildConfig(`modules/jb-validation`);
 const JBMessage = await getBuildConfig(`modules/jb-message`);
 const JBInput = await getBuildConfig(`web-component/jb-input`);
