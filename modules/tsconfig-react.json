@@ -1,0 +1,31 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "module": "ESNext",
+        "moduleResolution": "NodeNext",
+        "removeComments": false,
+        "preserveConstEnums": true,
+        "sourceMap": true,
+        "allowJs": true,
+        "target": "ES2020",
+        "allowSyntheticDefaultImports": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "noImplicitAny": false,
+        "noLib": false,
+        "esModuleInterop": false,
+        "declaration": true,
+        "declarationDir": "./",
+        "declarationMap": false,
+        "jsx": "react",
+        "typeRoots" : ["../node_modules/@types", "./global.d.ts"],
+    },
+    "include": [
+        "global.d.ts",
+    ],
+    "exclude": [
+        "node_modules",
+        "**/*.spec.ts",
+    ],
+    "extends":"../tsconfig-base.json"
+}

@@ -39,6 +39,7 @@
     "jb-time-picker": "file:./web-component/jb-time-picker",
     "jb-form": "file:./web-component/jb-form",
     "jb-validation": "file:./modules/jb-validation",
+    "jb-core": "file:./modules/jb-core",
     "rollup-plugin-gzip": "npm:rollup-plugin-gzip@^4.0.0"
   },
   "compilerOptions": {
