@@ -254,3 +254,21 @@ WithStartSection.args = {
 const InFormTemplate = (args) => <InFormData {...args}></InFormData>;
 export const InFormTest = InFormTemplate.bind({});
 InFormTest.args = {};
+
+export const EventTest = Template.bind({});
+EventTest.args = {
+  label: "event test:",
+  message:"check the console",
+  onChange:(e)=>{console.log("onChange",e);},
+  onLoad:(e)=>{console.log("onLoad",e);},
+  onInit:(e)=>{console.log("onInit",e);},
+  onInvalid:(e)=>{console.log("onInvalid",e);},
+  onBeforeInput:(e)=>{console.log("onBeforeInput",e);},
+  onInput:(e)=>{console.log("onInput",e);},
+  onKeyUp:(e)=>{console.log("onKeyUp",e);},
+  onKeyDown:(e)=>{console.log("onKeyDown",e);},
+  onKeyPress:(e)=>{console.log("onKeyPress",e);},
+  onSelect:(e)=>{console.log("onSelect",e);},
+  onFocus:(e)=>{console.log("onFocus",e);},
+  onBlur:(e)=>{console.log("onBlur",e);},
+};
