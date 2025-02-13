@@ -16,6 +16,8 @@ function JBDateInputGregorianTest(props) {
         }}
       >
       </JBDateInput>
+      <br />
+      <jb-date-input label="web-component" input-type="GREGORIAN"></jb-date-input>
       <div>
         <br />
         <br />valueType is {props.valueType}

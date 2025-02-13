@@ -122,7 +122,7 @@ GregorianMinMaxTest.args = {
   valueType: "GREGORIAN",
   min: "2020-09-05T08:51:23.176Z",
   max: "2020-10-15T08:51:23.176Z",
-  inputType: "JALALI",
+  inputType: "GREGORIAN",
   direction: "ltr",
 };
 const JalaliTestTemplate = (args) => (
