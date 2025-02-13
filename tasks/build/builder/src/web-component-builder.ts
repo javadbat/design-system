@@ -163,7 +163,7 @@ export class WebComponentBuilder {
       plugins = [
         ...plugins,
       //@ts-ignore
-        terser({ compress: { drop_debugger: false } }),
+        terser({ compress: { drop_debugger: watchMode?false:true } }),
         gzipPlugin(),
         brotli(),];
     }
