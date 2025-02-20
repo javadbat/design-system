@@ -120,3 +120,6 @@
 [submodule "web-component/jb-core"]
 	path = web-component/jb-core
 	url = https://github.com/javadbat/jb-core.git
+[submodule "web-component/jb-validation"]
+	path = web-component/jb-validation
+	url = https://github.com/javadbat/jb-validation.git
