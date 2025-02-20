@@ -1,15 +1,20 @@
 {
   "name": "@design-system/builder",
-  "version": "0.0.3",
+  "version": "0.0.9",
   "exports": "./mod.ts",
   "exclude": ["web-component/", "react-component/"],
+  "nodeModulesDir": "auto",
   "imports": {
     "./": "./",
     "/": "./",
     "@std/path": "jsr:@std/path@^1.0.3",
     "@std/cli": "jsr:@std/cli@^1.0.11",
     "rollup-plugin-gzip": "npm:rollup-plugin-gzip@^4.0.0",
-    "rollup-plugin-postcss": "npm:rollup-plugin-postcss@4.0.2"
+    "rollup-plugin-postcss": "npm:rollup-plugin-postcss@4.0.2",
+    "sass": "npm:sass@^1.85.0"
+  },
+  "tasks": {
+    "build":"deno run --allow-all ./cli.ts $1"
   },
   "compilerOptions": {
     "lib": [

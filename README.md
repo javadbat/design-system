@@ -32,15 +32,15 @@ npm i
 npm run build
 
 # build only a named module
-npm run build jb-input
+npm run build --name=jb-input
 ```
 in deno (recommended):
 
 ```bash
 deno task build
-deno task build jb-input
+deno task build --name=jb-input
 # we dint build cjs or UMD in watch mode for more speed so pleas build your package without watch mode at least 1 time before publish
-deno task build jb-input --watch
+deno task build --name=jb-input --watch
 ```
 
 ### serve testbeds

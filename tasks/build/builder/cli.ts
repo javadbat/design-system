@@ -4,8 +4,14 @@ import * as path from "@std/path";
 
 type CliArgs = {
   path: string,
+  name: string
   watch?: boolean
 }
+// //make sure this command is run directly in command line and not imported
+// console.log(import.meta);
+
+// if (!import.meta.main) {}
+
 const args = parseArgs<CliArgs>(Deno.args);
 
 if (args.path == undefined) {
@@ -19,23 +25,23 @@ const reactComponentBuilder = new ReactComponentBuilder();
 const webComponentBuilder = new WebComponentBuilder();
 
 const startTime = performance.now();
-const componentName = args._[0];
-if (componentName) {
-  const wcConfig = webComponentList.find((wc) => wc.name == componentName);
-  const reactConfig = reactComponentList.find((rc) => rc.name == componentName);
+if (args.name) {
+  const wcConfig = webComponentList.find((wc) => wc.name == args.name);
+  const reactConfig = reactComponentList.find((rc) => rc.name == args.name);
   if (wcConfig) {
-    await webComponentBuilder.buildComponent(wcConfig,args.watch);
-  } else if(reactConfig){
-    await reactComponentBuilder.buildComponent(reactConfig,args.watch);
-  }else{
-    console.warn("component not found");
+    await webComponentBuilder.buildComponent(wcConfig, args.watch);
+  } else if (reactConfig) {
+    await reactComponentBuilder.buildComponent(reactConfig, args.watch);
+  } else {
+    console.warn("component not found","args:",args);
   }
 }
-if(!componentName){
+if (!args.name) {
   await webComponentBuilder.buildAllComponents(webComponentList);
   await reactComponentBuilder.buildAllComponent(reactComponentList);
 }
 const endTime = performance.now();
 const duration = endTime - startTime;
 console.log("the build took ", duration, " time to finish");
+
 
