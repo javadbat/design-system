@@ -30,10 +30,6 @@
 	path = web-component/jb-calendar
 	url = https://github.com/javadbat/jb-calendar.git
 	branch = master
-[submodule "modules/jb-message"]
-	path = modules/jb-message
-	url = https://github.com/javadbat/jb-message.git
-	branch = master
 [submodule "react-component/jb-checkbox"]
 	path = react-component/jb-checkbox
 	url = https://github.com/javadbat/jb-checkbox-react.git
