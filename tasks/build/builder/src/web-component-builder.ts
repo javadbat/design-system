@@ -31,7 +31,7 @@ export class WebComponentBuilder {
       await this.buildComponent(component);
     }
   }
-  async buildComponent(componentBuildConfig: WebComponentBuildConfig, watchMode = false) {
+  async buildComponent(componentBuildConfig: WebComponentBuildConfig, watchMode = false):Promise<PromiseSettledResult<rollup.RollupOutput>[]|undefined> {
     const moduleConfig = this.#createModuleConfig(componentBuildConfig);
     console.log(`start building ${componentBuildConfig.name}`);
     const inputOptions = this.#getInputOption(moduleConfig, 'es',watchMode);
@@ -70,7 +70,7 @@ export class WebComponentBuilder {
       globals: inputConfig.globals??{},
     };
   }
-  buildModule(inputOptions: rollup.RollupOptions, outputOptions: rollup.OutputOptions, type: "ES" | "CJS" | "UMD") {
+  buildModule(inputOptions: rollup.RollupOptions, outputOptions: rollup.OutputOptions, type: "ES" | "CJS" | "UMD") :Promise<rollup.RollupOutput> {
     //build module with rollup without any watch or something
     return new Promise((resolve, reject) => {
       const bundlePromise = rollup.rollup(inputOptions);
