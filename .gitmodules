@@ -105,10 +105,6 @@
 	path = react-component/web-component/jb-popover
 	url = https://github.com/javadbat/jb-popover.git
 	branch = main
-[submodule "modules/jb-validation"]
-	path = modules/jb-validation
-	url = https://github.com/javadbat/jb-validation.git
-	branch = main
 [submodule "web-component/jb-form"]
 	path = web-component/jb-form
 	url = https://github.com/javadbat/jb-form.git
