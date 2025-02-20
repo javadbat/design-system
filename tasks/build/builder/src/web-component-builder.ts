@@ -4,7 +4,7 @@ import * as path from "@std/path";
 //rollup
 import * as rollup from "npm:rollup@4.32.1";
 import html from "npm:rollup-plugin-html@0.2.1";
-import postcss from "npm:rollup-plugin-postcss@4.0.2";
+import postcss from "rollup-plugin-postcss";
 import rollupJson from "npm:@rollup/plugin-json@6.1.0";
 import resolve from "npm:@rollup/plugin-node-resolve@16.0.0";
 import rollupReplace from "npm:@rollup/plugin-replace@6.0.2";

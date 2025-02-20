@@ -13,10 +13,6 @@
         "path": "../common"
       },
       {
-        "name": "front/modules",
-        "path": "../modules"
-      },
-      {
         "name": "front/test-bed",
         "path": "../test-bed"
       },

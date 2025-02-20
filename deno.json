@@ -38,8 +38,8 @@
     "jb-time-input": "./web-component/jb-time-input",
     "jb-time-picker": "./web-component/jb-time-picker",
     "jb-form": "./web-component/jb-form",
-    "jb-validation": "./modules/jb-validation",
-    "jb-core": "./modules/jb-core",
+    "jb-validation": "./web-component/jb-validation",
+    "jb-core": "./web-component/jb-core",
     "rollup-plugin-gzip": "npm:rollup-plugin-gzip@^4.0.0"
   },
   "compilerOptions": {

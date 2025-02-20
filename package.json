@@ -63,7 +63,7 @@
     "jb-textarea": "file:./web-component/jb-textarea",
     "jb-time-input": "file:./web-component/jb-time-input",
     "jb-time-picker": "file:./web-component/jb-time-picker",
-    "jb-validation": "file:./modules/jb-validation",
+    "jb-validation": "file:./web-component/jb-validation",
     "jb-core": "file:./web-component/jb-core",
     "lodash": "^4.17.21",
     "lodash.clonedeep": "^4.5.0",

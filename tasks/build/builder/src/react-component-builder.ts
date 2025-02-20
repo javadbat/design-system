@@ -2,7 +2,7 @@ import * as path from "@std/path";
 //rollup
 import * as rollup from "npm:rollup@4.32.1";
 import { babel as rollupBabel } from "npm:@rollup/plugin-babel@6.0.4";
-import postcss from "npm:rollup-plugin-postcss@4.0.2";
+import postcss from "rollup-plugin-postcss";
 import commonjs from "npm:@rollup/plugin-commonjs@28.0.2";
 import rollupJson from "npm:@rollup/plugin-json@6.1.0";
 import resolve from "npm:@rollup/plugin-node-resolve@16.0.0";
