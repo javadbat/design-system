@@ -41,11 +41,7 @@ export class ReactComponentBuilder {
       console.error(e.message);
     }
   }
-  buildModule(
-    inputOptions: rollup.RollupOptions,
-    outputOptions: rollup.OutputOptions,
-    type: "ES" | "CJS" | "UMD"
-  ) {
+  buildModule(inputOptions: rollup.RollupOptions,outputOptions: rollup.OutputOptions,type: "ES" | "CJS" | "UMD"):Promise<void>{
     //build module with rollup without any watch or something
     return new Promise<void>((resolve, reject) => {
       const bundlePromise = rollup.rollup(inputOptions);
