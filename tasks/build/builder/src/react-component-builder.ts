@@ -1,7 +1,8 @@
 import * as path from "@std/path";
 //rollup
 import { type OutputOptions, rolldown, type ModuleFormat, type RolldownOutput, type RolldownOptions, watch, type RolldownWatcher, InputOptions } from 'rolldown';
-import { babel as rollupBabel } from "npm:@rollup/plugin-babel@6.0.4";
+// import { babel as rollupBabel } from "npm:@rollup/plugin-babel@6.0.4";
+import {swc,defineRollupSwcOption} from "rollup-plugin-swc3";
 import sass from "rollup-plugin-sass";
 // import commonjs from "npm:@rollup/plugin-commonjs@28.0.2";
 import rollupJson from "npm:@rollup/plugin-json@6.1.0";
@@ -40,14 +41,14 @@ export class ReactComponentBuilder {
       console.error(e.message);
     }
   }
-  buildModule(inputOptions: RolldownOptions,outputOptions: OutputOptions,type: "ES" | "CJS" | "UMD"):Promise<void>{
+  buildModule(inputOptions: RolldownOptions, outputOptions: OutputOptions, type: "ES" | "CJS" | "UMD"): Promise<void> {
     //build module with rollup without any watch or something
     return new Promise<void>((resolve, reject) => {
       const bundlePromise = rolldown(inputOptions);
       bundlePromise
         .then(function (bundle) {
-          
-          bundle.write(outputOptions).then((output)=>{
+
+          bundle.write(outputOptions).then((output) => {
             console.log(
               chalk.greenBright(output.output[0].facadeModuleId),
               " ",
@@ -110,8 +111,29 @@ export class ReactComponentBuilder {
       }
     });
   }
-  #getInputOption(module: ModuleConfig, watchMode: boolean):InputOptions {
+  #getInputOption(module: ModuleConfig, watchMode: boolean): InputOptions {
     const externalList = module.external || [];
+    const swcPlugin = swc(defineRollupSwcOption(
+      {
+
+        tsconfig: module.tsConfigPath,
+        exclude: ["node_modules/**", ...externalList],
+        isModule:true,
+
+        jsc: {
+          parser: {
+            syntax: 'typescript', // or 'typescript' if using TypeScript
+          },
+          target: 'es2022', // Target JavaScript version
+          transform: {
+            react: {
+              runtime: 'automatic', // Enable if using React
+            },
+          },
+        },
+        minify: watchMode ? false : true,
+      })
+    );
     const plugins = [
       //@ts-ignore
       rollupReplace({
@@ -124,33 +146,27 @@ export class ReactComponentBuilder {
           style: 'compressed',
         },
       }),
-      rollupBabel({
-        exclude: ["node_modules/**", ...externalList],
-        babelrc: false,
-        babelHelpers: "runtime",
-        presets: ["@babel/preset-env", "@babel/preset-react"],
-        plugins: [
-          ["@babel/plugin-proposal-decorators", { legacy: true }],
-          ["@babel/plugin-proposal-class-properties", { loose: true }],
-          [
-            "@babel/plugin-proposal-private-property-in-object",
-            { loose: true },
-          ],
-          ["@babel/plugin-proposal-private-methods", { loose: true }],
-          "@babel/plugin-syntax-dynamic-import",
-          "@babel/plugin-proposal-nullish-coalescing-operator",
-          "@babel/plugin-external-helpers",
-          "@babel/plugin-transform-runtime",
-        ],
-      }),
-      //@ts-ignore
-      // resolve({
-      //   preferBuiltins: true,
-      //   extensions: [...DEFAULT_EXTENSIONS, ".ts", ".tsx"],
-      //   mainFields: ["browser"],
-      //   //@ts-ignore
-      //   jsnext: true,
+      
+      // rollupBabel({
+      //   exclude: ["node_modules/**", ...externalList],
+      //   babelrc: false,
+      //   babelHelpers: "runtime",
+      //   presets: ["@babel/preset-env", "@babel/preset-react"],
+      //   plugins: [
+      //     ["@babel/plugin-proposal-decorators", { legacy: true }],
+      //     ["@babel/plugin-proposal-class-properties", { loose: true }],
+      //     [
+      //       "@babel/plugin-proposal-private-property-in-object",
+      //       { loose: true },
+      //     ],
+      //     ["@babel/plugin-proposal-private-methods", { loose: true }],
+      //     "@babel/plugin-syntax-dynamic-import",
+      //     "@babel/plugin-proposal-nullish-coalescing-operator",
+      //     "@babel/plugin-external-helpers",
+      //     "@babel/plugin-transform-runtime",
+      //   ],
       // }),
+
       //@ts-ignore
       rollupJson(),
     ];
@@ -167,6 +183,7 @@ export class ReactComponentBuilder {
         })
       );
     }
+    plugins.push(swcPlugin);
     const inputOptions = {
       input: path.join(...module.path.split("/")),
       external: module.external || [],
@@ -208,6 +225,7 @@ export class ReactComponentBuilder {
     );
     return {
       useTsconfigDeclarationDir: true,
+      emitDeclarationOnly:true,
       include: [includePaths],
       exclude: [...externalList],
     };
