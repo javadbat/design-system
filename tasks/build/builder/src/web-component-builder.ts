@@ -1,9 +1,9 @@
 import chalk from "npm:chalk@5.4.1";
-import type { Envs, ModuleConfig, WebComponentBuildConfig} from './types.ts';
+import type { Envs, ModuleConfig, WebComponentBuildConfig } from './types.ts';
 import * as path from "@std/path";
 import { type OutputOptions, rolldown, type ModuleFormat, type RolldownOutput, type RolldownOptions, watch, type RolldownWatcher } from 'rolldown';
 import html from "npm:rollup-plugin-html@0.2.1";
-import postcss from "rollup-plugin-postcss";
+import sass from "rollup-plugin-sass";
 import rollupJson from "npm:@rollup/plugin-json@6.1.0";
 import rollupReplace from "npm:@rollup/plugin-replace@6.0.2";
 //config
@@ -15,25 +15,25 @@ import gzipPlugin from "npm:rollup-plugin-gzip@4.0.1";
 import brotli from "npm:rollup-plugin-brotli@3.1.0";
 import terser from "npm:@rollup/plugin-terser@0.4.4";
 export class WebComponentBuilder {
-  envs:Envs = {
+  envs: Envs = {
     nodeEnv: "production"
   }
-  constructor(envs?:Envs){
-    if(envs){
+  constructor(envs?: Envs) {
+    if (envs) {
       this.envs = envs;
     }
   }
-  async buildAllComponents(webComponentList:WebComponentBuildConfig[]) {
+  async buildAllComponents(webComponentList: WebComponentBuildConfig[]) {
     for (const component of webComponentList) {
       await this.buildComponent(component);
     }
   }
-  async buildComponent(componentBuildConfig: WebComponentBuildConfig, watchMode = false):Promise<PromiseSettledResult<RolldownOutput>[]|undefined> {
+  async buildComponent(componentBuildConfig: WebComponentBuildConfig, watchMode = false): Promise<PromiseSettledResult<RolldownOutput>[] | undefined> {
     const moduleConfig = this.#createModuleConfig(componentBuildConfig);
     console.log(`start building ${componentBuildConfig.name}`);
-    const inputOptions = this.#getInputOption(moduleConfig, 'es',watchMode);
-    const cjsInputOptions = this.#getInputOption(moduleConfig, 'cjs',watchMode);
-    const umdInputOptions = this.#getInputOption(moduleConfig, 'umd',watchMode);
+    const inputOptions = this.#getInputOption(moduleConfig, 'es', watchMode);
+    const cjsInputOptions = this.#getInputOption(moduleConfig, 'cjs', watchMode);
+    const umdInputOptions = this.#getInputOption(moduleConfig, 'umd', watchMode);
     //
     const esOutputOptions = this.#getOutputOption(moduleConfig, "es");
     const cjsOutputOptions = this.#getOutputOption(moduleConfig, "cjs");
@@ -47,26 +47,26 @@ export class WebComponentBuilder {
         const p2 = this.buildModule(cjsInputOptions, cjsOutputOptions, "CJS");
         await p2;
         const p3 = this.buildModule(umdInputOptions, umdOutputOptions, "UMD");
-        return await Promise.allSettled([p1,p2,p3]);
+        return await Promise.allSettled([p1, p2, p3]);
       }
     } catch (e) {
       console.error(componentBuildConfig.name + ' build failed');
       return Promise.reject(e);
     }
   }
-  #createModuleConfig(inputConfig: WebComponentBuildConfig):ModuleConfig{
-    const dir = inputConfig.dir??Deno.cwd();
-    
-    const tsConfigPath = inputConfig.tsConfigPath?path.resolve(Deno.cwd(),inputConfig.tsConfigPath):path.resolve(dir,"tsconfig.json");
+  #createModuleConfig(inputConfig: WebComponentBuildConfig): ModuleConfig {
+    const dir = inputConfig.dir ?? Deno.cwd();
+
+    const tsConfigPath = inputConfig.tsConfigPath ? path.resolve(Deno.cwd(), inputConfig.tsConfigPath) : path.resolve(dir, "tsconfig.json");
     return {
       ...inputConfig,
       outputPathParsed: path.parse(inputConfig.outputPath),
       dir,
       tsConfigPath,
-      globals: inputConfig.globals??{},
+      globals: inputConfig.globals ?? {},
     };
   }
-  buildModule(inputOptions: RolldownOptions, outputOptions: OutputOptions, type: "ES" | "CJS" | "UMD") :Promise<RolldownOutput> {
+  buildModule(inputOptions: RolldownOptions, outputOptions: OutputOptions, type: "ES" | "CJS" | "UMD"): Promise<RolldownOutput> {
     //build module with rollup without any watch or something
     return new Promise((resolve, reject) => {
       const bundlePromise = rolldown(inputOptions);
@@ -113,7 +113,7 @@ export class WebComponentBuilder {
     });
   }
   #getInputOption(module: ModuleConfig, format: "es" | "cjs" | "umd" = "es", watchMode: boolean): RolldownOptions {
-    
+
     // remove filename and lib folder name result in web-component/jb-input
     let externalList = module.external || [];
     if (
@@ -133,11 +133,11 @@ export class WebComponentBuilder {
       svg({
         base64: false,
       }),
-      //@ts-ignore
-      postcss({
-        extensions: [".css", ".pcss", "scss"],
-        inject: false,
-        sourceMap: false,
+      sass({
+        api: 'modern',
+        options: {
+          style: 'compressed',
+        },
       }),
       // resolve({
       //   preferBuiltins: true,
@@ -157,8 +157,8 @@ export class WebComponentBuilder {
       //watch mode is for development and dont need minification
       plugins = [
         ...plugins,
-      //@ts-ignore
-        terser({ compress: { drop_debugger: watchMode?false:true } }),
+        //@ts-ignore
+        terser({ compress: { drop_debugger: watchMode ? false : true } }),
         gzipPlugin(),
         brotli(),];
     }

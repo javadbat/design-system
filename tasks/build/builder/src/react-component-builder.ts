@@ -2,7 +2,7 @@ import * as path from "@std/path";
 //rollup
 import { type OutputOptions, rolldown, type ModuleFormat, type RolldownOutput, type RolldownOptions, watch, type RolldownWatcher, InputOptions } from 'rolldown';
 import { babel as rollupBabel } from "npm:@rollup/plugin-babel@6.0.4";
-import postcss from "rollup-plugin-postcss";
+import sass from "rollup-plugin-sass";
 // import commonjs from "npm:@rollup/plugin-commonjs@28.0.2";
 import rollupJson from "npm:@rollup/plugin-json@6.1.0";
 import rollupReplace from "npm:@rollup/plugin-replace@6.0.2";
@@ -118,13 +118,11 @@ export class ReactComponentBuilder {
         "process.env.NODE_ENV": `"${this.envs.nodeEnv}"`,
         preventAssignment: true,
       }),
-      //@ts-ignore
-      // commonjs({ include: "node_modules/**" }),
-      postcss({
-        extensions: [".css", ".pcss", "scss"],
-        inject: true,
-        sourceMap: true,
-
+      sass({
+        api: 'modern',
+        options: {
+          style: 'compressed',
+        },
       }),
       rollupBabel({
         exclude: ["node_modules/**", ...externalList],

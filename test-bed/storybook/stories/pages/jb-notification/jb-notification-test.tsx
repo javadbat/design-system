@@ -1,7 +1,8 @@
 import React from 'react';
 import {JBButton} from 'jb-button/react';
 import './jb-notification-styles.css';
-import {notificationManager} from '../../../../../modules/notification-manager/notification-manager';
+import {notificationManager} from 'jb-notification/manager/notification-manager.js';
+
 export function JBNotificationTest() {
   function showSuccessMessage() {
     const message:string | null = 'completed successfully';
