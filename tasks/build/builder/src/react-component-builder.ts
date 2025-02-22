@@ -46,7 +46,8 @@ export class ReactComponentBuilder {
       const bundlePromise = rolldown(inputOptions);
       bundlePromise
         .then(function (bundle) {
-          bundle.write(outputOptions).then(function (output) {
+          
+          bundle.write(outputOptions).then((output)=>{
             console.log(
               chalk.greenBright(output.output[0].facadeModuleId),
               " ",
@@ -55,6 +56,11 @@ export class ReactComponentBuilder {
               chalk.bgMagenta(" DONE ")
             );
             resolve();
+            bundle.close();
+          }).catch((e) => {
+            console.log(e);
+            reject(e);
+            bundle.close();
           });
         })
         .catch((e) => {
@@ -114,11 +120,11 @@ export class ReactComponentBuilder {
       }),
       //@ts-ignore
       // commonjs({ include: "node_modules/**" }),
-      //@ts-ignore
       postcss({
         extensions: [".css", ".pcss", "scss"],
         inject: true,
         sourceMap: true,
+
       }),
       rollupBabel({
         exclude: ["node_modules/**", ...externalList],

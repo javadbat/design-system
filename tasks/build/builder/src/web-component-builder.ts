@@ -58,7 +58,6 @@ export class WebComponentBuilder {
     const dir = inputConfig.dir??Deno.cwd();
     
     const tsConfigPath = inputConfig.tsConfigPath?path.resolve(Deno.cwd(),inputConfig.tsConfigPath):path.resolve(dir,"tsconfig.json");
-    console.log(tsConfigPath);
     return {
       ...inputConfig,
       outputPathParsed: path.parse(inputConfig.outputPath),
