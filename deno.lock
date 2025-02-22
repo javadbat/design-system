@@ -2,7 +2,7 @@
   "version": "4",
   "specifiers": {
     "jsr:@std/cli@1.0.11": "1.0.11",
-    "jsr:@std/path@^1.0.3": "1.0.6",
+    "jsr:@std/path@^1.0.8": "1.0.8",
     "npm:@babel/core@7.26.7": "7.26.7",
     "npm:@rollup/plugin-babel@6.0.4": "6.0.4_@babel+core@7.26.7_rollup@4.32.1",
     "npm:@rollup/plugin-commonjs@28.0.2": "28.0.2_rollup@4.32.1_picomatch@4.0.2",
@@ -24,8 +24,8 @@
     "@std/cli@1.0.11": {
       "integrity": "ec219619fdcd31bcf0d8e53bee1e2706ec9a02f70255365a094f69755dadd340"
     },
-    "@std/path@1.0.6": {
-      "integrity": "ab2c55f902b380cf28e0eec501b4906e4c1960d13f00e11cfbcd21de15f18fed"
+    "@std/path@1.0.8": {
+      "integrity": "548fa456bb6a04d3c1a1e7477986b6cffbce95102d0bb447c67c4ee70e0364be"
     }
   },
   "npm": {
@@ -1345,7 +1345,7 @@
   },
   "workspace": {
     "dependencies": [
-      "jsr:@std/path@^1.0.3",
+      "jsr:@std/path@^1.0.8",
       "npm:rollup-plugin-gzip@4"
     ],
     "packageJson": {

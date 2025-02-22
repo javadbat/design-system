@@ -14,6 +14,7 @@
     "rollup-plugin-sass": "npm:rollup-plugin-sass@^1.15.2",
     "rollup-plugin-swc3": "npm:rollup-plugin-swc3@^0.12.1"
   },
+  
   "tasks": {
     "build":"deno run --allow-all ./cli.ts $1"
   },

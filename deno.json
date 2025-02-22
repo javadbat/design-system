@@ -4,13 +4,14 @@
   "exports": "./mod.ts",
   "tasks": {
     "build": "deno run --allow-run --allow-read --allow-write --allow-net --allow-env --allow-sys --allow-ffi ./tasks/build/build.ts --path=./config/build-config.ts",
+    "build1": "deno run --allow-run --allow-read --allow-write --allow-net --allow-env --allow-sys --allow-ffi jsr:@design-system/builder@0.0.12 build --path=./config/build-config.ts",
     "start": "deno run --allow-read --allow-net --allow-env --allow-run ./tasks/start/start.ts"
   },
   "exclude": ["web-component/", "react-component/"],
   "imports": {
     "./": "./",
     "/": "./",
-    "@std/path": "jsr:@std/path@^1.0.3",
+    "@std/path": "jsr:@std/path@^1.0.8",
     "jb-button": "./web-component/jb-button",
     "jb-calendar": "./web-component/jb-calendar",
     "jb-checkbox-react": "./react-component/jb-checkbox",
