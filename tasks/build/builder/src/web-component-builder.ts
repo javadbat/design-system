@@ -1,12 +1,10 @@
 import chalk from "npm:chalk@5.4.1";
 import type { Envs, ModuleConfig, WebComponentBuildConfig} from './types.ts';
 import * as path from "@std/path";
-//rollup
-import * as rollup from "npm:rollup@4.32.1";
+import { type OutputOptions, rolldown, type ModuleFormat, type RolldownOutput, type RolldownOptions, watch, type RolldownWatcher } from 'rolldown';
 import html from "npm:rollup-plugin-html@0.2.1";
 import postcss from "rollup-plugin-postcss";
 import rollupJson from "npm:@rollup/plugin-json@6.1.0";
-import resolve from "npm:@rollup/plugin-node-resolve@16.0.0";
 import rollupReplace from "npm:@rollup/plugin-replace@6.0.2";
 //config
 //import typescript from '@rollup/plugin-typescript';
@@ -16,7 +14,6 @@ import svg from "npm:rollup-plugin-svg@2.0.0";
 import gzipPlugin from "npm:rollup-plugin-gzip@4.0.1";
 import brotli from "npm:rollup-plugin-brotli@3.1.0";
 import terser from "npm:@rollup/plugin-terser@0.4.4";
-import type { ModuleFormat } from "npm:rollup@4.32.1";
 export class WebComponentBuilder {
   envs:Envs = {
     nodeEnv: "production"
@@ -31,7 +28,7 @@ export class WebComponentBuilder {
       await this.buildComponent(component);
     }
   }
-  async buildComponent(componentBuildConfig: WebComponentBuildConfig, watchMode = false):Promise<PromiseSettledResult<rollup.RollupOutput>[]|undefined> {
+  async buildComponent(componentBuildConfig: WebComponentBuildConfig, watchMode = false):Promise<PromiseSettledResult<RolldownOutput>[]|undefined> {
     const moduleConfig = this.#createModuleConfig(componentBuildConfig);
     console.log(`start building ${componentBuildConfig.name}`);
     const inputOptions = this.#getInputOption(moduleConfig, 'es',watchMode);
@@ -61,7 +58,6 @@ export class WebComponentBuilder {
     const dir = inputConfig.dir??Deno.cwd();
     
     const tsConfigPath = inputConfig.tsConfigPath?path.resolve(Deno.cwd(),inputConfig.tsConfigPath):path.resolve(dir,"tsconfig.json");
-    console.log(tsConfigPath);
     return {
       ...inputConfig,
       outputPathParsed: path.parse(inputConfig.outputPath),
@@ -70,10 +66,10 @@ export class WebComponentBuilder {
       globals: inputConfig.globals??{},
     };
   }
-  buildModule(inputOptions: rollup.RollupOptions, outputOptions: rollup.OutputOptions, type: "ES" | "CJS" | "UMD") :Promise<rollup.RollupOutput> {
+  buildModule(inputOptions: RolldownOptions, outputOptions: OutputOptions, type: "ES" | "CJS" | "UMD") :Promise<RolldownOutput> {
     //build module with rollup without any watch or something
     return new Promise((resolve, reject) => {
-      const bundlePromise = rollup.rollup(inputOptions);
+      const bundlePromise = rolldown(inputOptions);
       bundlePromise.then(function (bundle) {
         bundle.write(outputOptions).then(function (output) {
           console.log(chalk.greenBright(output.output[0].facadeModuleId), ' ', chalk.bgBlue(` ${type} `), ' ', chalk.bgMagenta(' DONE '));
@@ -85,9 +81,9 @@ export class WebComponentBuilder {
       });
     });
   }
-  #buildAndWatchModule(inputOptions: rollup.RollupOptions, outputOptions: rollup.OutputOptions, module: WebComponentBuildConfig) {
+  #buildAndWatchModule(inputOptions: RolldownOptions, outputOptions: OutputOptions, module: WebComponentBuildConfig) {
     return new Promise<void>((resolve, reject) => {
-      const watcher = rollup.watch({
+      const watcher = watch({
         ...inputOptions,
         output: outputOptions,
         watch: {
@@ -97,12 +93,12 @@ export class WebComponentBuilder {
       this.#watcherEventHandler(watcher, resolve, reject);
     });
   }
-  #watcherEventHandler(watcher: rollup.RollupWatcher, resolver: () => void, rejecter: () => void) {
+  #watcherEventHandler(watcher: RolldownWatcher, resolver: () => void, rejecter: () => void) {
     watcher.on('event', event => {
       if (event.code === 'BUNDLE_START') {
         console.log('Bundling...');
       } else if (event.code === 'BUNDLE_END') {
-        console.log(chalk.green(event.input + '\n' + 'Bundled in ' + event.duration + 'ms.'));
+        console.log(chalk.green(event.output + '\n' + 'Bundled in ' + event.duration + 'ms.'));
         resolver();
       } else if (event.code === 'ERROR') {
         console.log(event);
@@ -116,7 +112,7 @@ export class WebComponentBuilder {
       }
     });
   }
-  #getInputOption(module: ModuleConfig, format: "es" | "cjs" | "umd" = "es", watchMode: boolean): rollup.RollupOptions {
+  #getInputOption(module: ModuleConfig, format: "es" | "cjs" | "umd" = "es", watchMode: boolean): RolldownOptions {
     
     // remove filename and lib folder name result in web-component/jb-input
     let externalList = module.external || [];
@@ -143,12 +139,11 @@ export class WebComponentBuilder {
         inject: false,
         sourceMap: false,
       }),
-      //@ts-ignore
-      resolve({
-        preferBuiltins: true,
-        mainFields: ["browser", "jsnext:main", "module", "main"],
-        // jsnext: true,
-      }),
+      // resolve({
+      //   preferBuiltins: true,
+      //   mainFields: ["browser", "jsnext:main", "module", "main"],
+      //   // jsnext: true,
+      // }),
       //@ts-ignore
       rollupReplace({
         "process.env.NODE_ENV": `"${env}"`,
@@ -209,7 +204,7 @@ export class WebComponentBuilder {
       exclude: [...externalList],
     };
   }
-  #getOutputOption(module: ModuleConfig, format: ModuleFormat = "es"): rollup.OutputOptions {
+  #getOutputOption(module: ModuleConfig, format: ModuleFormat = "es"): OutputOptions {
     const outputFileName = `${module.outputPathParsed.name}${format == 'es' ? '' : ('.' + format)}${module.outputPathParsed.ext}`;
     const outputOptions = {
       // core output options
@@ -226,8 +221,4 @@ export class WebComponentBuilder {
     }
     return outputOptions;
   }
-}
-
-function brotliPromise(arg0: any) {
-  throw new Error("Function not implemented.");
 }
