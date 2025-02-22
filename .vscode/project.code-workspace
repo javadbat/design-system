@@ -9,10 +9,6 @@
         "path": "../web-component"
       },
       {
-        "name": "front/common",
-        "path": "../common"
-      },
-      {
         "name": "front/test-bed",
         "path": "../test-bed"
       },
