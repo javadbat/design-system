@@ -6,7 +6,9 @@ module.exports = {
     "@storybook/addon-actions",
     "@storybook/addon-mdx-gfm",
     "@storybook/addon-webpack5-compiler-swc",
-    "@chromatic-com/storybook"
+    "@chromatic-com/storybook",
+    //to add rtl,ltr switch support
+    "@storybook/addon-themes"
   ],
   framework: {
     name: "@storybook/react-webpack5",
