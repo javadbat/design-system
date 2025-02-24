@@ -37,6 +37,9 @@ export const valueTest: Story = {
 };
 
 export const RightToLeft: Story = {
+  args:{
+    direction:'rtl',
+  },
   parameters: {
     themes:{
       themeOverride:'rtl'
@@ -44,8 +47,11 @@ export const RightToLeft: Story = {
   },
 };
 export const RTLGregorian: Story = {
+  args:{
+    direction:'rtl',
+    inputType:'GREGORIAN'
+  },
   parameters: {
-    inputType: 'GREGORIAN',
     themes:{
       themeOverride:'rtl'
     }
