@@ -28,13 +28,7 @@ npm i
 ### build packages in project root directory
 
 ```bash
-# build all modules
-npm run build
-
-# build only a named module
-npm run build --name=jb-input
-```
-in deno (recommended):
+# build all modules in deno:
 
 ```bash
 deno task build
