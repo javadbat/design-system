@@ -1,19 +1,21 @@
-import React, { Children, useRef, useState } from "react";
-import { JBInfiniteScroll } from "jb-infinite-scroll/react";
-export default {
+import React, { useRef, useState } from "react";
+import { JBInfiniteScroll, Props } from "jb-infinite-scroll/react";
+import type { Meta, StoryObj } from '@storybook/react';
+
+const meta: Meta<Props> = {
   title: "Example/JBInfiniteScroll",
   component: JBInfiniteScroll,
 };
+export default meta;
+type Story = StoryObj<typeof JBInfiniteScroll>;
 
-const Template = (args) => <JBInfiniteScroll {...args} />;
-export const Normal = Template.bind({});
-Normal.args = {
+export const Normal :Story = {
+  args:{}
 };
 
 
 
-
-export const ActionTemplate = {
+export const ActionTemplate:Story = {
   render:
     (args) => {
       const ref = useRef(null);
@@ -21,7 +23,7 @@ export const ActionTemplate = {
       const [isLoading, setIsLoading] = useState(false) ;
       const [isListEnded,setIsListEnded] = useState(false);
       const onScrollEnd = ()=>{
-        const i = list.at(-1);
+        const i = list.at(-1)!;
         if(i>100){
           setIsListEnded(true);
         }
@@ -47,13 +49,12 @@ export const ActionTemplate = {
       );
     },
 };
-ActionTemplate.args = {
-};
 
-export const Empty = Template.bind({});
-Empty.args = {
-  isListEmpty:true,
-  children:<div slot="empty">list is empty</div>,
+export const Empty:Story = {
+  args:{
+    isListEmpty:true,
+    children:<div slot="empty">list is empty</div>,
+  }
 };
 
 
