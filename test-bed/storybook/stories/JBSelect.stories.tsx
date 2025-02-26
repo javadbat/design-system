@@ -1,15 +1,20 @@
 /* eslint-disable indent */
 import React from 'react';
-import {JBSelect,JBOptionList, JBOption} from 'jb-select/react';
-import JBSelectStyleTest from '../stories/pages/JBSelect/JBSelectStyleTestPage';
+import {JBSelect,JBOptionList, JBOption, Props} from 'jb-select/react';
+import JBSelectStyleTest from './pages/JBSelect/JBSelectStyleTestPage';
 import { action } from '@storybook/addon-actions';
 import JBSelectDynamicList from './pages/JBSelect/JBSelectDynamicList';
 import CustomizedOptions from './pages/JBSelect/CustomizedOptions';
 import JBSelectDesign from './pages/JBSelect/JbSelectDesign';
-export default {
-  title: 'Example/JBSelect',
-  component: JBSelect
+import type { Meta, StoryObj } from '@storybook/react';
+
+const meta: Meta<Props> = {
+  title: "Example/form elements/JBSelect",
+  component: JBSelect,
 };
+export default meta;
+type Story = StoryObj<typeof JBSelect>;
+
 const numberOptionList = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39'];
 const Template = ({optionListProps,...args}) => <JBSelect { ...args}><JBOptionList {...optionListProps} /></JBSelect>;
 //replace and switch all test beween Template & WithOptionTemplate
