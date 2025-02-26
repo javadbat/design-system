@@ -1,16 +1,13 @@
-import React from "react";
-import {JBNotificationTest} from "./pages/jb-notification/jb-notification-test";
-import JBMessageCustomStylesTest from "./pages/JBMessage/JBMessageCustomStylesTest";
+import { JBNotificationTest } from "./pages/jb-notification/jb-notification-test";
+import type { Meta, StoryObj } from '@storybook/react';
 
-export default {
-    title: "Example/JBNotification",
-    component: JBNotificationTest,
+const meta: Meta<unknown> = {
+  title: "Example/form elements/Inputs/JBNotification",
+  component: JBNotificationTest,
 };
+export default meta;
+type Story = StoryObj<typeof JBNotificationTest>;
 
-const Template = (args) => <JBNotificationTest />;
-export const Normal = Template.bind({});
-Normal.args = {};
-
-const CustomTemplate = (args) => <JBMessageCustomStylesTest />;
-export const CustomStyle = CustomTemplate.bind({});
-CustomStyle.args = {};
+export const Normal: Story = {
+  args: {}
+};

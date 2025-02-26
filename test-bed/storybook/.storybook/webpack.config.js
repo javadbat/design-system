@@ -30,6 +30,7 @@ module.exports = async ({ config }) => {
       path.resolve(__dirname, '..','..', '..', 'web-component','jb-mobile-input'),
       path.resolve(__dirname, '..','..', '..', 'web-component','jb-time-input'),
       path.resolve(__dirname, '..','..', '..', 'web-component','jb-national-input'),
+      path.resolve(__dirname, '..','..', '..', 'web-component','jb-notification'),
       path.resolve(__dirname, '..','..', '..', 'web-component','jb-password-input'),
       path.resolve(__dirname, '..','..', '..', 'web-component','jb-date-input'),
       path.resolve(__dirname, '..','..', '..', 'web-component','jb-button'),
@@ -49,7 +50,6 @@ module.exports = async ({ config }) => {
     alias:{
       ...config.resolve.alias,
       react: path.resolve('node_modules/react'),
-      'jb-message':path.resolve(__dirname, '..','..', '..', 'modules','jb-message'),
     }
   }
   return config;

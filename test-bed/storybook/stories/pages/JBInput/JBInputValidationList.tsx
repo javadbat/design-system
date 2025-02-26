@@ -1,20 +1,23 @@
 import React, { useRef } from 'react';
 import {JBInput} from 'jb-input/react';
-import PropTypes from 'prop-types';
-function JBInputValidationList(props) {
-  var inputValidation=[
+import { JBInputWebComponent, ValidationValue } from 'jb-input';
+import { ValidationItem } from 'jb-validation';
+
+
+function JBInputValidationList(props:JBInputValidationListProps) {
+  const inputValidation:ValidationItem<ValidationValue>[]=[
     {
       validator: props.inputRegex,
       message: props.inputMessage
     }
   ];
-  var passwordValidation=[
+  const passwordValidation=[
     {
       validator: props.passwordRegex,
       message: props.passwordMessage
     }
   ];
-  const emailValidation=[
+  const emailValidation:ValidationItem<ValidationValue>[]=[
     {
       validator: props.emailRegex,
       message: props.emailMessage
@@ -45,16 +48,20 @@ function JBInputValidationList(props) {
       defer:true
     }
   ];
-  var mobileValidation=[
+  const mobileValidation:ValidationItem<ValidationValue>[]=[
     {
       validator: props.mobileRegex,
       message: props.mobileMessage
     }
   ];
-  const passwordInputDom = useRef();
+  
+  const passwordInputDom = useRef<JBInputWebComponent>();
   function onButtonClicked(){
-    console.log(passwordInputDom.current.validation.result);   
+    if(passwordInputDom.current){
+      console.log(passwordInputDom.current.validation.result);   
+    }
   }
+
   return (
     <div style={{direction:'rtl'}}>
       <JBInput label='ورودی' validationList={inputValidation}></JBInput>
@@ -66,15 +73,15 @@ function JBInputValidationList(props) {
     </div>
   );
 }
-JBInputValidationList.propTypes = {
-  inputRegex: PropTypes.string,
-  inputMessage: PropTypes.string,
-  passwordRegex: PropTypes.string,
-  passwordMessage: PropTypes.string,
-  emailRegex: PropTypes.string,
-  emailMessage: PropTypes.string,
-  mobileRegex: PropTypes.string,
-  mobileMessage: PropTypes.string,
+export type JBInputValidationListProps = {
+  inputRegex: RegExp,
+  inputMessage: string,
+  passwordRegex: RegExp,
+  passwordMessage: string,
+  emailRegex: RegExp,
+  emailMessage: string,
+  mobileRegex: RegExp,
+  mobileMessage: string,
 };
 
 
