@@ -1,6 +1,15 @@
 import React from 'react';
 import 'jb-time-picker';
 import JBTimePickerValueTest from './pages/jb-time-input/JBTimePickerValueTest';
+
+declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
+  namespace JSX {
+    interface IntrinsicElements {
+      'jb-time-picker': any;
+    }
+  }
+}
 export default {
   title: 'Example/JBTimePicker',
   // component:
