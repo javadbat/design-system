@@ -2,7 +2,7 @@
   "version": "4",
   "specifiers": {
     "jsr:@std/cli@1.0.11": "1.0.11",
-    "jsr:@std/path@^1.0.8": "1.0.8",
+    "jsr:@std/path@^1.0.3": "1.0.8",
     "npm:@babel/core@7.26.7": "7.26.7",
     "npm:@rollup/plugin-babel@6.0.4": "6.0.4_@babel+core@7.26.7_rollup@4.32.1",
     "npm:@rollup/plugin-commonjs@28.0.2": "28.0.2_rollup@4.32.1_picomatch@4.0.2",
@@ -1345,8 +1345,12 @@
   },
   "workspace": {
     "dependencies": [
-      "jsr:@std/path@^1.0.8",
-      "npm:rollup-plugin-gzip@4"
+      "jsr:@std/cli@^1.0.11",
+      "jsr:@std/path@^1.0.3",
+      "npm:rolldown@^1.0.0-beta.3",
+      "npm:rollup-plugin-gzip@4",
+      "npm:rollup-plugin-sass@^1.15.2",
+      "npm:rollup-plugin-swc3@~0.12.1"
     ],
     "packageJson": {
       "dependencies": [
@@ -1403,6 +1407,7 @@
         "npm:rollup-plugin-gzip@4",
         "npm:rollup-plugin-html@~0.2.1",
         "npm:rollup-plugin-postcss@^4.0.2",
+        "npm:rollup-plugin-sass@^1.15.2",
         "npm:rollup-plugin-svg@2",
         "npm:rollup-plugin-swc3@~0.12.1",
         "npm:rollup-plugin-typescript2@0.36",
