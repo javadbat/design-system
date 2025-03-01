@@ -27,6 +27,9 @@ jobs:
 
       - name: install dependencies
         run: npm install
+      
+      - name: build packages
+        run: deno task build
 
       - name: Build Storybook static files
         run: npm run build-storybook
