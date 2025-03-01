@@ -1,4 +1,4 @@
-# design-system
+# JB Design System Monorepo Project
 
 design-system for jb-web-components and corresponding react components
 
