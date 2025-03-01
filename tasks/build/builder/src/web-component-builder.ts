@@ -3,7 +3,7 @@ import type { Envs, ModuleConfig, WebComponentBuildConfig } from './types.ts';
 import * as path from "@std/path";
 import { type OutputOptions, rolldown, type ModuleFormat, type RolldownOutput, type RolldownOptions, watch, type RolldownWatcher } from 'rolldown';
 import html from "npm:rollup-plugin-html@0.2.1";
-import sass from "npm:rollup-plugin-sass";
+import sass from "rollup-plugin-sass";
 import rollupJson from "npm:@rollup/plugin-json@6.1.0";
 import rollupReplace from "npm:@rollup/plugin-replace@6.0.2";
 //config

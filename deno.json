@@ -11,7 +11,12 @@
   "imports": {
     "./": "./",
     "/": "./",
-    "@std/path": "jsr:@std/path@^1.0.8",
+    "@std/path": "jsr:@std/path@^1.0.3",
+    "@std/cli": "jsr:@std/cli@^1.0.11",
+    "rolldown": "npm:rolldown@^1.0.0-beta.3",
+    "rollup-plugin-gzip": "npm:rollup-plugin-gzip@^4.0.0",
+    "rollup-plugin-sass": "npm:rollup-plugin-sass@^1.15.2",
+    "rollup-plugin-swc3": "npm:rollup-plugin-swc3@^0.12.1",
     "jb-button": "./web-component/jb-button",
     "jb-calendar": "./web-component/jb-calendar",
     "jb-checkbox-react": "./react-component/jb-checkbox",
@@ -40,8 +45,7 @@
     "jb-time-picker": "./web-component/jb-time-picker",
     "jb-form": "./web-component/jb-form",
     "jb-validation": "./web-component/jb-validation",
-    "jb-core": "./web-component/jb-core",
-    "rollup-plugin-gzip": "npm:rollup-plugin-gzip@^4.0.0"
+    "jb-core": "./web-component/jb-core"
   },
   "compilerOptions": {
     "lib": [
