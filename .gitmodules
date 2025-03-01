@@ -102,10 +102,7 @@
 	url = https://github.com/javadbat/jb-form.git
 [submodule "web-component/jb-checkbox"]
 	path = web-component/jb-checkbox
-	url = https://github.com/javadbat/jb-checkbox
-[submodule "web-component/web-component/jb-grid"]
-	path = web-component/web-component/jb-grid
-	url = https://github.com/javadbat/jb-grid.git
+	url = https://github.com/javadbat/jb-checkbox.git
 [submodule "web-component/jb-grid"]
 	path = web-component/jb-grid
 	url = https://github.com/javadbat/jb-grid.git
