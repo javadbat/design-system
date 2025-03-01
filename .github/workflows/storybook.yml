@@ -24,6 +24,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
+      # let us use deno command in ci
       - name: Install Deno
         uses: denoland/setup-deno@v2
         with:

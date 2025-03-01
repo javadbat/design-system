@@ -3,7 +3,7 @@ import * as path from "@std/path";
 import { type OutputOptions, rolldown, type ModuleFormat, type RolldownOutput, type RolldownOptions, watch, type RolldownWatcher, InputOptions } from 'rolldown';
 // import { babel as rollupBabel } from "npm:@rollup/plugin-babel@6.0.4";
 import {swc,defineRollupSwcOption} from "rollup-plugin-swc3";
-import sass from "rollup-plugin-sass";
+import sass from "npm:rollup-plugin-sass";
 // import commonjs from "npm:@rollup/plugin-commonjs@28.0.2";
 import rollupJson from "npm:@rollup/plugin-json@6.1.0";
 import rollupReplace from "npm:@rollup/plugin-replace@6.0.2";
