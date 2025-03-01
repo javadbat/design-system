@@ -25,8 +25,8 @@ async function getBuildConfig(modulePath: string): Promise<{ webComponents: WebC
 
 const JBCore = await getBuildConfig(`web-component/jb-core`);
 const JBValidation = await getBuildConfig(`web-component/jb-validation`);
-const JBInput = await getBuildConfig(`web-component/jb-input`);
 const JBCheckbox = await getBuildConfig(`web-component/jb-checkbox`);
+const JBInput = await getBuildConfig(`web-component/jb-input`);
 const JBButton = await getBuildConfig(`web-component/jb-button`);
 const JBPopover = await getBuildConfig(`web-component/jb-popover`);
 const JBCalendar = await getBuildConfig(`web-component/jb-calendar`);
@@ -57,8 +57,8 @@ const JBGrid = await getBuildConfig(`web-component/jb-grid`);
 const webComponentList: WebComponentBuildConfig[] = [
   ...JBCore.webComponents,
   ...JBValidation.webComponents,
-  ...JBInput.webComponents,
   ...JBCheckbox.webComponents,
+  ...JBInput.webComponents,
   ...JBButton.webComponents,
   ...JBPopover.webComponents,
   ...JBCalendar.webComponents,
@@ -87,8 +87,8 @@ const webComponentList: WebComponentBuildConfig[] = [
 ];
 const reactComponentList: ReactComponentBuildConfig[] = [
   ...JBCore.reactComponents,
-  ...JBInput.reactComponents,
   ...JBCheckbox.reactComponents,
+  ...JBInput.reactComponents,
   ...JBButton.reactComponents,
   ...JBCalendar.reactComponents,
   ...JBDateInput.reactComponents,
