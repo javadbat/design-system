@@ -25,11 +25,17 @@ async function getBuildConfig(modulePath: string): Promise<{ webComponents: WebC
 
 const JBCore = await getBuildConfig(`web-component/jb-core`);
 const JBValidation = await getBuildConfig(`web-component/jb-validation`);
+const JBForm = await getBuildConfig(`web-component/jb-form`);
 const JBCheckbox = await getBuildConfig(`web-component/jb-checkbox`);
-const JBInput = await getBuildConfig(`web-component/jb-input`);
 const JBButton = await getBuildConfig(`web-component/jb-button`);
 const JBPopover = await getBuildConfig(`web-component/jb-popover`);
 const JBCalendar = await getBuildConfig(`web-component/jb-calendar`);
+const JBInput = await getBuildConfig(`web-component/jb-input`);
+const JBMobileInput = await getBuildConfig(`web-component/jb-mobile-input`);
+const JBNumberInput = await getBuildConfig(`web-component/jb-number-input`);
+const JBNationalInput = await getBuildConfig(`web-component/jb-national-input`);
+const JBPaymentInput = await getBuildConfig(`web-component/jb-payment-input`);
+const JBPasswordInput = await getBuildConfig(`web-component/jb-password-input`);
 const JBDateInput = await getBuildConfig(`web-component/jb-date-input`);
 const JBFileInput = await getBuildConfig(`web-component/jb-file-input`);
 const JBImageInput = await getBuildConfig(`web-component/jb-image-input`);
@@ -40,23 +46,18 @@ const JBTimePicker = await getBuildConfig(`web-component/jb-time-picker`);
 const JBTimeInput = await getBuildConfig(`web-component/jb-time-input`);
 const JBLoading = await getBuildConfig(`web-component/jb-loading`);
 const JBPinInput = await getBuildConfig(`web-component/jb-pin-input`);
-const JBPaymentInput = await getBuildConfig(`web-component/jb-payment-input`);
-const JBMobileInput = await getBuildConfig(`web-component/jb-mobile-input`);
-const JBNumberInput = await getBuildConfig(`web-component/jb-number-input`);
-const JBNationalInput = await getBuildConfig(`web-component/jb-national-input`);
-const JBPasswordInput = await getBuildConfig(`web-component/jb-password-input`);
 const JBModal = await getBuildConfig(`web-component/jb-modal`);
 const JBTooltip = await getBuildConfig(`web-component/jb-tooltip`);
 const JBNotification = await getBuildConfig(`web-component/jb-notification`);
 const JBInfiniteScroll = await getBuildConfig(`web-component/jb-infinite-scroll`);
 const JBQrCode = await getBuildConfig(`web-component/jb-qrcode`);
 const JBSwitch = await getBuildConfig(`web-component/jb-switch`);
-const JBForm = await getBuildConfig(`web-component/jb-form`);
 const JBGrid = await getBuildConfig(`web-component/jb-grid`);
 
 const webComponentList: WebComponentBuildConfig[] = [
   ...JBCore.webComponents,
   ...JBValidation.webComponents,
+  ...JBForm.webComponents,
   ...JBCheckbox.webComponents,
   ...JBInput.webComponents,
   ...JBButton.webComponents,
@@ -83,10 +84,10 @@ const webComponentList: WebComponentBuildConfig[] = [
   ...JBInfiniteScroll.webComponents,
   ...JBQrCode.webComponents,
   ...JBSwitch.webComponents,
-  ...JBForm.webComponents,
 ];
 const reactComponentList: ReactComponentBuildConfig[] = [
   ...JBCore.reactComponents,
+  ...JBForm.reactComponents,
   ...JBCheckbox.reactComponents,
   ...JBInput.reactComponents,
   ...JBButton.reactComponents,
@@ -108,7 +109,6 @@ const reactComponentList: ReactComponentBuildConfig[] = [
   ...JBModal.reactComponents,
   ...JBInfiniteScroll.reactComponents,
   ...JBSwitch.reactComponents,
-  ...JBForm.reactComponents,
   ...JBGrid.reactComponents,
 ];
 export { webComponentList, reactComponentList };
