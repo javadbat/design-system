@@ -25,7 +25,9 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
 
-      # Runs a single command using the runners shell
+      - name: install dependencies
+        run: npm install
+
       - name: Build Storybook static files
         run: npm run build-storybook
 
