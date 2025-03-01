@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "storybook": "node serve.js"
+    "storybook": "node serve.js",
+    "build-storybook": "storybook build --output-dir dist"
   },
   "author": "",
   "license": "ISC",
@@ -15,7 +16,7 @@
     "@chromatic-com/storybook": "^3.2.4",
     "@storybook/addon-actions": "^8.5.8",
     "@storybook/addon-mdx-gfm": "^8.5.8",
-    "@storybook/addon-themes": "^8.5.8",
+    "@storybook/addon-themes": "^8.6.3",
     "@storybook/addon-webpack5-compiler-swc": "^2.1.0",
     "@storybook/react": "^8.5.8",
     "@storybook/react-webpack5": "^8.5.8",

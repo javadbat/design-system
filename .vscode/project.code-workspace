@@ -16,6 +16,7 @@
     "settings": {
         "deno.enable": true,
         "deno.lint": true,
-        "deno.future": true
+        "deno.future": true,
+        "liveServer.settings.multiRootWorkspaceName": "ROOT"
     }
   }
