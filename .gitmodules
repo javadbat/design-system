@@ -30,10 +30,6 @@
 	path = web-component/jb-calendar
 	url = https://github.com/javadbat/jb-calendar.git
 	branch = master
-[submodule "react-component/jb-checkbox"]
-	path = react-component/jb-checkbox
-	url = https://github.com/javadbat/jb-checkbox-react.git
-	branch = master
 [submodule "web-component/jb-searchbar"]
 	path = web-component/jb-searchbar
 	url = https://github.com/javadbat/jb-searchbar.git
@@ -99,10 +95,6 @@
 	branch = main
 [submodule "web-component/jb-popover"]
 	path = web-component/jb-popover
-	url = https://github.com/javadbat/jb-popover.git
-	branch = main
-[submodule "react-component/web-component/jb-popover"]
-	path = react-component/web-component/jb-popover
 	url = https://github.com/javadbat/jb-popover.git
 	branch = main
 [submodule "web-component/jb-form"]
