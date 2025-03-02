@@ -2,6 +2,7 @@
     "useTsconfigDeclarationDir": true,
     "compilerOptions": {
         "baseUrl": ".",
+        "rootDir": "./lib",
         "module": "ES2020",
         "noImplicitAny": true,
         "removeComments": false,
