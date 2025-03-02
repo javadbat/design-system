@@ -180,6 +180,7 @@ export class ReactComponentBuilder {
             module,
             externalList
           ),
+          
         })
       );
     }
@@ -228,6 +229,7 @@ export class ReactComponentBuilder {
       emitDeclarationOnly:true,
       include: [includePaths],
       exclude: [...externalList],
+      abortOnError: true,
     };
   }
 }
