@@ -170,7 +170,6 @@ export class WebComponentBuilder {
           // tsconfigOverride:override,
           tsconfig: module.tsConfigPath,
           tsconfigDefaults: this.#getTypeScriptCompilerOptions(
-            module,
             externalList
           ),
         })
@@ -189,18 +188,12 @@ export class WebComponentBuilder {
     const url = path.parse(module.path);
     return url.ext === '.ts';
   }
-  #getTypeScriptCompilerOptions(module: ModuleConfig, externalList: string[]) {
-    const includePaths = path.join(
-      module.dir,
-      "**",
-      "*"
-    );
+  #getTypeScriptCompilerOptions( externalList: string[]) {
 
     return {
       useTsconfigDeclarationDir: true,
       compilerOptions: {
       },
-      include: [includePaths],
       exclude: [...externalList],
     };
   }

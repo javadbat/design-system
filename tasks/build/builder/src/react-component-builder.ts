@@ -142,6 +142,7 @@ export class ReactComponentBuilder {
       }),
       sass({
         api: 'modern',
+        insert:true,
         options: {
           style: 'compressed',
         },
