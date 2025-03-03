@@ -2,7 +2,7 @@ import * as path from "@std/path";
 //rollup
 import { type OutputOptions, rolldown, type ModuleFormat, type RolldownOutput, type RolldownOptions, watch, type RolldownWatcher, InputOptions } from 'rolldown';
 // import { babel as rollupBabel } from "npm:@rollup/plugin-babel@6.0.4";
-import {swc,defineRollupSwcOption} from "rollup-plugin-swc3";
+import { swc, defineRollupSwcOption } from "rollup-plugin-swc3";
 import sass from "rollup-plugin-sass";
 // import commonjs from "npm:@rollup/plugin-commonjs@28.0.2";
 import rollupJson from "npm:@rollup/plugin-json@6.1.0";
@@ -118,7 +118,7 @@ export class ReactComponentBuilder {
 
         tsconfig: module.tsConfigPath,
         exclude: ["node_modules/**", ...externalList],
-        isModule:true,
+        isModule: true,
 
         jsc: {
           parser: {
@@ -146,7 +146,7 @@ export class ReactComponentBuilder {
           style: 'compressed',
         },
       }),
-      
+
       // rollupBabel({
       //   exclude: ["node_modules/**", ...externalList],
       //   babelrc: false,
@@ -176,11 +176,7 @@ export class ReactComponentBuilder {
         //@ts-ignore
         typescript({
           tsconfig: module.tsConfigPath,
-          tsconfigDefaults: this.#getTypeScriptCompilerOptions(
-            module,
-            externalList
-          ),
-          
+          tsconfigDefaults: this.#getTypeScriptCompilerOptions(externalList),
         })
       );
     }
@@ -216,18 +212,11 @@ export class ReactComponentBuilder {
     return url.ext === ".ts" || url.ext == ".tsx";
   }
   #getTypeScriptCompilerOptions(
-    module: ReactComponentBuildConfig,
     externalList: string[]
   ) {
-    const includePaths = path.join(
-      ...module.path.split("/").slice(0, -1),
-      "**",
-      "*"
-    );
     return {
       useTsconfigDeclarationDir: true,
-      emitDeclarationOnly:true,
-      include: [includePaths],
+      emitDeclarationOnly: true,
       exclude: [...externalList],
       abortOnError: true,
     };

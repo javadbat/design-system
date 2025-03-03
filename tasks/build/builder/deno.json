@@ -1,6 +1,6 @@
 {
   "name": "@design-system/builder",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "exports": "./mod.ts",
   "exclude": ["web-component/", "react-component/"],
   "nodeModulesDir": "auto",
