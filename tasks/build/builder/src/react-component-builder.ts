@@ -148,26 +148,6 @@ export class ReactComponentBuilder {
         },
       }),
 
-      // rollupBabel({
-      //   exclude: ["node_modules/**", ...externalList],
-      //   babelrc: false,
-      //   babelHelpers: "runtime",
-      //   presets: ["@babel/preset-env", "@babel/preset-react"],
-      //   plugins: [
-      //     ["@babel/plugin-proposal-decorators", { legacy: true }],
-      //     ["@babel/plugin-proposal-class-properties", { loose: true }],
-      //     [
-      //       "@babel/plugin-proposal-private-property-in-object",
-      //       { loose: true },
-      //     ],
-      //     ["@babel/plugin-proposal-private-methods", { loose: true }],
-      //     "@babel/plugin-syntax-dynamic-import",
-      //     "@babel/plugin-proposal-nullish-coalescing-operator",
-      //     "@babel/plugin-external-helpers",
-      //     "@babel/plugin-transform-runtime",
-      //   ],
-      // }),
-
       //@ts-ignore
       rollupJson(),
     ];
@@ -183,7 +163,7 @@ export class ReactComponentBuilder {
     }
     plugins.push(swcPlugin);
     const inputOptions = {
-      input: path.join(...module.path.split("/")),
+      input: path.join(module.path),
       external: module.external || [],
       plugins: plugins,
       //manualChunks: config.chuncks
