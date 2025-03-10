@@ -1,7 +1,7 @@
 import React from 'react';
 import {JBButton} from 'jb-button/react';
 import './jb-notification-styles.css';
-import {notificationManager} from 'jb-notification/manager/notification-manager.js';
+import {notificationManager} from 'jb-notification/manager/notification-manager.ts';
 
 export function JBNotificationTest() {
   function showSuccessMessage() {
