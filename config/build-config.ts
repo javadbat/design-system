@@ -105,7 +105,7 @@ const reactComponentList: ReactComponentBuildConfig[] = [
   ...JBMobileInput.reactComponents,
   ...JBNumberInput.reactComponents,
   ...JBNationalInput.reactComponents,
-  // ...JBPasswordInput.reactComponents,
+  ...JBPasswordInput.reactComponents,
   ...JBModal.reactComponents,
   ...JBInfiniteScroll.reactComponents,
   ...JBSwitch.reactComponents,
