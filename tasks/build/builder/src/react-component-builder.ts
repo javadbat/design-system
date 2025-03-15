@@ -56,8 +56,9 @@ export class ReactComponentBuilder {
               " ",
               chalk.bgMagenta(" DONE ")
             );
-            resolve();
-            bundle.close();
+            bundle.close().finally(()=>{
+              resolve();
+            });
           }).catch((e) => {
             console.log(e);
             reject(e);
