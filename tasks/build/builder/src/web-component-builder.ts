@@ -74,6 +74,7 @@ export class WebComponentBuilder {
         bundle.write(outputOptions).then(function (output) {
           console.log(chalk.greenBright(output.output[0].facadeModuleId), ' ', chalk.bgBlue(` ${type} `), ' ', chalk.bgMagenta(' DONE '));
           resolve(output);
+          bundle.close();
         });
       }).catch((e) => {
         console.error(e.message);
