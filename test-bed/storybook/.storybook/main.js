@@ -1,3 +1,4 @@
+const packagesRoot = '../../../web-component'
 module.exports = {
   // "stories": ["../stories/**/*.stories.mdx", "../stories/**/*.stories.@(js|jsx|ts|tsx)"],
   "addons": [
@@ -14,7 +15,7 @@ module.exports = {
     name: "@storybook/react-webpack5",
     options: {}
   },
-  stories: ['../stories/**/*.mdx', '../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+  stories: ['../stories/**/*.mdx', '../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)', packagesRoot + '/**/*.stories.@(js|jsx|mjs|ts|tsx)', packagesRoot + '/**/*.mdx'],
   typescript: {
     reactDocgen: "react-docgen-typescript"
   },
