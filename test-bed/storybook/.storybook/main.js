@@ -4,6 +4,7 @@ module.exports = {
   "addons": [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
+    '@storybook/addon-interactions',
     "@storybook/addon-actions",
     "@storybook/addon-mdx-gfm",
     "@storybook/addon-webpack5-compiler-swc",
