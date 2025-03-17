@@ -8,7 +8,8 @@ import rollupJson from "npm:@rollup/plugin-json@6.1.0";
 import rollupReplace from "npm:@rollup/plugin-replace@6.0.2";
 //config
 //import typescript from '@rollup/plugin-typescript';
-import typescript from "npm:rollup-plugin-typescript2@0.36.0";
+// import typescript from "npm:rollup-plugin-typescript2@0.36.0";
+import typescript from "npm:@rollup/plugin-typescript@12.1.2";
 // import InlineSvg from 'rollup-plugin-inline-svg';
 import svg from "npm:rollup-plugin-svg@2.0.0";
 import gzipPlugin from "npm:rollup-plugin-gzip@4.0.1";
@@ -102,11 +103,13 @@ export class WebComponentBuilder {
       } else if (event.code === 'BUNDLE_END') {
         console.log(chalk.green(event.output + '\n' + 'Bundled in ' + event.duration + 'ms.'));
         resolver();
+        watcher.close(); // Close the watcher to prevent memory leaks
       } else if (event.code === 'ERROR') {
         console.log(event);
 
         console.error(chalk.red((event as any).error));
         rejecter();
+        watcher.close(); // Close the watcher on error to prevent memory leaks
       }
       //rollup need to be closed on each result to free up space
       if ((event as any).result) {
@@ -169,11 +172,10 @@ export class WebComponentBuilder {
       plugins.push(
         //@ts-ignore
         typescript({
-          // tsconfigOverride:override,
           tsconfig: module.tsConfigPath,
-          tsconfigDefaults: this.#getTypeScriptCompilerOptions(
-            externalList
-          ),
+          // tsconfigDefaults: this.#getTypeScriptCompilerOptions(
+          //   externalList
+          // ),
         })
       );
     }
@@ -181,8 +183,6 @@ export class WebComponentBuilder {
       input: path.join(module.path),
       external: externalList,
       plugins: plugins,
-      // treeshake:"smallest"
-      //manualChunks: config.chuncks
     };
     return inputOptions;
   }
