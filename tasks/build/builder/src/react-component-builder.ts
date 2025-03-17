@@ -189,15 +189,5 @@ export class ReactComponentBuilder {
     const url = path.parse(module.path);
     return url.ext === ".ts" || url.ext == ".tsx";
   }
-  #getTypeScriptCompilerOptions(
-    externalList: string[]
-  ) {
-    return {
-      useTsconfigDeclarationDir: true,
-      emitDeclarationOnly: true,
-      exclude: [...externalList],
-      abortOnError: true,
-    };
-  }
 }
 export default ReactComponentBuilder;
