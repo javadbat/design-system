@@ -10,7 +10,7 @@ import rollupReplace from "npm:@rollup/plugin-replace@6.0.2";
 //config
 import type { Envs, ModuleConfig, ReactComponentBuildConfig } from './types.ts';
 import chalk from "npm:chalk@5.4.1";
-import typescript from "npm:rollup-plugin-typescript2@0.36.0";
+import typescript from "npm:@rollup/plugin-typescript@12.1.2";
 // import { DEFAULT_EXTENSIONS } from "npm:@babel/core@7.26.7";
 export class ReactComponentBuilder {
   envs: Envs = {
@@ -154,13 +154,9 @@ export class ReactComponentBuilder {
     ];
     const isTypeScriptModule = this.#isTypeScriptModule(module);
     if (isTypeScriptModule) {
-      plugins.push(
-        //@ts-ignore
-        typescript({
-          tsconfig: module.tsConfigPath,
-          tsconfigDefaults: this.#getTypeScriptCompilerOptions(externalList),
-        })
-      );
+      //@ts-ignore
+      const ss = typescript({tsconfig: module.tsConfigPath,});
+      plugins.push(ss);
     }
     plugins.push(swcPlugin);
     const inputOptions = {
