@@ -103,13 +103,11 @@ export class WebComponentBuilder {
       } else if (event.code === 'BUNDLE_END') {
         console.log(chalk.green(event.output + '\n' + 'Bundled in ' + event.duration + 'ms.'));
         resolver();
-        watcher.close(); // Close the watcher to prevent memory leaks
       } else if (event.code === 'ERROR') {
         console.log(event);
 
         console.error(chalk.red((event as any).error));
         rejecter();
-        watcher.close(); // Close the watcher on error to prevent memory leaks
       }
       //rollup need to be closed on each result to free up space
       if ((event as any).result) {
