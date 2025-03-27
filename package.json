@@ -86,7 +86,7 @@
     "eslint": "^7.9.0",
     "eslint-plugin-react": "^7.20.6",
     "rolldown": "^1.0.0-beta.3",
-    "typescript": "^4.8.4"
+    "typescript": "^5.8.2"
   },
   "scripts": {
     "postinstall": "node commands/init/postinstall.js",
