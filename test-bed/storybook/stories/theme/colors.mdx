@@ -1,6 +1,55 @@
-import {Meta,ColorPalette,ColorItem} from '@storybook/blocks'
+import {Meta,ColorPalette,ColorItem, Heading, Subheading} from '@storybook/blocks'
 
 <Meta title="Theme/Colors" />
+<Heading>Color Palette</Heading>
+<Subheading >all color are based on oklch() color space</Subheading>
+<br/>
 <ColorPalette>
-  <ColorItem title="primary" description="this color user as a primary color of app when color is matter" colors={{'primary':'#000','lighter':"#888"}}/>
+  <ColorItem title="primary" description="this color user as a primary color of app when color is matter" colors={{'main':'#0066FF','lighter':"#99B3FF", 'darker':'#00388F','hover':'#4D88FF','pressed':'#004ECC'}}/>
+  <ColorItem title="success" description="" colors={{'main':'#00B37B','lighter':'#33D9A6', 'subtle backgrounds':'#7AECCA', 'darker(text/icon)':'#008F65', 'deep accents':'#00684A'}}/>
+  <ColorItem title="error" description="" colors={{'main':'#FF1A3A','lighter':"#FF3A4A", 'soft warnings':'#FF5C75', 'hover/backgrounds':'#FFA3B3','critical errors':'#D90026','dark mode':'#A3001D'}}/>
 </ColorPalette>
+1. Primary Blue (#0066FF)
+Base: oklch(60% 0.26 256°)
+
+Lighter:
+
+oklch(70% 0.22 256°) → #4D88FF (softer, for hover states)
+
+oklch(80% 0.18 256°) → #99B3FF (light backgrounds)
+
+Darker:
+
+oklch(50% 0.26 256°) → #004ECC (pressed state)
+
+oklch(40% 0.22 256°) → #00388F (dark mode accents)
+
+2. Success Green (#00B37B)
+Base: oklch(70% 0.18 160°)
+
+Lighter:
+
+oklch(80% 0.15 160°) → #33D9A6 (success highlights)
+
+oklch(85% 0.12 160°) → #7AECCA (subtle backgrounds)
+
+Darker:
+
+oklch(60% 0.18 160°) → #008F65 (text/icons)
+
+oklch(50% 0.15 160°) → #00684A (deep accents)
+
+3. Error Red (#FF1A3A)
+Base: oklch(65% 0.25 15°)
+
+Lighter:
+
+oklch(75% 0.20 15°) → #FF5C75 (soft warnings)
+
+oklch(85% 0.15 15°) → #FFA3B3 (hover/backgrounds)
+
+Darker:
+
+oklch(55% 0.25 15°) → #D90026 (critical errors)
+
+oklch(45% 0.20 15°) → #A3001D (dark mode)
