@@ -1,21 +1,28 @@
-import {Meta,ColorPalette,ColorItem, Heading, Subheading} from '@storybook/blocks'
+import {Meta,ColorPalette,ColorItem, Heading, Subheading, } from '@storybook/blocks'
+import {getNeutralColor} from 'jb-core/theme/colors.ts';
 
 <Meta title="Theme/Colors" />
 <Heading>Color Palette</Heading>
 <Subheading >all color are based on oklch() color space</Subheading>
 <br/>
 <ColorPalette>
-  <ColorItem title="neutral" description="" colors={{'main':'#0D1117','black':'#0A0A0A','mid-grey':"#1A2029", 'grey':'#2D3643', 'light-grey':'#E0E4EA','lighter-grey':'#ECEEF2'}}/>
-  <ColorItem title="primary" description="" colors={{'main':'#0066FF','lighter':"#99B3FF", 'darker':'#00388F','hover':'#4D88FF','pressed':'#004ECC'}}/>
+  <ColorItem title="single" description="" colors={{'black':'oklch(0.14 0 0)','white':'oklch(1 0 0)'}}/>
+  <ColorItem title="neutral" description="" colors={{'main':getNeutralColor(0),'d1':getNeutralColor(1),'d2':getNeutralColor(2),'d3':getNeutralColor(3),'d4':getNeutralColor(4),'d5':getNeutralColor(5),'d6':getNeutralColor(6),'d7':getNeutralColor(7),'d8':getNeutralColor(8),'d9':getNeutralColor(9),'d10':getNeutralColor(10)}}/>
+  <ColorItem title="primary" description="" colors={{'main':'oklch(0.6 0.26 256)','hover':'oklch(0.67 0.33 256)','pressed':'oklch(0.5 0.19 256)'}}/>
   <ColorItem title="success" description="" colors={{'main':'#00B37B','lighter':'#33D9A6', 'subtle backgrounds':'#7AECCA', 'darker(text/icon)':'#008F65', 'deep accents':'#00684A'}}/>
   <ColorItem title="error" description="" colors={{'main':'#FF1A3A','lighter':"#FF3A4A", 'soft warnings':'#FF5C75', 'hover/backgrounds':'#FFA3B3','critical errors':'#D90026','dark mode':'#A3001D'}}/>
 </ColorPalette>
-1. Primary Blue (#0066FF)
-Base: oklch(60% 0.26 256°)
 
-Lighter:
+<Subheading>Color Rules</Subheading>
 
-oklch(70% 0.22 256°) → #4D88FF (softer, for hover states)
+we use `oklch()` color space for all colors in our design system. This allows us to create a consistent and harmonious color palette that is easy to use and understand.
+<br/>
+for example primary color is `oklch(0.6 0.26 256)` which is a blue color with a lightness of 60%, chroma of 0.26, and hue of 256 degrees.
+for hover state we add `0.07` to lightness and `0.07` to chroma so it gets a little lighter and brighter.
+for pressed state we subtract `0.1` to lightness and `0.05` to chroma so it gets a little darker and dimmer.
+<br/>
+
+{/* oklch(70% 0.22 256°) → #4D88FF (softer, for hover states) */}
 
 oklch(80% 0.18 256°) → #99B3FF (light backgrounds)
 
