@@ -9,9 +9,8 @@ import {getNeutralColor} from 'jb-core/theme/colors.ts';
   <ColorItem title="single" description="" colors={{'black':'oklch(0.14 0 0)','white':'oklch(1 0 0)'}}/>
   <ColorItem title="neutral" description="" colors={{'main':getNeutralColor(0),'d1':getNeutralColor(1),'d2':getNeutralColor(2),'d3':getNeutralColor(3),'d4':getNeutralColor(4),'d5':getNeutralColor(5),'d6':getNeutralColor(6),'d7':getNeutralColor(7),'d8':getNeutralColor(8),'d9':getNeutralColor(9),'d10':getNeutralColor(10)}}/>
   <ColorItem title="primary" description="" colors={{'main':'oklch(0.6 0.26 256)','hover':'oklch(0.67 0.33 256)','pressed':'oklch(0.5 0.19 256)'}}/>
-  <ColorItem title="success" description="" colors={{'main':'oklch(0.68 0.1484 162.1)','lighter':'oklch(0.79 0.1509 166.86)', 'subtle backgrounds':'oklch(0.87 0.116 171.77)', 'darker(text/icon)':'oklch(0.58 0.1227 163.94)', 'deep accents':'oklch(0.46 0.096255 165.0871)'}}/>
-  <ColorItem title="success2" description="" colors={{'main':'oklch(0.68 0.1484 162.1)','hover':'oklch(0.75 0.2184 162.1)','pressed':'oklch(0.58 0.0984 162.1)','lighter':'oklch(0.79 0.1509 166.86)', 'subtle backgrounds':'oklch(0.87 0.116 171.77)', 'darker(text/icon)':'oklch(0.58 0.1227 163.94)', 'deep accents':'oklch(0.46 0.096255 165.0871)'}}/>
-  <ColorItem title="error" description="" colors={{'main':'oklch(0.64 0.2485 23.21)','lighter':"#FF3A4A", 'soft warnings':'#FF5C75', 'hover/backgrounds':'#FFA3B3','critical errors':'#D90026','dark mode':'#A3001D'}}/>
+  <ColorItem title="success" description="" colors={{'main':'oklch(0.68 0.1484 162.1)','hover':'oklch(0.75 0.2184 162.1)','pressed':'oklch(0.58 0.0984 162.1)','lighter':'oklch(0.79 0.1509 166.86)', 'subtle backgrounds':'oklch(0.87 0.116 171.77)', 'darker(text/icon)':'oklch(0.58 0.1227 163.94)', 'deep accents':'oklch(0.46 0.096255 165.0871)'}}/>
+  <ColorItem title="error" description="" colors={{'main':'oklch(0.6 0.22 23.21)','hover':'oklch(0.67 0.29 23.21)', 'pressed':'oklch(0.5 0.17 23.21)','lighter':"#FF3A4A", 'soft warnings':'#FF5C75', 'hover/backgrounds':'#FFA3B3','critical errors':'#D90026','dark mode':'#A3001D'}}/>
 </ColorPalette>
 
 <Subheading>Color Rules</Subheading>
@@ -22,43 +21,3 @@ for example primary color is `oklch(0.6 0.26 256)` which is a blue color with a 
 for hover state we add `0.07` to lightness and `0.07` to chroma so it gets a little lighter and brighter.
 for pressed state we subtract `0.1` to lightness and `0.05` to chroma so it gets a little darker and dimmer.
 <br/>
-
-{/* oklch(70% 0.22 256°) → #4D88FF (softer, for hover states) */}
-
-oklch(80% 0.18 256°) → #99B3FF (light backgrounds)
-
-Darker:
-
-oklch(50% 0.26 256°) → #004ECC (pressed state)
-
-oklch(40% 0.22 256°) → #00388F (dark mode accents)
-
-2. Success Green (#00B37B)
-Base: oklch(70% 0.18 160°)
-
-Lighter:
-
-oklch(80% 0.15 160°) → #33D9A6 (success highlights)
-
-oklch(85% 0.12 160°) → #7AECCA (subtle backgrounds)
-
-Darker:
-
-oklch(60% 0.18 160°) → #008F65 (text/icons)
-
-oklch(50% 0.15 160°) → #00684A (deep accents)
-
-3. Error Red (#FF1A3A)
-Base: oklch(65% 0.25 15°)
-
-Lighter:
-
-oklch(75% 0.20 15°) → #FF5C75 (soft warnings)
-
-oklch(85% 0.15 15°) → #FFA3B3 (hover/backgrounds)
-
-Darker:
-
-oklch(55% 0.25 15°) → #D90026 (critical errors)
-
-oklch(45% 0.20 15°) → #A3001D (dark mode)
