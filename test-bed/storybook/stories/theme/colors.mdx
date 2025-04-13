@@ -1,12 +1,12 @@
 import {Meta,ColorPalette,ColorItem, Heading, Subheading, } from '@storybook/blocks'
-import {getNeutralColor} from 'jb-core/theme/colors.ts';
+import {getNeutralColor, colors} from 'jb-core/theme/colors.ts';
 
 <Meta title="Theme/Colors" />
 <Heading>Color Palette</Heading>
 <Subheading >all color are based on oklch() color space</Subheading>
 <br/>
 <ColorPalette>
-  <ColorItem title="single" description="" colors={{'black':'oklch(0.14 0 0)','white':'oklch(1 0 0)'}}/>
+  <ColorItem title="single" description="" colors={{'black': colors.single.black,'white':colors.single.white}}/>
   <ColorItem title="neutral" description="" colors={{'main':getNeutralColor(0),'d1':getNeutralColor(1),'d2':getNeutralColor(2),'d3':getNeutralColor(3),'d4':getNeutralColor(4),'d5':getNeutralColor(5),'d6':getNeutralColor(6),'d7':getNeutralColor(7),'d8':getNeutralColor(8),'d9':getNeutralColor(9),'d10':getNeutralColor(10)}}/>
   <ColorItem title="primary" description="" colors={{'main':'oklch(0.6 0.26 256)','hover':'oklch(0.67 0.33 256)','pressed':'oklch(0.5 0.19 256)'}}/>
   <ColorItem title="success" description="" colors={{'main':'oklch(0.68 0.1484 162.1)','hover':'oklch(0.75 0.2184 162.1)','pressed':'oklch(0.58 0.0984 162.1)','lighter':'oklch(0.79 0.1509 166.86)', 'subtle backgrounds':'oklch(0.87 0.116 171.77)', 'darker(text/icon)':'oklch(0.58 0.1227 163.94)', 'deep accents':'oklch(0.46 0.096255 165.0871)'}}/>
