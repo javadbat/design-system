@@ -19,7 +19,7 @@
     "@storybook/addon-themes": "^8.6.3",
     "@storybook/addon-webpack5-compiler-swc": "^2.1.0",
     "@storybook/react": "^8.5.8",
-    "@storybook/react-webpack5": "^8.6.12",
+    "@storybook/react-webpack5": "^8.5.8",
     "@storybook/theming": "^8.5.8",
     "babel-core": "^6.26.3",
     "babel-loader": "^8.1.0",
@@ -39,10 +39,10 @@
     "babel-plugin-add-module-exports": "^1.0.2",
     "babel-plugin-react-docgen": "^4.1.0",
     "css-loader": "^4.2.2",
-    "mobx": "^6.13.7",
-    "mobx-react": "^9.2.7",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
+    "mobx": "^6.0.1",
+    "mobx-react": "^7.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "resolve-url-loader": "^3.1.1",
     "style-loader": "^1.2.1"
   }
