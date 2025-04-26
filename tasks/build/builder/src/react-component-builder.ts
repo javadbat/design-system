@@ -19,7 +19,7 @@ export class ReactComponentBuilder {
   }
   async buildAllComponent(reactComponentList: ReactComponentBuildConfig[]) {
     for (const reactComponent of reactComponentList) {
-      await this.buildComponent(reactComponent, false, true);
+      await this.buildComponent(reactComponent, false, false);
     }
   }
   async buildComponent(component: ReactComponentBuildConfig, watch = false, useTypescript = true): Promise<void> {
@@ -129,7 +129,7 @@ export class ReactComponentBuilder {
           target: 'es2022', // Target JavaScript version
           transform: {
             react: {
-              runtime: 'automatic', // Enable if using React
+              runtime: 'classic', // Enable if using React
             },
           },
         },
