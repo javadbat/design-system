@@ -19,7 +19,7 @@ export class ReactComponentBuilder {
   }
   async buildAllComponent(reactComponentList: ReactComponentBuildConfig[]) {
     for (const reactComponent of reactComponentList) {
-      await this.buildComponent(reactComponent, false, false);
+      await this.buildComponent(reactComponent, false, true);
     }
   }
   async buildComponent(component: ReactComponentBuildConfig, watch = false, useTypescript = true): Promise<void> {
