@@ -11,6 +11,7 @@ import rollupReplace from "npm:@rollup/plugin-replace@6.0.2";
 import type { Envs, ModuleConfig, ReactComponentBuildConfig } from './types.ts';
 import chalk from "npm:chalk@5.4.1";
 import typescript from "npm:@rollup/plugin-typescript@12.1.2";
+
 // import { DEFAULT_EXTENSIONS } from "npm:@babel/core@7.26.7";
 export class ReactComponentBuilder {
   envs: Envs = {
@@ -18,13 +19,13 @@ export class ReactComponentBuilder {
   }
   async buildAllComponent(reactComponentList: ReactComponentBuildConfig[]) {
     for (const reactComponent of reactComponentList) {
-      await this.buildComponent(reactComponent);
+      await this.buildComponent(reactComponent, false, false);
     }
   }
-  async buildComponent(component: ReactComponentBuildConfig, watch = false) {
+  async buildComponent(component: ReactComponentBuildConfig, watch = false, useTypescript = true): Promise<void> {
     const moduleConfig = this.#createModuleConfig(component);
     console.log(`start building ${component.name}`);
-    const inputOptions = this.#getInputOption(moduleConfig, watch);
+    const inputOptions = this.#getInputOption(moduleConfig, watch, useTypescript);
     const esOutputOptions = this.#getOutputOption(moduleConfig, "es");
     const cjsOutputOptions = this.#getOutputOption(moduleConfig, "cjs");
     const umdOutputOptions = this.#getOutputOption(moduleConfig, "umd");
@@ -112,7 +113,7 @@ export class ReactComponentBuilder {
       }
     });
   }
-  #getInputOption(module: ModuleConfig, watchMode: boolean): InputOptions {
+  #getInputOption(module: ModuleConfig, watchMode: boolean, useTypescript: boolean): InputOptions {
     const externalList = module.external || [];
     const swcPlugin = swc(defineRollupSwcOption(
       {
@@ -153,7 +154,7 @@ export class ReactComponentBuilder {
       rollupJson(),
     ];
     const isTypeScriptModule = this.#isTypeScriptModule(module);
-    if (isTypeScriptModule) {
+    if (isTypeScriptModule && useTypescript) {
       //@ts-ignore
       const ss = typescript({tsconfig: module.tsConfigPath,});
       plugins.push(ss);

@@ -6,11 +6,7 @@ import html from "npm:rollup-plugin-html@0.2.1";
 import sass from "rollup-plugin-sass";
 import rollupJson from "npm:@rollup/plugin-json@6.1.0";
 import rollupReplace from "npm:@rollup/plugin-replace@6.0.2";
-//config
-//import typescript from '@rollup/plugin-typescript';
-// import typescript from "npm:rollup-plugin-typescript2@0.36.0";
 import typescript from "npm:@rollup/plugin-typescript@12.1.2";
-// import InlineSvg from 'rollup-plugin-inline-svg';
 import svg from "npm:rollup-plugin-svg@2.0.0";
 import gzipPlugin from "npm:rollup-plugin-gzip@4.0.1";
 import brotli from "npm:rollup-plugin-brotli@3.1.0";
@@ -26,15 +22,15 @@ export class WebComponentBuilder {
   }
   async buildAllComponents(webComponentList: WebComponentBuildConfig[]) {
     for (const component of webComponentList) {
-      await this.buildComponent(component);
+      await this.buildComponent(component, false, false);
     }
   }
-  async buildComponent(componentBuildConfig: WebComponentBuildConfig, watchMode = false): Promise<PromiseSettledResult<RolldownOutput>[] | undefined> {
+  async buildComponent(componentBuildConfig: WebComponentBuildConfig, watchMode = false, useTypescript= true): Promise<PromiseSettledResult<RolldownOutput>[] | undefined> {
     const moduleConfig = this.#createModuleConfig(componentBuildConfig);
     console.log(`start building ${componentBuildConfig.name}`);
-    const inputOptions = this.#getInputOption(moduleConfig, 'es', watchMode);
-    const cjsInputOptions = this.#getInputOption(moduleConfig, 'cjs', watchMode);
-    const umdInputOptions = this.#getInputOption(moduleConfig, 'umd', watchMode);
+    const inputOptions = this.#getInputOption(moduleConfig, 'es', watchMode, useTypescript);
+    const cjsInputOptions = this.#getInputOption(moduleConfig, 'cjs', watchMode, useTypescript);
+    const umdInputOptions = this.#getInputOption(moduleConfig, 'umd', watchMode, useTypescript);
     //
     const esOutputOptions = this.#getOutputOption(moduleConfig, "es");
     const cjsOutputOptions = this.#getOutputOption(moduleConfig, "cjs");
@@ -115,7 +111,7 @@ export class WebComponentBuilder {
       }
     });
   }
-  #getInputOption(module: ModuleConfig, format: "es" | "cjs" | "umd" = "es", watchMode: boolean): RolldownOptions {
+  #getInputOption(module: ModuleConfig, format: "es" | "cjs" | "umd" = "es", watchMode: boolean, useTypescript:boolean): RolldownOptions {
 
     // remove filename and lib folder name result in web-component/jb-input
     let externalList = module.external || [];
@@ -142,11 +138,6 @@ export class WebComponentBuilder {
           style: 'compressed',
         },
       }),
-      // resolve({
-      //   preferBuiltins: true,
-      //   mainFields: ["browser", "jsnext:main", "module", "main"],
-      //   // jsnext: true,
-      // }),
       //@ts-ignore
       rollupReplace({
         "process.env.NODE_ENV": `"${env}"`,
@@ -166,14 +157,11 @@ export class WebComponentBuilder {
         brotli(),];
     }
     const isTypeScriptModule = this.#isTypeScriptModule(module);
-    if (isTypeScriptModule) {
+    if (isTypeScriptModule && useTypescript) {
       plugins.push(
         //@ts-ignore
         typescript({
           tsconfig: module.tsConfigPath,
-          // tsconfigDefaults: this.#getTypeScriptCompilerOptions(
-          //   externalList
-          // ),
         })
       );
     }
@@ -187,15 +175,6 @@ export class WebComponentBuilder {
   #isTypeScriptModule(module: WebComponentBuildConfig) {
     const url = path.parse(module.path);
     return url.ext === '.ts';
-  }
-  #getTypeScriptCompilerOptions( externalList: string[]) {
-
-    return {
-      useTsconfigDeclarationDir: true,
-      compilerOptions: {
-      },
-      exclude: [...externalList],
-    };
   }
   #getOutputOption(module: ModuleConfig, format: ModuleFormat = "es"): OutputOptions {
     const outputFileName = `${module.outputPathParsed.name}${format == 'es' ? '' : ('.' + format)}${module.outputPathParsed.ext}`;
