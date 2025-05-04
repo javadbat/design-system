@@ -9,5 +9,9 @@ html.ltr{
   font-family: "dana", tahoma, Arial, Helvetica, sans-serif;
 }
 #root,#storybook-root{
-font-family: "dana", tahoma, Arial, Helvetica, sans-serif;
+  font-family: "dana", tahoma, Arial, Helvetica, sans-serif;
+}
+@font-face { 
+  font-family: "dana";
+  src: url("/fonts/danawebGX.woff");
 }

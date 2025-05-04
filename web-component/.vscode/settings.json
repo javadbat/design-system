@@ -1,7 +1,6 @@
 {
     "deno.enable": false,
     "deno.lint": false,
-    "deno.future": false,
     "cSpell.words": [
         "bottomsheet"
     ]

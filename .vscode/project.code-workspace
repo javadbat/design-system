@@ -5,18 +5,13 @@
         "path": "../"
       },
       {
-        "name": "front/web-components",
+        "name": "modules",
         "path": "../web-component"
-      },
-      {
-        "name": "front/test-bed",
-        "path": "../test-bed"
       },
     ],
     "settings": {
         "deno.enable": true,
         "deno.lint": true,
-        "deno.future": true,
         "liveServer.settings.multiRootWorkspaceName": "ROOT"
     }
   }
