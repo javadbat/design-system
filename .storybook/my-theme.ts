@@ -5,7 +5,7 @@ export default create({
   // Typography
   fontBase: '"dana", tahoma, Arial, Helvetica, sans-serif',
   // Text colors
-  brandTitle: 'jb component test bed',
-//   brandUrl: 'https://example.com',
+  brandTitle: 'JB Design System',
+  brandUrl: 'https://javadbat.github.io/',
 //   brandImage: 'https://placehold.it/350x150',
 });

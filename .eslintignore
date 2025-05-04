@@ -1,8 +1,5 @@
 # path/to/project/root/.eslintignore
 # /node_modules/* and /bower_components/* in the project root are ignored by default
-
-test-bed/storybook/node_modules/*
 web-component/*/dist/*
-react-component/*/dist/*
 /**/*.d.ts
 
