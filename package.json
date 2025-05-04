@@ -109,11 +109,5 @@
   "bugs": {
     "url": "https://github.com/javadbat/design-system/issues"
   },
-  "homepage": "https://github.com/javadbat/design-system#readme",
-  "eslintConfig": {
-    "extends": [
-      "plugin:storybook/recommended",
-      "plugin:storybook/recommended"
-    ]
-  }
+  "homepage": "https://github.com/javadbat/design-system#readme"
 }
