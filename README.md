@@ -7,6 +7,11 @@ design-system for jb-web-components and corresponding react components
 micro-front-end with storybook test bed
 this project is in the middle of transform between nodejs and deno and gets a little complicated to run
 
+## Demo
+
+[Storybook Demo](https://javadbat.github.io/design-system/?path=/docs/getting-started-introduction--docs) see all samples and documentation of design system.    
+[CodeSandBox Demo](https://codesandbox.io/p/sandbox/jb-design-system-3f63dj) React base environment for playing with code and see the real project implementation of the components. 
+
 ## usage
 
 clone the project with submodules (all components are put in project with submodules)
