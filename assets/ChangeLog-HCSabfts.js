@@ -1,4 +1,4 @@
-import{j as e}from"./jsx-runtime-D_zvdyIk.js";import{useMDXComponents as o}from"./index-B8rYRX2K.js";import{M as r,m as i}from"./index-6UFfjYvQ.js";import"./index-D4lIrffr.js";import"./iframe-CeRwmkj8.js";import"./index-BQQLSK9g.js";import"./index-DsJinFGm.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const d=`# Changelog  
+import{j as e,M as o,i as r}from"./index-Bgbycu6M.js";import{useMDXComponents as i}from"./index-B8rYRX2K.js";import"./iframe-T7q0WQ_X.js";import"./index-D4lIrffr.js";import"./index-BQQLSK9g.js";import"./index-DsJinFGm.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const d=`# Changelog  
 
 ## [5.8.0] - 2025-05-03
 ### new features:
@@ -178,5 +178,5 @@ import{j as e}from"./jsx-runtime-D_zvdyIk.js";import{useMDXComponents as o}from"
  - refactor date based function and move them to date factory
  - change date restrictions from \`DayJs\` format to \`Date\`
 
-`;function a(n){return e.jsxs(e.Fragment,{children:[e.jsx(r,{title:"Components/form elements/Inputs/JBDateInput/Changes"}),`
-`,e.jsx(i,{children:d})]})}function g(n={}){const{wrapper:t}={...o(),...n.components};return t?e.jsx(t,{...n,children:e.jsx(a,{...n})}):a()}export{g as default};
+`;function a(n){return e.jsxs(e.Fragment,{children:[e.jsx(o,{title:"Components/form elements/Inputs/JBDateInput/Changes"}),`
+`,e.jsx(r,{children:d})]})}function w(n={}){const{wrapper:t}={...i(),...n.components};return t?e.jsx(t,{...n,children:e.jsx(a,{...n})}):a()}export{w as default};
