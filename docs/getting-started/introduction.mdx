@@ -1,0 +1,34 @@
+
+import {Meta} from '@storybook/blocks';
+
+<Meta title="Getting Started/Introduction" />
+
+# JB Design System
+
+Collection of necessary components to build a web Application with web-components & react components.
+
+- mostly focus on form elements and complicated elements with high user interactivity.
+- all components are written in web-component with additional React component wrapper around them(access them with "component-name/react").
+- first class support for RTL and persian i18n utilities.
+
+we have 2 kind of components here:
+
+1. form base component:    
+  used in form to get values from user.
+
+2. non-form components:    
+  everything that can't be  used inside forms.
+
+## Architecture
+
+unlike most Design systems JB Design System is not a single big package that contain all the components and modules. instead we use separate package/repo for each component.    
+this architecture lets user to select and install the package he need  without forcing him to download all the package he doesn't need and making it easier to update packages and manage dependencies.    
+you can see the package list with their Repo address from [here](?path=/docs/general-package-list--docs)
+
+## Styling Guide
+
+Due to the nature of web-components and shadow DOM we have to use css native ways like custom properties to style our components.
+<p>
+  here is some useful links to get you started:
+  - [color system](?path=/docs/theme-colors--docs)
+</p>

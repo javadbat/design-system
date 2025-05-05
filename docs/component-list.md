@@ -1,5 +1,3 @@
-# Components List
-
 ## form elements:
 - [jb-select](https://github.com/javadbat/jb-select)
 - [jb-switch](https://github.com/javadbat/jb-switch)
