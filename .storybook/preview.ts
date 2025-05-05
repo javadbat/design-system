@@ -16,6 +16,7 @@ const preview:Preview = {
       },
     }
   },
+  tags: ['!autodocs'],
   decorators:[
     // add theme switch button in the header that will add rtl & ltr classes in page
     withThemeByClassName({
