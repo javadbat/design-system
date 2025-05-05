@@ -9,6 +9,11 @@ const preview:Preview = {
         //determine regex to show props controller with them
         color:/(background|color)$/i
       }
+    },
+    options:{
+      storySort: {
+        order: ['Getting Started', 'Theme', 'Components', 'General'],
+      },
     }
   },
   decorators:[
