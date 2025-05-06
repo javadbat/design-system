@@ -1,6 +1,8 @@
 # JB Design System Monorepo Project
 
-design-system base on web-component technology.
+web-component based Design system  UI library
+
+![JB Design System](./public/images/banner-small.jpg)
 
 ## architecture
 
