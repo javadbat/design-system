@@ -7,7 +7,7 @@ export default create({
   // Text colors
   brandTitle: 'JB Design System',
   brandUrl: 'https://javadbat.github.io/',
-  brandImage: '/images/logo-square.svg',
+  brandImage: './images/logo-square.svg',
   colorPrimary:'#0074ff',
   colorSecondary: '#7d52ff',
   appBorderColor: '#a1a7b0',
