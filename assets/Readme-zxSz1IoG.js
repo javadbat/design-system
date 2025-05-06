@@ -1,4 +1,4 @@
-import{j as e,M as o,o as i}from"./index-6ZNqKhIE.js";import{useMDXComponents as r}from"./index-B8rYRX2K.js";import"./iframe-fXaEGQOq.js";import"./index-D4lIrffr.js";import"./index-BQQLSK9g.js";import"./index-DsJinFGm.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const u=`# jb-date-input
+import{j as e,M as o,o as i}from"./index-D6vsggAF.js";import{useMDXComponents as r}from"./index-B8rYRX2K.js";import"./iframe-BWNHqrU2.js";import"./index-D4lIrffr.js";import"./index-BQQLSK9g.js";import"./index-DsJinFGm.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const u=`# jb-date-input
 
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/jb-date-input)
 [![GitHub license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://raw.githubusercontent.com/javadbat/jb-date-input/main/LICENSE)

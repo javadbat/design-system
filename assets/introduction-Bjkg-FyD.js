@@ -1,7 +1,9 @@
-import{j as e,M as o}from"./index-6ZNqKhIE.js";import{useMDXComponents as i}from"./index-B8rYRX2K.js";import"./iframe-fXaEGQOq.js";import"./index-D4lIrffr.js";import"./index-BQQLSK9g.js";import"./index-DsJinFGm.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";function s(t){const n={a:"a",br:"br",h1:"h1",h2:"h2",li:"li",ol:"ol",p:"p",ul:"ul",...i(),...t.components};return e.jsxs(e.Fragment,{children:[e.jsx(o,{title:"Getting Started/Introduction"}),`
+import{j as e,M as o}from"./index-D6vsggAF.js";import{useMDXComponents as i}from"./index-B8rYRX2K.js";import"./iframe-BWNHqrU2.js";import"./index-D4lIrffr.js";import"./index-BQQLSK9g.js";import"./index-DsJinFGm.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";function s(t){const n={a:"a",br:"br",h1:"h1",h2:"h2",li:"li",ol:"ol",p:"p",ul:"ul",...i(),...t.components};return e.jsxs(e.Fragment,{children:[e.jsx(o,{title:"Getting Started/Introduction"}),`
 `,e.jsx(n.h1,{id:"jb-design-system",children:"JB Design System"}),`
 `,e.jsx(n.p,{children:"Collection of necessary components to build a web Application with web-components & react components."}),`
 `,e.jsxs(n.ul,{children:[`
+`,e.jsx(n.li,{children:"works on every Js framework and library like React, Vue, Angular, Svelte, etc."}),`
+`,e.jsx(n.li,{children:"dependency free, no need to install any other library or framework."}),`
 `,e.jsx(n.li,{children:"mostly focus on form elements and complicated elements with high user interactivity."}),`
 `,e.jsx(n.li,{children:'all components are written in web-component with additional React component wrapper around them(access them with "component-name/react").'}),`
 `,e.jsx(n.li,{children:"first class support for RTL and persian i18n utilities."}),`
