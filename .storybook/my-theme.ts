@@ -13,5 +13,5 @@ export default create({
   appBorderColor: '#a1a7b0',
   appBorderRadius: 16,
   textColor:'#0e1218',
-  appContentBg:'#ecf2fc'
+  barBg:'#ecf2fc'
 });
