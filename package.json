@@ -92,8 +92,7 @@
     "vitest": "^3.1.2"
   },
   "scripts": {
-    "serve": "node commands/serve/serve.js",
-    "start": "node commands/start/start.js",
+    "start": "npm run storybook",
     "build-storybook": "storybook build",
     "storybook": "storybook dev -p 3100 --config-dir .storybook"
   },

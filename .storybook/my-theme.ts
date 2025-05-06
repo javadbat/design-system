@@ -7,5 +7,11 @@ export default create({
   // Text colors
   brandTitle: 'JB Design System',
   brandUrl: 'https://javadbat.github.io/',
-//   brandImage: 'https://placehold.it/350x150',
+  brandImage: '/images/logo-square.svg',
+  colorPrimary:'#0074ff',
+  colorSecondary: '#7d52ff',
+  appBorderColor: '#a1a7b0',
+  appBorderRadius: 16,
+  textColor:'#0e1218',
+  appContentBg:'#ecf2fc'
 });
