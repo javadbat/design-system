@@ -1,18 +1,22 @@
 # JB Design System Monorepo Project
 
-design-system for jb-web-components and corresponding react components
+design-system base on web-component technology.
 
 ## architecture
 
-micro-front-end with storybook test bed
-this project is in the middle of transform between nodejs and deno and gets a little complicated to run
+jb design system is not a all in one package. each of our package has their own repo and their own package name and will be installed separately by user.
+to see all of our package list please see [JB Design System Package List](https://javadbat.github.io/design-system/?path=/docs/general-package-list--docs).
+
+this repo is just a monorepo to manage, test & build packages and does not contain any package or common code.
 
 ## Demo
 
 [Storybook Demo](https://javadbat.github.io/design-system/?path=/docs/getting-started-introduction--docs) see all samples and documentation of design system.    
 [CodeSandBox Demo](https://codesandbox.io/p/sandbox/jb-design-system-3f63dj) React base environment for playing with code and see the real project implementation of the components. 
 
-## usage
+## Contribution
+
+>this project is in the middle of transform between nodejs and deno and gets a little complicated to run for the first time.
 
 clone the project with submodules (all components are put in project with submodules)
 
@@ -36,19 +40,17 @@ npm i
 # build all modules in deno:
 
 ```bash
+# necessary for the first time. this will build all packages 
 deno task build
+# build single package
 deno task build --name=jb-input
-# we dint build cjs or UMD in watch mode for more speed so pleas build your package without watch mode at least 1 time before publish
+# build and watch single package. (just for development. please build package without watch before publishing it)
 deno task build --name=jb-input --watch
 ```
 
-### serve testbeds
+### start storybook test environment
 
 ```bash
-npm run serve
-
-# or
-
 npm start
 ```
 ## add a new submodule
