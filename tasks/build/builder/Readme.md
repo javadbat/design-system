@@ -38,10 +38,9 @@ export const reactComponentList: ReactComponentBuildConfig[] = [
     name: "pkg-name-react",
     path: "./react/lib/ReactComponentName.tsx",
     outputPath: "./react/dist/ReactComponentName.js",
-    external: ["react", "prop-types", "dep1", "dep2"],
+    external: ["react", "dep1", "dep2"],
     globals: {
       react: "React",
-      "prop-types": "PropTypes",
       "dep1": "Dep1",
     },
     umdName: "ReactComponentNameReact",
