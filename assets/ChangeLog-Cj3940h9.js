@@ -1,4 +1,4 @@
-import{j as e,M as o,o as r}from"./index-C7vqMv_f.js";import{useMDXComponents as i}from"./index-B8rYRX2K.js";import"./iframe-D5L9PCm_.js";import"./index-D4lIrffr.js";import"./index-BQQLSK9g.js";import"./index-DsJinFGm.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const d=`# Changelog  
+import{j as e,M as o,o as r}from"./index-CCaXLS5L.js";import{useMDXComponents as i}from"./index-B8rYRX2K.js";import"./iframe-eF2C0bKq.js";import"./index-D4lIrffr.js";import"./index-BQQLSK9g.js";import"./index-DsJinFGm.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const d=`# Changelog  
 
 ## [5.8.0] - 2025-05-03
 ### new features:
