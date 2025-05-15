@@ -1,4 +1,4 @@
-import{j as e,M as o}from"./index-DHarj_ey.js";import{useMDXComponents as i}from"./index-B8rYRX2K.js";import"./iframe-B17FBZLh.js";import"./index-D4lIrffr.js";import"./index-BQQLSK9g.js";import"./index-DsJinFGm.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";function s(t){const n={a:"a",br:"br",h1:"h1",h2:"h2",li:"li",ol:"ol",p:"p",ul:"ul",...i(),...t.components};return e.jsxs(e.Fragment,{children:[e.jsx(o,{title:"Getting Started/Introduction"}),`
+import{j as e,M as o}from"./index-C7vqMv_f.js";import{useMDXComponents as i}from"./index-B8rYRX2K.js";import"./iframe-D5L9PCm_.js";import"./index-D4lIrffr.js";import"./index-BQQLSK9g.js";import"./index-DsJinFGm.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";function s(t){const n={a:"a",br:"br",h1:"h1",h2:"h2",li:"li",ol:"ol",p:"p",ul:"ul",...i(),...t.components};return e.jsxs(e.Fragment,{children:[e.jsx(o,{title:"Getting Started/Introduction"}),`
 `,e.jsx(n.h1,{id:"jb-design-system",children:"JB Design System"}),`
 `,e.jsx(n.p,{children:"Collection of necessary components to build a web Application with web-components & react components."}),`
 `,e.jsxs(n.ul,{children:[`
