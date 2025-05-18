@@ -1,4 +1,4 @@
-import{j as e,M as i,H as c,b as s,c as d,d as l}from"./index-CZL8rDSw.js";import{useMDXComponents as a}from"./index-B8rYRX2K.js";import{g as r}from"./index-Bbsd-ux1.js";import"./iframe-De3BbLWb.js";import"./index-D4lIrffr.js";import"./index-BQQLSK9g.js";import"./index-DsJinFGm.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";function t(n){const o={code:"code",li:"li",p:"p",pre:"pre",strong:"strong",ul:"ul",...a(),...n.components};return e.jsxs(e.Fragment,{children:[e.jsx(i,{title:"Theme/Colors"}),`
+import{j as e,M as i,H as c,b as s,c as d,d as l}from"./index-4aJ5ddWk.js";import{useMDXComponents as a}from"./index-B8rYRX2K.js";import{g as r}from"./index-Bbsd-ux1.js";import"./iframe-DdFqftVW.js";import"./index-D4lIrffr.js";import"./index-Dc97iC8r.js";import"./index-DsJinFGm.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";function t(n){const o={code:"code",li:"li",p:"p",pre:"pre",strong:"strong",ul:"ul",...a(),...n.components};return e.jsxs(e.Fragment,{children:[e.jsx(i,{title:"Theme/Colors"}),`
 `,e.jsx(c,{children:"Color Palette"}),`
 `,e.jsx(s,{children:"all color are based on oklch() color space"}),`
 `,e.jsx("br",{}),`

@@ -1,4 +1,4 @@
-import{j as t,M as e,o}from"./index-CZL8rDSw.js";import{useMDXComponents as i}from"./index-B8rYRX2K.js";import"./iframe-De3BbLWb.js";import"./index-D4lIrffr.js";import"./index-BQQLSK9g.js";import"./index-DsJinFGm.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const j=`## form elements:
+import{j as t,M as e,m as j}from"./index-4aJ5ddWk.js";import{useMDXComponents as i}from"./index-B8rYRX2K.js";import"./iframe-DdFqftVW.js";import"./index-D4lIrffr.js";import"./index-Dc97iC8r.js";import"./index-DsJinFGm.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const o=`## form elements:
 - [jb-select](https://github.com/javadbat/jb-select)
 - [jb-switch](https://github.com/javadbat/jb-switch)
 - [jb-checkbox](https://github.com/javadbat/jb-checkbox)
@@ -39,4 +39,4 @@ import{j as t,M as e,o}from"./index-CZL8rDSw.js";import{useMDXComponents as i}fr
 - [jb-infinite-scroll](https://github.com/javadbat/jb-infinite-scroll)`;function b(a){const n={h1:"h1",p:"p",...i(),...a.components};return t.jsxs(t.Fragment,{children:[t.jsx(e,{title:"General/Package list"}),`
 `,t.jsx(n.h1,{id:"jb-design-system-package-list",children:"JB Design System Package list"}),`
 `,t.jsx(n.p,{children:"here is the list of jb design system packages(modules,components,...):"}),`
-`,t.jsx(o,{children:j})]})}function g(a={}){const{wrapper:n}={...i(),...a.components};return n?t.jsx(n,{...a,children:t.jsx(b,{...a})}):b(a)}export{g as default};
+`,t.jsx(j,{children:o})]})}function g(a={}){const{wrapper:n}={...i(),...a.components};return n?t.jsx(n,{...a,children:t.jsx(b,{...a})}):b(a)}export{g as default};

@@ -1,4 +1,4 @@
-import{j as e,M as i,o as a}from"./index-CZL8rDSw.js";import{useMDXComponents as s}from"./index-B8rYRX2K.js";import"./iframe-De3BbLWb.js";import"./index-D4lIrffr.js";import"./index-BQQLSK9g.js";import"./index-DsJinFGm.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const l=`# jb-image-input
+import{j as e,M as i,m as a}from"./index-4aJ5ddWk.js";import{useMDXComponents as s}from"./index-B8rYRX2K.js";import"./iframe-DdFqftVW.js";import"./index-D4lIrffr.js";import"./index-Dc97iC8r.js";import"./index-DsJinFGm.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const l=`# jb-image-input
 
 image input web component let user upload image and see what is uploaded
 
