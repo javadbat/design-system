@@ -1,4 +1,4 @@
-import{j as e,M as o,m as i}from"./index-B1PZVlH2.js";import{useMDXComponents as r}from"./index-B8rYRX2K.js";import"./iframe-C82-aFyO.js";import"./index-D4lIrffr.js";import"./index-Dc97iC8r.js";import"./index-DsJinFGm.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const s=`# jb-textarea
+import{j as e,M as o,m as i}from"./index-CFm1QdRT.js";import{useMDXComponents as r}from"./index-B8rYRX2K.js";import"./iframe-DLWpvS_C.js";import"./index-D4lIrffr.js";import"./index-Dc97iC8r.js";import"./index-DsJinFGm.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const s=`# jb-textarea
 
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/jb-textarea)
 [![GitHub license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://raw.githubusercontent.com/javadbat/jb-textarea/main/LICENSE)
