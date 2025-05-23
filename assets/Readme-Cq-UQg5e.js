@@ -1,4 +1,4 @@
-import{j as e,M as o,m as i}from"./index-DNIZu9iw.js";import{useMDXComponents as r}from"./index-B8rYRX2K.js";import"./iframe-exfRk7ej.js";import"./index-D4lIrffr.js";import"./index-Dc97iC8r.js";import"./index-DsJinFGm.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const s=`# jb-textarea
+import{j as e,M as o,m as i}from"./index-uu6Bi5HC.js";import{useMDXComponents as r}from"./index-B8rYRX2K.js";import"./iframe-BumEOnRx.js";import"./index-D4lIrffr.js";import"./index-Dc97iC8r.js";import"./index-DsJinFGm.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const s=`# jb-textarea
 
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/jb-textarea)
 [![GitHub license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://raw.githubusercontent.com/javadbat/jb-textarea/main/LICENSE)
@@ -13,7 +13,10 @@ simple textarea web component to input long text
 - config auto height grow ability with max height
 - web component so you can use it with any framework you need
 
-sample: <https://codepen.io/javadbat/pen/poRZVXe>
+## Demo
+
+[React demo in storybook](https://javadbat.github.io/design-system/?path=/docs/components-form-elements-jbtextarea)
+[web-component in codesandbox][https://codepen.io/javadbat/pen/poRZVXe]
 
 ## using with JS frameworks
 
@@ -103,9 +106,20 @@ document.querySelector("jb-textarea").autoHeight = true;
 the good point of set boundary with css variable is you can set different min or max base on device by CSS media queries.
 
 ## set custom style
+you have 2 way to customize style,
 
-in some cases in your project you need to change default style of web-component for example you need zero margin or different border-radius and etc.    
-if you want to set a custom style to this web-component all you need is to set css variable in parent scope of web-component 
+1. using selectors like\`:states\` or \`::part\` selector
+\`\`\`css
+jb-textarea::part(label){
+  font-size: 2rem;
+}
+jb-textarea:states(invalid)::part(label){
+  color:red;
+}
+\`\`\`
+we have \`label\`, \`textarea-box\`, \`textarea\`, \`message\` as a supported part in our component. you can also combine them with \`disabled\`, \`invalid\` states for different style in different states.
+
+2. using css variable
 
 | css variable name                     | description                                                                                   |
 | -------------                         | -------------                                                                                 |
@@ -115,7 +129,7 @@ if you want to set a custom style to this web-component all you need is to set c
 | --jb-textarea-border-color            | border color of select in normal mode                                                         |
 | --jb-textarea-border-color-focus      | border color of select in normal mode                                                         |
 | --jb-textarea-bgcolor                 | background color of input                                                                     |
-| --jb-textarea-border-botton-width     | border bottom thickness default is \`3px\`                                                      |
+| --jb-textarea-border-bottom-width     | border bottom thickness default is \`3px\`                                                      |
 | --jb-textarea-label-font-size         | font size of input label default is \`0.8em\`                                                   |
 | --jb-textarea-value-font-size         | font size of input value default is \`1.1em\`                                                   |
 | --jb-textarea-value-color             | color of value default in \`initial\`                                                           |
@@ -128,6 +142,17 @@ if you want to set a custom style to this web-component all you need is to set c
 | --jb-textarea-label-color             | label color                                                                                   |    
 | --jb-textarea-value-color             | value color                                                                                   |
 
+## add custom element in textarea box
+
+in jb-textarea you can put icon or any other custom html DOM in textarea box. to doing so you just have to place custom DOM in \`jb-textarea\` tag and add \`slot="inline-start-section"\` or \`slot="inline-end-section"\` to place it before or after input field.
+example:
+
+\`\`\`HTML
+<jb-textarea>
+    <div slot="inline-start-section">before</div>
+    <div slot="inline-end-section">after</div>
+</jb-textarea>
+\`\`\`
 
 ## Other Related Docs:
 
@@ -136,4 +161,4 @@ if you want to set a custom style to this web-component all you need is to set c
 - see [All JB Design system Component List](https://github.com/javadbat/design-system/blob/main/docs/component-list.md) for more components.
 
 - use [Contribution Guide](https://github.com/javadbat/design-system/blob/main/docs/contribution-guide.md) if you want to contribute in this component.`;function a(t){return e.jsxs(e.Fragment,{children:[e.jsx(o,{title:"Components/form elements/JBTextarea/Readme"}),`
-`,e.jsx(i,{children:s})]})}function g(t={}){const{wrapper:n}={...r(),...t.components};return n?e.jsx(n,{...t,children:e.jsx(a,{...t})}):a()}export{g as default};
+`,e.jsx(i,{children:s})]})}function x(t={}){const{wrapper:n}={...r(),...t.components};return n?e.jsx(n,{...t,children:e.jsx(a,{...t})}):a()}export{x as default};
