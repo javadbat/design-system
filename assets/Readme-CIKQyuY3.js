@@ -1,4 +1,4 @@
-import{j as e,M as o,m as i}from"./index-uu6Bi5HC.js";import{useMDXComponents as r}from"./index-B8rYRX2K.js";import"./iframe-BumEOnRx.js";import"./index-D4lIrffr.js";import"./index-Dc97iC8r.js";import"./index-DsJinFGm.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const s=`# jb-textarea
+import{j as e,M as o,m as i}from"./index-C0VL3HrT.js";import{useMDXComponents as r}from"./index-B8rYRX2K.js";import"./iframe-DJYC55Tz.js";import"./index-D4lIrffr.js";import"./index-Dc97iC8r.js";import"./index-DsJinFGm.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const s=`# jb-textarea
 
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/jb-textarea)
 [![GitHub license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://raw.githubusercontent.com/javadbat/jb-textarea/main/LICENSE)
@@ -15,8 +15,8 @@ simple textarea web component to input long text
 
 ## Demo
 
-[React demo in storybook](https://javadbat.github.io/design-system/?path=/docs/components-form-elements-jbtextarea)
-[web-component in codesandbox][https://codepen.io/javadbat/pen/poRZVXe]
+[storybook](https://javadbat.github.io/design-system/?path=/docs/components-form-elements-jbtextarea)
+[codepen][https://codepen.io/javadbat/pen/poRZVXe]
 
 ## using with JS frameworks
 
@@ -161,4 +161,4 @@ example:
 - see [All JB Design system Component List](https://github.com/javadbat/design-system/blob/main/docs/component-list.md) for more components.
 
 - use [Contribution Guide](https://github.com/javadbat/design-system/blob/main/docs/contribution-guide.md) if you want to contribute in this component.`;function a(t){return e.jsxs(e.Fragment,{children:[e.jsx(o,{title:"Components/form elements/JBTextarea/Readme"}),`
-`,e.jsx(i,{children:s})]})}function x(t={}){const{wrapper:n}={...r(),...t.components};return n?e.jsx(n,{...t,children:e.jsx(a,{...t})}):a()}export{x as default};
+`,e.jsx(i,{children:s})]})}function g(t={}){const{wrapper:n}={...r(),...t.components};return n?e.jsx(n,{...t,children:e.jsx(a,{...t})}):a()}export{g as default};
