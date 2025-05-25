@@ -1,4 +1,4 @@
-import{j as e,M as o,m as i}from"./index-euxc0jYH.js";import{useMDXComponents as r}from"./index-B8rYRX2K.js";import"./iframe-r71OW4gd.js";import"./index-D4lIrffr.js";import"./index-Dc97iC8r.js";import"./index-DsJinFGm.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const s=`# jb-textarea
+import{j as e,M as o,m as i}from"./index-Bih4cXP7.js";import{useMDXComponents as r}from"./index-B8rYRX2K.js";import"./iframe-CuPYAweO.js";import"./index-D4lIrffr.js";import"./index-Dc97iC8r.js";import"./index-DsJinFGm.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const s=`# jb-textarea
 
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/jb-textarea)
 [![GitHub license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://raw.githubusercontent.com/javadbat/jb-textarea/main/LICENSE)
@@ -93,7 +93,7 @@ document.querySelector("jb-textarea").addEventListener('keydown',func);
 document.querySelector("jb-textarea").addEventListener('keyup',func);
 document.querySelector("jb-textarea").addEventListener('keypress',func);
 document.querySelector("jb-textarea").addEventListener('input',func);
-// custom Keyboard event that raise when user press enter
+// custom Keyboard event that raise when user press enter (unlike jb-input this enter event raise after keypress because it could be cancelled with prevent default)
 document.querySelector("jb-textarea").addEventListener('enter',func);
 \`\`\`
 
