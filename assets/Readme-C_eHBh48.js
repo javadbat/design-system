@@ -1,4 +1,4 @@
-import{j as e,M as o,m as i}from"./index-DCCpWIuh.js";import{useMDXComponents as r}from"./index-B8rYRX2K.js";import"./iframe-BHydNk_8.js";import"./index-D4lIrffr.js";import"./index-Dc97iC8r.js";import"./index-DsJinFGm.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const u=`# jb-date-input
+import{j as e,M as o,m as i}from"./index-pNqxwgvZ.js";import{useMDXComponents as r}from"./index-B8rYRX2K.js";import"./iframe-qCHtC0QL.js";import"./index-D4lIrffr.js";import"./index-Dc97iC8r.js";import"./index-DsJinFGm.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const s=`# jb-date-input
 
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/jb-date-input)
 [![GitHub license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://raw.githubusercontent.com/javadbat/jb-date-input/main/LICENSE)
@@ -36,8 +36,9 @@ web component date input (picker) to get date (jalali & gregorian) from user.
 
 Demo & Sample:    
 
-in github pages: <https://javadbat.github.io/jb-date-input/>    
-in codepen: <https://codepen.io/javadbat/pen/qBRyYKY> 
+[github pages](https://javadbat.github.io/jb-date-input/)
+[codepen](https://codepen.io/javadbat/pen/qBRyYKY)
+[storybook](https://javadbat.github.io/design-system/?path=/docs/components-form-elements-inputs-jbdateinput)
 
 ## using with JS frameworks
 
@@ -330,4 +331,4 @@ example:
 - see [All JB Design system Component List](https://github.com/javadbat/design-system/blob/main/docs/component-list.md) for more components
 
 - use [Contribution Guide](https://github.com/javadbat/design-system/blob/main/docs/contribution-guide.md) if you want to contribute in this component.`;function a(n){return e.jsxs(e.Fragment,{children:[e.jsx(o,{title:"Components/form elements/Inputs/JBDateInput/Readme"}),`
-`,e.jsx(i,{children:u})]})}function y(n={}){const{wrapper:t}={...r(),...n.components};return t?e.jsx(t,{...n,children:e.jsx(a,{...n})}):a()}export{y as default};
+`,e.jsx(i,{children:s})]})}function y(n={}){const{wrapper:t}={...r(),...n.components};return t?e.jsx(t,{...n,children:e.jsx(a,{...n})}):a()}export{y as default};
