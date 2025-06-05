@@ -1,4 +1,4 @@
-import{j as e,M as o,m as i}from"./index-CnAtPVDz.js";import{useMDXComponents as r}from"./index-B8rYRX2K.js";import"./iframe-ChBj5yRh.js";import"./index-D4lIrffr.js";import"./index-Dc97iC8r.js";import"./index-DsJinFGm.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const s=`# jb-date-input
+import{j as e,M as o,m as i}from"./index-fCfZhu5T.js";import{useMDXComponents as r}from"./index-B8rYRX2K.js";import"./iframe-_kykKMd7.js";import"./index-D4lIrffr.js";import"./index-Dc97iC8r.js";import"./index-DsJinFGm.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const s=`# jb-date-input
 
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/jb-date-input)
 [![GitHub license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://raw.githubusercontent.com/javadbat/jb-date-input/main/LICENSE)
@@ -34,11 +34,11 @@ web component date input (picker) to get date (jalali & gregorian) from user.
 
 - compatible with native HTML \`form\` element to send data to server.
 
-Demo & Sample:    
+## Demo & Sample:    
 
-[github pages](https://javadbat.github.io/jb-date-input/)
-[codepen](https://codepen.io/javadbat/pen/qBRyYKY)
-[storybook](https://javadbat.github.io/design-system/?path=/docs/components-form-elements-inputs-jbdateinput)
+- [github pages](https://javadbat.github.io/jb-date-input/)
+- [codepen](https://codepen.io/javadbat/pen/qBRyYKY)
+- [storybook](https://javadbat.github.io/design-system/?path=/docs/components-form-elements-inputs-jbdateinput)
 
 ## using with JS frameworks
 
