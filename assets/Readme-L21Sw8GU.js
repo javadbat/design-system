@@ -1,4 +1,4 @@
-import{j as t,M as b,m as r}from"./index-fCfZhu5T.js";import{useMDXComponents as i}from"./index-B8rYRX2K.js";import"./iframe-_kykKMd7.js";import"./index-D4lIrffr.js";import"./index-Dc97iC8r.js";import"./index-DsJinFGm.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const s=`# jb-button
+import{j as t,M as b,m as r}from"./index-e7oESPUN.js";import{useMDXComponents as i}from"./index-B8rYRX2K.js";import"./iframe-BE27n8oQ.js";import"./index-D4lIrffr.js";import"./index-Dc97iC8r.js";import"./index-DsJinFGm.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const s=`# jb-button
 
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/jb-button)
 [![GitHub license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://raw.githubusercontent.com/javadbat/jb-button/main/LICENSE)

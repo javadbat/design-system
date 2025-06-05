@@ -1,4 +1,4 @@
-import{j as n,M as o,m as s}from"./index-fCfZhu5T.js";import{useMDXComponents as l}from"./index-B8rYRX2K.js";import"./iframe-_kykKMd7.js";import"./index-D4lIrffr.js";import"./index-Dc97iC8r.js";import"./index-DsJinFGm.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const a=`# jb-infinite-scroll
+import{j as n,M as o,m as s}from"./index-e7oESPUN.js";import{useMDXComponents as l}from"./index-B8rYRX2K.js";import"./iframe-BE27n8oQ.js";import"./index-D4lIrffr.js";import"./index-Dc97iC8r.js";import"./index-DsJinFGm.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const a=`# jb-infinite-scroll
 
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/jb-infinite-scroll)
 [![GitHub license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://raw.githubusercontent.com/javadbat/jb-infinite-scroll/main/LICENSE)
