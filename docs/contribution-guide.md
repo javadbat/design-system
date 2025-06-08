@@ -8,4 +8,4 @@
 - 6 create new brach for the repo you want to change and write all the code
 - 7 add pull request for that branch and wait to be merged
 - 8 you can watch your component change and build with this command: `deno task build your-component-name --watch`
-- 9 test it in story book by run `npm run start`, `deno task start`. 
+- 9 test it in storybook by run `npm run start`, `deno task start`. 
