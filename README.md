@@ -33,7 +33,7 @@ in case you have already cloned the project, use command: `git submodule update 
 ### install packages
 
 ```bash
-npm i
+deno install
 ```
 
 ### build packages in project root directory
@@ -53,7 +53,7 @@ deno task build --name=jb-input --watch
 ### start storybook test environment
 
 ```bash
-npm start
+deno task start
 ```
 ## add a new submodule
 

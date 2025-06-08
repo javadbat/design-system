@@ -5,7 +5,7 @@
   "tasks": {
     "build": "deno run --allow-run --allow-read --allow-write --allow-net --allow-env --allow-sys --allow-ffi ./tasks/build/build.ts --path=./config/build-config.ts",
     "build-package": "deno run --allow-run --allow-read --allow-write --allow-net --allow-env --allow-sys --allow-ffi jsr:@design-system/builder@0.0.12 build --path=./config/build-config.ts",
-    "start": "deno run --allow-read --allow-net --allow-env --allow-run ./tasks/start/start.ts"
+    "start": "deno run --allow-read --allow-net --allow-env --allow-run ./tasks/start/start.ts & deno run -A npm:storybook dev -p 3100 --config-dir .storybook"
   },
   "exclude": ["web-component/", "react-component/"],
   "imports": {
