@@ -1,7 +1,6 @@
 import * as path from "@std/path";
 //rollup
-import { type OutputOptions, rolldown, type ModuleFormat, type RolldownOutput, type RolldownOptions, watch, type RolldownWatcher, InputOptions } from 'rolldown';
-// import { babel as rollupBabel } from "npm:@rollup/plugin-babel@6.0.4";
+import { type OutputOptions, rolldown, type RolldownOptions, watch, type RolldownWatcher, InputOptions } from 'rolldown';
 import { swc, defineRollupSwcOption } from "rollup-plugin-swc3";
 import sass from "rollup-plugin-sass";
 // import commonjs from "npm:@rollup/plugin-commonjs@28.0.2";
@@ -11,8 +10,6 @@ import rollupReplace from "npm:@rollup/plugin-replace@6.0.2";
 import type { Envs, ModuleConfig, ReactComponentBuildConfig } from './types.ts';
 import chalk from "npm:chalk@5.4.1";
 import typescript from "npm:@rollup/plugin-typescript@12.1.2";
-
-// import { DEFAULT_EXTENSIONS } from "npm:@babel/core@7.26.7";
 export class ReactComponentBuilder {
   envs: Envs = {
     nodeEnv: "production"
