@@ -16,7 +16,7 @@
     "rolldown": "npm:rolldown@^1.0.0-beta.13",
     "rollup-plugin-gzip": "npm:rollup-plugin-gzip@^4.0.0",
     "rollup-plugin-sass": "npm:rollup-plugin-sass@^1.15.2",
-    "rollup-plugin-swc3": "npm:rollup-plugin-swc3@^0.12.1",
+    "rollup-plugin-swc3": "npm:rollup-plugin-swc3@^0.12.1"
   },
   "compilerOptions": {
     "lib": [
