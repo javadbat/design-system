@@ -1439,7 +1439,7 @@
     "dependencies": [
       "jsr:@std/cli@^1.0.11",
       "jsr:@std/path@^1.0.3",
-      "npm:rolldown@^1.0.0-beta.3",
+      "npm:rolldown@^1.0.0-beta.13",
       "npm:rollup-plugin-gzip@4",
       "npm:rollup-plugin-sass@^1.15.2",
       "npm:rollup-plugin-swc3@~0.12.1"
@@ -1484,7 +1484,7 @@
         "npm:qrcode@^1.5.1",
         "npm:react-dom@^19.1.0",
         "npm:react@^19.1.0",
-        "npm:rolldown@^1.0.0-beta.3",
+        "npm:rolldown@^1.0.0-beta.13",
         "npm:rollup-plugin-brotli@^3.1.0",
         "npm:rollup-plugin-commonjs@^10.1.0",
         "npm:rollup-plugin-gzip@4",

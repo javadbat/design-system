@@ -2,7 +2,6 @@ import chalk from "npm:chalk@5.4.1";
 import type { Envs, ModuleConfig, WebComponentBuildConfig } from './types.ts';
 import * as path from "@std/path";
 import { type OutputOptions, rolldown, type ModuleFormat, type RolldownOutput, type RolldownOptions, watch, type RolldownWatcher } from 'rolldown';
-import html from "npm:rollup-plugin-html@0.2.1";
 import sass from "rollup-plugin-sass";
 import rollupJson from "npm:@rollup/plugin-json@6.1.0";
 import rollupReplace from "npm:@rollup/plugin-replace@6.0.2";
@@ -126,9 +125,6 @@ export class WebComponentBuilder {
     }
     const env = this.envs.nodeEnv;
     let plugins = [
-      html({
-        include: "**/*.html",
-      }),
       svg({
         base64: false,
       }),
