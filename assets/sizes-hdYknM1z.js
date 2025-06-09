@@ -1,4 +1,4 @@
-import{j as e,M as t,H as a,b as o}from"./index-BuFOghps.js";import{useMDXComponents as i}from"./index-B8rYRX2K.js";import"./index-BkvPMclf.js";import"./iframe-D8P16LRL.js";import"./index-D4lIrffr.js";import"./index-Dc97iC8r.js";import"./index-DsJinFGm.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";function r(n){const s={a:"a",code:"code",h2:"h2",h3:"h3",li:"li",p:"p",ul:"ul",...i(),...n.components};return e.jsxs(e.Fragment,{children:[e.jsx(t,{title:"Theme/Sizes"}),`
+import{j as e,M as t,H as a,b as o}from"./index-DmTe2cCu.js";import{useMDXComponents as i}from"./index-B8rYRX2K.js";import"./index-BkvPMclf.js";import"./iframe-B0uwrphf.js";import"./index-D4lIrffr.js";import"./index-Dc97iC8r.js";import"./index-DsJinFGm.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";function r(n){const s={a:"a",code:"code",h2:"h2",h3:"h3",li:"li",p:"p",ul:"ul",...i(),...n.components};return e.jsxs(e.Fragment,{children:[e.jsx(t,{title:"Theme/Sizes"}),`
 `,e.jsx(a,{children:"Sizes"}),`
 `,e.jsx(o,{children:"standard size variables in jb design system"}),`
 `,e.jsx("br",{}),`

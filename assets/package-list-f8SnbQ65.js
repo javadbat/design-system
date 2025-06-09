@@ -1,4 +1,4 @@
-import{j as t,M as e,m as j}from"./index-BuFOghps.js";import{useMDXComponents as i}from"./index-B8rYRX2K.js";import"./iframe-D8P16LRL.js";import"./index-D4lIrffr.js";import"./index-Dc97iC8r.js";import"./index-DsJinFGm.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const o=`## form elements:
+import{j as t,M as e,m as j}from"./index-DmTe2cCu.js";import{useMDXComponents as i}from"./index-B8rYRX2K.js";import"./iframe-B0uwrphf.js";import"./index-D4lIrffr.js";import"./index-Dc97iC8r.js";import"./index-DsJinFGm.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const o=`## form elements:
 - [jb-select](https://github.com/javadbat/jb-select)
 - [jb-switch](https://github.com/javadbat/jb-switch)
 - [jb-checkbox](https://github.com/javadbat/jb-checkbox)
