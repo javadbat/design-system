@@ -50,7 +50,7 @@ const JBModal = await getBuildConfig(`web-component/jb-modal`);
 const JBTooltip = await getBuildConfig(`web-component/jb-tooltip`);
 const JBNotification = await getBuildConfig(`web-component/jb-notification`);
 const JBInfiniteScroll = await getBuildConfig(`web-component/jb-infinite-scroll`);
-const JBQrCode = await getBuildConfig(`web-component/jb-qrcode`);
+const JBQRCode = await getBuildConfig(`web-component/jb-qrcode`);
 const JBSwitch = await getBuildConfig(`web-component/jb-switch`);
 const JBGrid = await getBuildConfig(`web-component/jb-grid`);
 
@@ -82,7 +82,7 @@ const webComponentList: WebComponentBuildConfig[] = [
   ...JBTooltip.webComponents,
   ...JBNotification.webComponents,
   ...JBInfiniteScroll.webComponents,
-  ...JBQrCode.webComponents,
+  ...JBQRCode.webComponents,
   ...JBSwitch.webComponents,
 ];
 const reactComponentList: ReactComponentBuildConfig[] = [
@@ -110,6 +110,6 @@ const reactComponentList: ReactComponentBuildConfig[] = [
   ...JBInfiniteScroll.reactComponents,
   ...JBSwitch.reactComponents,
   ...JBGrid.reactComponents,
-  ...JBQrCode.reactComponents
+  ...JBQRCode.reactComponents
 ];
 export { webComponentList, reactComponentList };
