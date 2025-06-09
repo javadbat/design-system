@@ -1,6 +1,7 @@
 {
   "version": "5",
   "specifiers": {
+    "jsr:@std/cli@1.0.11": "1.0.11",
     "jsr:@std/cli@^1.0.11": "1.0.13",
     "jsr:@std/path@^1.0.3": "1.0.8",
     "npm:@chromatic-com/storybook@^3.2.6": "3.2.6_storybook@8.6.14_react@19.1.0",
@@ -37,6 +38,7 @@
     "npm:mobx-react@^9.2.0": "9.2.0_mobx@6.13.7_react@19.1.0",
     "npm:mobx@^6.13.7": "6.13.7",
     "npm:playwright@^1.52.0": "1.52.0",
+    "npm:qr-code-styling@^1.9.2": "1.9.2",
     "npm:qrcode@^1.5.1": "1.5.4",
     "npm:react-dom@^19.1.0": "19.1.0_react@19.1.0",
     "npm:react@^19.1.0": "19.1.0",
@@ -56,6 +58,9 @@
     "npm:vitest@^3.1.2": "3.2.2_@vitest+browser@3.2.2__playwright@1.52.0__vitest@3.2.2__@testing-library+dom@10.4.0__sass@1.89.1_playwright@1.52.0_vite@6.3.5__sass@1.89.1__picomatch@4.0.2_sass@1.89.1"
   },
   "jsr": {
+    "@std/cli@1.0.11": {
+      "integrity": "ec219619fdcd31bcf0d8e53bee1e2706ec9a02f70255365a094f69755dadd340"
+    },
     "@std/cli@1.0.13": {
       "integrity": "5db2d95ab2dca3bca9fb6ad3c19908c314e93d6391c8b026725e4892d4615a69"
     },
@@ -3534,6 +3539,15 @@
     "punycode@2.3.1": {
       "integrity": "sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg=="
     },
+    "qr-code-styling@1.9.2": {
+      "integrity": "sha512-RgJaZJ1/RrXJ6N0j7a+pdw3zMBmzZU4VN2dtAZf8ZggCfRB5stEQ3IoDNGaNhYY3nnZKYlYSLl5YkfWN5dPutg==",
+      "dependencies": [
+        "qrcode-generator"
+      ]
+    },
+    "qrcode-generator@1.5.0": {
+      "integrity": "sha512-sqo7otiDq5rA4djRkFI7IjLQqxRrLpIou0d3rqr03JJLUGf5raPh91xCio+lFFbQf0SlcVckStz0EmDEX3EeZA=="
+    },
     "qrcode@1.5.4": {
       "integrity": "sha512-1ca71Zgiu6ORjHqFBDpnSMTR2ReToX4l1Au1VFLyVeBTFavzQnv5JxMFr3ukHVKpSrSA2MCk0lNJSykjUfz7Zg==",
       "dependencies": [
@@ -4412,6 +4426,7 @@
         "npm:mobx-react@^9.2.0",
         "npm:mobx@^6.13.7",
         "npm:playwright@^1.52.0",
+        "npm:qr-code-styling@^1.9.2",
         "npm:qrcode@^1.5.1",
         "npm:react-dom@^19.1.0",
         "npm:react@^19.1.0",

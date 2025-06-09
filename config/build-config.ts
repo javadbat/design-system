@@ -110,5 +110,6 @@ const reactComponentList: ReactComponentBuildConfig[] = [
   ...JBInfiniteScroll.reactComponents,
   ...JBSwitch.reactComponents,
   ...JBGrid.reactComponents,
+  ...JBQrCode.reactComponents
 ];
 export { webComponentList, reactComponentList };
