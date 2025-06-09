@@ -1,4 +1,4 @@
-import{j as n,M as r,m as s}from"./index-CkGPYpLn.js";import{useMDXComponents as a}from"./index-B8rYRX2K.js";import"./iframe-2GRGhey3.js";import"./index-D4lIrffr.js";import"./index-Dc97iC8r.js";import"./index-DsJinFGm.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const i=`# jb-qrcode
+import{j as n,M as r,m as s}from"./index-OFlmhTUZ.js";import{useMDXComponents as a}from"./index-B8rYRX2K.js";import"./iframe-DSp75w7P.js";import"./index-D4lIrffr.js";import"./index-Dc97iC8r.js";import"./index-DsJinFGm.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const i=`# jb-qrcode
 
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/jb-qrcode)
 [![GitHub license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://raw.githubusercontent.com/javadbat/jb-qrcode/main/LICENSE)
