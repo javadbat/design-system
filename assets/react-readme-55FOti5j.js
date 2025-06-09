@@ -1,4 +1,4 @@
-import{j as n,M as o,m as s}from"./index-OFlmhTUZ.js";import{useMDXComponents as a}from"./index-B8rYRX2K.js";import"./iframe-DSp75w7P.js";import"./index-D4lIrffr.js";import"./index-Dc97iC8r.js";import"./index-DsJinFGm.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const l=`# jb-infinite-scroll React Component
+import{j as n,M as o,m as s}from"./index-BZS6LKc3.js";import{useMDXComponents as a}from"./index-B8rYRX2K.js";import"./iframe-DXcPv7pD.js";import"./index-D4lIrffr.js";import"./index-Dc97iC8r.js";import"./index-DsJinFGm.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const l=`# jb-infinite-scroll React Component
 
 infinite scroll react component. 
 

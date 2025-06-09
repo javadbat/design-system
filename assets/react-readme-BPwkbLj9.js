@@ -1,4 +1,4 @@
-import{j as e,M as o,m as i}from"./index-OFlmhTUZ.js";import{useMDXComponents as s}from"./index-B8rYRX2K.js";import"./iframe-DSp75w7P.js";import"./index-D4lIrffr.js";import"./index-Dc97iC8r.js";import"./index-DsJinFGm.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const r=`# jb-date-input React component
+import{j as e,M as o,m as i}from"./index-BZS6LKc3.js";import{useMDXComponents as s}from"./index-B8rYRX2K.js";import"./iframe-DXcPv7pD.js";import"./index-D4lIrffr.js";import"./index-Dc97iC8r.js";import"./index-DsJinFGm.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const r=`# jb-date-input React component
 
 [![GitHub license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://raw.githubusercontent.com/javadbat/jb-date-input/main/LICENSE)
 [![NPM Downloads](https://img.shields.io/npm/dw/jb-date-input)](https://www.npmjs.com/package/jb-date-input)
