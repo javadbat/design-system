@@ -161,7 +161,7 @@ export class WebComponentBuilder {
         })
       );
     }
-    const inputOptions = {
+    const inputOptions:RolldownOptions = {
       input: path.join(module.path),
       external: externalList,
       plugins: plugins,
