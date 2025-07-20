@@ -1,0 +1,1 @@
+.variants{display:flex;gap:4rem}.variant-wrapper{display:grid;grid-template-columns:repeat(3,max-content);gap:.5rem;flex-wrap:nowrap}
