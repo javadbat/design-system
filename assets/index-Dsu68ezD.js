@@ -1,0 +1,1 @@
+import{r as n}from"./index-0yr9KlQE.js";function i(t,s,r,a=!1){let f=n.useCallback(e=>{t.current&&typeof r=="function"&&r(e)},[t,r]);n.useEffect(()=>{let e=t.current;return e&&e.addEventListener(s,f,{passive:a,capture:!1}),function(){e&&e.removeEventListener(s,f,{passive:a,capture:!1})}},[t,s,r,a])}export{i as r};
