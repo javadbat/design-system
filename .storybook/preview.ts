@@ -4,6 +4,9 @@ import {withThemeByClassName} from '@storybook/addon-themes'
 import './index.css';
 const preview:Preview = {
   parameters:{
+    docs:{
+      codePanel: true,
+    },
     controls:{
       matchers:{
         //determine regex to show props controller with them
