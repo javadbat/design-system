@@ -2,7 +2,7 @@ import chalk from "npm:chalk@5.4.1";
 import type { Envs, ModuleConfig, WebComponentBuildConfig } from './types.ts';
 import * as path from "@std/path";
 import { type OutputOptions, rolldown, type ModuleFormat, type RolldownOutput, type RolldownOptions, watch, type RolldownWatcher } from 'rolldown';
-import sass from "rollup-plugin-sass";
+// import sass from "rollup-plugin-sass";
 import rollupJson from "npm:@rollup/plugin-json@6.1.0";
 import rollupReplace from "npm:@rollup/plugin-replace@6.0.2";
 import typescript from "npm:@rollup/plugin-typescript@12.1.2";
@@ -10,6 +10,8 @@ import svg from "npm:rollup-plugin-svg@2.0.0";
 import gzipPlugin from "npm:rollup-plugin-gzip@4.0.1";
 import brotli from "npm:rollup-plugin-brotli@3.1.0";
 import terser from "npm:@rollup/plugin-terser@0.4.4";
+import LightningCSS from 'unplugin-lightningcss/rollup';
+import {Features} from 'lightningcss';
 export class WebComponentBuilder {
   envs: Envs = {
     nodeEnv: "production"
@@ -24,7 +26,7 @@ export class WebComponentBuilder {
       await this.buildComponent(component, false, false);
     }
   }
-  async buildComponent(componentBuildConfig: WebComponentBuildConfig, watchMode = false, useTypescript= true): Promise<PromiseSettledResult<RolldownOutput>[] | undefined> {
+  async buildComponent(componentBuildConfig: WebComponentBuildConfig, watchMode = false, useTypescript = true): Promise<PromiseSettledResult<RolldownOutput>[] | undefined> {
     const moduleConfig = this.#createModuleConfig(componentBuildConfig);
     console.log(`start building ${componentBuildConfig.name}`);
     const inputOptions = this.#getInputOption(moduleConfig, 'es', watchMode, useTypescript);
@@ -69,7 +71,7 @@ export class WebComponentBuilder {
       bundlePromise.then(function (bundle) {
         bundle.write(outputOptions).then(function (output) {
           console.log(chalk.greenBright(output.output[0].facadeModuleId), ' ', chalk.bgBlue(` ${type} `), ' ', chalk.bgMagenta(' DONE '));
-          bundle.close().then(()=>{
+          bundle.close().then(() => {
             resolve(output);
           });
         });
@@ -110,7 +112,7 @@ export class WebComponentBuilder {
       }
     });
   }
-  #getInputOption(module: ModuleConfig, format: "es" | "cjs" | "umd" = "es", watchMode: boolean, useTypescript:boolean): RolldownOptions {
+  #getInputOption(module: ModuleConfig, format: "es" | "cjs" | "umd" = "es", watchMode: boolean, useTypescript: boolean): RolldownOptions {
 
     // remove filename and lib folder name result in web-component/jb-input
     let externalList = module.external || [];
@@ -128,10 +130,21 @@ export class WebComponentBuilder {
       svg({
         base64: false,
       }),
-      sass({
-        api: 'modern',
+      // sass({
+      //   api: 'modern',
+      //   options: {
+      //     style: 'compressed',
+      //   },
+      // }),
+      LightningCSS({
+        include: ['**/*.css'],
         options: {
-          style: 'compressed',
+          minify: !watchMode,
+          sourceMap: true,
+          include:Features.Nesting | Features.CustomMediaQueries | Features.MediaRangeSyntax | Features.ColorFunction | Features.LightDark ,
+          drafts:{
+            customMedia: true,
+          },
         },
       }),
       //@ts-ignore
@@ -161,7 +174,7 @@ export class WebComponentBuilder {
         })
       );
     }
-    const inputOptions:RolldownOptions = {
+    const inputOptions: RolldownOptions = {
       input: path.join(module.path),
       external: externalList,
       plugins: plugins,
