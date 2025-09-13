@@ -2,7 +2,7 @@ import chalk from "npm:chalk@5.4.1";
 import type { Envs, ModuleConfig, WebComponentBuildConfig } from './types.ts';
 import * as path from "@std/path";
 import { type OutputOptions, rolldown, type ModuleFormat, type RolldownOutput, type RolldownOptions, watch, type RolldownWatcher } from 'rolldown';
-// import sass from "rollup-plugin-sass";
+import sass from "rollup-plugin-sass";
 import rollupJson from "npm:@rollup/plugin-json@6.1.0";
 import rollupReplace from "npm:@rollup/plugin-replace@6.0.2";
 import typescript from "npm:@rollup/plugin-typescript@12.1.2";
@@ -130,14 +130,17 @@ export class WebComponentBuilder {
       svg({
         base64: false,
       }),
-      // sass({
-      //   api: 'modern',
-      //   options: {
-      //     style: 'compressed',
-      //   },
-      // }),
+      //TODO: remove later when all scss files are converted to css
+      sass({
+        api: 'modern',
+        include:'**/*.scss',
+        options: {
+          style: 'compressed',
+        },
+      }),
       LightningCSS({
         include: ['**/*.css'],
+        asString:true,
         options: {
           minify: !watchMode,
           sourceMap: true,

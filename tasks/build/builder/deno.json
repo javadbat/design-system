@@ -14,7 +14,7 @@
     "rollup-plugin-gzip": "npm:rollup-plugin-gzip@^4.0.0",
     "rollup-plugin-sass": "npm:rollup-plugin-sass@^1.15.2",
     "rollup-plugin-swc3": "npm:rollup-plugin-swc3@^0.12.1",
-    "unplugin-lightningcss": "npm:unplugin-lightningcss@^0.4.2"
+    "unplugin-lightningcss": "npm:unplugin-lightningcss@0.4.3"
   },
   
   "tasks": {
