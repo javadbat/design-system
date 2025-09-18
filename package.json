@@ -93,7 +93,7 @@
   },
   "scripts": {
     "start": "npm run storybook",
-    "build-storybook": "storybook build --docs",
+    "build-storybook": "storybook build",
     "storybook": "storybook dev -p 3100 --config-dir .storybook"
   },
   "repository": {
