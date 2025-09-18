@@ -10,6 +10,8 @@ import rollupReplace from "npm:@rollup/plugin-replace@6.0.2";
 import type { Envs, ModuleConfig, ReactComponentBuildConfig } from './types.ts';
 import chalk from "npm:chalk@5.4.1";
 import typescript from "npm:@rollup/plugin-typescript@12.1.2";
+import LightningCSS from 'unplugin-lightningcss/rollup';
+import {Features} from 'lightningcss';
 export class ReactComponentBuilder {
   envs: Envs = {
     nodeEnv: "production"
@@ -54,7 +56,7 @@ export class ReactComponentBuilder {
               " ",
               chalk.bgMagenta(" DONE ")
             );
-            bundle.close().finally(()=>{
+            bundle.close().finally(() => {
               resolve();
             });
           }).catch((e) => {
@@ -141,19 +143,31 @@ export class ReactComponentBuilder {
       }),
       sass({
         api: 'modern',
-        insert:true,
+        include:'**/*.scss',
+        insert: true,
         options: {
           style: 'compressed',
         },
       }),
-
+      LightningCSS({
+        include: ['**/*.css'],
+        asString: true,
+        options: {
+          minify: !watchMode,
+          sourceMap: true,
+          include: Features.Nesting | Features.CustomMediaQueries | Features.MediaRangeSyntax | Features.ColorFunction | Features.LightDark,
+          drafts: {
+            customMedia: true,
+          },
+        },
+      }),
       //@ts-ignore
       rollupJson(),
     ];
     const isTypeScriptModule = this.#isTypeScriptModule(module);
     if (isTypeScriptModule && useTypescript) {
       //@ts-ignore
-      const ss = typescript({tsconfig: module.tsConfigPath,});
+      const ss = typescript({ tsconfig: module.tsConfigPath, });
       plugins.push(ss);
     }
     plugins.push(swcPlugin);
