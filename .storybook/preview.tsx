@@ -38,7 +38,12 @@ const preview: Preview = {
           i18n.addEventListener("localeChange",()=>{
             setKey(context.globals.locale);
           })
-          document.documentElement.lang = context.globals.locale;
+          if(context.globals.locale == 'fa-num'){
+            document.documentElement.lang = 'fa';
+            i18n.setLocale(new Intl.Locale('fa',{calendar: 'persian',numberingSystem:'arabext'}))
+          }else{
+            document.documentElement.lang = context.globals.locale;
+          }
         }
       },[context.globals.locale])
       return <Story key={key}/>
@@ -54,6 +59,7 @@ const preview: Preview = {
         items: [
           { value: 'en', right: '🇺🇸', title: 'English' },
           { value: 'fa', right: '🇮🇷', title: 'Farsi(Persian)' },
+          { value: 'fa-num', right: '🇮🇷', title: 'Farsi with fa Numbers' },
         ],
       },
     },
