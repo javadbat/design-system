@@ -24,13 +24,13 @@ const preview: Preview = {
   tags: ['!autodocs'],
   decorators: [
     // add theme switch button in the header that will add rtl & ltr classes in page
-    withThemeByClassName({
-      defaultTheme: 'ltr',
-      themes: {
-        'rtl': 'rtl',
-        'ltr': 'ltr'
-      },
-    }),
+    // withThemeByClassName({
+    //   defaultTheme: 'ltr',
+    //   themes: {
+    //     'rtl': 'rtl',
+    //     'ltr': 'ltr'
+    //   },
+    // }),
     (Story,context)=>{
       const [key,setKey] = useState("initial")
       useEffect(()=>{
@@ -46,6 +46,12 @@ const preview: Preview = {
           }
         }
       },[context.globals.locale])
+      useLayoutEffect(()=>{
+        if(document.documentElement.dir != context.globals.dir){
+          document.documentElement.dir = context.globals.dir;
+        }
+      },[context.globals.dir]);
+      
       return <Story key={key}/>
     },
   ],
@@ -60,6 +66,18 @@ const preview: Preview = {
           { value: 'en', right: '🇺🇸', title: 'English' },
           { value: 'fa', right: '🇮🇷', title: 'Farsi(Persian)' },
           { value: 'fa-num', right: '🇮🇷', title: 'Farsi with fa Numbers' },
+        ],
+      },
+    },
+    dir: {
+      name: 'Dir',
+      description: 'page direction',
+      defaultValue: 'ltr',
+      toolbar: {
+        icon: 'transfer',
+        items: [
+          { value: 'ltr', title: 'LTR' },
+          { value: 'rtl', title: 'RTL' },
         ],
       },
     },

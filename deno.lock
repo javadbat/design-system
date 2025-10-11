@@ -3,7 +3,8 @@
   "specifiers": {
     "jsr:@std/cli@1.0.11": "1.0.11",
     "jsr:@std/cli@^1.0.11": "1.0.13",
-    "jsr:@std/path@^1.0.3": "1.0.8",
+    "jsr:@std/internal@^1.0.10": "1.0.12",
+    "jsr:@std/path@^1.1.2": "1.1.2",
     "npm:@chromatic-com/storybook@^3.2.6": "3.2.6_storybook@8.6.14_react@19.1.0",
     "npm:@faker-js/faker@^9.4.0": "9.8.0",
     "npm:@rollup/plugin-commonjs@^28.0.1": "28.0.3_rollup@4.42.0_picomatch@4.0.2",
@@ -67,8 +68,14 @@
     "@std/cli@1.0.13": {
       "integrity": "5db2d95ab2dca3bca9fb6ad3c19908c314e93d6391c8b026725e4892d4615a69"
     },
-    "@std/path@1.0.8": {
-      "integrity": "548fa456bb6a04d3c1a1e7477986b6cffbce95102d0bb447c67c4ee70e0364be"
+    "@std/internal@1.0.12": {
+      "integrity": "972a634fd5bc34b242024402972cd5143eac68d8dffaca5eaa4dba30ce17b027"
+    },
+    "@std/path@1.1.2": {
+      "integrity": "c0b13b97dfe06546d5e16bf3966b1cadf92e1cc83e56ba5476ad8b498d9e3038",
+      "dependencies": [
+        "jsr:@std/internal"
+      ]
     }
   },
   "npm": {
@@ -4704,7 +4711,7 @@
   "workspace": {
     "dependencies": [
       "jsr:@std/cli@^1.0.11",
-      "jsr:@std/path@^1.0.3",
+      "jsr:@std/path@^1.1.2",
       "npm:rolldown@^1.0.0-beta.13",
       "npm:rollup-plugin-gzip@4",
       "npm:rollup-plugin-sass@^1.15.2",
