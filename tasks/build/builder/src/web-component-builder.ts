@@ -3,7 +3,6 @@ import type { Envs, ModuleConfig, WebComponentBuildConfig } from './types.ts';
 import * as path from "@std/path";
 import { type OutputOptions, rolldown, type ModuleFormat, type RolldownOutput, type RolldownOptions, watch, type RolldownWatcher } from 'rolldown';
 import sass from "rollup-plugin-sass";
-import rollupJson from "npm:@rollup/plugin-json@6.1.0";
 import rollupReplace from "npm:@rollup/plugin-replace@6.0.2";
 import typescript from "npm:@rollup/plugin-typescript@12.1.2";
 import svg from "npm:rollup-plugin-svg@2.0.0";
@@ -156,7 +155,8 @@ export class WebComponentBuilder {
         preventAssignment: true,
       }),
       //@ts-ignore
-      rollupJson(),
+      //handled by tsdown
+      // rollupJson(),
 
     ];
     if (!watchMode) {
