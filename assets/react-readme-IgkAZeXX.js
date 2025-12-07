@@ -1,0 +1,3 @@
+import{j as t,M as r,m}from"./index-DwBkV2lV.js";import{useMDXComponents as a}from"./index-CH6z84fh.js";import"./iframe-BgMLrKtL.js";import"./index-DP23ewiS.js";import"./index-BGsmrW1E.js";import"./index-FCbevRKN.js";import"./index-DgH-xKnr.js";import"./index-DrFu-skq.js";const p=`# JBPopover React Component
+currently JBPopOver don't have any react component `;function n(o){return t.jsxs(t.Fragment,{children:[t.jsx(r,{title:"Components/JBPopover/React Readme"}),`
+`,t.jsx(m,{children:p})]})}function l(o={}){const{wrapper:e}={...a(),...o.components};return e?t.jsx(e,{...o,children:t.jsx(n,{...o})}):n()}export{l as default};
