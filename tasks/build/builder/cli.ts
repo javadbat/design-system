@@ -42,6 +42,6 @@ if (!args.name) {
 }
 const endTime = performance.now();
 const duration = endTime - startTime;
-console.log("the build took ", duration, " time to finish");
+console.log("the build took ", duration, "ms time to finish");
 
 
