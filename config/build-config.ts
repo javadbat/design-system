@@ -84,6 +84,7 @@ const webComponentList: WebComponentBuildConfig[] = [
   ...JBInfiniteScroll.webComponents,
   ...JBQRCode.webComponents,
   ...JBSwitch.webComponents,
+  ...JBGrid.webComponents
 ];
 const reactComponentList: ReactComponentBuildConfig[] = [
   ...JBCore.reactComponents,
