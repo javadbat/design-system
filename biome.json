@@ -37,7 +37,8 @@
       "complexity": {
         "noImportantStyles": "error",
         "noUselessTypeConstraint": "warn",
-        "useLiteralKeys": "off"
+        "useLiteralKeys": "off",
+        "useArrowFunction":"off"
       },
       "security": {
         "recommended": true
