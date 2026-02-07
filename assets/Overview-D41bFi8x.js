@@ -1,5 +1,0 @@
-import{j as t,M as m,T as e,S as p,C as s}from"./index-Dgp7dT1Y.js";import{useMDXComponents as i}from"./index-DVgGKjXv.js";import{I as a,N as c}from"./JBInput.stories-D-5uQwWH.js";import"./iframe-Bd5vJ5qW.js";import"./index-DwQS_Y10.js";import"./index-CRFEHIza.js";import"./index-Bls5tne7.js";import"./index-DgH-xKnr.js";import"./index-DrFu-skq.js";import"./JBInput-D74Vik9B.js";import"./index-znC4IK4w.js";import"./jb-validation-DPnsTO1v.js";import"./index-BsliqPsk.js";import"./index-bfIR6bpK.js";import"./index-_b1slotr.js";import"./index-BJ5IkxrY.js";import"./JBButton-CgFwNxXH.js";import"./jb-loading-CG_FOTv2.js";function n(o){const r={p:"p",...i(),...o.components};return t.jsxs(t.Fragment,{children:[t.jsx(m,{of:a}),`
-`,t.jsx(e,{children:"JB Date Input"}),`
-`,t.jsx(r.p,{children:"jalali & gregorian date input component."}),`
-`,t.jsx(p,{of:c}),`
-`,t.jsx(s,{})]})}function w(o={}){const{wrapper:r}={...i(),...o.components};return r?t.jsx(r,{...o,children:t.jsx(n,{...o})}):n(o)}export{w as default};

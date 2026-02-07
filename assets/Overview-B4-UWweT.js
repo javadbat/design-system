@@ -1,0 +1,5 @@
+import{j as t,M as m,T as e,S as p,C as s}from"./index-BHP_T1cu.js";import{useMDXComponents as i}from"./index-DVgGKjXv.js";import{D as a,N as c}from"./JBDateInput.stories-DeqMWxbO.js";import"./iframe-dmC-1e-h.js";import"./index-DwQS_Y10.js";import"./index-CRFEHIza.js";import"./index-Bls5tne7.js";import"./index-DgH-xKnr.js";import"./index-DrFu-skq.js";import"./JBDateInput-CofqkoS-.js";import"./jb-date-input-vHDiMak5.js";import"./jb-calendar-DVcp7v1k.js";import"./index-BsliqPsk.js";import"./index-bfIR6bpK.js";import"./index-_b1slotr.js";import"./index-znC4IK4w.js";import"./jb-validation-DPnsTO1v.js";import"./jb-popover-DAtc3beD.js";import"./JBButton-CgFwNxXH.js";import"./jb-loading-CG_FOTv2.js";import"./index-BJ5IkxrY.js";function n(o){const r={p:"p",...i(),...o.components};return t.jsxs(t.Fragment,{children:[t.jsx(m,{of:a}),`
+`,t.jsx(e,{children:"JB Date Input"}),`
+`,t.jsx(r.p,{children:"jalali & gregorian date input component."}),`
+`,t.jsx(p,{of:c,height:"30rem"}),`
+`,t.jsx(s,{})]})}function F(o={}){const{wrapper:r}={...i(),...o.components};return r?t.jsx(r,{...o,children:t.jsx(n,{...o})}):n(o)}export{F as default};
