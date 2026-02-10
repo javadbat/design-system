@@ -19,7 +19,7 @@ const preview: Preview = {
       storySort: {
         order: ['Getting Started', 'Theme', 'Components', 'General'],
       },
-    }
+    },
   },
   tags: ['!autodocs'],
   decorators: [
