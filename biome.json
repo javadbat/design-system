@@ -38,7 +38,8 @@
         "noImportantStyles": "error",
         "noUselessTypeConstraint": "warn",
         "useLiteralKeys": "off",
-        "useArrowFunction":"off"
+        "useArrowFunction":"off",
+        "noBannedTypes":"off"
       },
       "security": {
         "recommended": true
