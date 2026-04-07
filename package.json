@@ -11,7 +11,7 @@
     "@rollup/plugin-node-resolve": "^16.0.0",
     "@rollup/plugin-replace": "^6.0.1",
     "@rollup/plugin-terser": "^0.4.4",
-    "@rollup/plugin-typescript": "^12.1.2",
+    "@rollup/plugin-typescript": "^12.3.0",
     "@storybook/addon-themes": "^8.6.12",
     "@swc/core": "^1.10.18",
     "@types/lodash.clonedeep": "^4.5.6",
