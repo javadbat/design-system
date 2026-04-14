@@ -32,7 +32,8 @@
       "style": {
         "noNonNullAssertion": "off",
         "noCommonJs": "error",
-        "noEnum": "warn"
+        "noEnum": "warn",
+        "useExponentiationOperator":"off"
       },
       "complexity": {
         "noImportantStyles": "error",

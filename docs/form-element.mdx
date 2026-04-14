@@ -1,6 +1,18 @@
 import { Meta } from '@storybook/blocks';
+import {JBButton} from 'jb-button/react';
 import {JBInput} from 'jb-input/react';
+import {JBNumberInput} from 'jb-number-input/react';
+import {JBDateInput} from 'jb-date-input/react';
+import {JBPasswordInput} from 'jb-password-input/react';
+import {JBNationalInput} from 'jb-national-input/react';
+import {JBPaymentInput} from 'jb-payment-input/react';
+import {JBTimeInput} from 'jb-time-input/react';
 import {JBSelect, JBOption} from 'jb-select/react';
+import {JBCheckbox} from 'jb-checkbox/react';
+import {JBSwitch} from 'jb-switch/react';
+import {JBImageInput} from 'jb-image-input/react';
+import {JBFileInput} from 'jb-file-input/react';
+import {JBPinInput} from 'jb-pin-input/react';
 
 <Meta title="Components/form elements/Overview" />
 
@@ -9,14 +21,56 @@ Form Element consist of elements that are compatible with `form` tag. they can p
 
 ## Samples
 
-Here is some sample of jb design system form elements sample
+Here is some sample of jb design system form elements component.
 
 <div style={{display:"grid", gap:"1rem", gridTemplateColumns:"1fr max-content", alignItems:"end"}}>
 <JBInput label="sample input" />
-  <a></a>
-<JBSelect label="sample select">
-  <JBOption value="1">Option 1</JBOption>
-  <JBOption value="2">Option 2</JBOption>
-</JBSelect>
-  <a></a>
+  <a href="..?path=/docs/components-form-elements-inputs-jbinput" target="_blank"><JBButton color="light">See Input</JBButton></a>
+<JBNumberInput label="number input" showControlButton />
+  <a href="..?path=/story/components-form-elements-inputs-jbnumberinput" target="_blank"><JBButton color="light">See Number Input</JBButton></a>
+  <JBDateInput label="date input" />
+  <a href="..?path=/docs/components-form-elements-inputs-jbdateinput" target="_blank"><JBButton color="light">See Date Input</JBButton></a>
+  <JBTimeInput label="time input" />
+  <a href="..?path=/docs/components-form-elements-inputs-jbtimeinput" target="_blank"><JBButton color="light">See Time Input</JBButton></a>
+  <JBPasswordInput label="Password input" />
+  <a href="..?path=/docs/components-form-elements-inputs-jbpasswordinput" target="_blank"><JBButton color="light">See Password Input</JBButton></a>
+  <JBPaymentInput label="bank card number input" />
+  <a href="..?path=/docs/components-form-elements-inputs-jbpaymentinput" target="_blank"><JBButton color="light">See Payment Input</JBButton></a>
+  <JBNationalInput label="national ID input" />
+  <a href="..?path=/docs/components-form-elements-inputs-jbnationalinput" target="_blank"><JBButton color="light">See National Input</JBButton></a>
+  <JBSelect label="sample select">
+    <JBOption value="1">Option 1</JBOption>
+    <JBOption value="2">Option 2</JBOption>
+  </JBSelect>
+  <a href="..?path=/docs/components-form-elements-jbselect" target="_blank"><JBButton color="light">See Select</JBButton></a>
+  <JBPinInput/>
+  <a href="..?path=/story/components-form-elements-jbpininput" target="_blank"><JBButton color="light">See Pin Input</JBButton></a>
+  <JBImageInput />
+  <a href="..?path=/docs/components-form-elements-jbimageinput" target="_blank"><JBButton color="light">See Image Input</JBButton></a>
+  <JBFileInput style={{height:'8rem'}} />
+  <a href="..?path=/docs/components-form-elements-jbfileinput" target="_blank"><JBButton color="light">See File Input</JBButton></a>
+  <JBCheckbox label="I'm Sample Checkbox" />
+  <a href="..?path=/docs/components-form-elements-jbcheckbox" target="_blank"><JBButton color="light">See Checkbox</JBButton></a>
+  <JBSwitch trueTitle="Enable" falseTitle="Disable"/>
+  <a href="..?path=/story/components-form-elements-jbswitch" target="_blank"><JBButton color="light">See Switch</JBButton></a>
 </div>
+
+## Features
+All form elements are implementing `WithValidation<TValidationValue>`, `JBFormInputStandards<TValue>` interface. means they have internal validation mechanism using `jb-validation` module and standard form elements mandatory features.
+
+## Validation
+All JB Design System form components has a readonly property `validation` in their dom.
+
+```ts
+// you can access validation module in any component like this.
+document.querySelector('jb-input').validation;
+```
+> it's not just `jb-input` you can also get this property from all form elements.
+
+By accessing this module you can add your own custom validation item or bind validation getter callback or even check and report validity of the form elements you are using.
+for more information read [jb-validation](?path=/docs/components-jbvalidation-readme--docs) document.
+
+## JBFormInputStandards
+it's a standard interface that all jb design system modules must follow so they can take part in `jb-form`. if you you want your own custom module also works in `jb-form` you just have to implement this interface.
+this interface make sure your component has `value`, `disable`, `required`, `isDirty`, `initialValue` ,... properties that needed by `jb-form` to takes you a part in group actions like checking dirty status of the form or get and set value and initial value of the form.
+
