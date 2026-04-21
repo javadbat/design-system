@@ -3,7 +3,7 @@ import type { Envs, ModuleConfig, WebComponentBuildConfig } from './types.ts';
 import * as path from "@std/path";
 import { type OutputOptions, rolldown, type ModuleFormat, type RolldownOutput, type RolldownOptions, watch, type RolldownWatcher } from 'rolldown';
 import sass from "rollup-plugin-sass";
-import rollupReplace from "npm:@rollup/plugin-replace@6.0.2";
+import rollupReplace from "@rollup/plugin-replace";
 import typescript from "@rollup/plugin-typescript";
 import svg from "npm:rollup-plugin-svg@2.0.0";
 import gzipPlugin from "npm:rollup-plugin-gzip@4.0.1";

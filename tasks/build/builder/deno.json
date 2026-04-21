@@ -16,7 +16,8 @@
     "rollup-plugin-swc3": "npm:rollup-plugin-swc3@^0.12.1",
     "@rollup/plugin-typescript": "npm:@rollup/plugin-typescript@^12.3.0",
     "unplugin-lightningcss": "npm:unplugin-lightningcss@0.4.3",
-    "chalk": "npm:chalk@^5.4.1"
+    "chalk": "npm:chalk@^5.4.1",
+    "@rollup/plugin-replace": "npm:@rollup/plugin-replace@6.0.2"
   },
   
   "tasks": {

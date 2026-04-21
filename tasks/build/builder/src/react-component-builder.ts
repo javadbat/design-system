@@ -3,7 +3,7 @@ import * as path from "@std/path";
 import { type OutputOptions, rolldown, type RolldownOptions, watch, type RolldownWatcher, InputOptions } from 'rolldown';
 import { swc, defineRollupSwcOption } from "rollup-plugin-swc3";
 import sass from "rollup-plugin-sass";
-import rollupReplace from "npm:@rollup/plugin-replace@6.0.2";
+import rollupReplace from "@rollup/plugin-replace";
 //config
 import type { Envs, ModuleConfig, ReactComponentBuildConfig } from './types.ts';
 import chalk from "chalk";
