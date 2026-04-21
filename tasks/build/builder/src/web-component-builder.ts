@@ -1,4 +1,4 @@
-import chalk from "npm:chalk@5.4.1";
+import chalk from "chalk";
 import type { Envs, ModuleConfig, WebComponentBuildConfig } from './types.ts';
 import * as path from "@std/path";
 import { type OutputOptions, rolldown, type ModuleFormat, type RolldownOutput, type RolldownOptions, watch, type RolldownWatcher } from 'rolldown';

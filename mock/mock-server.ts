@@ -3,7 +3,7 @@ import { existsSync } from "https://deno.land/std/fs/mod.ts";
 import cors from "npm:cors";
 import bodyParser from "npm:body-parser";
 import multer from "npm:multer";
-import chalk from "npm:chalk";
+import chalk from "chalk";
 import * as path from "jsr:@std/path";
 class MockServer {
   tempFileDirectory = "";

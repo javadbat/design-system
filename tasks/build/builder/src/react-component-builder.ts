@@ -6,7 +6,7 @@ import sass from "rollup-plugin-sass";
 import rollupReplace from "npm:@rollup/plugin-replace@6.0.2";
 //config
 import type { Envs, ModuleConfig, ReactComponentBuildConfig } from './types.ts';
-import chalk from "npm:chalk@5.4.1";
+import chalk from "chalk";
 import typescript from "@rollup/plugin-typescript";
 import LightningCSS from 'unplugin-lightningcss/rollup';
 import {Features} from 'lightningcss';
