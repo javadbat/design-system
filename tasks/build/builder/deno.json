@@ -12,12 +12,15 @@
     "lightningcss": "npm:lightningcss@^1.30.1",
     "rolldown": "npm:rolldown@^1.0.0-beta.36",
     "rollup-plugin-gzip": "npm:rollup-plugin-gzip@^4.0.0",
+    "rollup-plugin-svg": "npm:rollup-plugin-svg@^2.0.0",
+    "rollup-plugin-brotli": "npm:rollup-plugin-brotli@^3.1.0",
     "rollup-plugin-sass": "npm:rollup-plugin-sass@^1.15.2",
     "rollup-plugin-swc3": "npm:rollup-plugin-swc3@^0.12.1",
     "@rollup/plugin-typescript": "npm:@rollup/plugin-typescript@^12.3.0",
+    "@rollup/plugin-replace": "npm:@rollup/plugin-replace@6.0.2",
+    "@rollup/plugin-terser": "npm:@rollup/plugin-terser@0.4.4",
     "unplugin-lightningcss": "npm:unplugin-lightningcss@0.4.3",
-    "chalk": "npm:chalk@^5.4.1",
-    "@rollup/plugin-replace": "npm:@rollup/plugin-replace@6.0.2"
+    "chalk": "npm:chalk@^5.4.1"
   },
   
   "tasks": {

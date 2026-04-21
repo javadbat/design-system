@@ -5,10 +5,10 @@ import { type OutputOptions, rolldown, type ModuleFormat, type RolldownOutput, t
 import sass from "rollup-plugin-sass";
 import rollupReplace from "@rollup/plugin-replace";
 import typescript from "@rollup/plugin-typescript";
-import svg from "npm:rollup-plugin-svg@2.0.0";
-import gzipPlugin from "npm:rollup-plugin-gzip@4.0.1";
-import brotli from "npm:rollup-plugin-brotli@3.1.0";
-import terser from "npm:@rollup/plugin-terser@0.4.4";
+import svg from "rollup-plugin-svg";
+import gzipPlugin from "rollup-plugin-gzip";
+import brotli from "rollup-plugin-brotli";
+import terser from "@rollup/plugin-terser";
 import LightningCSS from 'unplugin-lightningcss/rollup';
 import {Features} from 'lightningcss';
 export class WebComponentBuilder {
@@ -39,7 +39,7 @@ export class WebComponentBuilder {
       if (watchMode) {
         this.#buildAndWatchModule(inputOptions, esOutputOptions, componentBuildConfig);
       } else {
-        const p1 = this.buildModule(inputOptions, esOutputOptions, "ES");
+        const p1 = this.buildModule(inputOptions, esOutputOptions, "ES");d
         await p1;
         const p2 = this.buildModule(cjsInputOptions, cjsOutputOptions, "CJS");
         await p2;
