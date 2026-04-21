@@ -39,7 +39,7 @@ export class WebComponentBuilder {
       if (watchMode) {
         this.#buildAndWatchModule(inputOptions, esOutputOptions, componentBuildConfig);
       } else {
-        const p1 = this.buildModule(inputOptions, esOutputOptions, "ES");d
+        const p1 = this.buildModule(inputOptions, esOutputOptions, "ES");
         await p1;
         const p2 = this.buildModule(cjsInputOptions, cjsOutputOptions, "CJS");
         await p2;
