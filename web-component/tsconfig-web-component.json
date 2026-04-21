@@ -1,13 +1,12 @@
 {
     "useTsconfigDeclarationDir": true,
     "compilerOptions": {
-        "baseUrl": ".",
         "rootDir": "./lib",
         "module": "ES2020",
         "noImplicitAny": true,
         "removeComments": false,
         "preserveConstEnums": true,
-        "moduleResolution": "node",
+        "moduleResolution": "bundler",
         "sourceMap": true,
         "allowJs": true,
         "target": "ES2020",
