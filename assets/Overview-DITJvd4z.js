@@ -1,0 +1,5 @@
+import{j as o,M as e,T as m,S as p}from"./index-CGK15UMW.js";import{useMDXComponents as i}from"./index-DVRRELxc.js";import{M as s,A as a}from"./JBModal.stories-B1o2DIuD.js";import"./iframe-CLLm-DdY.js";import"./index-CwcVQgaJ.js";import"./index-BEjDVx3I.js";import"./index-C8bfMtE3.js";import"./index-DgH-xKnr.js";import"./index-DrFu-skq.js";import"./index-BjRxPyWZ.js";import"./index-BVrqzDik.js";import"./JBButton-CzXHkPk6.js";import"./jb-button-BTg9t25D.js";import"./jb-loading-BuRiKsux.js";import"./index-BtFglznY.js";import"./chunk-NAVWDHVN-nYOG0we8.js";import"./JBCheckbox-BjdpAtEr.js";import"./jb-validation-DEeh0jn_.js";import"./index-Bhe3Q7G8.js";function r(t){const n={p:"p",...i(),...t.components};return o.jsxs(o.Fragment,{children:[o.jsx(e,{of:s}),`
+`,o.jsx(m,{children:"JB Modal"}),`
+`,o.jsx(n.p,{children:"Responsive Modal Component."}),`
+`,o.jsx(n.p,{children:'Click on "Open Modal" to Open the Modal'}),`
+`,o.jsx(p,{of:a})]})}function g(t={}){const{wrapper:n}={...i(),...t.components};return n?o.jsx(n,{...t,children:o.jsx(r,{...t})}):r(t)}export{g as default};
