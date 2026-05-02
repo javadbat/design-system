@@ -1,0 +1,3 @@
+import{j as e,M as r,k as i}from"./index-CLRjMUQx.js";import{useMDXComponents as s}from"./index-DVRRELxc.js";import"./iframe-D6HzE391.js";import"./index-CwcVQgaJ.js";import"./index-BEjDVx3I.js";import"./index-C8bfMtE3.js";import"./index-DgH-xKnr.js";import"./index-DrFu-skq.js";const a=`# JBTimePicker React Component
+currently it's not available yet. if you need this please open an issue.`;function o(t){return e.jsxs(e.Fragment,{children:[e.jsx(r,{title:"Components/JBTimePicker/React Readme"}),`
+`,e.jsx(i,{children:a})]})}function M(t={}){const{wrapper:n}={...s(),...t.components};return n?e.jsx(n,{...t,children:e.jsx(o,{...t})}):o()}export{M as default};
