@@ -1,0 +1,3 @@
+import{j as t,M as r,k as m}from"./index-DWUg6cL_.js";import{useMDXComponents as a}from"./index-CSke7xmO.js";import"./iframe-BLXfxDLI.js";import"./index-CEK5zJnf.js";import"./index-C2vOwVL5.js";import"./index-CupGaPSm.js";import"./index-DgH-xKnr.js";import"./index-DrFu-skq.js";const s=`# JBPopover React Component
+currently we have React component but we don't document it to make sure it stable.`;function n(e){return t.jsxs(t.Fragment,{children:[t.jsx(r,{title:"Components/JBPopover/React Readme"}),`
+`,t.jsx(m,{children:s})]})}function M(e={}){const{wrapper:o}={...a(),...e.components};return o?t.jsx(o,{...e,children:t.jsx(n,{...e})}):n()}export{M as default};
