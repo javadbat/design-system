@@ -92,6 +92,7 @@ const reactComponentList: ReactComponentBuildConfig[] = [
   ...JBCheckbox.reactComponents,
   ...JBInput.reactComponents,
   ...JBButton.reactComponents,
+  ...JBPopover.reactComponents,
   ...JBCalendar.reactComponents,
   ...JBDateInput.reactComponents,
   ...JBFileInput.reactComponents,
