@@ -8,7 +8,8 @@
     "exclude": ["web-component/", "react-component/"],
     "imports": {
       "/": "./",
-      "./": "./"
+      "./": "./",
+      "chalk":"npm:chalk@5.4.1"
     },
     "compilerOptions": {
       "lib": [
