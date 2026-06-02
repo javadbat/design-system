@@ -61,7 +61,8 @@
         "useExhaustiveDependencies": "warn",
         "noInvalidPositionAtImportRule":"info",
         "useHookAtTopLevel": "warn",
-        "noInvalidUseBeforeDeclaration": "warn"
+        "noInvalidUseBeforeDeclaration": "warn",
+        "noSwitchDeclarations":"off"
       }
     }
   },
