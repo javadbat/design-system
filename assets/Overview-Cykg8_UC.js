@@ -1,5 +1,0 @@
-import{n as t,g as m,T as e,i as p,c as s}from"./index-Bstq1IR3.js";import{useMDXComponents as i}from"./index-CSke7xmO.js";import{I as a,N as c}from"./JBInput.stories-C3DJdKN9.js";import"./iframe-CbZ0JHXJ.js";import"./index-CEK5zJnf.js";import"./index-C2vOwVL5.js";import"./index-CupGaPSm.js";import"./index-B3ijS-tw.js";import"./index-DrFu-skq.js";import"./JBInput-CRiMsLmA.js";import"./index-CUhgvN0_.js";import"./jb-validation-AFHFNd1g.js";import"./index-BtFglznY.js";import"./index-BjRxPyWZ.js";import"./index-Bhe3Q7G8.js";import"./index-DJpgW01c.js";import"./JBButton-W77Xuw-L.js";import"./jb-button-MYbfia63.js";import"./jb-loading-BuRiKsux.js";function r(o){const n={p:"p",...i(),...o.components};return t.jsxs(t.Fragment,{children:[t.jsx(m,{of:a}),`
-`,t.jsx(e,{children:"JB Input"}),`
-`,t.jsx(n.p,{children:"Input React & Web Component. with internal validation mechanism"}),`
-`,t.jsx(p,{of:c}),`
-`,t.jsx(s,{})]})}function _(o={}){const{wrapper:n}={...i(),...o.components};return n?t.jsx(n,{...o,children:t.jsx(r,{...o})}):r(o)}export{_ as default};

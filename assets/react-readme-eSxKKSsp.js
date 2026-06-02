@@ -1,2 +1,0 @@
-import{n as t,g as r,M as m}from"./index-Bstq1IR3.js";import{useMDXComponents as s}from"./index-CSke7xmO.js";import"./iframe-CbZ0JHXJ.js";import"./index-CEK5zJnf.js";import"./index-C2vOwVL5.js";import"./index-CupGaPSm.js";import"./index-B3ijS-tw.js";import"./index-DrFu-skq.js";const a="# jb-qrcode React Component";function n(e){return t.jsxs(t.Fragment,{children:[t.jsx(r,{title:"Components/JBQRCode/React Readme"}),`
-`,t.jsx(m,{children:a})]})}function C(e={}){const{wrapper:o}={...s(),...e.components};return o?t.jsx(o,{...e,children:t.jsx(n,{...e})}):n()}export{C as default};
