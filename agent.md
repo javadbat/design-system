@@ -12,6 +12,7 @@
 - Build one package: `deno task build --name=jb-input`
 - Watch one package: `deno task build --name=jb-input --watch`
 - Start Storybook: `deno task start` or `npm run start` on port `3100`
+- Install commit-message hooks for root and submodules: `npm run install-git-hooks`
 - Root Storybook tests are configured with Vitest/Playwright in `vitest.config.ts`.
 
 ## Build Wiring
@@ -32,5 +33,6 @@
 - Check `git status --short` before editing; submodule changes may appear separately.
 - Do not commit or hand-edit generated `dist/` outputs unless the task explicitly asks for built artifacts.
 - Many component folders ignore `dist/` and `react/dist/`.
+- Commits must use Conventional Commits, for example `feat(jb-input): add clear button`.
 - When touching one component, run the narrow package build first, then broaden only if needed.
 - Networked Deno/NPM commands may need approval in restricted environments.

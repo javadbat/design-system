@@ -94,7 +94,8 @@
   "scripts": {
     "start": "npm run storybook",
     "build-storybook": "storybook build",
-    "storybook": "storybook dev -p 3100 --config-dir .storybook"
+    "storybook": "storybook dev -p 3100 --config-dir .storybook",
+    "install-git-hooks": "node scripts/git-hooks/install-git-hooks.mjs"
   },
   "repository": {
     "type": "git",
