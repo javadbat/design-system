@@ -2,9 +2,9 @@
 
 ## Project Shape
 - JB Design System is a Deno/TypeScript monorepo that orchestrates many separately published web-component packages.
-- Component packages live in `web-component/<package-name>` and are Git submodules. Treat each package as its own repo boundary.
+- Component packages live in `modules/<package-name>` and are Git submodules. Treat each package as its own repo boundary.
 - Most packages follow this layout: `lib/` for web-component source, `react/` for React wrapper source, `stories/` for Storybook examples, `dist/` and `react/dist/` for generated builds.
-- The root package is mostly tooling, docs, Storybook, and build orchestration; shared component code usually belongs in the relevant package or `web-component/jb-core`.
+- The root package is mostly tooling, docs, Storybook, and build orchestration; shared component code usually belongs in the relevant package or `modules/jb-core`.
 
 ## Common Commands
 - Install deps: `deno install`

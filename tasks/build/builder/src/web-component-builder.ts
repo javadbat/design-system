@@ -113,7 +113,7 @@ export class WebComponentBuilder {
   }
   #getInputOption(module: ModuleConfig, format: "es" | "cjs" | "umd" = "es", watchMode: boolean, useTypescript: boolean): RolldownOptions {
 
-    // remove filename and lib folder name result in web-component/jb-input
+    // remove filename and lib folder name result in modules/jb-input
     let externalList = module.external || [];
     if (
       format == "umd" &&

@@ -1,114 +1,114 @@
-[submodule "web-component/jb-input"]
-	path = web-component/jb-input
+[submodule "modules/jb-input"]
+	path = modules/jb-input
 	url = https://github.com/javadbat/jb-input.git
 	branch = master
-[submodule "web-component/jb-button"]
-	path = web-component/jb-button
+[submodule "modules/jb-button"]
+	path = modules/jb-button
 	url = https://github.com/javadbat/jb-button.git
 	branch = master
-[submodule "web-component/jb-select"]
-	path = web-component/jb-select
+[submodule "modules/jb-select"]
+	path = modules/jb-select
 	url = https://github.com/javadbat/jb-select.git
 	branch = master
-[submodule "web-component/jb-textarea"]
-	path = web-component/jb-textarea
+[submodule "modules/jb-textarea"]
+	path = modules/jb-textarea
 	url = https://github.com/javadbat/jb-textarea.git
 	branch = master
-[submodule "web-component/jb-file-input"]
-	path = web-component/jb-file-input
+[submodule "modules/jb-file-input"]
+	path = modules/jb-file-input
 	url = https://github.com/javadbat/jb-file-input.git
 	branch = master
-[submodule "web-component/jb-image-input"]
-	path = web-component/jb-image-input
+[submodule "modules/jb-image-input"]
+	path = modules/jb-image-input
 	url = https://github.com/javadbat/jb-image-input.git
 	branch = master
-[submodule "web-component/jb-date-input"]
-	path = web-component/jb-date-input
+[submodule "modules/jb-date-input"]
+	path = modules/jb-date-input
 	url = https://github.com/javadbat/jb-date-input.git
 	branch = master
-[submodule "web-component/jb-calendar"]
-	path = web-component/jb-calendar
+[submodule "modules/jb-calendar"]
+	path = modules/jb-calendar
 	url = https://github.com/javadbat/jb-calendar.git
 	branch = master
-[submodule "web-component/jb-searchbar"]
-	path = web-component/jb-searchbar
+[submodule "modules/jb-searchbar"]
+	path = modules/jb-searchbar
 	url = https://github.com/javadbat/jb-searchbar.git
 	branch = master
-[submodule "web-component/jb-time-input"]
-	path = web-component/jb-time-input
+[submodule "modules/jb-time-input"]
+	path = modules/jb-time-input
 	url = https://github.com/javadbat/jb-time-input.git
 	branch = master
-[submodule "web-component/jb-time-picker"]
-	path = web-component/jb-time-picker
+[submodule "modules/jb-time-picker"]
+	path = modules/jb-time-picker
 	url = https://github.com/javadbat/jb-time-picker.git
 	branch = master
-[submodule "web-component/jb-loading"]
-	path = web-component/jb-loading
+[submodule "modules/jb-loading"]
+	path = modules/jb-loading
 	url = https://github.com/javadbat/jb-loading.git
 	branch = master
-[submodule "web-component/jb-pin-input"]
-	path = web-component/jb-pin-input
+[submodule "modules/jb-pin-input"]
+	path = modules/jb-pin-input
 	url = https://github.com/javadbat/jb-pin-input.git
 	branch = main
-[submodule "web-component/jb-payment-input"]
-	path = web-component/jb-payment-input
+[submodule "modules/jb-payment-input"]
+	path = modules/jb-payment-input
 	url = https://github.com/javadbat/jb-payment-input.git
 	branch = main
-[submodule "web-component/jb-national-input"]
-	path = web-component/jb-national-input
+[submodule "modules/jb-national-input"]
+	path = modules/jb-national-input
 	url = https://github.com/javadbat/jb-national-input.git
 	branch = main
-[submodule "web-component/jb-modal"]
-	path = web-component/jb-modal
+[submodule "modules/jb-modal"]
+	path = modules/jb-modal
 	url = https://github.com/javadbat/jb-modal.git
-[submodule "web-component/jb-tooltip"]
-	path = web-component/jb-tooltip
+[submodule "modules/jb-tooltip"]
+	path = modules/jb-tooltip
 	url = https://github.com/javadbat/jb-tooltip.git
 	branch = main
-[submodule "web-component/jb-infinite-scroll"]
-	path = web-component/jb-infinite-scroll
+[submodule "modules/jb-infinite-scroll"]
+	path = modules/jb-infinite-scroll
 	url = https://github.com/javadbat/jb-infinite-scroll.git
 	branch = main
-[submodule "web-component/jb-qrcode"]
-	path = web-component/jb-qrcode
+[submodule "modules/jb-qrcode"]
+	path = modules/jb-qrcode
 	url = https://github.com/javadbat/jb-qrcode
 	branch = main
-[submodule "web-component/jb-mobile-input"]
-	path = web-component/jb-mobile-input
+[submodule "modules/jb-mobile-input"]
+	path = modules/jb-mobile-input
 	url = https://github.com/javadbat/jb-mobile-input.git
 	branch = main
-[submodule "web-component/jb-notification"]
-	path = web-component/jb-notification
+[submodule "modules/jb-notification"]
+	path = modules/jb-notification
 	url = https://github.com/javadbat/jb-notification.git
 	branch = main
-[submodule "web-component/jb-switch"]
-	path = web-component/jb-switch
+[submodule "modules/jb-switch"]
+	path = modules/jb-switch
 	url = https://github.com/javadbat/jb-switch.git
 	branch = main
-[submodule "web-component/jb-number-input"]
-	path = web-component/jb-number-input
+[submodule "modules/jb-number-input"]
+	path = modules/jb-number-input
 	url = https://github.com/javadbat/jb-number-input.git
 	branch = main
-[submodule "web-component/jb-password-input"]
-	path = web-component/jb-password-input
+[submodule "modules/jb-password-input"]
+	path = modules/jb-password-input
 	url = https://github.com/javadbat/jb-password-input.git
 	branch = main
-[submodule "web-component/jb-popover"]
-	path = web-component/jb-popover
+[submodule "modules/jb-popover"]
+	path = modules/jb-popover
 	url = https://github.com/javadbat/jb-popover.git
 	branch = main
-[submodule "web-component/jb-form"]
-	path = web-component/jb-form
+[submodule "modules/jb-form"]
+	path = modules/jb-form
 	url = https://github.com/javadbat/jb-form.git
-[submodule "web-component/jb-checkbox"]
-	path = web-component/jb-checkbox
+[submodule "modules/jb-checkbox"]
+	path = modules/jb-checkbox
 	url = https://github.com/javadbat/jb-checkbox.git
-[submodule "web-component/jb-grid"]
-	path = web-component/jb-grid
+[submodule "modules/jb-grid"]
+	path = modules/jb-grid
 	url = https://github.com/javadbat/jb-grid.git
-[submodule "web-component/jb-core"]
-	path = web-component/jb-core
+[submodule "modules/jb-core"]
+	path = modules/jb-core
 	url = https://github.com/javadbat/jb-core.git
-[submodule "web-component/jb-validation"]
-	path = web-component/jb-validation
+[submodule "modules/jb-validation"]
+	path = modules/jb-validation
 	url = https://github.com/javadbat/jb-validation.git

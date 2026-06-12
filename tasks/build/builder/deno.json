@@ -2,7 +2,7 @@
   "name": "@design-system/builder",
   "version": "0.1.0",
   "exports": "./mod.ts",
-  "exclude": ["web-component/", "react-component/"],
+  "exclude": ["modules/", "react-component/"],
   "nodeModulesDir": "auto",
   "imports": {
     "./": "./",
