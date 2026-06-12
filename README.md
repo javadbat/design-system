@@ -18,14 +18,10 @@ this repo is just a monorepo to manage, test & build packages and does not conta
 
 ## Contribution
 
->this project is in the middle of transform between nodejs and deno and gets a little complicated to run for the first time.
-
 clone the project with submodules (all components are put in project with submodules)
 
-```git
-
+```bash
 git clone --recurse-submodules -j8 https://github.com/javadbat/design-system.git
-
 ```
 
 in case you have already cloned the project, use command: `git submodule update --init --recursive`
@@ -37,9 +33,6 @@ deno install
 ```
 
 ### build packages in project root directory
-
-```bash
-# build all modules in deno:
 
 ```bash
 # necessary for the first time. this will build all packages 
