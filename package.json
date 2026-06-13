@@ -91,11 +91,6 @@
     "storybook": "^8.6.12",
     "vitest": "^3.1.2"
   },
-  "scripts": {
-    "start": "npm run storybook",
-    "build-storybook": "storybook build",
-    "install-git-hooks": "node scripts/git-hooks/install-git-hooks.mjs"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/javadbat/design-system.git"

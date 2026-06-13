@@ -24,7 +24,10 @@
   },
   
   "tasks": {
-    "build":"deno run --allow-all ./cli.ts $1"
+    "build": {
+      "description": "Run the builder CLI from this package source.",
+      "command": "deno run --allow-all ./cli.ts $1"
+    }
   },
   "compilerOptions": {
     "lib": [

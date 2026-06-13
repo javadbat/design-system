@@ -1,17 +1,15 @@
-import { readFileSync } from "node:fs";
-
-const commitMessagePath = process.argv[2];
+const commitMessagePath = Deno.args[0];
 
 if (!commitMessagePath) {
   console.error("Missing commit message file path.");
-  process.exit(1);
+  Deno.exit(1);
 }
 
-const commitMessage = readFileSync(commitMessagePath, "utf8");
+const commitMessage = Deno.readTextFileSync(commitMessagePath);
 const firstLine = commitMessage
   .split(/\r?\n/)
-  .map(line => line.trim())
-  .find(line => line && !line.startsWith("#"));
+  .map((line) => line.trim())
+  .find((line) => line && !line.startsWith("#"));
 
 const allowedTypes = [
   "build",
@@ -27,7 +25,9 @@ const allowedTypes = [
   "test",
 ];
 
-const conventionalCommitPattern = new RegExp(`^(${allowedTypes.join("|")})(\\([a-z0-9._/-]+\\))?!?: .{1,}$`);
+const conventionalCommitPattern = new RegExp(
+  `^(${allowedTypes.join("|")})(\\([a-z0-9._/-]+\\))?!?: .{1,}$`,
+);
 const bypassPatterns = [
   /^Merge\b/,
   /^Revert\b/,
@@ -35,7 +35,11 @@ const bypassPatterns = [
   /^squash! /,
 ];
 
-if (!firstLine || (!conventionalCommitPattern.test(firstLine) && !bypassPatterns.some(pattern => pattern.test(firstLine)))) {
+if (
+  !firstLine ||
+  (!conventionalCommitPattern.test(firstLine) &&
+    !bypassPatterns.some((pattern) => pattern.test(firstLine)))
+) {
   console.error("");
   console.error("Invalid commit message.");
   console.error("");
@@ -49,5 +53,5 @@ if (!firstLine || (!conventionalCommitPattern.test(firstLine) && !bypassPatterns
   console.error("  fix: handle empty value");
   console.error("  chore(build): update package config");
   console.error("");
-  process.exit(1);
+  Deno.exit(1);
 }

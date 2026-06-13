@@ -3,11 +3,34 @@
   "version": "0.0.5",
   "exports": "./mod.ts",
   "tasks": {
-    "build": "deno run --allow-run --allow-read --allow-write --allow-net --allow-env --allow-sys --allow-ffi ./tasks/build/build.ts --path=./config/build-config.ts",
-    "build-package": "deno run --allow-run --allow-read --allow-write --allow-net --allow-env --allow-sys --allow-ffi jsr:@design-system/builder@0.0.12 build --path=./config/build-config.ts",
-    "start": "deno task mock & deno task storybook",
-    "storybook": "storybook dev -p 3100 --config-dir .storybook",
-    "mock": "deno task --cwd ./mock start"
+    "build": {
+      "description": "Build design-system packages using the local builder source.",
+      "command": "deno run --allow-run --allow-read --allow-write --allow-net --allow-env --allow-sys --allow-ffi ./tasks/build/build.ts --path=./config/build-config.ts"
+    },
+    "build-package": {
+      "description": "Build design-system packages using the published JSR builder package.",
+      "command": "deno run --allow-run --allow-read --allow-write --allow-net --allow-env --allow-sys --allow-ffi jsr:@design-system/builder@0.0.12 build --path=./config/build-config.ts"
+    },
+    "start": {
+      "description": "Start the mock API and Storybook development server.",
+      "command": "deno task mock & deno task storybook"
+    },
+    "storybook": {
+      "description": "Start Storybook on port 3100.",
+      "command": "storybook dev -p 3100 --config-dir .storybook"
+    },
+    "build-storybook": {
+      "description": "Build the static Storybook site.",
+      "command": "storybook build"
+    },
+    "mock": {
+      "description": "Start the mock API service from the mock workspace.",
+      "command": "deno task --cwd ./mock start"
+    },
+    "install-git-hooks": {
+      "description": "Install commit-message hooks for the root repo and submodules.",
+      "command": "deno run --allow-read --allow-write --allow-run tasks/git-hooks/install-git-hooks.ts"
+    }
   },
   "exclude": ["modules/", "react-component/"],
   "imports": {

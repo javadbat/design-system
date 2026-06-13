@@ -12,7 +12,7 @@
 - Build one package: `deno task build --name=jb-input`
 - Watch one package: `deno task build --name=jb-input --watch`
 - Start Storybook: `deno task start` or `npm run start` on port `3100`
-- Install commit-message hooks for root and submodules: `npm run install-git-hooks`
+- Install commit-message hooks for root and submodules: `deno task install-git-hooks`
 - Root Storybook tests are configured with Vitest/Playwright in `vitest.config.ts`.
 
 ## Build Wiring
