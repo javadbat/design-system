@@ -33,13 +33,13 @@ jobs:
         with:
           deno-version: v2.x
       - name: install dependencies
-        run: npm install
+        run: deno install
       
       - name: build packages
         run: deno task build
 
       - name: Build Storybook static files
-        run: npm run build-storybook
+        run: deno task build-storybook
       
       - name: Deploy Storybook to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
