@@ -1,9 +1,14 @@
 {
-  "biome.enable": false,
+  "eslint.enable": false,
   "cSpell.words": [
     "arabext",
     "msword",
     "virtualkeyboardpolicy",
-    "حَمَل"
+    "ثَور",
+    "جَدْی",
+    "حَمَل",
+    "دَلو",
+    "عَقرَب",
+    "قَوس"
   ]
 }
