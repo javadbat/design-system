@@ -37,10 +37,10 @@
     "./": "./",
     "/": "./",
     "@std/path": "jsr:@std/path@^1.1.2",
-    "@std/cli": "jsr:@std/cli@^1.0.11",
-    "rolldown": "npm:rolldown@^1.0.0-beta.13",
-    "rollup-plugin-gzip": "npm:rollup-plugin-gzip@^4.0.0",
-    "rollup-plugin-sass": "npm:rollup-plugin-sass@^1.15.2",
+    "@std/cli": "jsr:@std/cli@^1.0.23",
+    "rolldown": "npm:rolldown@^1.1.3",
+    "rollup-plugin-gzip": "npm:rollup-plugin-gzip@^4.2.0",
+    "rollup-plugin-sass": "npm:rollup-plugin-sass@^1.16.0-rc.1",
     "rollup-plugin-swc3": "npm:rollup-plugin-swc3@^0.12.1"
   },
   "compilerOptions": {

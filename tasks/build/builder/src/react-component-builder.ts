@@ -20,7 +20,7 @@ export class ReactComponentBuilder {
       await this.buildComponent(reactComponent, false, false);
     }
   }
-  async buildComponent(component: ReactComponentBuildConfig, watch = false, useTypescript = true): Promise<void> {
+  async buildComponent(component: ReactComponentBuildConfig, watch = false, useTypescript = false): Promise<void> {
     const moduleConfig = this.#createModuleConfig(component);
     console.log(`start building ${component.name}`);
     const inputOptions = this.#getInputOption(moduleConfig, watch, useTypescript);

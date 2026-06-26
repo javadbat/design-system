@@ -1,5 +1,5 @@
 import { WebComponentBuilder, ReactComponentBuilder, type ReactComponentBuildConfig, type WebComponentBuildConfig } from "./mod.ts";
-import { parseArgs } from "jsr:@std/cli@1.0.11/parse-args";
+import { parseArgs } from "@std/cli/parse-args";
 import * as path from "@std/path";
 
 type CliArgs = {

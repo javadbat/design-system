@@ -1,6 +1,6 @@
-import { transform, type Features, type TransformOptions } from "lightningcss";
+import { transform, type CustomAtRules, type Features, type TransformOptions } from "lightningcss";
 
-type LightningCSSStringOptions = Omit<TransformOptions<Features>, "code" | "filename">;
+type LightningCSSStringOptions = Omit<TransformOptions<CustomAtRules>, "code" | "filename">;
 
 const textEncoder = new TextEncoder();
 const textDecoder = new TextDecoder();
