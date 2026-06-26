@@ -1,46 +1,51 @@
 import * as path from "@std/path";
 //rollup
-import { type OutputOptions, rolldown, type RolldownOptions, watch, type RolldownWatcher, InputOptions } from 'rolldown';
+import { type OutputOptions, rolldown, type RolldownOptions, watch, type RolldownWatcher, type InputOptions } from 'rolldown';
 import { swc, defineRollupSwcOption } from "rollup-plugin-swc3";
-import sass from "rollup-plugin-sass";
 import rollupReplace from "@rollup/plugin-replace";
 import terser from "@rollup/plugin-terser";
 //config
 import type { Envs, ModuleConfig, ReactComponentBuildConfig } from './types.ts';
 import chalk from "chalk";
-import typescript from "@rollup/plugin-typescript";
-import {Features} from 'lightningcss';
+import { Features } from 'lightningcss';
 import { lightningCssString } from "./plugins/lightningcss-string.ts";
+import { dts } from 'rolldown-plugin-dts';
 export class ReactComponentBuilder {
   envs: Envs = {
     nodeEnv: "production"
   }
   async buildAllComponent(reactComponentList: ReactComponentBuildConfig[]) {
     for (const reactComponent of reactComponentList) {
-      await this.buildComponent(reactComponent, false, false);
+      await this.buildComponent(reactComponent);
     }
   }
-  async buildComponent(component: ReactComponentBuildConfig, watch = false, useTypescript = false): Promise<void> {
+  async buildComponent(component: ReactComponentBuildConfig, watch = false, generateTypes = true): Promise<void> {
     const moduleConfig = this.#createModuleConfig(component);
     console.log(`start building ${component.name}`);
-    const inputOptions = this.#getInputOption(moduleConfig, watch, useTypescript);
+    const inputOptions = this.#getInputOption(moduleConfig, watch);
     const esOutputOptions = this.#getOutputOption(moduleConfig, "es");
     const cjsOutputOptions = this.#getOutputOption(moduleConfig, "cjs");
     const umdOutputOptions = this.#getOutputOption(moduleConfig, "umd");
     try {
       if (watch) {
-        this.#buildAndWatchModule(inputOptions, esOutputOptions, component);
+        this.#buildAndWatchModule(inputOptions, esOutputOptions, moduleConfig);
       } else {
         await this.buildModule(inputOptions, esOutputOptions, "ES");
         await this.buildModule(inputOptions, cjsOutputOptions, "CJS");
         await this.buildModule(inputOptions, umdOutputOptions, "UMD");
+        if (generateTypes && this.#isTypeScriptModule(moduleConfig)) {
+          const dtsInputOptions = this.#getDtsInputOption(moduleConfig);
+          const dtsOutputOptions = this.#getDtsOutputOption(moduleConfig);
+          await this.buildModule(dtsInputOptions, dtsOutputOptions, "DTS");
+        }
       }
-    } catch (e: any) {
+    } catch (e) {
       console.error(component.name + ' build failed');
-      console.error(e.message);
+      if (Error.isError(e)) { console.error(e.message); }
+
     }
   }
-  buildModule(inputOptions: RolldownOptions, outputOptions: OutputOptions, type: "ES" | "CJS" | "UMD"): Promise<void> {
+  buildModule(inputOptions: RolldownOptions, outputOptions: OutputOptions, type: "ES" | "CJS" | "UMD" | "DTS"): Promise<void> {
     //build module with rollup without any watch or something
     return new Promise<void>((resolve, reject) => {
       const bundlePromise = rolldown(inputOptions);
@@ -80,16 +85,24 @@ export class ReactComponentBuilder {
       globals: inputConfig.globals ?? {},
     };
   }
-  #buildAndWatchModule(inputOptions: RolldownOptions, outputOptions: OutputOptions, module: ReactComponentBuildConfig) {
+  #buildAndWatchModule(inputOptions: RolldownOptions, outputOptions: OutputOptions, moduleConfig: ModuleConfig) {
     return new Promise<void>((resolve, reject) => {
       const watcher = watch({
         ...inputOptions,
         output: outputOptions,
         watch: {
-          exclude: module.external
+          exclude: moduleConfig.external
         }
       });
-      this.#watcherEventHandler(watcher, resolve, reject);
+      const onBuilt = async () => {
+        if (this.#isTypeScriptModule(moduleConfig)) {
+          const dtsInputOptions = this.#getDtsInputOption(moduleConfig);
+          const dtsOutputOptions = this.#getDtsOutputOption(moduleConfig);
+          await this.buildModule(dtsInputOptions, dtsOutputOptions, "DTS");
+        }
+        resolve();
+      }
+      this.#watcherEventHandler(watcher, onBuilt, reject);
     });
   }
   #watcherEventHandler(watcher: RolldownWatcher, resolver: () => void, rejecter: () => void) {
@@ -111,7 +124,7 @@ export class ReactComponentBuilder {
       }
     });
   }
-  #getInputOption(module: ModuleConfig, watchMode: boolean, useTypescript: boolean): InputOptions {
+  #getInputOption(module: ModuleConfig, watchMode: boolean): InputOptions {
     const externalList = module.external || [];
     const swcPlugin = swc(defineRollupSwcOption(
       {
@@ -137,18 +150,9 @@ export class ReactComponentBuilder {
       })
     );
     const plugins = [
-      //@ts-ignore
       rollupReplace({
         "process.env.NODE_ENV": `"${this.envs.nodeEnv}"`,
         preventAssignment: true,
-      }),
-      sass({
-        api: 'modern',
-        include:'**/*.scss',
-        insert: true,
-        options: {
-          style: 'compressed',
-        },
       }),
       lightningCssString({
         minify: !watchMode,
@@ -159,15 +163,8 @@ export class ReactComponentBuilder {
         },
       }),
     ];
-    const isTypeScriptModule = this.#isTypeScriptModule(module);
-    if (isTypeScriptModule && useTypescript) {
-      //@ts-ignore
-      const ss = typescript({ tsconfig: module.tsConfigPath, });
-      plugins.push(ss);
-    }
     plugins.push(swcPlugin);
     if (!watchMode) {
-      //@ts-ignore
       plugins.push(terser({ compress: { drop_debugger: true } }));
     }
     const inputOptions = {
@@ -199,6 +196,26 @@ export class ReactComponentBuilder {
   #isTypeScriptModule(module: ReactComponentBuildConfig) {
     const url = path.parse(module.path);
     return url.ext === ".ts" || url.ext == ".tsx";
+  }
+  #getDtsInputOption(module: ModuleConfig): RolldownOptions {
+    return {
+      input: path.join(module.path),
+      external: module.external || [],
+      plugins: [
+        dts({
+          emitDtsOnly: true,
+          resolver: 'tsc',
+          tsconfig: module.tsConfigPath,
+        }),
+      ],
+    };
+  }
+  #getDtsOutputOption(module: ModuleConfig): OutputOptions {
+    return {
+      dir: path.join(module.outputPathParsed.dir),
+      format: 'es',
+      sourcemap: false,
+    };
   }
 }
 export default ReactComponentBuilder;

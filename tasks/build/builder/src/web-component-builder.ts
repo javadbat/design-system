@@ -2,15 +2,14 @@ import chalk from "chalk";
 import type { Envs, ModuleConfig, WebComponentBuildConfig } from './types.ts';
 import * as path from "@std/path";
 import { type OutputOptions, rolldown, type ModuleFormat, type RolldownOutput, type RolldownOptions, watch, type RolldownWatcher } from 'rolldown';
-import sass from "rollup-plugin-sass";
 import rollupReplace from "@rollup/plugin-replace";
-import typescript from "@rollup/plugin-typescript";
 import svg from "rollup-plugin-svg";
 import gzipPlugin from "rollup-plugin-gzip";
 import brotli from "rollup-plugin-brotli";
 import terser from "@rollup/plugin-terser";
-import {Features} from 'lightningcss';
+import { Features } from 'lightningcss';
 import { lightningCssString } from "./plugins/lightningcss-string.ts";
+import { dts } from 'rolldown-plugin-dts';
 export class WebComponentBuilder {
   envs: Envs = {
     nodeEnv: "production"
@@ -22,29 +21,37 @@ export class WebComponentBuilder {
   }
   async buildAllComponents(webComponentList: WebComponentBuildConfig[]) {
     for (const component of webComponentList) {
-      await this.buildComponent(component, false, false);
+      await this.buildComponent(component);
     }
   }
-  async buildComponent(componentBuildConfig: WebComponentBuildConfig, watchMode = false, useTypescript = true): Promise<PromiseSettledResult<RolldownOutput>[] | undefined> {
+  async buildComponent(componentBuildConfig: WebComponentBuildConfig, watchMode = false): Promise<PromiseSettledResult<RolldownOutput>[] | undefined> {
     const moduleConfig = this.#createModuleConfig(componentBuildConfig);
     console.log(`start building ${componentBuildConfig.name}`);
-    const inputOptions = this.#getInputOption(moduleConfig, 'es', watchMode, useTypescript);
-    const cjsInputOptions = this.#getInputOption(moduleConfig, 'cjs', watchMode, useTypescript);
-    const umdInputOptions = this.#getInputOption(moduleConfig, 'umd', watchMode, useTypescript);
+    const inputOptions = this.#getInputOption(moduleConfig, 'es', watchMode);
+    const cjsInputOptions = this.#getInputOption(moduleConfig, 'cjs', watchMode);
+    const umdInputOptions = this.#getInputOption(moduleConfig, 'umd', watchMode);
     //
     const esOutputOptions = this.#getOutputOption(moduleConfig, "es");
     const cjsOutputOptions = this.#getOutputOption(moduleConfig, "cjs");
     const umdOutputOptions = this.#getOutputOption(moduleConfig, "umd");
     try {
       if (watchMode) {
-        this.#buildAndWatchModule(inputOptions, esOutputOptions, componentBuildConfig);
+        this.#buildAndWatchModule(inputOptions, esOutputOptions, moduleConfig);
       } else {
         const p1 = this.buildModule(inputOptions, esOutputOptions, "ES");
         await p1;
         const p2 = this.buildModule(cjsInputOptions, cjsOutputOptions, "CJS");
         await p2;
         const p3 = this.buildModule(umdInputOptions, umdOutputOptions, "UMD");
-        return await Promise.allSettled([p1, p2, p3]);
+        await p3;
+        const buildPromises = [p1, p2, p3];
+        if (this.#isTypeScriptModule(moduleConfig)) {
+          const dtsInputOptions = this.#getDtsInputOption(moduleConfig);
+          const dtsOutputOptions = this.#getDtsOutputOption(moduleConfig);
+          const p4 = this.buildModule(dtsInputOptions, dtsOutputOptions, "DTS");
+          buildPromises.push(p4);
+        }
+        return await Promise.allSettled(buildPromises);
       }
     } catch (e) {
       console.error(componentBuildConfig.name + ' build failed');
@@ -63,7 +70,7 @@ export class WebComponentBuilder {
       globals: inputConfig.globals ?? {},
     };
   }
-  buildModule(inputOptions: RolldownOptions, outputOptions: OutputOptions, type: "ES" | "CJS" | "UMD"): Promise<RolldownOutput> {
+  buildModule(inputOptions: RolldownOptions, outputOptions: OutputOptions, type: "ES" | "CJS" | "UMD" | "DTS"): Promise<RolldownOutput> {
     //build module with rollup without any watch or something
     return new Promise((resolve, reject) => {
       const bundlePromise = rolldown(inputOptions);
@@ -80,16 +87,24 @@ export class WebComponentBuilder {
       });
     });
   }
-  #buildAndWatchModule(inputOptions: RolldownOptions, outputOptions: OutputOptions, module: WebComponentBuildConfig) {
+  #buildAndWatchModule(inputOptions: RolldownOptions, outputOptions: OutputOptions, moduleConfig: ModuleConfig) {
     return new Promise<void>((resolve, reject) => {
       const watcher = watch({
         ...inputOptions,
         output: outputOptions,
         watch: {
-          exclude: module.external
+          exclude: moduleConfig.external
         }
       });
-      this.#watcherEventHandler(watcher, resolve, reject);
+      const onBuilt = async () => {
+        if (this.#isTypeScriptModule(moduleConfig)) {
+          const dtsInputOptions = this.#getDtsInputOption(moduleConfig);
+          const dtsOutputOptions = this.#getDtsOutputOption(moduleConfig);
+          await this.buildModule(dtsInputOptions, dtsOutputOptions, "DTS");
+        }
+        resolve();
+      }
+      this.#watcherEventHandler(watcher, onBuilt, reject);
     });
   }
   #watcherEventHandler(watcher: RolldownWatcher, resolver: () => void, rejecter: () => void) {
@@ -111,7 +126,7 @@ export class WebComponentBuilder {
       }
     });
   }
-  #getInputOption(module: ModuleConfig, format: "es" | "cjs" | "umd" = "es", watchMode: boolean, useTypescript: boolean): RolldownOptions {
+  #getInputOption(module: ModuleConfig, format: "es" | "cjs" | "umd" = "es", watchMode: boolean): RolldownOptions {
 
     // remove filename and lib folder name result in modules/jb-input
     let externalList = module.external || [];
@@ -129,49 +144,26 @@ export class WebComponentBuilder {
       svg({
         base64: false,
       }),
-      //TODO: remove later when all scss files are converted to css
-      sass({
-        api: 'modern',
-        include:'**/*.scss',
-        options: {
-          style: 'compressed',
-        },
-      }),
       lightningCssString({
         minify: !watchMode,
         sourceMap: true,
-        include:Features.Nesting | Features.CustomMediaQueries | Features.MediaRangeSyntax | Features.ColorFunction | Features.LightDark ,
-        drafts:{
+        include: Features.Nesting | Features.CustomMediaQueries | Features.MediaRangeSyntax | Features.ColorFunction | Features.LightDark,
+        drafts: {
           customMedia: true,
         },
       }),
-      //@ts-ignore
       rollupReplace({
         "process.env.NODE_ENV": `"${env}"`,
         preventAssignment: true,
       }),
-      //@ts-ignore
-      //handled by tsdown
-      // rollupJson(),
-
     ];
     if (!watchMode) {
       //watch mode is for development and dont need minification
       plugins = [
         ...plugins,
-        //@ts-ignore
         terser({ compress: { drop_debugger: watchMode ? false : true } }),
         gzipPlugin(),
         brotli(),];
-    }
-    const isTypeScriptModule = this.#isTypeScriptModule(module);
-    if (isTypeScriptModule && useTypescript) {
-      plugins.push(
-        //@ts-ignore
-        typescript({
-          tsconfig: module.tsConfigPath,
-        })
-      );
     }
     const inputOptions: RolldownOptions = {
       input: path.join(module.path),
@@ -183,6 +175,26 @@ export class WebComponentBuilder {
   #isTypeScriptModule(module: WebComponentBuildConfig) {
     const url = path.parse(module.path);
     return url.ext === '.ts';
+  }
+  #getDtsInputOption(module: ModuleConfig): RolldownOptions {
+    return {
+      input: path.join(module.path),
+      external: module.external || [],
+      plugins: [
+        dts({
+          emitDtsOnly: true,
+          resolver: 'tsc',
+          tsconfig: module.tsConfigPath,
+        }),
+      ],
+    };
+  }
+  #getDtsOutputOption(module: ModuleConfig): OutputOptions {
+    return {
+      dir: module.outputPathParsed.dir,
+      format: 'es',
+      sourcemap: false,
+    };
   }
   #getOutputOption(module: ModuleConfig, format: ModuleFormat = "es"): OutputOptions {
     const outputFileName = `${module.outputPathParsed.name}${format == 'es' ? '' : ('.' + format)}${module.outputPathParsed.ext}`;
