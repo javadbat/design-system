@@ -9,8 +9,8 @@ import svg from "rollup-plugin-svg";
 import gzipPlugin from "rollup-plugin-gzip";
 import brotli from "rollup-plugin-brotli";
 import terser from "@rollup/plugin-terser";
-import LightningCSS from 'unplugin-lightningcss/rollup';
 import {Features} from 'lightningcss';
+import { lightningCssString } from "./plugins/lightningcss-string.ts";
 export class WebComponentBuilder {
   envs: Envs = {
     nodeEnv: "production"
@@ -137,16 +137,12 @@ export class WebComponentBuilder {
           style: 'compressed',
         },
       }),
-      LightningCSS({
-        include: ['**/*.css'],
-        asString:true,
-        options: {
-          minify: !watchMode,
-          sourceMap: true,
-          include:Features.Nesting | Features.CustomMediaQueries | Features.MediaRangeSyntax | Features.ColorFunction | Features.LightDark ,
-          drafts:{
-            customMedia: true,
-          },
+      lightningCssString({
+        minify: !watchMode,
+        sourceMap: true,
+        include:Features.Nesting | Features.CustomMediaQueries | Features.MediaRangeSyntax | Features.ColorFunction | Features.LightDark ,
+        drafts:{
+          customMedia: true,
         },
       }),
       //@ts-ignore

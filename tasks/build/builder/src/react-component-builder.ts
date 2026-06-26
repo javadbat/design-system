@@ -4,12 +4,13 @@ import { type OutputOptions, rolldown, type RolldownOptions, watch, type Rolldow
 import { swc, defineRollupSwcOption } from "rollup-plugin-swc3";
 import sass from "rollup-plugin-sass";
 import rollupReplace from "@rollup/plugin-replace";
+import terser from "@rollup/plugin-terser";
 //config
 import type { Envs, ModuleConfig, ReactComponentBuildConfig } from './types.ts';
 import chalk from "chalk";
 import typescript from "@rollup/plugin-typescript";
-import LightningCSS from 'unplugin-lightningcss/rollup';
 import {Features} from 'lightningcss';
+import { lightningCssString } from "./plugins/lightningcss-string.ts";
 export class ReactComponentBuilder {
   envs: Envs = {
     nodeEnv: "production"
@@ -118,6 +119,8 @@ export class ReactComponentBuilder {
         tsconfig: module.tsConfigPath,
         exclude: ["node_modules/**", ...externalList],
         isModule: true,
+        sourceMaps: true,
+        inputSourceMap: false,
 
         jsc: {
           parser: {
@@ -130,7 +133,7 @@ export class ReactComponentBuilder {
             },
           },
         },
-        minify: watchMode ? false : true,
+        minify: false,
       })
     );
     const plugins = [
@@ -147,16 +150,12 @@ export class ReactComponentBuilder {
           style: 'compressed',
         },
       }),
-      LightningCSS({
-        include: ['**/*.css'],
-        asString: true,
-        options: {
-          minify: !watchMode,
-          sourceMap: true,
-          include: Features.Nesting | Features.CustomMediaQueries | Features.MediaRangeSyntax | Features.ColorFunction | Features.LightDark,
-          drafts: {
-            customMedia: true,
-          },
+      lightningCssString({
+        minify: !watchMode,
+        sourceMap: true,
+        include: Features.Nesting | Features.CustomMediaQueries | Features.MediaRangeSyntax | Features.ColorFunction | Features.LightDark,
+        drafts: {
+          customMedia: true,
         },
       }),
     ];
@@ -167,6 +166,10 @@ export class ReactComponentBuilder {
       plugins.push(ss);
     }
     plugins.push(swcPlugin);
+    if (!watchMode) {
+      //@ts-ignore
+      plugins.push(terser({ compress: { drop_debugger: true } }));
+    }
     const inputOptions = {
       input: path.join(module.path),
       external: module.external || [],
