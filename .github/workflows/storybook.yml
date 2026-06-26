@@ -31,8 +31,8 @@ jobs:
       - name: Install Deno
         uses: denoland/setup-deno@v2
         with:
-          
-          deno-version: v6.x
+
+          deno-version: v3.x
       - name: install dependencies
         run: deno install
       
