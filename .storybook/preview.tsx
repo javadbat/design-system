@@ -20,16 +20,8 @@ const preview: Preview = {
       },
     },
   },
-  tags: ['!autodocs'],
+  tags: ['autodocs'],
   decorators: [
-    // add theme switch button in the header that will add rtl & ltr classes in page
-    // withThemeByClassName({
-    //   defaultTheme: 'ltr',
-    //   themes: {
-    //     'rtl': 'rtl',
-    //     'ltr': 'ltr'
-    //   },
-    // }),
     (Story,context)=>{
       const [key,setKey] = useState("initial")
       useEffect(()=>{
@@ -82,5 +74,4 @@ const preview: Preview = {
     },
   }
 }
-export const tags = ["autodocs"];
 export default preview;
