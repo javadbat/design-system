@@ -100,6 +100,7 @@ const reactComponentList: ReactComponentBuildConfig[] = [
   ...JBSelect.reactComponents,
   ...JBTextarea.reactComponents,
   ...JBSearchbar.reactComponents,
+  ...JBTimePicker.reactComponents,
   ...JBTimeInput.reactComponents,
   ...JBLoading.reactComponents,
   ...JBPinInput.reactComponents,
