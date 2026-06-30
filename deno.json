@@ -23,6 +23,14 @@
       "description": "Build the static Storybook site.",
       "command": "storybook build"
     },
+    "test-storybook": {
+      "description": "Run Storybook interaction tests with Vitest in a Playwright-powered browser.",
+      "command": "vitest run --project storybook"
+    },
+    "test-storybook-watch": {
+      "description": "Run Storybook interaction tests in watch mode.",
+      "command": "vitest --project storybook"
+    },
     "mock": {
       "description": "Start the mock API service from the mock workspace.",
       "command": "deno task --cwd ./mock start"

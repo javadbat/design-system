@@ -1,0 +1,22 @@
+{
+  "extends": "./tsconfig-base.json",
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "allowSyntheticDefaultImports": true,
+    "allowImportingTsExtensions": true,
+    "jsx": "react-jsx",
+    "noEmit": true,
+    "noImplicitAny": false,
+    "skipLibCheck": true
+  },
+  "include": [
+    "modules/jb-core/configs/global.d.ts",
+    ".storybook/**/*.ts",
+    ".storybook/**/*.tsx",
+    "modules/**/*.stories.ts",
+    "modules/**/*.stories.tsx",
+    "modules/**/stories/**/*.ts",
+    "modules/**/stories/**/*.tsx"
+  ]
+}

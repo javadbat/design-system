@@ -2,8 +2,8 @@ import type { StorybookConfig } from '@storybook/react-vite';
 
 const config: StorybookConfig = {
   "stories": [
-    "../**/*.mdx",
-    "../**/*.stories.@(js|jsx|mjs|ts|tsx)"
+    "../modules/**/*.mdx",
+    "../modules/**/*.stories.@(js|jsx|mjs|ts|tsx)"
   ],
   "features": {
     experimentalReactComponentMeta: true,

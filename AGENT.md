@@ -11,9 +11,20 @@
 - Build all packages: `deno task build`
 - Build one package: `deno task build --name=jb-input`
 - Watch one package: `deno task build --name=jb-input --watch`
-- Start Storybook: `deno task start` or `npm run start` on port `3100`
+- Start Storybook: `deno task start` on port `3100`
+- Run Storybook interaction tests: `deno task test-storybook`
+- Watch Storybook interaction tests: `deno task test-storybook-watch`
 - Install commit-message hooks for root and submodules: `deno task install-git-hooks`
 - Root Storybook tests are configured with Vitest/Playwright in `vitest.config.ts`.
+
+## Storybook Interaction Tests
+- Prefer Storybook story `play` functions for automated component behavior checks that should run before publishing.
+- Use `storybook/test` helpers inside stories, commonly `expect`, `userEvent`, `waitFor`, and `within`.
+- Treat the stack as: Storybook story renders the component example, `play` performs interaction/assertions, Vitest runs the tests, and Playwright provides the real browser underneath.
+- Do not default to raw `@playwright/test` specs for story behavior tests unless the task specifically needs page-level browser automation outside Storybook.
+- Keep story tests focused on release confidence: open/close flows, event callbacks, value changes, validation states, keyboard/mouse interaction, and important responsive variants.
+- For web components with shadow DOM, combine Testing Library queries for visible light-DOM content with direct custom-element or shadow-root checks when needed.
+- Storybook 10.3+ applies preview annotations automatically through `@storybook/addon-vitest`, so story tests should rely on the same locale/dir/theme context as Storybook.
 
 ## Build Wiring
 - Root build config is `config/build-config.ts`; it imports each package's `build-config.ts`.
@@ -35,4 +46,4 @@
 - Many component folders ignore `dist/` and `react/dist/`.
 - Commits must use Conventional Commits, for example `feat(jb-input): add clear button`.
 - When touching one component, run the narrow package build first, then broaden only if needed.
-- Networked Deno/NPM commands may need approval in restricted environments.
+- Networked Deno commands may need approval in restricted environments.
