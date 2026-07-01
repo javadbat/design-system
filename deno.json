@@ -31,6 +31,10 @@
       "description": "Run Storybook interaction tests in watch mode.",
       "command": "vitest --project storybook"
     },
+    "typecheck": {
+      "description": "Check TypeScript errors across all package tsconfig.json files.",
+      "command": "deno run --allow-read --allow-run ./tasks/typecheck.ts"
+    },
     "mock": {
       "description": "Start the mock API service from the mock workspace.",
       "command": "deno task --cwd ./mock start"
