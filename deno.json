@@ -15,6 +15,10 @@
       "description": "Start the mock API and Storybook development server.",
       "command": "deno task mock & deno task storybook"
     },
+    "test": {
+      "description": "run all test commands to make sure we are ready to publish",
+      "command": "deno task typecheck & deno task test-storybook"
+    },
     "storybook": {
       "description": "Start Storybook on port 3100.",
       "command": "storybook dev -p 3100 --config-dir .storybook"
@@ -44,7 +48,10 @@
       "command": "deno run --allow-read --allow-write --allow-run tasks/git-hooks/install-git-hooks.ts"
     }
   },
-  "exclude": ["modules/", "react-component/"],
+  "exclude": [
+    "modules/",
+    "react-component/"
+  ],
   "imports": {
     "./": "./",
     "/": "./",
