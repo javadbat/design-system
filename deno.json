@@ -7,6 +7,10 @@
       "description": "Build design-system packages using the local builder source.",
       "command": "deno run --allow-run --allow-read --allow-write --allow-net --allow-env --allow-sys --allow-ffi ./tasks/build/build.ts --path=./config/build-config.ts"
     },
+    "generate-package-catalog": {
+      "description": "Generate docs/component-list.md from config/package-list.ts and local package metadata.",
+      "command": "deno run --allow-read --allow-write ./tasks/generate-package-catalog.ts"
+    },
     "build-package": {
       "description": "Build design-system packages using the published JSR builder package.",
       "command": "deno run --allow-run --allow-read --allow-write --allow-net --allow-env --allow-sys --allow-ffi jsr:@design-system/builder@0.0.12 build --path=./config/build-config.ts"

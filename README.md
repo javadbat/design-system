@@ -1,4 +1,4 @@
-# JB Design System
+# JB Design System ✨
 
 Web component based UI packages for building multilingual, RTL-ready web applications.
 
@@ -6,24 +6,25 @@ Web component based UI packages for building multilingual, RTL-ready web applica
 
 JB Design System is a collection of focused UI packages. Each component ships as a standards-based web component, and most components also include a React wrapper. Teams can install only the packages they need instead of adopting one large all-in-one bundle.
 
-## Why Teams Use It
+## Why Teams Use It 💡
 
-- **Framework friendly:** use the web components in React, Vue, Angular, Svelte, vanilla JavaScript, or any stack that can render custom elements.
-- **React ready:** install the same package and import from `package-name/react` when you want typed React components.
-- **Form focused:** inputs, pickers, validation, form collection, and high-interaction controls are treated as first-class product UI.
-- **RTL and Persian ready:** locale, direction, Persian calendar, and Persian number support are built into the system instead of patched on per app.
-- **Themeable by design:** components expose CSS custom properties, parts, and states so applications can style them without forking internals.
-- **Small by choice:** packages are independent, so product teams can adopt gradually.
+- 🧩 **Framework friendly:** use the web components in React, Vue, Angular, Svelte, vanilla JavaScript, or any stack that can render custom elements.
+- ⚛️ **React ready:** install the same package and import from `package-name/react` when you want typed React components.
+- 📝 **Form focused:** inputs, pickers, validation, form collection, and high-interaction controls are treated as first-class product UI.
+- 🌐 **RTL and Persian ready:** locale, direction, Persian calendar, and Persian number support are built into the system instead of patched on per app.
+- 🎨 **Themeable by design:** components expose CSS custom properties, parts, and states so applications can style them without forking internals.
+- 📦 **Small by choice:** packages are independent, so product teams can adopt gradually.
 
-## Start Here
+## Start Here 🚀
 
 Explore the live documentation and examples:
 
 - [Storybook documentation](https://javadbat.github.io/design-system/?path=/docs/getting-started-introduction--docs)
 - [Component package list](https://javadbat.github.io/design-system/?path=/docs/general-package-list--docs)
+- [Contribution guide](https://javadbat.github.io/design-system/?path=/docs/general-contribution-guide--docs)
 - [CodeSandbox React demo](https://codesandbox.io/p/sandbox/jb-design-system-3f63dj)
 
-## Install One Component
+## Install One Component ⚡
 
 Install the package that matches the UI you need.
 
@@ -51,7 +52,7 @@ export function ProfileForm() {
 }
 ```
 
-## Choose Packages
+## Choose Packages 🧭
 
 Start with the package closest to the user task:
 
@@ -66,7 +67,7 @@ Start with the package closest to the user task:
 
 See the [full component list](./docs/component-list.md) for package links.
 
-## Build A Form
+## Build A Form 🧱
 
 Most form controls support labels, messages, validation, disabled states, CSS customization, and native form participation.
 
@@ -87,7 +88,7 @@ export function SignupForm() {
 }
 ```
 
-## Theme And Localize
+## Theme And Localize 🎨
 
 Set theme variables in any scope that should own the visual style.
 
@@ -115,7 +116,7 @@ i18n.setLocale(new Intl.Locale("fa", {
 }));
 ```
 
-## Repository Development
+## Repository Development 🛠️
 
 This repository is the monorepo used to manage, test, document, and build the component packages. The packages live in `modules/`, mostly as Git submodules.
 
@@ -157,9 +158,9 @@ Run checks:
 deno task test
 ```
 
-## Contributing
+## Contributing 🤝
 
-Use the [contribution guide](./docs/contribution-guide.md) before changing package behavior, docs, or build tooling.
+Use the [local contribution guide](./docs/contribution-guide.md) or the [Storybook contribution guide](https://javadbat.github.io/design-system/?path=/docs/general-contribution-guide--docs) before changing package behavior, docs, or build tooling.
 
 Add a component submodule:
 
