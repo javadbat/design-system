@@ -95,7 +95,7 @@ Set theme variables in any scope that should own the visual style.
 ```css
 :root {
   --jb-primary: oklch(54% 0.18 250);
-  --jb-input-border-radius: 8px;
+  --jb-input-border-radius: 0.5rem;
 }
 ```
 
