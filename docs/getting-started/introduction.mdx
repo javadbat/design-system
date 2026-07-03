@@ -1,65 +1,132 @@
-
 import {Meta} from '@storybook/addon-docs/blocks';
 
 <Meta title="Getting Started/Introduction" />
 
 # JB Design System
-Collection of necessary components to build a web Application with web-components & react components.
 
-- Works on every Js framework and library like React, Vue, Angular, Svelte, etc.
-- Dependency free, no need to install any other library or framework.
-- Mostly focus on form elements and complicated elements with high user interactivity.
-- All components are written in web-component with additional React component wrapper around them(see [Package Structure](?path=/docs/general-package-structure--docs)).
-- Multilingual and first class support for RTL and persian i18n utilities.
+JB Design System is a collection of focused UI packages for building multilingual, RTL-ready web applications. Components are written as web components so they work across JavaScript frameworks, and most packages include a React wrapper for React projects.
 
-we have 2 kind of components here:
+## What You Get
 
-1. form base component:    
-  used in form to get values from user.
+- Framework-friendly web components.
+- React wrappers available from `package-name/react`.
+- Form controls, pickers, validation, overlays, feedback, and high-interaction product UI.
+- First-class RTL, Persian locale, Persian calendar, and Persian number support.
+- Theme customization through CSS custom properties, CSS parts, and component states.
+- Independent packages so teams can adopt only what they need.
 
-2. non-form components:    
-  everything that can't be  used inside forms.
+## Start With One Package
+
+Install the component closest to the user task.
+
+```bash
+npm install jb-input
+```
+
+Use it as a web component:
+
+```js
+import "jb-input";
+```
+
+```html
+<jb-input label="First name" name="firstName"></jb-input>
+```
+
+Or use the React wrapper:
+
+```jsx
+import { JBInput } from "jb-input/react";
+
+export function ProfileField() {
+  return <JBInput label="First name" name="firstName" />;
+}
+```
+
+## Choose The Right Package
+
+| Need | Start with |
+| --- | --- |
+| Basic text input | `jb-input` |
+| Number, mobile, password, payment, national ID, date, time, PIN, or textarea fields | `jb-number-input`, `jb-mobile-input`, `jb-password-input`, `jb-payment-input`, `jb-national-input`, `jb-date-input`, `jb-time-input`, `jb-pin-input`, `jb-textarea` |
+| Select, checkbox, or switch behavior | `jb-select`, `jb-checkbox`, `jb-switch` |
+| File, image, calendar, or time picking | `jb-file-input`, `jb-image-input`, `jb-calendar`, `jb-time-picker` |
+| Form validation and value collection | `jb-validation`, `jb-form` |
+| Modal, popover, tooltip, notification, or loading feedback | `jb-modal`, `jb-popover`, `jb-tooltip`, `jb-notification`, `jb-loading` |
+| Search, grid, infinite scroll, or QR code UI | `jb-searchbar`, `jb-grid`, `jb-infinite-scroll`, `jb-qrcode` |
+
+See the [package list](?path=/docs/general-package-list--docs) for package repositories and docs.
+
+## Build A Small Form
+
+Most form components support labels, messages, validation, disabled states, styling hooks, and native form participation.
+
+```jsx
+import { JBForm } from "jb-form/react";
+import { JBInput } from "jb-input/react";
+import { JBMobileInput } from "jb-mobile-input/react";
+import { JBButton } from "jb-button/react";
+
+export function SignupForm() {
+  return (
+    <JBForm onSubmit={(event) => console.log(event.target.value)}>
+      <JBInput name="fullName" label="Full name" required />
+      <JBMobileInput name="mobile" label="Mobile number" required />
+      <JBButton type="submit">Create account</JBButton>
+    </JBForm>
+  );
+}
+```
 
 ## Architecture
 
-Unlike most Design systems, JB Design System is not a single big package that contain all the components and modules. instead we use separate package/repo for each component.    
-this architecture lets user to select and install the package he need  without forcing him to download all the package he doesn't need and making it easier to update packages and manage dependencies.    
-you can see the package list with their Repo address from [here](?path=/docs/general-package-list--docs)
+JB Design System is not a single all-in-one package. Each component has its own package and repository. This lets product teams install only the components they need, update packages independently, and keep application bundles smaller.
 
-JBDesignSystem is a multilingual RTL ready design system so you can easily use it in your multilingual app.    
+Every component starts from the web platform:
 
+- The web component is the core implementation.
+- The React wrapper maps React props, events, and refs onto the web component.
+- Shared utilities live in packages such as `jb-core`, `jb-core/i18n`, `jb-core/theme`, `jb-validation`, and `jb-form`.
 
-## Styling Guide
+## Styling
 
-Due to the nature of web-components and shadow DOM we have to use css native ways like custom properties to style our components.
-<p>
-  here is some useful links to get you started:
-  - [color system](?path=/docs/theme-colors--docs)
-  - [sizing system](?path=/docs/theme-sizes--docs)
-</p>
+Because components use shadow DOM, customization is exposed through standard browser styling APIs.
 
-## Internationalization(i18n)
+- Use the [color system](?path=/docs/theme-colors--docs) for palette tokens.
+- Use the [sizing system](?path=/docs/theme-sizes--docs) for spacing and size tokens.
+- Use component CSS variables for local customization.
+- Use `::part(...)` and component states when a component exposes structured styling hooks.
 
-We dont use external library to handle i18n. we just use vanilla JS browser API to handle i18n as easy as possible
+```css
+:root {
+  --jb-primary: oklch(54% 0.18 250);
+  --jb-input-border-radius: 8px;
+}
+```
 
-### locale
+## Internationalization
 
-Default locale of all component come from `html` tag `lang` attribute. you can easily change this attribute to your locale and remount your component.
-In this Demo you can easily change locale by click on 🌐 icon in header to see components in different locale.
+By default, components read locale from the `html` element `lang` attribute. Set the document language and direction at the application shell.
 
 ```html
-<html lang="fa"></html> 
-<!-- or -->
-<html lang="en"></html> 
+<html lang="fa" dir="rtl"></html>
 ```
-```javascript
-//change locale by changing html lang attribute (Recommended)
-document.documentElement.lang = "fa";
-// or
-import {i18n} from "jb-core/i18n";
-// set locale of singleton instance of jb i18n config
-// in this method you can pass your preferred calendar and numbering system as a parameter to new Intl.Locale("fa")
-// see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/Locale
-i18n.setLocale(new Intl.Locale("fa"))
+
+You can also control locale through `jb-core/i18n`.
+
+```js
+import { i18n } from "jb-core/i18n";
+
+i18n.setLocale(new Intl.Locale("fa", {
+  calendar: "persian",
+  numberingSystem: "arabext",
+}));
 ```
-> you can read more about i18n in [i18n doc](?path=/docs/components-jbcore-i18n-readme--docs);
+
+Use the Storybook toolbar to preview components in English, Persian, Persian numbers, LTR, and RTL.
+
+## Next Steps
+
+- Browse [all packages](?path=/docs/general-package-list--docs).
+- Review [package structure](?path=/docs/general-package-structure--docs) before contributing.
+- Open component docs from the sidebar to inspect props, events, slots, CSS variables, and React examples.
