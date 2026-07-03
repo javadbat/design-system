@@ -27,8 +27,6 @@ export default defineConfig({
             'axios',
             'date-fns',
             'date-fns-jalali',
-            'mobx',
-            'mobx-react',
             'qr-code-styling',
           ],
         },
