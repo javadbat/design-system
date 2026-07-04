@@ -4,50 +4,66 @@ import {Meta, Markdown} from '@storybook/addon-docs/blocks';
 
 # Package structure
 
-All JB Design System package has the same build process and file structure for ease of use.
+All JB Design System packages use the same build process and a similar file structure for ease of use.
 
 ## Folder structure
 
 ```
 jb-package-name
-│   README.md  //document of the package
-│   index.js   // entry point of package when you import that package    
-│   build-config.ts   // build config of that package needed by jb-design-system monorepo to build the package    
+│   README.md         // package documentation
+│   index.js          // package entry point, exports the web-component build
+│   build-config.ts   // build config used by the monorepo builder
+│   package.json      // package metadata, published files, types, and customElements path
 │
-└───lib   // contain source code of the package (almost web-component)
-│   │   jb-package-name.ts   // web-component main file
-│   │   jb-package-name.css  // style of the web-component
-│   │   render.ts            // contain HTML of the web-component
-│   │   types.ts             // typescript types needed in component
-│   │   variables.css        // define css variables that can be used and changes by user from outside
+└───web-component     // contains the source and build output of the web component
+│   │   custom-elements.json // custom elements manifest used by tools and package.json
+│   │   tsconfig.json        // TypeScript config for the web-component build
+│   │
+│   └───lib           // source code of the web component
+│   │   │   jb-package-name.ts   // web-component main file
+│   │   │   jb-package-name.css  // styles of the web component
+│   │   │   render.ts            // contains HTML template of the web component
+│   │   │   types.ts             // TypeScript types used by the component
+│   │   │   variables.css        // CSS variables that users can override from outside
 │   
-└───dist  // build file of the component
-|   │   jb-package-name.cjs.js // cjs build of the package used in legacy project
-|   │   jb-package-name.cjs.js.br // brotli compressed version of the cjs package
-|   |   jb-package-name.cjs.js.gz // gzip version of the cjs package
-|   |   jb-package-name.d.ts // typescript definition of the package
-|   |   jb-package-name.js  // ESM main build file of the package
-|   |   jb-package-name.js.br // brotli compressed version of the ESM package
-|   |   jb-package-name.js.gz // gzip version of the ESM package
-|   |   jb-package-name.js.map // map file for ESM build
-|   |   jb-package-name.umd.js // universal version of the package that contain all dependencies used when import as an standalone module in non-npm compatible environment
-|   |   jb-package-name.umd.js.br
-|   |   jb-package-name.umd.js.gz
-|   |   jb-package-name.umd.js.map
-└───react     // contain react component version of the package (inner folder structure is the same as web-component)  
-└───stories   // contain storybook example of the web-component
+│   └───dist          // build files of the web component
+│       │   jb-package-name.cjs.js    // CJS build, used in legacy projects
+│       │   jb-package-name.cjs.js.br // Brotli compressed version of the CJS package
+│       │   jb-package-name.cjs.js.gz // gzip version of the CJS package
+│       │   jb-package-name.d.ts      // TypeScript definition of the package
+│       │   jb-package-name.js        // ESM main build file of the package
+│       │   jb-package-name.js.br     // Brotli compressed version of the ESM package
+│       │   jb-package-name.js.gz     // gzip version of the ESM package
+│       │   jb-package-name.js.map    // source map file for ESM build
+│       │   jb-package-name.umd.js    // UMD build for standalone browser usage
+│       │   jb-package-name.umd.js.br
+│       │   jb-package-name.umd.js.gz
+│       │   jb-package-name.umd.js.map
+│
+└───react             // contains the React wrapper version of the package
+│   │   README.md
+│   │   index.js
+│   │   package.json
+│   │   tsconfig.json
+│   │
+│   └───lib           // source code of the React wrapper
+│   └───dist          // build files of the React wrapper
+│
+└───stories           // contains Storybook examples and docs for the package
 ```
 
-### Builded Version
-  each package have 3 build
+### Built version
+  Each web component package has 3 builds under `web-component/dist`:
   - ESM - main ecma script build of the package
   - CJS - common js build of the package
-  - UMD - Universal Module Definition of the package this version is used to be import directly in browser in some environment that dont support nodejs packaging system to resolve dependencies. use this when you are in wordpress codepen ,... and you need to load the package on the fly.
+  - UMD - Universal Module Definition of the package. This version is used to import the component directly in browsers or environments that do not support the Node.js package resolution system. Use this when you are in WordPress, CodePen, or similar environments and you need to load the package on the fly.
+
+The root `index.js` file imports/exports from `web-component/dist`, and `package.json` points `types` to `web-component/dist/jb-package-name.d.ts` and `customElements` to `web-component/custom-elements.json`.
 
 ## Compression 
-  in most cases compression isn't needed in packages and each app has it's own bundler to compress app but it helps in some cases like when you want to use the package in simple and small project that dont use complicated build system or in single app or form builder ,...
-  The other case is it show you how much package will take space in your production build (`/dist/jb-package-name.js.br` size will inform you about the size of package in your build)
+  In most cases compression is not needed in packages because each app has its own bundler to compress the final app. It helps in cases where you want to use the package in a simple or small project that does not use a complicated build system, or in single-page apps, form builders, and similar environments.
+  The other case is that it shows you how much space the package will take in your production build (`/web-component/dist/jb-package-name.js.br` size will inform you about the size of package in your build).
 
 ## React Version
-  Most Packages also have a react wrapper version or some package like `jb-core` have more that just wrapper react tools ,...
-  to access these file import them from `package-name/react` and see `react` folder to see the react component source code.
+  Most packages also have a React wrapper version. Some packages, like `jb-core`, have more than wrapper React tools.
+  To access these files, import them from `package-name/react` and see the `react` folder for the React component source code.
