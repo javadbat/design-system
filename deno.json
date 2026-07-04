@@ -21,7 +21,7 @@
     },
     "test": {
       "description": "run all test commands to make sure we are ready to publish",
-      "command": "deno task typecheck & deno task test-storybook"
+      "command": "deno run --allow-read --allow-run ./tasks/test.ts"
     },
     "storybook": {
       "description": "Start Storybook on port 3100.",
