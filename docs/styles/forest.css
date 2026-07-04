@@ -1,0 +1,18 @@
+.forest-style {
+    --jb-primary: #f3d36a;
+    --jb-primary-hover: #ffd98a;
+    --jb-primary-pressed: #d9b84f;
+    --jb-text-primary: #f4f0df;
+    --jb-text-secondary: #dbe8d1;
+    --jb-text-disabled: oklch(85% 0.04 130 / 0.38);
+    --jb-text-contrast: #163024;
+    --jb-background: #163024;
+    --jb-surface: #21382d;
+    --jb-surface-hover: oklch(88% 0.08 130 / 0.16);
+    --jb-border-color: oklch(94% 0.06 105 / 0.18);
+    --jb-focus-color: #f3d36a;
+    --jb-success: #9ee493;
+    --jb-radius-sm: 0.65rem;
+    --jb-radius-md: 0.75rem;
+    --jb-radius-lg: 1.25rem;
+}

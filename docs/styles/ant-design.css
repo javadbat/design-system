@@ -1,0 +1,18 @@
+.ant-design-style {
+    --jb-primary: #1677ff;
+    --jb-primary-hover: #4096ff;
+    --jb-primary-pressed: #0958d9;
+    --jb-text-primary: #262626;
+    --jb-text-secondary: #595959;
+    --jb-text-disabled: #bfbfbf;
+    --jb-text-contrast: #ffffff;
+    --jb-background: #f5f5f5;
+    --jb-surface: #ffffff;
+    --jb-surface-hover: #e6f4ff;
+    --jb-border-color: #f0f0f0;
+    --jb-focus-color: #1677ff;
+    --jb-success: #52c41a;
+    --jb-radius-sm: 0.375rem;
+    --jb-radius-md: 0.5rem;
+    --jb-radius-lg: 0.75rem;
+}

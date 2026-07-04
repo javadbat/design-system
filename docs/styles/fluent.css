@@ -1,0 +1,18 @@
+.fluent-style {
+    --jb-primary: #0078d4;
+    --jb-primary-hover: #106ebe;
+    --jb-primary-pressed: #005a9e;
+    --jb-text-primary: #201f1e;
+    --jb-text-secondary: #323130;
+    --jb-text-disabled: #a19f9d;
+    --jb-text-contrast: #ffffff;
+    --jb-background: #f3f2f1;
+    --jb-surface: #f8f8f8;
+    --jb-surface-hover: #edebe9;
+    --jb-border-color: #e1dfdd;
+    --jb-focus-color: #0078d4;
+    --jb-success: #ffaa44;
+    --jb-radius-sm: 0.25rem;
+    --jb-radius-md: 0.5rem;
+    --jb-radius-lg: 0.75rem;
+}

@@ -1,0 +1,18 @@
+.candy-style {
+    --jb-primary: #ec4899;
+    --jb-primary-hover: #f472b6;
+    --jb-primary-pressed: #db2777;
+    --jb-text-primary: #423047;
+    --jb-text-secondary: #6e5575;
+    --jb-text-disabled: #c8b7cc;
+    --jb-text-contrast: #ffffff;
+    --jb-background: #fff7fb;
+    --jb-surface: #f7f0ff;
+    --jb-surface-hover: #ffe0ef;
+    --jb-border-color: #ffd5e8;
+    --jb-focus-color: #ec4899;
+    --jb-success: #0f9f8f;
+    --jb-radius-sm: 999px;
+    --jb-radius-md: 999px;
+    --jb-radius-lg: 2rem;
+}

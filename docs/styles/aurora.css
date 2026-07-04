@@ -1,0 +1,18 @@
+.aurora-style {
+    --jb-primary: #7de4d3;
+    --jb-primary-hover: #a99cff;
+    --jb-primary-pressed: #55c8bb;
+    --jb-text-primary: #edf7ff;
+    --jb-text-secondary: #d7e5f2;
+    --jb-text-disabled: oklch(77% 0.03 250 / 0.34);
+    --jb-text-contrast: #06131d;
+    --jb-background: #10151f;
+    --jb-surface: #192233;
+    --jb-surface-hover: oklch(100% 0 0 / 0.12);
+    --jb-border-color: oklch(100% 0 0 / 0.12);
+    --jb-focus-color: #7de4d3;
+    --jb-success: #ffcf70;
+    --jb-radius-sm: 0.8rem;
+    --jb-radius-md: 0.85rem;
+    --jb-radius-lg: 1.75rem;
+}

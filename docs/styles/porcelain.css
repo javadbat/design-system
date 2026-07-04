@@ -1,0 +1,18 @@
+.porcelain-style {
+    --jb-primary: #276c9d;
+    --jb-primary-hover: #1c5a86;
+    --jb-primary-pressed: #174a70;
+    --jb-text-primary: #1c3045;
+    --jb-text-secondary: #40586e;
+    --jb-text-disabled: #aab9c6;
+    --jb-text-contrast: #ffffff;
+    --jb-background: #edf4fb;
+    --jb-surface: #ffffff;
+    --jb-surface-hover: #e4f0f9;
+    --jb-border-color: #d6e3ef;
+    --jb-focus-color: #276c9d;
+    --jb-success: #c96d35;
+    --jb-radius-sm: 0.5rem;
+    --jb-radius-md: 0.625rem;
+    --jb-radius-lg: 0.9rem;
+}

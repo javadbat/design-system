@@ -1,0 +1,18 @@
+.sunset-style {
+    --jb-primary: #ffd166;
+    --jb-primary-hover: #ffb26b;
+    --jb-primary-pressed: #f09d48;
+    --jb-text-primary: #fff7ef;
+    --jb-text-secondary: #ffe8da;
+    --jb-text-disabled: oklch(94% 0.04 55 / 0.36);
+    --jb-text-contrast: #43223a;
+    --jb-background: #412553;
+    --jb-surface: #8a3f56;
+    --jb-surface-hover: oklch(100% 0 0 / 0.16);
+    --jb-border-color: oklch(100% 0 0 / 0.18);
+    --jb-focus-color: #ffd166;
+    --jb-success: #8af0d3;
+    --jb-radius-sm: 1rem;
+    --jb-radius-md: 1rem;
+    --jb-radius-lg: 1.6rem;
+}

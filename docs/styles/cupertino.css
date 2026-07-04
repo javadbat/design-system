@@ -1,0 +1,18 @@
+.cupertino-style {
+    --jb-primary: #007aff;
+    --jb-primary-hover: #006ee6;
+    --jb-primary-pressed: #005ecb;
+    --jb-text-primary: #1d1d1f;
+    --jb-text-secondary: #3a3a3c;
+    --jb-text-disabled: #c7c7cc;
+    --jb-text-contrast: #ffffff;
+    --jb-background: #f2f2f7;
+    --jb-surface: oklch(99% 0.01 250 / 0.92);
+    --jb-surface-hover: #e5e5ea;
+    --jb-border-color: oklch(90% 0.01 250 / 0.8);
+    --jb-focus-color: #007aff;
+    --jb-success: #ff3b30;
+    --jb-radius-sm: 0.625rem;
+    --jb-radius-md: 0.75rem;
+    --jb-radius-lg: 1.25rem;
+}

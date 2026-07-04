@@ -1,0 +1,18 @@
+.material-style {
+    --jb-primary: #1967d2;
+    --jb-primary-hover: #174ea6;
+    --jb-primary-pressed: #185abc;
+    --jb-text-primary: #1f1f1f;
+    --jb-text-secondary: #3c4043;
+    --jb-text-disabled: #bdc1c6;
+    --jb-text-contrast: #ffffff;
+    --jb-background: #f8fafd;
+    --jb-surface: #ffffff;
+    --jb-surface-hover: #e8f0fe;
+    --jb-border-color: #dadce0;
+    --jb-focus-color: #1967d2;
+    --jb-success: #fbbc04;
+    --jb-radius-sm: 999px;
+    --jb-radius-md: 1rem;
+    --jb-radius-lg: 1rem;
+}

@@ -1,0 +1,18 @@
+.terminal-style {
+    --jb-primary: #62ff93;
+    --jb-primary-hover: #a3ffba;
+    --jb-primary-pressed: #3ce572;
+    --jb-text-primary: #d6ffe3;
+    --jb-text-secondary: #9ce7b7;
+    --jb-text-disabled: #365342;
+    --jb-text-contrast: #07110b;
+    --jb-background: #05080d;
+    --jb-surface: #0d1117;
+    --jb-surface-hover: #13251b;
+    --jb-border-color: #243b2f;
+    --jb-focus-color: #62ff93;
+    --jb-success: #e8ff77;
+    --jb-radius-sm: 0.25rem;
+    --jb-radius-md: 0.25rem;
+    --jb-radius-lg: 0.5rem;
+}
