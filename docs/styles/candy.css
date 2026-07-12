@@ -9,10 +9,14 @@
     --jb-background: #fff7fb;
     --jb-surface: #f7f0ff;
     --jb-surface-hover: #ffe0ef;
+    --jb-calendar-surface-bg:
+        radial-gradient(circle at 12% 18%, var(--jb-surface-hover) 0%, transparent 34%),
+        radial-gradient(circle at 86% 20%, #d9f3ff 0%, transparent 30%),
+        linear-gradient(145deg, var(--jb-background), var(--jb-surface));
     --jb-border-color: #ffd5e8;
     --jb-focus-color: #ec4899;
     --jb-success: #0f9f8f;
     --jb-radius-sm: 999px;
-    --jb-radius-md: 999px;
+    --jb-radius: 999px;
     --jb-radius-lg: 2rem;
 }

@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="627" viewBox="0 0 1200 627" role="img" aria-labelledby="title desc">
+  <title id="title">LinkedIn post image for the new theme gallery</title>
+  <desc id="desc">A launch graphic showing many custom themes for the design system with exact promotional text.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f8fbff"/>
+      <stop offset="0.42" stop-color="#eef5ff"/>
+      <stop offset="1" stop-color="#fff2f7"/>
+    </linearGradient>
+    <radialGradient id="glow-blue" cx="0.75" cy="0.18" r="0.62">
+      <stop offset="0" stop-color="#60a5fa" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#60a5fa" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow-pink" cx="0.95" cy="0.78" r="0.7">
+      <stop offset="0" stop-color="#ec4899" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#ec4899" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft-shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#10213f" flood-opacity="0.16"/>
+    </filter>
+    <filter id="deep-shadow" x="-35%" y="-35%" width="170%" height="170%">
+      <feDropShadow dx="0" dy="22" stdDeviation="20" flood-color="#10213f" flood-opacity="0.24"/>
+    </filter>
+    <style>
+      .font { font-family: Inter, Segoe UI, Arial, sans-serif; }
+      .mono { font-family: "JetBrains Mono", Consolas, monospace; }
+      .headline { font-size: 62px; font-weight: 850; letter-spacing: 0; fill: #111827; }
+      .subhead { font-size: 25px; font-weight: 560; letter-spacing: 0; fill: #334155; }
+      .small { font-size: 17px; font-weight: 700; letter-spacing: 0; fill: #475569; }
+      .chip-text { font-size: 16px; font-weight: 760; letter-spacing: 0; }
+      .theme-name { font-size: 17px; font-weight: 800; letter-spacing: 0; }
+      .ui-label { font-size: 13px; font-weight: 760; letter-spacing: 0; }
+      .ui-small { font-size: 12px; font-weight: 650; letter-spacing: 0; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="627" fill="url(#bg)"/>
+  <rect width="1200" height="627" fill="url(#glow-blue)"/>
+  <rect width="1200" height="627" fill="url(#glow-pink)"/>
+
+  <g opacity="0.2">
+    <path d="M693 26h330c55 0 100 45 100 100v343c0 55-45 100-100 100H693c-55 0-100-45-100-100V126c0-55 45-100 100-100Z" fill="#fff"/>
+    <path d="M764 69h214c38 0 68 30 68 68v218c0 38-30 68-68 68H764c-38 0-68-30-68-68V137c0-38 30-68 68-68Z" fill="#dbeafe"/>
+  </g>
+
+  <g transform="translate(58 64)">
+    <rect x="0" y="0" width="154" height="38" rx="19" fill="#e0f2fe" stroke="#bae6fd"/>
+    <circle cx="24" cy="19" r="8" fill="#0ea5e9"/>
+    <text class="font small" x="42" y="25">JB Design System</text>
+
+    <text class="font headline" x="0" y="108">JB Design System</text>
+    <text class="font headline" x="0" y="178">custom themes.</text>
+    <text class="font subhead" x="2" y="232">Explore the new live gallery and see every</text>
+    <text class="font subhead" x="2" y="266">component dressed in practical UI styles.</text>
+
+    <g transform="translate(2 310)">
+      <rect x="0" y="0" width="226" height="54" rx="27" fill="#111827" filter="url(#soft-shadow)"/>
+      <text class="font chip-text" x="28" y="34" fill="#fff">See all themes</text>
+      <path d="M173 18l14 9-14 9" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="250" y="0" width="216" height="54" rx="27" fill="#fff" stroke="#cbd5e1"/>
+      <text class="font chip-text" x="278" y="34" fill="#334155">Theme/Custom</text>
+    </g>
+
+    <g class="mono" transform="translate(2 400)">
+      <rect x="0" y="0" width="470" height="72" rx="18" fill="#ffffff" stroke="#dbe3ef"/>
+      <text x="24" y="30" fill="#2563eb" font-size="16" font-weight="800">12 shared recipes</text>
+      <text x="24" y="54" fill="#64748b" font-size="14">Material, Fluent, Bootstrap, Cupertino, Ant Design...</text>
+    </g>
+  </g>
+
+  <g transform="translate(600 56)">
+    <g transform="translate(232 0) rotate(5)" filter="url(#soft-shadow)">
+      <rect width="260" height="176" rx="22" fill="#252525"/>
+      <text class="font theme-name" x="104" y="36" fill="#f8fafc">Carbon</text>
+      <rect x="28" y="58" width="204" height="82" rx="16" fill="#343434" stroke="#5b5b5b"/>
+      <rect x="48" y="78" width="92" height="14" rx="7" fill="#f8fafc"/>
+      <rect x="48" y="105" width="154" height="10" rx="5" fill="#d4d4d4" opacity="0.75"/>
+      <circle cx="202" cy="92" r="18" fill="#f8fafc"/>
+      <path d="M194 92l6 6 12-15" fill="none" stroke="#252525" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+
+    <g transform="translate(48 40) rotate(-5)" filter="url(#deep-shadow)">
+      <rect width="278" height="198" rx="24" fill="#ffffff"/>
+      <text class="font theme-name" x="96" y="39" fill="#1e3a8a">Material</text>
+      <rect x="31" y="62" width="216" height="96" rx="18" fill="#e8f0fe" stroke="#bfdbfe"/>
+      <rect x="54" y="85" width="116" height="13" rx="7" fill="#1967d2"/>
+      <rect x="54" y="113" width="150" height="10" rx="5" fill="#3b82f6" opacity="0.55"/>
+      <rect x="54" y="135" width="78" height="10" rx="5" fill="#64748b" opacity="0.5"/>
+      <circle cx="211" cy="111" r="22" fill="#1967d2"/>
+      <path d="M202 111h18M211 102v18" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+    </g>
+
+    <g transform="translate(360 202) rotate(4)" filter="url(#soft-shadow)">
+      <rect width="248" height="188" rx="24" fill="#1f4032"/>
+      <text class="font theme-name" x="96" y="38" fill="#ffe8a3">Forest</text>
+      <rect x="30" y="62" width="188" height="86" rx="17" fill="#183629" stroke="#4a775f"/>
+      <rect x="52" y="87" width="86" height="12" rx="6" fill="#ffe8a3"/>
+      <rect x="52" y="114" width="126" height="10" rx="5" fill="#fef3c7" opacity="0.75"/>
+      <rect x="52" y="136" width="66" height="10" rx="5" fill="#fef3c7" opacity="0.5"/>
+    </g>
+
+    <g transform="translate(75 260) rotate(3)" filter="url(#soft-shadow)">
+      <rect width="262" height="190" rx="24" fill="#fff7ed"/>
+      <text class="font theme-name" x="89" y="38" fill="#9f1239">Sunset</text>
+      <rect x="30" y="62" width="202" height="90" rx="18" fill="#ffe4e6" stroke="#fda4af"/>
+      <rect x="54" y="88" width="92" height="12" rx="6" fill="#be3455"/>
+      <rect x="54" y="116" width="136" height="10" rx="5" fill="#be3455" opacity="0.5"/>
+      <circle cx="198" cy="106" r="20" fill="#ffd166"/>
+    </g>
+
+    <g transform="translate(270 386) rotate(-4)" filter="url(#soft-shadow)">
+      <rect width="258" height="166" rx="24" fill="#fdf2f8"/>
+      <text class="font theme-name" x="103" y="37" fill="#9d174d">Candy</text>
+      <rect x="29" y="59" width="200" height="76" rx="17" fill="#fff" stroke="#fbcfe8"/>
+      <rect x="52" y="82" width="98" height="12" rx="6" fill="#ec4899"/>
+      <rect x="52" y="110" width="126" height="10" rx="5" fill="#ec4899" opacity="0.45"/>
+    </g>
+  </g>
+
+  <g transform="translate(676 462)" opacity="0.96">
+    <rect x="0" y="0" width="152" height="42" rx="21" fill="#fff" stroke="#dbe3ef"/>
+    <circle cx="26" cy="21" r="9" fill="#111827"/>
+    <text class="font ui-label" x="44" y="26" fill="#1f2937">Carbon</text>
+    <rect x="170" y="0" width="152" height="42" rx="21" fill="#fff" stroke="#dbe3ef"/>
+    <circle cx="196" cy="21" r="9" fill="#1967d2"/>
+    <text class="font ui-label" x="214" y="26" fill="#1f2937">Material</text>
+    <rect x="340" y="0" width="152" height="42" rx="21" fill="#fff" stroke="#dbe3ef"/>
+    <circle cx="366" cy="21" r="9" fill="#ec4899"/>
+    <text class="font ui-label" x="384" y="26" fill="#1f2937">Candy</text>
+  </g>
+
+  <g class="font" transform="translate(58 576)">
+    <text class="ui-small" fill="#64748b">New component style galleries now live in Storybook</text>
+    <text class="ui-small" x="832" fill="#334155" font-weight="800">javadbat.github.io/design-system</text>
+  </g>
+</svg>

@@ -1,0 +1,22 @@
+import { Meta, Title, Subtitle } from '@storybook/addon-docs/blocks';
+import { ThemeGallery, ThemePage, ThemeTokenTable, themes } from './ThemeGallery';
+
+<Meta title="Theme/Custom/Carbon" />
+
+<ThemePage theme="carbon">
+
+<Title>Carbon Custom Style</Title>
+
+<Subtitle>{themes["carbon"].description}</Subtitle>
+
+Shared token source: <a href="https://github.com/javadbat/design-system/blob/main/docs/styles/carbon.css">carbon.css</a>. Copy instructions: [How to copy](./HowToCopy.mdx).
+
+## Design Tokens
+
+<ThemeTokenTable theme="carbon" />
+
+## Component Families
+
+<ThemeGallery theme="carbon" />
+
+</ThemePage>

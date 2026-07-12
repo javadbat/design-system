@@ -1,0 +1,22 @@
+import { Meta, Title, Subtitle } from '@storybook/addon-docs/blocks';
+import { ThemeGallery, ThemePage, ThemeTokenTable, themes } from './ThemeGallery';
+
+<Meta title="Theme/Custom/Terminal" />
+
+<ThemePage theme="terminal">
+
+<Title>Terminal Custom Style</Title>
+
+<Subtitle>{themes["terminal"].description}</Subtitle>
+
+Shared token source: <a href="https://github.com/javadbat/design-system/blob/main/docs/styles/terminal.css">terminal.css</a>. Copy instructions: [How to copy](./HowToCopy.mdx).
+
+## Design Tokens
+
+<ThemeTokenTable theme="terminal" />
+
+## Component Families
+
+<ThemeGallery theme="terminal" />
+
+</ThemePage>

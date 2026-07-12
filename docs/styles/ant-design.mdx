@@ -1,0 +1,22 @@
+import { Meta, Title, Subtitle } from '@storybook/addon-docs/blocks';
+import { ThemeGallery, ThemePage, ThemeTokenTable, themes } from './ThemeGallery';
+
+<Meta title="Theme/Custom/Ant Design" />
+
+<ThemePage theme="ant-design">
+
+<Title>Ant Design Custom Style</Title>
+
+<Subtitle>{themes["ant-design"].description}</Subtitle>
+
+Shared token source: <a href="https://github.com/javadbat/design-system/blob/main/docs/styles/ant-design.css">ant-design.css</a>. Copy instructions: [How to copy](./HowToCopy.mdx).
+
+## Design Tokens
+
+<ThemeTokenTable theme="ant-design" />
+
+## Component Families
+
+<ThemeGallery theme="ant-design" />
+
+</ThemePage>

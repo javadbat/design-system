@@ -1,0 +1,96 @@
+import { Meta, Title, Subtitle } from '@storybook/addon-docs/blocks';
+
+<Meta title="Theme/Custom/How to copy" />
+
+<Title>How To Copy A Custom Style</Title>
+
+<Subtitle>
+  Copy one shared theme token file, then copy the component recipe files you need.
+</Subtitle>
+
+Custom styles are split into two layers so you can reuse the same theme across many components.
+
+<table>
+  <thead>
+    <tr>
+      <th>Layer</th>
+      <th>Where to find it</th>
+      <th>What it contains</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Shared theme tokens</td>
+      <td><a href="https://github.com/javadbat/design-system/tree/main/docs/styles">docs/styles</a></td>
+      <td>Theme-wide colors, surfaces, focus colors, and radius tokens like <code>--jb-primary</code>, <code>--jb-surface</code>, and <code>--jb-radius</code>.</td>
+    </tr>
+    <tr>
+      <td>Component recipe</td>
+      <td><a href="https://github.com/javadbat/design-system/tree/main/modules/jb-input/stories/styles">modules/[component]/stories/styles</a></td>
+      <td>Component variable and <code>::part()</code> mappings that use the shared tokens.</td>
+    </tr>
+  </tbody>
+</table>
+
+## Small Example
+
+If you want the Material style for input, copy:
+
+- <a href="https://github.com/javadbat/design-system/blob/main/docs/styles/material.css">docs/styles/material.css</a>
+- <a href="https://github.com/javadbat/design-system/blob/main/modules/jb-input/stories/styles/style-material.css">modules/jb-input/stories/styles/style-material.css</a>
+
+Then load them in your app CSS.
+
+```css
+@import "./styles/material.css";
+@import "./components/jb-input/style-material.css";
+
+.settings-form {
+  /* Scope the theme to one page, form, or demo wrapper. */
+}
+```
+
+```html
+<section class="settings-form material-style">
+  <jb-input class="material-input" label="Project name"></jb-input>
+</section>
+```
+
+## Composed Components
+
+Some components reuse other components internally. Copy the child recipes too, so the full surface stays consistent.
+
+For example, date input uses input, calendar, and popover styles:
+
+```css
+@import "./styles/material.css";
+@import "./components/jb-input/style-material.css";
+@import "./components/jb-calendar/style-material.css";
+@import "./components/jb-popover/style-material.css";
+@import "./components/jb-date-input/style-material.css";
+```
+
+## What To Customize
+
+Start from shared tokens when the whole theme should change:
+
+```css
+.my-brand-theme {
+  --jb-primary: #2563eb;
+  --jb-primary-hover: #1d4ed8;
+  --jb-surface: #ffffff;
+  --jb-border-color: #dbe3ef;
+  --jb-radius: 0.75rem;
+}
+```
+
+Use component variables only when one component needs special treatment:
+
+```css
+.my-brand-theme jb-input {
+  --border-color: var(--jb-border-color);
+  --focus-border-color: var(--jb-focus-color);
+}
+```
+
+Use <code>::part()</code> only for official parts exposed by that component. If a component does not expose a part, style it with variables first.

@@ -1,0 +1,22 @@
+import { Meta, Title, Subtitle } from '@storybook/addon-docs/blocks';
+import { ThemeGallery, ThemePage, ThemeTokenTable, themes } from './ThemeGallery';
+
+<Meta title="Theme/Custom/Candy" />
+
+<ThemePage theme="candy">
+
+<Title>Candy Custom Style</Title>
+
+<Subtitle>{themes["candy"].description}</Subtitle>
+
+Shared token source: <a href="https://github.com/javadbat/design-system/blob/main/docs/styles/candy.css">candy.css</a>. Copy instructions: [How to copy](./HowToCopy.mdx).
+
+## Design Tokens
+
+<ThemeTokenTable theme="candy" />
+
+## Component Families
+
+<ThemeGallery theme="candy" />
+
+</ThemePage>

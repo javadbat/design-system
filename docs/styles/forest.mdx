@@ -1,0 +1,22 @@
+import { Meta, Title, Subtitle } from '@storybook/addon-docs/blocks';
+import { ThemeGallery, ThemePage, ThemeTokenTable, themes } from './ThemeGallery';
+
+<Meta title="Theme/Custom/Forest" />
+
+<ThemePage theme="forest">
+
+<Title>Forest Custom Style</Title>
+
+<Subtitle>{themes["forest"].description}</Subtitle>
+
+Shared token source: <a href="https://github.com/javadbat/design-system/blob/main/docs/styles/forest.css">forest.css</a>. Copy instructions: [How to copy](./HowToCopy.mdx).
+
+## Design Tokens
+
+<ThemeTokenTable theme="forest" />
+
+## Component Families
+
+<ThemeGallery theme="forest" />
+
+</ThemePage>

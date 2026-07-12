@@ -1,0 +1,22 @@
+import { Meta, Title, Subtitle } from '@storybook/addon-docs/blocks';
+import { ThemeGallery, ThemePage, ThemeTokenTable, themes } from './ThemeGallery';
+
+<Meta title="Theme/Custom/Sunset" />
+
+<ThemePage theme="sunset">
+
+<Title>Sunset Custom Style</Title>
+
+<Subtitle>{themes["sunset"].description}</Subtitle>
+
+Shared token source: <a href="https://github.com/javadbat/design-system/blob/main/docs/styles/sunset.css">sunset.css</a>. Copy instructions: [How to copy](./HowToCopy.mdx).
+
+## Design Tokens
+
+<ThemeTokenTable theme="sunset" />
+
+## Component Families
+
+<ThemeGallery theme="sunset" />
+
+</ThemePage>

@@ -9,10 +9,12 @@
     --jb-background: #05080d;
     --jb-surface: #0d1117;
     --jb-surface-hover: #13251b;
+    --jb-calendar-surface-bg:
+        linear-gradient(180deg, var(--jb-surface), var(--jb-background));
     --jb-border-color: #243b2f;
     --jb-focus-color: #62ff93;
     --jb-success: #e8ff77;
     --jb-radius-sm: 0.25rem;
-    --jb-radius-md: 0.25rem;
+    --jb-radius: 0.25rem;
     --jb-radius-lg: 0.5rem;
 }

@@ -1,0 +1,22 @@
+import { Meta, Title, Subtitle } from '@storybook/addon-docs/blocks';
+import { ThemeGallery, ThemePage, ThemeTokenTable, themes } from './ThemeGallery';
+
+<Meta title="Theme/Custom/Fluent" />
+
+<ThemePage theme="fluent">
+
+<Title>Fluent Custom Style</Title>
+
+<Subtitle>{themes["fluent"].description}</Subtitle>
+
+Shared token source: <a href="https://github.com/javadbat/design-system/blob/main/docs/styles/fluent.css">fluent.css</a>. Copy instructions: [How to copy](./HowToCopy.mdx).
+
+## Design Tokens
+
+<ThemeTokenTable theme="fluent" />
+
+## Component Families
+
+<ThemeGallery theme="fluent" />
+
+</ThemePage>
