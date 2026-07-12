@@ -25,6 +25,7 @@ import bootstrapCss from "./bootstrap.css?raw";
 import candyCss from "./candy.css?raw";
 import carbonCss from "./carbon.css?raw";
 import cupertinoCss from "./cupertino.css?raw";
+import defaultCss from "./default.css?raw";
 import fluentCss from "./fluent.css?raw";
 import forestCss from "./forest.css?raw";
 import materialCss from "./material.css?raw";
@@ -33,6 +34,7 @@ import sunsetCss from "./sunset.css?raw";
 import terminalCss from "./terminal.css?raw";
 
 type ThemeKey =
+  | "default"
   | "material"
   | "ant-design"
   | "bootstrap"
@@ -59,6 +61,25 @@ export const themes: Record<ThemeKey, {
   description: string;
   tokens: Record<string, string>;
 }> = {
+  "default": {
+    name: "Default",
+    storyKey: "Default",
+    file: "default.css",
+    description: "The built-in JB design-system appearance, shown without any component-specific theme classes or recipe overrides.",
+    tokens: {
+      "--jb-primary": "oklch(60% 0.26 256)",
+      "--jb-primary-hover": "oklch(67% 0.33 256)",
+      "--jb-primary-pressed": "oklch(50% 0.21 256)",
+      "--jb-text-primary": "oklch(14% 0 0)",
+      "--jb-text-secondary": "oklch(72.6% 0.01463 258.36)",
+      "--jb-background": "#f7f8fb",
+      "--jb-surface": "#ffffff",
+      "--jb-surface-hover": "#f0f2f7",
+      "--jb-border-color": "#d9dde7",
+      "--jb-focus-color": "oklch(60% 0.26 256)",
+      "--jb-radius": "1rem",
+    },
+  },
   "material": {
     name: "Material",
     storyKey: "Material",
@@ -319,6 +340,7 @@ const componentStyles: ComponentStyleCollection[] = [
 const componentGroups = Array.from(new Set(componentStyles.map((component) => component.group)));
 
 const themeCssSources: Record<ThemeKey, string> = {
+  "default": defaultCss,
   "material": materialCss,
   "ant-design": antDesignCss,
   "bootstrap": bootstrapCss,

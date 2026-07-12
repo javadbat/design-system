@@ -1,0 +1,22 @@
+import { Meta, Title, Subtitle } from '@storybook/addon-docs/blocks';
+import { ThemeGallery, ThemePage, ThemeTokenTable, themes } from './ThemeGallery';
+
+<Meta title="Theme/Custom/Default" />
+
+<ThemePage theme="default">
+
+<Title>Default Style</Title>
+
+<Subtitle>{themes["default"].description}</Subtitle>
+
+The components below use their built-in styles without a custom component theme class. Shared gallery tokens come from <a href="https://github.com/javadbat/design-system/blob/main/docs/styles/default.css">default.css</a>.
+
+## Design Tokens
+
+<ThemeTokenTable theme="default" />
+
+## Component Families
+
+<ThemeGallery theme="default" />
+
+</ThemePage>
