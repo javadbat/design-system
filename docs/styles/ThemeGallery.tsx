@@ -1,5 +1,5 @@
 import React from "react";
-import { composeStories } from "@storybook/react";
+import { composeStories } from "@storybook/react-vite";
 import { ColorItem, ColorPalette } from "@storybook/addon-docs/blocks";
 import * as ButtonStyles from "../../modules/jb-button/stories/Styles.stories";
 import * as CalendarStyles from "../../modules/jb-calendar/stories/Styles.stories";
