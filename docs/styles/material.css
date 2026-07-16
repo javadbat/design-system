@@ -1,18 +1,50 @@
 .material-style {
-    --jb-primary: #1967d2;
-    --jb-primary-hover: #174ea6;
-    --jb-primary-pressed: #185abc;
+    color-scheme: light;
+    font-family: Roboto, "Noto Sans", Arial, sans-serif;
+
+    --jb-primary: #0b57d0;
+    --jb-primary-hover: #0842a0;
+    --jb-primary-pressed: #062e6f;
+    --jb-primary-container: #d3e3fd;
+    --jb-on-primary: #ffffff;
+    --jb-on-primary-container: #041e49;
+    --jb-secondary: #535f70;
+    --jb-secondary-container: #d7e3f7;
+    --jb-on-secondary: #ffffff;
+    --jb-on-secondary-container: #101c2b;
     --jb-text-primary: #1f1f1f;
-    --jb-text-secondary: #3c4043;
-    --jb-text-disabled: #bdc1c6;
+    --jb-text-secondary: #444746;
+    --jb-text-disabled: rgb(31 31 31 / 0.38);
     --jb-text-contrast: #ffffff;
     --jb-background: #f8fafd;
     --jb-surface: #ffffff;
-    --jb-surface-hover: #e8f0fe;
-    --jb-border-color: #dadce0;
-    --jb-focus-color: #1967d2;
-    --jb-success: #fbbc04;
-    --jb-radius-sm: 999px;
-    --jb-radius: 1rem;
+    --jb-surface-container-low: #f1f4f9;
+    --jb-surface-container: #ecf0f6;
+    --jb-surface-container-high: #e8ecf2;
+    --jb-surface-container-highest: #dfe3e9;
+    --jb-surface-hover: #d3e3fd;
+    --jb-outline: #747775;
+    --jb-outline-variant: #c4c7c5;
+    --jb-border-color: var(--jb-outline-variant);
+    --jb-focus-color: var(--jb-primary);
+    --jb-error: #b3261e;
+    --jb-error-container: #f9dedc;
+    --jb-on-error: #ffffff;
+    --jb-success: #137333;
+    --jb-success-container: #ceead6;
+    --jb-warning: #ea8600;
+    --jb-warning-container: #feefc3;
+
+    --jb-state-hover: rgb(11 87 208 / 0.08);
+    --jb-state-focus: rgb(11 87 208 / 0.12);
+    --jb-state-pressed: rgb(11 87 208 / 0.12);
+    --jb-elevation-1: 0 0.0625rem 0.125rem rgb(60 64 67 / 0.18), 0 0.0625rem 0.1875rem 0.0625rem rgb(60 64 67 / 0.1);
+    --jb-elevation-2: 0 0.125rem 0.375rem 0.125rem rgb(60 64 67 / 0.15), 0 0.0625rem 0.125rem rgb(60 64 67 / 0.12);
+    --jb-elevation-3: 0 0.25rem 0.5rem 0.1875rem rgb(60 64 67 / 0.15), 0 0.0625rem 0.1875rem rgb(60 64 67 / 0.12);
+
+    --jb-radius-xs: 0.25rem;
+    --jb-radius-sm: 0.5rem;
+    --jb-radius: 0.75rem;
     --jb-radius-lg: 1rem;
+    --jb-radius-xl: 1.75rem;
 }
