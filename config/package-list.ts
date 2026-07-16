@@ -322,6 +322,17 @@ export const packageCatalog: PackageCatalogEntry[] = [
     buildConfigPath: moduleBuildConfigPath("jb-grid"),
   },
   {
+    name: "jb-icon",
+    title: "Icon",
+    summary: "Reusable icon web components for the JB Design System.",
+    category: "Data Display",
+    kind: "component",
+    status: "active",
+    stability: "experimental",
+    owner: defaultOwner,
+    buildConfigPath: moduleBuildConfigPath("jb-icon"),
+  },
+  {
     name: "jb-searchbar",
     title: "Searchbar",
     summary: "Search input and filter entry point for list and data-heavy views.",

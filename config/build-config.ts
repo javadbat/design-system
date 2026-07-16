@@ -41,6 +41,7 @@ const JBFileInput = await getBuildConfig(`modules/jb-file-input`);
 const JBImageInput = await getBuildConfig(`modules/jb-image-input`);
 const JBSelect = await getBuildConfig(`modules/jb-select`);
 const JBTextarea = await getBuildConfig(`modules/jb-textarea`);
+const JBIcon = await getBuildConfig(`modules/jb-icon`);
 const JBSearchbar = await getBuildConfig(`modules/jb-searchbar`);
 const JBTimePicker = await getBuildConfig(`modules/jb-time-picker`);
 const JBTimeInput = await getBuildConfig(`modules/jb-time-input`);
@@ -68,6 +69,7 @@ const webComponentList: WebComponentBuildConfig[] = [
   ...JBImageInput.webComponents,
   ...JBSelect.webComponents,
   ...JBTextarea.webComponents,
+  ...JBIcon.webComponents,
   ...JBSearchbar.webComponents,
   ...JBTimePicker.webComponents,
   ...JBTimeInput.webComponents,
