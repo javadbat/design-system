@@ -15,4 +15,7 @@
     --jb-radius-sm: 0;
     --jb-radius: 0;
     --jb-radius-lg: 0;
+    color: var(--jb-text-primary);
+    color-scheme: dark;
+    font-family: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
 }

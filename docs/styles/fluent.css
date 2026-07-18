@@ -7,12 +7,14 @@
     --jb-text-disabled: #a19f9d;
     --jb-text-contrast: #ffffff;
     --jb-background: #f3f2f1;
-    --jb-surface: #f8f8f8;
+    --jb-surface: #ffffff;
     --jb-surface-hover: #edebe9;
-    --jb-border-color: #e1dfdd;
+    --jb-border-color: #c8c6c4;
     --jb-focus-color: #0078d4;
-    --jb-success: #ffaa44;
+    --jb-success: #107c10;
     --jb-radius-sm: 0.25rem;
     --jb-radius: 0.5rem;
     --jb-radius-lg: 0.75rem;
+    color: var(--jb-text-primary);
+    font-family: "Segoe UI", "Segoe UI Variable", system-ui, sans-serif;
 }
