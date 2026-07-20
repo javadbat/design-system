@@ -11,6 +11,7 @@ import * as InputStyles from "../../modules/jb-input/stories/Styles.stories";
 import * as LoadingStyles from "../../modules/jb-loading/stories/Styles.stories";
 import * as ModalStyles from "../../modules/jb-modal/stories/Styles.stories";
 import * as NotificationStyles from "../../modules/jb-notification/stories/Styles.stories";
+import * as NumberInputStyles from "../../modules/jb-number-input/stories/Styles.stories";
 import * as PaymentInputStyles from "../../modules/jb-payment-input/stories/Styles.stories";
 import * as PinInputStyles from "../../modules/jb-pin-input/stories/Styles.stories";
 import * as PopoverStyles from "../../modules/jb-popover/stories/Styles.stories";
@@ -319,9 +320,10 @@ export const themes: Record<ThemeKey, {
 
 const componentStyles: ComponentStyleCollection[] = [
   { group: "Actions", label: "Button", styles: composeStories(ButtonStyles) },
-  { group: "Form Controls", label: "Checkbox", styles: composeStories(CheckboxStyles) },
   { group: "Form Controls", label: "Input", styles: composeStories(InputStyles) },
+  { group: "Form Controls", label: "Number Input", styles: composeStories(NumberInputStyles) },
   { group: "Form Controls", label: "Payment Input", styles: composeStories(PaymentInputStyles) },
+  { group: "Form Controls", label: "Checkbox", styles: composeStories(CheckboxStyles) },
   { group: "Form Controls", label: "Pin Input", styles: composeStories(PinInputStyles) },
   { group: "Form Controls", label: "Select", styles: composeStories(SelectStyles) },
   { group: "Form Controls", label: "Switch", styles: composeStories(SwitchStyles) },
