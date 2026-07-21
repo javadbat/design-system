@@ -41,8 +41,46 @@ For the full platform behavior, start with MDN's [Using custom elements](https:/
 
 Use this path for static pages, CMS templates, server-rendered pages, and small apps without a bundler.
 
+### Load from a CDN
+
+Use the UMD builds with regular `<script>` tags. Load the shared dependencies first, then load the component:
+
 ```html
-<script type="module" src="/assets/jb-input.js"></script>
+<script src="https://unpkg.com/jb-validation@1.0.0/dist/jb-validation.umd.js"></script>
+<script src="https://unpkg.com/jb-core@0.30.0/dist/index.umd.js"></script>
+<script src="https://unpkg.com/jb-core@0.30.0/theme/dist/index.umd.js"></script>
+<script src="https://unpkg.com/jb-core@0.30.0/i18n/dist/index.umd.js"></script>
+<script src="https://unpkg.com/jb-input@3.17.0/web-component/dist/index.umd.js"></script>
+
+<jb-input label="Full name" name="fullName"></jb-input>
+```
+
+### Host the files yourself
+
+If you do not want to use a CDN, install the package and its dependencies:
+
+```sh
+npm install jb-input
+```
+
+Then copy these UMD files from `node_modules` into your public assets directory:
+
+```text
+node_modules/jb-validation/dist/jb-validation.umd.js
+node_modules/jb-core/dist/index.umd.js
+node_modules/jb-core/theme/dist/index.umd.js
+node_modules/jb-core/i18n/dist/index.umd.js
+node_modules/jb-input/web-component/dist/index.umd.js
+```
+
+The example below renames the files for clarity. Keep the same script order and update each `src` to match its copied location:
+
+```html
+<script src="/assets/jb-validation.umd.js"></script>
+<script src="/assets/jb-core.umd.js"></script>
+<script src="/assets/jb-core-theme.umd.js"></script>
+<script src="/assets/jb-core-i18n.umd.js"></script>
+<script src="/assets/jb-input.umd.js"></script>
 
 <jb-input label="Full name" name="fullName"></jb-input>
 ```
@@ -52,6 +90,40 @@ If you use npm and a bundler, import the package instead:
 ```js
 import "jb-input";
 ```
+
+<h2 id="react" style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+  <svg aria-hidden="true" viewBox="0 0 24 24" style={{ width: 44, height: 44, flex: "0 0 auto" }}>
+    <circle cx="12" cy="12" r="2" fill="#087ea4" />
+    <g fill="none" stroke="#087ea4" strokeWidth="1.35">
+      <ellipse cx="12" cy="12" rx="9" ry="3.6" />
+      <ellipse cx="12" cy="12" rx="9" ry="3.6" transform="rotate(60 12 12)" />
+      <ellipse cx="12" cy="12" rx="9" ry="3.6" transform="rotate(120 12 12)" />
+    </g>
+  </svg>
+  React
+</h2>
+
+Use the React component included with the package. It wraps and registers the underlying web component, provides React event props, and includes TypeScript definitions.
+
+```sh
+npm install jb-input
+```
+
+```tsx
+import { JBInput } from "jb-input/react";
+
+export function ProfileField() {
+  return (
+    <JBInput
+      label="Full name"
+      name="fullName"
+      onInput={(event) => console.log(event.target.value)}
+    />
+  );
+}
+```
+
+See the [`jb-input` React README](https://github.com/javadbat/jb-input/blob/main/react/README.md) for controlled values, validation, refs, events, slots, and styling.
 
 <h2 id="angular" style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
   <svg aria-hidden="true" viewBox="0 0 24 24" style={{ width: 44, height: 44, flex: "0 0 auto" }}>
@@ -123,6 +195,39 @@ export default {
 
 Read more in Vue's [Vue and Web Components](https://vuejs.org/guide/extras/web-components.html) guide.
 
+<h2 id="nuxt" style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+  <svg aria-hidden="true" viewBox="0 0 24 24" style={{ width: 44, height: 44, flex: "0 0 auto" }}>
+    <path fill="#00dc82" d="M12.1 3.4a2.2 2.2 0 0 1 1.9 1.1l7.1 12.3a2.2 2.2 0 0 1-1.9 3.3H4.8a2.2 2.2 0 0 1-1.9-3.3L10.2 4.5a2.2 2.2 0 0 1 1.9-1.1Zm0 3-6.3 10.7h12.6L12.1 6.4Z" />
+  </svg>
+  Nuxt
+</h2>
+
+Register the package from a client-only plugin so it runs in the browser, then configure Vue to recognize `jb-*` tags as custom elements.
+
+```ts
+// plugins/jb-input.client.ts
+import "jb-input";
+```
+
+```ts
+// nuxt.config.ts
+export default defineNuxtConfig({
+  vue: {
+    compilerOptions: {
+      isCustomElement: (tag) => tag.startsWith("jb-"),
+    },
+  },
+});
+```
+
+```vue
+<template>
+  <jb-input label="Full name" name="fullName"></jb-input>
+</template>
+```
+
+Read more in Nuxt's [plugins](https://nuxt.com/docs/3.x/directory-structure/plugins) documentation.
+
 <h2 id="svelte" style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
   <svg aria-hidden="true" viewBox="0 0 24 24" style={{ width: 44, height: 44, flex: "0 0 auto" }}>
     <circle cx="12" cy="12" r="10" fill="#ff3e00" />
@@ -142,6 +247,30 @@ Import the package in the component or app entry, then use the tag directly.
 ```
 
 Read more in Svelte's [Custom elements](https://svelte.dev/docs/svelte/custom-elements) docs.
+
+<h2 id="sveltekit" style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+  <svg aria-hidden="true" viewBox="0 0 24 24" style={{ width: 44, height: 44, flex: "0 0 auto" }}>
+    <circle cx="12" cy="12" r="10" fill="#ff3e00" />
+    <text x="12" y="16.2" textAnchor="middle" fontSize="12.5" fontWeight="800" fill="#ffffff" fontFamily="Arial, Helvetica, sans-serif">S</text>
+  </svg>
+  SvelteKit
+</h2>
+
+In an SSR-enabled SvelteKit route, import the package after the component mounts so custom-element registration only runs in the browser.
+
+```svelte
+<script>
+  import { onMount } from "svelte";
+
+  onMount(() => {
+    void import("jb-input");
+  });
+</script>
+
+<jb-input label="Full name" name="fullName"></jb-input>
+```
+
+The server renders the tag as HTML, and the browser upgrades it after the package loads. Read more in Svelte's [`onMount`](https://svelte.dev/docs/svelte/lifecycle-hooks#onMount) documentation.
 
 <h2 id="solidjs" style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
   <svg aria-hidden="true" viewBox="0 0 24 24" style={{ width: 44, height: 44, flex: "0 0 auto" }}>
@@ -188,6 +317,37 @@ let field!: HTMLElement;
 
 Read more in Solid's [TypeScript](https://docs.solidjs.com/configuration/typescript) and [Refs](https://docs.solidjs.com/concepts/refs) docs.
 
+<h2 id="lit" style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+  <svg aria-hidden="true" viewBox="0 0 24 24" style={{ width: 44, height: 44, flex: "0 0 auto" }}>
+    <path fill="#324fff" d="m3 3 5.2 5.2V21L3 15.8V3Z" />
+    <path fill="#7b5cff" d="m8.2 8.2 4-4L21 13v5.2L16.8 22 8.2 13.4V8.2Z" />
+  </svg>
+  Lit
+</h2>
+
+Import the package once to register the element, then use it in a Lit template. Lit's property and event bindings work directly with custom elements.
+
+```ts
+import { LitElement, html } from "lit";
+import "jb-input";
+
+export class ProfileField extends LitElement {
+  render() {
+    return html`
+      <jb-input
+        label="Full name"
+        name="fullName"
+        @input=${(event: InputEvent) => console.log(event.target)}
+      ></jb-input>
+    `;
+  }
+}
+
+customElements.define("profile-field", ProfileField);
+```
+
+Use Lit's `.property=${value}` syntax when assigning objects, arrays, or other non-string properties. Read more in Lit's [expressions](https://lit.dev/docs/templates/expressions/) documentation.
+
 <h2 id="nextjs" style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
   <svg aria-hidden="true" viewBox="0 0 24 24" style={{ width: 44, height: 44, flex: "0 0 auto" }}>
     <circle cx="12" cy="12" r="10" fill="#111111" />
@@ -196,15 +356,15 @@ Read more in Solid's [TypeScript](https://docs.solidjs.com/configuration/typescr
   Next.js
 </h2>
 
-In the App Router, register the web component from a Client Component because the package needs browser-side JavaScript to define the custom element.
+In the App Router, use the package's React wrapper from a Client Component. The wrapper registers the underlying web component and provides the React API documented in the React README.
 
 ```tsx
 "use client";
 
-import "jb-input";
+import { JBInput } from "jb-input/react";
 
 export function ProfileField() {
-  return <jb-input label="Full name" name="fullName" />;
+  return <JBInput label="Full name" name="fullName" />;
 }
 ```
 
@@ -269,6 +429,93 @@ If you already have a compiled browser file, reference it from `public/` instead
 
 Read more in Astro's [client-side scripts](https://docs.astro.build/en/guides/client-side-scripts/) docs.
 
+<h2 id="blazor" style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+  <svg aria-hidden="true" viewBox="0 0 24 24" style={{ width: 44, height: 44, flex: "0 0 auto" }}>
+    <circle cx="12" cy="12" r="10" fill="#512bd4" />
+    <text x="12" y="16.2" textAnchor="middle" fontSize="12.5" fontWeight="800" fill="#ffffff" fontFamily="Arial, Helvetica, sans-serif">B</text>
+  </svg>
+  Blazor
+</h2>
+
+Blazor can render JB custom elements directly in Razor components. Load the UMD scripts once in the app's host document, before the Blazor startup script. Use `wwwroot/index.html` for a Blazor WebAssembly app or `Components/App.razor` for a Blazor Web App.
+
+```html
+<script src="https://unpkg.com/jb-validation@1.0.0/dist/jb-validation.umd.js"></script>
+<script src="https://unpkg.com/jb-core@0.30.0/dist/index.umd.js"></script>
+<script src="https://unpkg.com/jb-core@0.30.0/theme/dist/index.umd.js"></script>
+<script src="https://unpkg.com/jb-core@0.30.0/i18n/dist/index.umd.js"></script>
+<script src="https://unpkg.com/jb-input@3.17.0/web-component/dist/index.umd.js"></script>
+```
+
+Keep the app's existing Blazor startup script after those component scripts. A Blazor WebAssembly app uses:
+
+```html
+<script src="_framework/blazor.webassembly.js"></script>
+```
+
+A Blazor Web App uses:
+
+```html
+<script src="_framework/blazor.web.js"></script>
+```
+
+After the scripts register the element, use it like regular HTML in any `.razor` file:
+
+```razor
+<jb-input label="Full name" name="fullName"></jb-input>
+```
+
+Pass simple values with HTML attributes. For complex JavaScript properties, DOM methods, or custom events, use Blazor's JavaScript interop from a collocated JavaScript module.
+
+To self-host the scripts in Blazor, copy the same UMD files into a directory under `wwwroot` and reference them with local URLs.
+
+Read more in Microsoft's [JavaScript location](https://learn.microsoft.com/aspnet/core/blazor/javascript-interoperability/location-of-javascript) and [JavaScript interoperability](https://learn.microsoft.com/aspnet/core/blazor/javascript-interoperability/) documentation.
+
+<h2 id="server-rendered-templates" style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+  <svg aria-hidden="true" viewBox="0 0 24 24" style={{ width: 44, height: 44, flex: "0 0 auto" }}>
+    <rect x="3" y="4" width="18" height="6" rx="2" fill="#475569" />
+    <rect x="3" y="14" width="18" height="6" rx="2" fill="#64748b" />
+    <circle cx="6.5" cy="7" r="1" fill="#ffffff" />
+    <circle cx="6.5" cy="17" r="1" fill="#ffffff" />
+  </svg>
+  Server-rendered Templates
+</h2>
+
+Laravel Blade, Django/Jinja, Ruby on Rails ERB, and ASP.NET Razor Pages all produce regular HTML, so they use the same UMD integration shown in [Plain HTML](#plain-html). Add the scripts once to the shared layout, then use `jb-*` tags in any template.
+
+<table>
+  <thead>
+    <tr>
+      <th>Stack</th>
+      <th>Shared layout location</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Laravel Blade</td>
+      <td><code>resources/views/layouts/app.blade.php</code></td>
+    </tr>
+    <tr>
+      <td>Django/Jinja</td>
+      <td><code>templates/base.html</code></td>
+    </tr>
+    <tr>
+      <td>Ruby on Rails</td>
+      <td><code>app/views/layouts/application.html.erb</code></td>
+    </tr>
+    <tr>
+      <td>ASP.NET Razor Pages</td>
+      <td><code>Pages/Shared/_Layout.cshtml</code></td>
+    </tr>
+  </tbody>
+</table>
+
+```html
+<jb-input label="Full name" name="fullName"></jb-input>
+```
+
+For self-hosting, copy the UMD files into the framework's public or static-assets directory and replace the CDN URLs with local URLs.
+
 <h2 id="wordpress" style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
   <svg aria-hidden="true" viewBox="0 0 24 24" style={{ width: 44, height: 44, flex: "0 0 auto" }}>
     <circle cx="12" cy="12" r="10" fill="#21759b" />
@@ -298,6 +545,37 @@ Then use the element in a block, template, shortcode output, or theme file.
 ```
 
 Read more in WordPress' [`wp_enqueue_script_module()`](https://developer.wordpress.org/reference/functions/wp_enqueue_script_module/) and [`wp_enqueue_script()`](https://developer.wordpress.org/reference/functions/wp_enqueue_script/) references.
+
+<h2 id="alpinejs-and-htmx" style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+  <svg aria-hidden="true" viewBox="0 0 24 24" style={{ width: 44, height: 44, flex: "0 0 auto" }}>
+    <path fill="#77c1d2" d="m2 15 5-5 5 5-5 5-5-5Z" />
+    <path fill="#2d3441" d="m7 10 5-5 10 10-5 5L7 10Z" />
+  </svg>
+  Alpine.js And HTMX
+</h2>
+
+Both libraries enhance regular HTML, so load the JB UMD scripts first and use the custom element directly. Alpine can listen to its DOM events with `@event`, while HTMX can include it in ordinary forms.
+
+```html
+<div x-data="{ fullName: '' }">
+  <jb-input
+    label="Full name"
+    name="fullName"
+    @input="fullName = $event.target.value"
+  ></jb-input>
+</div>
+```
+
+```html
+<form hx-post="/profile" hx-target="#result">
+  <jb-input label="Full name" name="fullName"></jb-input>
+  <button type="submit">Save</button>
+</form>
+
+<div id="result"></div>
+```
+
+Read more in Alpine's [`x-on`](https://alpinejs.dev/directives/on) and HTMX's [`hx-post`](https://htmx.org/attributes/hx-post/) documentation.
 
 <h2 id="other-frameworks-and-cmss" style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
   <svg aria-hidden="true" viewBox="0 0 24 24" style={{ width: 44, height: 44, flex: "0 0 auto" }}>

@@ -128,6 +128,26 @@ Because components use shadow DOM, customization is exposed through standard bro
 - 🧵 Use component CSS variables for local customization.
 - 🧩 Use `::part(...)` and component states when a component exposes structured styling hooks.
 
+We created these styles to demonstrate how flexible JB components are when a product needs a custom visual language. They are examples rather than a fixed set of themes: use the same CSS variables, parts, and states to adapt components to your own design system.
+
+Preview the ready-made style overviews to see how the same components look with each theme:
+
+- [Default](?path=/docs/theme-custom-default--docs)
+- [Ant Design](?path=/docs/theme-custom-ant-design--docs)
+- [Aurora](?path=/docs/theme-custom-aurora--docs)
+- [Bootstrap](?path=/docs/theme-custom-bootstrap--docs)
+- [Candy](?path=/docs/theme-custom-candy--docs)
+- [Carbon](?path=/docs/theme-custom-carbon--docs)
+- [Cupertino](?path=/docs/theme-custom-cupertino--docs)
+- [Fluent](?path=/docs/theme-custom-fluent--docs)
+- [Forest](?path=/docs/theme-custom-forest--docs)
+- [Material](?path=/docs/theme-custom-material--docs)
+- [Porcelain](?path=/docs/theme-custom-porcelain--docs)
+- [Sunset](?path=/docs/theme-custom-sunset--docs)
+- [Terminal](?path=/docs/theme-custom-terminal--docs)
+
+After choosing a style, read [How to copy a custom style](?path=/docs/theme-custom-how-to-copy--docs). It explains how the styles work together and which shared theme token file and component recipe files to copy into your application.
+
 ```css
 :root {
   --jb-primary: oklch(54% 0.18 250);
