@@ -1,7 +1,7 @@
 # TODO Job List
 
 - [x] migrate all scss to css file.
-- [ ] test and apply all accessibility practice in component.
+- [x] test and apply all accessibility practice in component.
 - [ ] add cross-component accessibility regression checks for all components with browser automation, axe-style checks, and manual screen reader coverage.
 - [x] apply all standard state like disabled for all forms elements.
 - [ ] add jb-icon with lots of ready to use icon animation like search, edit, delete,...
