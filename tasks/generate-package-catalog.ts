@@ -1,4 +1,4 @@
-import { join } from "@std/path";
+import { dirname, join } from "@std/path";
 import { pathToFileURL } from "node:url";
 import { packageCatalog, type PackageCatalogEntry } from "../config/package-list.ts";
 
@@ -226,7 +226,7 @@ async function buildRows(): Promise<CatalogRow[]> {
   const rows: CatalogRow[] = [];
 
   for (const entry of packageCatalog) {
-    const modulePath = `modules/${entry.name}`;
+    const modulePath = dirname(entry.buildConfigPath);
     const packageJsonPath = join(root, modulePath, "package.json");
 
     if (!await exists(packageJsonPath)) {

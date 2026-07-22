@@ -112,7 +112,7 @@
 [submodule "modules/jb-validation"]
 	path = modules/jb-validation
 	url = https://github.com/javadbat/jb-validation.git
-[submodule "modules/jb-icon"]
-	path = modules/jb-icon
-	url = https://github.com/javadbat/jb-icon.git
+[submodule "modules/jb-icons"]
+	path = modules/jb-icons
+	url = https://github.com/javadbat/jb-icons.git
 	branch = main

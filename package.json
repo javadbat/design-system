@@ -29,7 +29,7 @@
     "jb-file-input": "file:./modules/jb-file-input",
     "jb-form": "file:./modules/jb-form",
     "jb-grid": "file:./modules/jb-grid",
-    "jb-icon": "file:./modules/jb-icon",
+    "jb-icon": "file:./modules/jb-icons",
     "jb-image-input": "file:./modules/jb-image-input",
     "jb-infinite-scroll": "file:./modules/jb-infinite-scroll",
     "jb-input": "file:./modules/jb-input",

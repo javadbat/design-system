@@ -3,9 +3,7 @@ export type PackageStability = "stable" | "beta" | "experimental";
 export type PackageKind = "component" | "foundation" | "utility";
 
 export interface PackageCatalogEntry {
-  /**
-   * The package name published to npm and the folder name under modules/.
-   */
+  /** The package name published to npm. */
   name: string;
   title: string;
   summary: string;
@@ -330,7 +328,7 @@ export const packageCatalog: PackageCatalogEntry[] = [
     status: "active",
     stability: "experimental",
     owner: defaultOwner,
-    buildConfigPath: moduleBuildConfigPath("jb-icon"),
+    buildConfigPath: moduleBuildConfigPath("jb-icons"),
   },
   {
     name: "jb-searchbar",
