@@ -4,7 +4,7 @@ import * as path from "@std/path";
 
 type CliArgs = {
   path: string,
-  name: string
+  name?: string
   watch?: boolean
 }
 // //make sure this command is run directly in command line and not imported
@@ -26,14 +26,19 @@ const webComponentBuilder = new WebComponentBuilder();
 
 const startTime = performance.now();
 if (args.name) {
-  const wcConfig = webComponentList.find((wc) => wc.name == args.name);
-  const reactConfig = reactComponentList.find((rc) => rc.name == args.name);
-  if (wcConfig) {
-    await webComponentBuilder.buildComponent(wcConfig, args.watch);
-  } else if (reactConfig) {
-    await reactComponentBuilder.buildComponent(reactConfig, args.watch);
-  } else {
-    console.warn("component not found","args:",args);
+  const namePattern = path.globToRegExp(args.name);
+  const matchedWebComponents = webComponentList.filter((component) => namePattern.test(component.name));
+  const matchedReactComponents = reactComponentList.filter((component) => namePattern.test(component.name));
+
+  for (const component of matchedWebComponents) {
+    await webComponentBuilder.buildComponent(component, args.watch);
+  }
+  for (const component of matchedReactComponents) {
+    await reactComponentBuilder.buildComponent(component, args.watch);
+  }
+
+  if (matchedWebComponents.length === 0 && matchedReactComponents.length === 0) {
+    console.warn("component not found", "args:", args);
   }
 }
 if (!args.name) {

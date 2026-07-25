@@ -141,10 +141,25 @@ deno install
 Build packages:
 
 ```bash
+# Build every package
 deno task build
+
+# Build one package by its exact module name
 deno task build --name=jb-input
+
+# Build every package whose module name matches a glob pattern
+deno task build --name="jb-icon*"
+
+# Glob patterns can also be used in watch mode
+deno task build --name="jb-icon*" --watch
+
+# Watch one package
 deno task build --name=jb-input --watch
 ```
+
+The `--name` option accepts glob patterns such as `*` and `?`. When a pattern
+matches both implementations, all matching web components are built first,
+followed by all matching React components.
 
 Start Storybook:
 
