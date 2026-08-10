@@ -72,10 +72,10 @@ export const themes: Record<ThemeKey, {
       "--jb-primary": "oklch(60% 0.26 256)",
       "--jb-primary-hover": "oklch(67% 0.33 256)",
       "--jb-primary-pressed": "oklch(50% 0.21 256)",
-      "--jb-text-primary": "oklch(14% 0 0)",
-      "--jb-text-secondary": "oklch(72.6% 0.01463 258.36)",
-      "--jb-background": "#f7f8fb",
-      "--jb-surface": "#ffffff",
+      "--jb-content-primary": "oklch(14% 0 0)",
+      "--jb-content-secondary": "oklch(72.6% 0.01463 258.36)",
+      "--jb-surface-secondary": "#f7f8fb",
+      "--jb-surface-primary": "#ffffff",
       "--jb-surface-hover": "#f0f2f7",
       "--jb-border-color": "#d9dde7",
       "--jb-focus-color": "oklch(60% 0.26 256)",
@@ -91,10 +91,10 @@ export const themes: Record<ThemeKey, {
       "--jb-primary": "#0b57d0",
       "--jb-primary-hover": "#0842a0",
       "--jb-primary-pressed": "#062e6f",
-      "--jb-text-primary": "#1f1f1f",
-      "--jb-text-secondary": "#444746",
-      "--jb-background": "#f8fafd",
-      "--jb-surface": "#ffffff",
+      "--jb-content-primary": "#1f1f1f",
+      "--jb-content-secondary": "#444746",
+      "--jb-surface-secondary": "#f8fafd",
+      "--jb-surface-primary": "#ffffff",
       "--jb-surface-hover": "#d3e3fd",
       "--jb-border-color": "#c4c7c5",
       "--jb-focus-color": "#0b57d0",
@@ -110,10 +110,10 @@ export const themes: Record<ThemeKey, {
       "--jb-primary": "#1677ff",
       "--jb-primary-hover": "#4096ff",
       "--jb-primary-pressed": "#0958d9",
-      "--jb-text-primary": "#262626",
-      "--jb-text-secondary": "#595959",
-      "--jb-background": "#f5f5f5",
-      "--jb-surface": "#ffffff",
+      "--jb-content-primary": "#262626",
+      "--jb-content-secondary": "#595959",
+      "--jb-surface-secondary": "#f5f5f5",
+      "--jb-surface-primary": "#ffffff",
       "--jb-surface-hover": "#e6f4ff",
       "--jb-border-color": "#d9d9d9",
       "--jb-focus-color": "#1677ff",
@@ -129,10 +129,10 @@ export const themes: Record<ThemeKey, {
       "--jb-primary": "#0d6efd",
       "--jb-primary-hover": "#0b5ed7",
       "--jb-primary-pressed": "#0a58ca",
-      "--jb-text-primary": "#212529",
-      "--jb-text-secondary": "#495057",
-      "--jb-background": "#f8f9fa",
-      "--jb-surface": "#ffffff",
+      "--jb-content-primary": "#212529",
+      "--jb-content-secondary": "#495057",
+      "--jb-surface-secondary": "#f8f9fa",
+      "--jb-surface-primary": "#ffffff",
       "--jb-surface-hover": "#e9ecef",
       "--jb-border-color": "#dee2e6",
       "--jb-focus-color": "#0d6efd",
@@ -148,10 +148,10 @@ export const themes: Record<ThemeKey, {
       "--jb-primary": "#007aff",
       "--jb-primary-hover": "#006ee6",
       "--jb-primary-pressed": "#005ecb",
-      "--jb-text-primary": "#1d1d1f",
-      "--jb-text-secondary": "#3a3a3c",
-      "--jb-background": "#f2f2f7",
-      "--jb-surface": "oklch(99% 0.01 250 / 0.92)",
+      "--jb-content-primary": "#1d1d1f",
+      "--jb-content-secondary": "#3a3a3c",
+      "--jb-surface-secondary": "#f2f2f7",
+      "--jb-surface-primary": "oklch(99% 0.01 250 / 0.92)",
       "--jb-surface-hover": "#e5e5ea",
       "--jb-border-color": "oklch(90% 0.01 250 / 0.8)",
       "--jb-focus-color": "#007aff",
@@ -167,10 +167,10 @@ export const themes: Record<ThemeKey, {
       "--jb-primary": "#0078d4",
       "--jb-primary-hover": "#106ebe",
       "--jb-primary-pressed": "#005a9e",
-      "--jb-text-primary": "#201f1e",
-      "--jb-text-secondary": "#323130",
-      "--jb-background": "#f3f2f1",
-      "--jb-surface": "#ffffff",
+      "--jb-content-primary": "#201f1e",
+      "--jb-content-secondary": "#323130",
+      "--jb-surface-secondary": "#f3f2f1",
+      "--jb-surface-primary": "#ffffff",
       "--jb-surface-hover": "#edebe9",
       "--jb-border-color": "#c8c6c4",
       "--jb-focus-color": "#0078d4",
@@ -186,10 +186,10 @@ export const themes: Record<ThemeKey, {
       "--jb-primary": "#0f62fe",
       "--jb-primary-hover": "#4589ff",
       "--jb-primary-pressed": "#0043ce",
-      "--jb-text-primary": "#f4f4f4",
-      "--jb-text-secondary": "#c6c6c6",
-      "--jb-background": "#161616",
-      "--jb-surface": "#262626",
+      "--jb-content-primary": "#f4f4f4",
+      "--jb-content-secondary": "#c6c6c6",
+      "--jb-surface-secondary": "#161616",
+      "--jb-surface-primary": "#262626",
       "--jb-surface-hover": "#393939",
       "--jb-border-color": "#525252",
       "--jb-focus-color": "#78a9ff",
@@ -205,10 +205,10 @@ export const themes: Record<ThemeKey, {
       "--jb-primary": "#7de4d3",
       "--jb-primary-hover": "#a99cff",
       "--jb-primary-pressed": "#55c8bb",
-      "--jb-text-primary": "#edf7ff",
-      "--jb-text-secondary": "#d7e5f2",
-      "--jb-background": "#10151f",
-      "--jb-surface": "#192233",
+      "--jb-content-primary": "#edf7ff",
+      "--jb-content-secondary": "#d7e5f2",
+      "--jb-surface-secondary": "#10151f",
+      "--jb-surface-primary": "#192233",
       "--jb-surface-hover": "oklch(100% 0 0 / 0.12)",
       "--jb-calendar-surface-bg": "radial gradients + dark linear surface",
       "--jb-border-color": "oklch(100% 0 0 / 0.18)",
@@ -225,10 +225,10 @@ export const themes: Record<ThemeKey, {
       "--jb-primary": "#f3d36a",
       "--jb-primary-hover": "#ffd98a",
       "--jb-primary-pressed": "#d9b84f",
-      "--jb-text-primary": "#f4f0df",
-      "--jb-text-secondary": "#dbe8d1",
-      "--jb-background": "#163024",
-      "--jb-surface": "#21382d",
+      "--jb-content-primary": "#f4f0df",
+      "--jb-content-secondary": "#dbe8d1",
+      "--jb-surface-secondary": "#163024",
+      "--jb-surface-primary": "#21382d",
       "--jb-surface-hover": "oklch(88% 0.08 130 / 0.16)",
       "--jb-calendar-surface-bg": "green linear-gradient surface",
       "--jb-border-color": "oklch(94% 0.06 105 / 0.18)",
@@ -245,10 +245,10 @@ export const themes: Record<ThemeKey, {
       "--jb-primary": "#ffd166",
       "--jb-primary-hover": "#ffb26b",
       "--jb-primary-pressed": "#f09d48",
-      "--jb-text-primary": "#fff7ef",
-      "--jb-text-secondary": "#ffe8da",
-      "--jb-background": "#412553",
-      "--jb-surface": "#8a3f56",
+      "--jb-content-primary": "#fff7ef",
+      "--jb-content-secondary": "#ffe8da",
+      "--jb-surface-secondary": "#412553",
+      "--jb-surface-primary": "#8a3f56",
       "--jb-surface-hover": "oklch(100% 0 0 / 0.16)",
       "--jb-calendar-surface-bg": "rose radial + sunset linear surface",
       "--jb-border-color": "oklch(100% 0 0 / 0.18)",
@@ -265,10 +265,10 @@ export const themes: Record<ThemeKey, {
       "--jb-primary": "#276c9d",
       "--jb-primary-hover": "#1c5a86",
       "--jb-primary-pressed": "#174a70",
-      "--jb-text-primary": "#1c3045",
-      "--jb-text-secondary": "#40586e",
-      "--jb-background": "#edf4fb",
-      "--jb-surface": "#ffffff",
+      "--jb-content-primary": "#1c3045",
+      "--jb-content-secondary": "#40586e",
+      "--jb-surface-secondary": "#edf4fb",
+      "--jb-surface-primary": "#ffffff",
       "--jb-surface-hover": "#e4f0f9",
       "--jb-calendar-surface-bg": "white-to-blue linear-gradient surface",
       "--jb-border-color": "#d6e3ef",
@@ -285,10 +285,10 @@ export const themes: Record<ThemeKey, {
       "--jb-primary": "#ec4899",
       "--jb-primary-hover": "#f472b6",
       "--jb-primary-pressed": "#db2777",
-      "--jb-text-primary": "#423047",
-      "--jb-text-secondary": "#6e5575",
-      "--jb-background": "#fff7fb",
-      "--jb-surface": "#f7f0ff",
+      "--jb-content-primary": "#423047",
+      "--jb-content-secondary": "#6e5575",
+      "--jb-surface-secondary": "#fff7fb",
+      "--jb-surface-primary": "#f7f0ff",
       "--jb-surface-hover": "#ffe0ef",
       "--jb-calendar-surface-bg": "pink and blue radial gradients",
       "--jb-border-color": "#f6c1d8",
@@ -305,10 +305,10 @@ export const themes: Record<ThemeKey, {
       "--jb-primary": "#62ff93",
       "--jb-primary-hover": "#a3ffba",
       "--jb-primary-pressed": "#3ce572",
-      "--jb-text-primary": "#d6ffe3",
-      "--jb-text-secondary": "#9ce7b7",
-      "--jb-background": "#05080d",
-      "--jb-surface": "#0d1117",
+      "--jb-content-primary": "#d6ffe3",
+      "--jb-content-secondary": "#9ce7b7",
+      "--jb-surface-secondary": "#05080d",
+      "--jb-surface-primary": "#0d1117",
       "--jb-surface-hover": "#13251b",
       "--jb-calendar-surface-bg": "terminal linear-gradient surface",
       "--jb-border-color": "#243b2f",
@@ -359,12 +359,10 @@ const themeCssSources: Record<ThemeKey, string> = {
   "terminal": terminalCss,
 };
 
-const officialColorTokenPattern = /^--jb-(black|white|highlight|neutral(?:-\d+)?|primary(?:-(?:dark|light|contrast|hover|pressed|subtle))?|secondary(?:-(?:dark|light|contrast|hover|pressed|subtle))?|red(?:-(?:dark|light|contrast|hover|pressed|subtle))?|green(?:-(?:dark|light|contrast|hover|pressed|subtle))?|yellow(?:-(?:dark|light|contrast|hover|pressed|subtle))?|text-primary|text-secondary|text-contrast)$/;
+const officialColorTokenPattern = /^--jb-(black|white|highlight|neutral(?:-\d+)?|primary(?:-(?:dark|light|contrast|hover|pressed|subtle))?|secondary(?:-(?:dark|light|contrast|hover|pressed|subtle))?|red(?:-(?:dark|light|contrast|hover|pressed|subtle))?|green(?:-(?:dark|light|contrast|hover|pressed|subtle))?|yellow(?:-(?:dark|light|contrast|hover|pressed|subtle))?|content-(?:primary|secondary|inverse)|surface-(?:primary|secondary|inverse))$/;
 
 const customColorTokenDescriptions: Record<string, string> = {
   "--jb-text-disabled": "Disabled labels, values, icons, placeholder-like text, and unavailable calendar days.",
-  "--jb-background": "Outer page background and the base color behind full theme previews.",
-  "--jb-surface": "Cards, panels, popovers, modal bodies, and calm control backgrounds.",
   "--jb-surface-hover": "Hover or selected-adjacent surfaces such as calendar day hover, menu hover, and soft fills.",
   "--jb-calendar-surface-bg": "Calendar and date-input popover surface treatment when the theme needs a richer background.",
   "--jb-border-color": "Shared border, divider, inset outline, and subtle stroke color across recipes.",
@@ -457,25 +455,47 @@ function getOfficialColorGroups(tokens: TokenEntry[]): OfficialColorGroup[] {
     });
   }
 
-  const textColors: Record<string, string> = {};
-  const textMap = [
-    ["primary", "--jb-text-primary"],
-    ["secondary", "--jb-text-secondary"],
-    ["contrast", "--jb-text-inverse"],
+  const contentColors: Record<string, string> = {};
+  const contentMap = [
+    ["primary", "--jb-content-primary"],
+    ["secondary", "--jb-content-secondary"],
+    ["inverse", "--jb-content-inverse"],
   ];
 
-  textMap.forEach(([label, token]) => {
+  contentMap.forEach(([label, token]) => {
     const value = getTokenValue(tokens, token);
     if (value) {
-      textColors[label] = value;
+      contentColors[label] = value;
     }
   });
 
-  if (Object.keys(textColors).length > 0) {
+  if (Object.keys(contentColors).length > 0) {
     groups.push({
-      title: "text",
-      subtitle: "--jb-text-primary, --jb-text-secondary, --jb-text-inverse",
-      colors: textColors,
+      title: "content",
+      subtitle: "--jb-content-primary, --jb-content-secondary, --jb-content-inverse",
+      colors: contentColors,
+    });
+  }
+
+  const surfaceColors: Record<string, string> = {};
+  const surfaceMap = [
+    ["primary", "--jb-surface-primary"],
+    ["secondary", "--jb-surface-secondary"],
+    ["inverse", "--jb-surface-inverse"],
+  ];
+
+  surfaceMap.forEach(([label, token]) => {
+    const value = getTokenValue(tokens, token);
+    if (value) {
+      surfaceColors[label] = value;
+    }
+  });
+
+  if (Object.keys(surfaceColors).length > 0) {
+    groups.push({
+      title: "surface",
+      subtitle: "--jb-surface-primary, --jb-surface-secondary, --jb-surface-inverse",
+      colors: surfaceColors,
     });
   }
 
@@ -624,16 +644,16 @@ export function ThemePage({
         margin: "-1.5rem",
         minHeight: "100vh",
         padding: "1.5rem",
-        background: "var(--jb-background)",
-        color: "var(--jb-text-primary)",
+        background: "var(--jb-surface-secondary)",
+        color: "var(--jb-content-primary)",
       }}
     >
       <style>{`
         html.custom-theme-doc-wrapper,
         body.custom-theme-doc-wrapper,
         body.custom-theme-doc-wrapper :where(#storybook-docs, .storybook-docs, .sbdocs-wrapper, .sbdocs-content, .docs-story) {
-          background: var(--jb-background) !important;
-          color: var(--jb-text-primary) !important;
+          background: var(--jb-surface-secondary) !important;
+          color: var(--jb-content-primary) !important;
         }
 
         body.custom-theme-doc-wrapper :where(.sbdocs-wrapper, .sbdocs-content) {
@@ -641,13 +661,13 @@ export function ThemePage({
         }
 
         body.custom-theme-doc-wrapper :where(.sbdocs-preview, .docblock-source) {
-          background: var(--jb-surface) !important;
+          background: var(--jb-surface-primary) !important;
           border-color: var(--jb-border-color) !important;
         }
 
         .custom-theme-doc-page,
         .custom-theme-doc-page :where(h1, h2, h3, h4, h5, h6, p, li, td, th, figcaption, blockquote) {
-          color: var(--jb-text-primary) !important;
+          color: var(--jb-content-primary) !important;
         }
 
         .custom-theme-doc-page :where(a) {
@@ -655,17 +675,17 @@ export function ThemePage({
         }
 
         .custom-theme-doc-page :where(table) {
-          background: var(--jb-background) !important;
-          color: var(--jb-text-primary) !important;
+          background: var(--jb-surface-secondary) !important;
+          color: var(--jb-content-primary) !important;
           border-color: var(--jb-border-color) !important;
         }
 
         .custom-theme-doc-page :where(thead tr) {
-          background: var(--jb-surface) !important;
+          background: var(--jb-surface-primary) !important;
         }
 
         .custom-theme-doc-page :where(tbody tr) {
-          background: var(--jb-background) !important;
+          background: var(--jb-surface-secondary) !important;
         }
 
         .custom-theme-doc-page :where(tbody tr:nth-of-type(even)) {
@@ -673,27 +693,27 @@ export function ThemePage({
         }
 
         .custom-theme-doc-page :where(th) {
-          background: var(--jb-surface) !important;
-          color: var(--jb-text-primary) !important;
+          background: var(--jb-surface-primary) !important;
+          color: var(--jb-content-primary) !important;
           border-color: var(--jb-border-color) !important;
         }
 
         .custom-theme-doc-page :where(td) {
           background: transparent !important;
-          color: var(--jb-text-primary) !important;
+          color: var(--jb-content-primary) !important;
           border-color: var(--jb-border-color) !important;
         }
 
         .custom-theme-doc-page :where(code) {
-          color: var(--jb-text-primary) !important;
-          background: var(--jb-surface) !important;
+          color: var(--jb-content-primary) !important;
+          background: var(--jb-surface-primary) !important;
           border: 1px solid var(--jb-border-color);
           border-radius: 0.25rem;
           padding: 0.05rem 0.25rem;
         }
 
         .custom-theme-doc-page :where(.docblock-colorpalette, .docblock-colorpalette *) {
-          color: var(--jb-text-primary) !important;
+          color: var(--jb-content-primary) !important;
         }
       `}</style>
       {children}
@@ -713,7 +733,7 @@ export function ThemeGallery({ theme }: { theme: ThemeKey }) {
         <section key={group} style={{ display: "grid", gap: "0.85rem" }}>
           <h2 style={{
             margin: 0,
-            color: "var(--jb-text-primary)",
+            color: "var(--jb-content-primary)",
             fontSize: "1.15rem",
             lineHeight: 1.3,
           }}>
@@ -743,7 +763,7 @@ export function ThemeGallery({ theme }: { theme: ThemeKey }) {
                 >
                   <h3 style={{
                     margin: 0,
-                    color: "var(--jb-text-primary)",
+                    color: "var(--jb-content-primary)",
                     fontSize: "0.875rem",
                     fontWeight: 700,
                     lineHeight: 1.4,

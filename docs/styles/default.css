@@ -2,12 +2,13 @@
   --jb-primary: oklch(60% 0.26 256);
   --jb-primary-hover: oklch(67% 0.33 256);
   --jb-primary-pressed: oklch(50% 0.21 256);
-  --jb-text-primary: oklch(14% 0 0);
-  --jb-text-secondary: oklch(72.6% 0.01463 258.36);
+  --jb-content-primary: oklch(14% 0 0);
+  --jb-content-secondary: oklch(72.6% 0.01463 258.36);
   --jb-text-disabled: oklch(62% 0.018 258.36);
-  --jb-text-inverse: oklch(100% 0 0);
-  --jb-background: #f7f8fb;
-  --jb-surface: #ffffff;
+  --jb-content-inverse: oklch(100% 0 0);
+  --jb-surface-secondary: #f7f8fb;
+  --jb-surface-primary: #ffffff;
+  --jb-surface-inverse: var(--jb-content-primary);
   --jb-surface-hover: #f0f2f7;
   --jb-calendar-surface-bg: #ffffff;
   --jb-border-color: #d9dde7;

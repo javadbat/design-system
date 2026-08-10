@@ -2,12 +2,13 @@
     --jb-primary: #0f62fe;
     --jb-primary-hover: #4589ff;
     --jb-primary-pressed: #0043ce;
-    --jb-text-primary: #f4f4f4;
-    --jb-text-secondary: #c6c6c6;
+    --jb-content-primary: #f4f4f4;
+    --jb-content-secondary: #c6c6c6;
     --jb-text-disabled: #6f6f6f;
-    --jb-text-inverse: #ffffff;
-    --jb-background: #161616;
-    --jb-surface: #262626;
+    --jb-content-inverse: #ffffff;
+    --jb-surface-secondary: #161616;
+    --jb-surface-primary: #262626;
+    --jb-surface-inverse: var(--jb-content-primary);
     --jb-surface-hover: #393939;
     --jb-border-color: #525252;
     --jb-focus-color: #78a9ff;
@@ -15,7 +16,7 @@
     --jb-radius-sm: 0;
     --jb-radius: 0;
     --jb-radius-lg: 0;
-    color: var(--jb-text-primary);
+    color: var(--jb-content-primary);
     color-scheme: dark;
     font-family: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
 }

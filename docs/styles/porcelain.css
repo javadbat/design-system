@@ -2,15 +2,16 @@
     --jb-primary: #276c9d;
     --jb-primary-hover: #1c5a86;
     --jb-primary-pressed: #174a70;
-    --jb-text-primary: #1c3045;
-    --jb-text-secondary: #40586e;
+    --jb-content-primary: #1c3045;
+    --jb-content-secondary: #40586e;
     --jb-text-disabled: #aab9c6;
-    --jb-text-inverse: #ffffff;
-    --jb-background: #edf4fb;
-    --jb-surface: #ffffff;
+    --jb-content-inverse: #ffffff;
+    --jb-surface-secondary: #edf4fb;
+    --jb-surface-primary: #ffffff;
+    --jb-surface-inverse: var(--jb-content-primary);
     --jb-surface-hover: #e4f0f9;
     --jb-calendar-surface-bg:
-        linear-gradient(180deg, var(--jb-surface), var(--jb-background));
+        linear-gradient(180deg, var(--jb-surface-primary), var(--jb-surface-secondary));
     --jb-border-color: #d6e3ef;
     --jb-focus-color: #276c9d;
     --jb-success: #c96d35;

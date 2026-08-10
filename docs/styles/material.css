@@ -12,12 +12,13 @@
     --jb-secondary-container: #d7e3f7;
     --jb-on-secondary: #ffffff;
     --jb-on-secondary-container: #101c2b;
-    --jb-text-primary: #1f1f1f;
-    --jb-text-secondary: #444746;
+    --jb-content-primary: #1f1f1f;
+    --jb-content-secondary: #444746;
     --jb-text-disabled: rgb(31 31 31 / 0.38);
-    --jb-text-inverse: #ffffff;
-    --jb-background: #f8fafd;
-    --jb-surface: #ffffff;
+    --jb-content-inverse: #ffffff;
+    --jb-surface-secondary: #f8fafd;
+    --jb-surface-primary: #ffffff;
+    --jb-surface-inverse: var(--jb-content-primary);
     --jb-surface-container-low: #f1f4f9;
     --jb-surface-container: #ecf0f6;
     --jb-surface-container-high: #e8ecf2;

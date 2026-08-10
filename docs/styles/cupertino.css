@@ -2,12 +2,13 @@
     --jb-primary: #007aff;
     --jb-primary-hover: #006ee6;
     --jb-primary-pressed: #005ecb;
-    --jb-text-primary: #1d1d1f;
-    --jb-text-secondary: #3a3a3c;
+    --jb-content-primary: #1d1d1f;
+    --jb-content-secondary: #3a3a3c;
     --jb-text-disabled: #c7c7cc;
-    --jb-text-inverse: #ffffff;
-    --jb-background: #f2f2f7;
-    --jb-surface: oklch(99% 0.01 250 / 0.92);
+    --jb-content-inverse: #ffffff;
+    --jb-surface-secondary: #f2f2f7;
+    --jb-surface-primary: oklch(99% 0.01 250 / 0.92);
+    --jb-surface-inverse: var(--jb-content-primary);
     --jb-surface-hover: #e5e5ea;
     --jb-border-color: oklch(90% 0.01 250 / 0.8);
     --jb-focus-color: #007aff;

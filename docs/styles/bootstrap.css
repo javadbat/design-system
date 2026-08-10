@@ -2,12 +2,13 @@
     --jb-primary: #0d6efd;
     --jb-primary-hover: #0b5ed7;
     --jb-primary-pressed: #0a58ca;
-    --jb-text-primary: #212529;
-    --jb-text-secondary: #495057;
+    --jb-content-primary: #212529;
+    --jb-content-secondary: #495057;
     --jb-text-disabled: #adb5bd;
-    --jb-text-inverse: #ffffff;
-    --jb-background: #f8f9fa;
-    --jb-surface: #ffffff;
+    --jb-content-inverse: #ffffff;
+    --jb-surface-secondary: #f8f9fa;
+    --jb-surface-primary: #ffffff;
+    --jb-surface-inverse: var(--jb-content-primary);
     --jb-surface-hover: #e9ecef;
     --jb-border-color: #dee2e6;
     --jb-focus-color: #0d6efd;
