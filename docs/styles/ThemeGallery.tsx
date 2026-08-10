@@ -461,7 +461,7 @@ function getOfficialColorGroups(tokens: TokenEntry[]): OfficialColorGroup[] {
   const textMap = [
     ["primary", "--jb-text-primary"],
     ["secondary", "--jb-text-secondary"],
-    ["contrast", "--jb-text-contrast"],
+    ["contrast", "--jb-text-inverse"],
   ];
 
   textMap.forEach(([label, token]) => {
@@ -474,7 +474,7 @@ function getOfficialColorGroups(tokens: TokenEntry[]): OfficialColorGroup[] {
   if (Object.keys(textColors).length > 0) {
     groups.push({
       title: "text",
-      subtitle: "--jb-text-primary, --jb-text-secondary, --jb-text-contrast",
+      subtitle: "--jb-text-primary, --jb-text-secondary, --jb-text-inverse",
       colors: textColors,
     });
   }

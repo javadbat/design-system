@@ -5,7 +5,7 @@
     --jb-text-primary: #1d1d1f;
     --jb-text-secondary: #3a3a3c;
     --jb-text-disabled: #c7c7cc;
-    --jb-text-contrast: #ffffff;
+    --jb-text-inverse: #ffffff;
     --jb-background: #f2f2f7;
     --jb-surface: oklch(99% 0.01 250 / 0.92);
     --jb-surface-hover: #e5e5ea;
