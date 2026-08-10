@@ -52,6 +52,7 @@
     "jb-tooltip": "file:./modules/jb-tooltip",
     "jb-validation": "file:./modules/jb-validation",
     "jb-qrcode": "file:./modules/jb-qrcode",
+    "jb-range-input": "file:./modules/jb-range-input",
     "lightningcss": "^1.32.0",
     "lodash": "^4.17.21",
     "lodash.clonedeep": "^4.5.0",

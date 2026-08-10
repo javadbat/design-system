@@ -54,6 +54,7 @@ const JBInfiniteScroll = await getBuildConfig(`modules/jb-infinite-scroll`);
 const JBQRCode = await getBuildConfig(`modules/jb-qrcode`);
 const JBSwitch = await getBuildConfig(`modules/jb-switch`);
 const JBGrid = await getBuildConfig(`modules/jb-grid`);
+const JBRangeInput = await getBuildConfig(`modules/jb-range-input`);
 
 const webComponentList: WebComponentBuildConfig[] = [
   ...JBCore.webComponents,
@@ -86,7 +87,8 @@ const webComponentList: WebComponentBuildConfig[] = [
   ...JBInfiniteScroll.webComponents,
   ...JBQRCode.webComponents,
   ...JBSwitch.webComponents,
-  ...JBGrid.webComponents
+  ...JBGrid.webComponents,
+  ...JBRangeInput.webComponents
 ];
 const reactComponentList: ReactComponentBuildConfig[] = [
   ...JBCore.reactComponents,
@@ -116,6 +118,7 @@ const reactComponentList: ReactComponentBuildConfig[] = [
   ...JBInfiniteScroll.reactComponents,
   ...JBSwitch.reactComponents,
   ...JBGrid.reactComponents,
-  ...JBQRCode.reactComponents
+  ...JBQRCode.reactComponents,
+  ...JBRangeInput.reactComponents
 ];
 export { webComponentList, reactComponentList };

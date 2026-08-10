@@ -116,3 +116,7 @@
 	path = modules/jb-icons
 	url = https://github.com/javadbat/jb-icons.git
 	branch = main
+[submodule "modules/jb-range-input"]
+	path = modules/jb-range-input
+	url = https://github.com/javadbat/jb-range-input.git
+	branch = main
