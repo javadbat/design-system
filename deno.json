@@ -7,6 +7,14 @@
       "description": "Build design-system packages using the local builder source.",
       "command": "deno run --allow-run --allow-read --allow-write --allow-net --allow-env --allow-sys --allow-ffi ./tasks/build/build.ts --path=./config/build-config.ts"
     },
+    "build-web": {
+      "description": "Build web-component packages using the local builder source.",
+      "command": "deno task build --type=web"
+    },
+    "build-react": {
+      "description": "Build React packages using the local builder source.",
+      "command": "deno task build --type=react"
+    },
     "generate-package-catalog": {
       "description": "Generate docs/component-list.md from config/package-list.ts and local package metadata.",
       "command": "deno run --allow-read --allow-write ./tasks/generate-package-catalog.ts"

@@ -36,8 +36,11 @@ jobs:
       - name: install dependencies
         run: deno install
       
-      - name: build packages
-        run: deno task build
+      - name: build web-component packages
+        run: deno task build-web
+
+      - name: build React packages
+        run: deno task build-react
 
       - name: Build Storybook static files
         run: deno task build-storybook
