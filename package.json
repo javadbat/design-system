@@ -49,7 +49,7 @@
     "jb-textarea": "file:./modules/jb-textarea",
     "jb-time-input": "file:./modules/jb-time-input",
     "jb-time-picker": "file:./modules/jb-time-picker",
-    "jb-tooltip": "file:./modules/jb-tooltip",
+    "j@jbui/tooltip": "file:./modules/jb-tooltip",
     "jb-validation": "file:./modules/jb-validation",
     "jb-qrcode": "file:./modules/jb-qrcode",
     "jb-range-input": "file:./modules/jb-range-input",
