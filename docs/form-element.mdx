@@ -7,7 +7,8 @@ import {JBPasswordInput} from 'jb-password-input/react';
 import {JBNationalInput} from 'jb-national-input/react';
 import {JBPaymentInput} from 'jb-payment-input/react';
 import {JBTimeInput} from 'jb-time-input/react';
-import {JBSelect, JBOption} from 'jb-select/react';
+import {JBSelect} from 'jb-select/react';
+import {JBOption} from 'jb-select/option/react';
 import {JBCheckbox} from 'jb-checkbox/react';
 import {JBSwitch} from 'jb-switch/react';
 import {JBImageInput} from 'jb-image-input/react';
@@ -73,4 +74,3 @@ for more information read [jb-validation](?path=/docs/components-jbvalidation-re
 ## JBFormInputStandards
 it's a standard interface that all jb design system modules must follow so they can take part in `jb-form`. if you you want your own custom module also works in `jb-form` you just have to implement this interface.
 this interface make sure your component has `value`, `disable`, `required`, `isDirty`, `initialValue` ,... properties that needed by `jb-form` to takes you a part in group actions like checking dirty status of the form or get and set value and initial value of the form.
-
