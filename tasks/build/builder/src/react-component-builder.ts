@@ -165,7 +165,7 @@ export class ReactComponentBuilder {
     ];
     plugins.push(swcPlugin);
     if (!watchMode) {
-      plugins.push(terser({ compress: { drop_debugger: true } }));
+      plugins.push(terser({ compress: { drop_debugger: true, directives: false } }));
     }
     const inputOptions = {
       input: path.join(module.path),
@@ -184,6 +184,7 @@ export class ReactComponentBuilder {
       dir: path.join(module.outputPathParsed.dir),
       entryFileNames: outputFileName,
       format: format, //es for native code , system for systemjs known module
+      banner: '"use client";',
     };
     if (format == "umd") {
       //@ts-ignore
