@@ -122,17 +122,25 @@ const preview: Preview = {
     (Story,context)=>{
       const [key,setKey] = useState("initial")
       useEffect(()=>{
-        if(document.documentElement.lang != context.globals.locale){
-          i18n.addEventListener("localeChange",()=>{
-            setKey(context.globals.locale);
-          })
-          if(context.globals.locale == 'fa-num'){
-            document.documentElement.lang = 'fa';
-            i18n.setLocale(new Intl.Locale('fa',{calendar: 'persian',numberingSystem:'arabext'}))
-          }else{
-            document.documentElement.lang = context.globals.locale;
-          }
+        let isCancelled = false;
+        const unsubscribe = i18n.subscribe(()=>{
+          setKey(i18n.locale.toString());
+        })
+        const language = context.globals.locale === 'fa-num' ? 'fa' : context.globals.locale;
+        if(document.documentElement.lang != language){
+          document.documentElement.lang = language;
         }
+        queueMicrotask(() => {
+          if (isCancelled) return;
+          const locale = context.globals.locale === 'fa-num'
+            ? new Intl.Locale('fa', { calendar: 'persian', numberingSystem: 'arabext' })
+            : new Intl.Locale(language);
+          i18n.setLocale(locale);
+        });
+        return () => {
+          isCancelled = true;
+          unsubscribe();
+        };
       },[context.globals.locale])
       useLayoutEffect(()=>{
         if(document.documentElement.dir != context.globals.dir){
