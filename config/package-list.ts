@@ -363,4 +363,16 @@ export const packageCatalog: PackageCatalogEntry[] = [
     owner: defaultOwner,
     buildConfigPath: moduleBuildConfigPath("jb-qrcode"),
   },
+  {
+    name: "jb-color-picker",
+    title: "Color Picker",
+    summary: "Standalone RGB and OKLCH color selection surface for composition inside color inputs.",
+    category: "Pickers",
+    kind: "component",
+    status: "active",
+    stability: "experimental",
+    owner: defaultOwner,
+    buildConfigPath: moduleBuildConfigPath("jb-color-picker"),
+    docsPath: "../modules/jb-color-picker/README.md",
+  },
 ];

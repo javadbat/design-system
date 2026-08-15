@@ -55,6 +55,7 @@ const JBQRCode = await getBuildConfig(`modules/jb-qrcode`);
 const JBSwitch = await getBuildConfig(`modules/jb-switch`);
 const JBGrid = await getBuildConfig(`modules/jb-grid`);
 const JBRangeInput = await getBuildConfig(`modules/jb-range-input`);
+const JBColorPicker = await getBuildConfig(`modules/jb-color-picker`);
 
 const webComponentList: WebComponentBuildConfig[] = [
   ...JBCore.webComponents,
@@ -88,7 +89,8 @@ const webComponentList: WebComponentBuildConfig[] = [
   ...JBQRCode.webComponents,
   ...JBSwitch.webComponents,
   ...JBGrid.webComponents,
-  ...JBRangeInput.webComponents
+  ...JBRangeInput.webComponents,
+  ...JBColorPicker.webComponents
 ];
 const reactComponentList: ReactComponentBuildConfig[] = [
   ...JBCore.reactComponents,
@@ -119,6 +121,7 @@ const reactComponentList: ReactComponentBuildConfig[] = [
   ...JBSwitch.reactComponents,
   ...JBGrid.reactComponents,
   ...JBQRCode.reactComponents,
-  ...JBRangeInput.reactComponents
+  ...JBRangeInput.reactComponents,
+  ...JBColorPicker.reactComponents
 ];
 export { webComponentList, reactComponentList };

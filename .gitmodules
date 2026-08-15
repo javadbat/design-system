@@ -120,3 +120,7 @@
 	path = modules/jb-range-input
 	url = https://github.com/javadbat/jb-range-input.git
 	branch = main
+[submodule "modules/jb-color-picker"]
+	path = modules/jb-color-picker
+	url = https://github.com/javadbat/jb-color-picker.git
+	branch = main
