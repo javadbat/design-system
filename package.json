@@ -24,6 +24,7 @@
     "jb-button": "file:./modules/jb-button",
     "jb-calendar": "file:./modules/jb-calendar",
     "jb-checkbox": "file:./modules/jb-checkbox",
+    "jb-color-input": "file:./modules/jb-color-input",
     "jb-color-picker": "file:./modules/jb-color-picker",
     "jb-core": "file:./modules/jb-core",
     "jb-date-input": "file:./modules/jb-date-input",

@@ -124,3 +124,6 @@
 	path = modules/jb-color-picker
 	url = https://github.com/javadbat/jb-color-picker.git
 	branch = main
+[submodule "modules/jb-color-input"]
+	path = modules/jb-color-input
+	url = https://github.com/javadbat/jb-color-input.git

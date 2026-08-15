@@ -375,4 +375,16 @@ export const packageCatalog: PackageCatalogEntry[] = [
     buildConfigPath: moduleBuildConfigPath("jb-color-picker"),
     docsPath: "../modules/jb-color-picker/README.md",
   },
+  {
+    name: "jb-color-input",
+    title: "Color Input",
+    summary: "Form-associated CSS color input with a responsive color-picker popover.",
+    category: "Inputs",
+    kind: "component",
+    status: "active",
+    stability: "experimental",
+    owner: defaultOwner,
+    buildConfigPath: moduleBuildConfigPath("jb-color-input"),
+    docsPath: "../modules/jb-color-input/README.md",
+  },
 ];
