@@ -295,7 +295,7 @@ function renderCatalog(rows: CatalogRow[]): string {
     lines.push("");
   }
 
-  return `${lines.join("\n")}\n`;
+  return lines.join("\n");
 }
 
 const rows = await buildRows();

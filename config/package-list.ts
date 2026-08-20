@@ -387,4 +387,16 @@ export const packageCatalog: PackageCatalogEntry[] = [
     buildConfigPath: moduleBuildConfigPath("jb-color-input"),
     docsPath: "../modules/jb-color-input/README.md",
   },
+  {
+    name: "jb-tab",
+    title: "Tab",
+    summary: "Accessible tab navigation with animated selection and composable content panels.",
+    category: "Navigation",
+    kind: "component",
+    status: "active",
+    stability: "experimental",
+    owner: defaultOwner,
+    buildConfigPath: moduleBuildConfigPath("jb-tab"),
+    docsPath: "../modules/jb-tab/README.md",
+  },
 ];
