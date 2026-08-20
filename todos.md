@@ -13,3 +13,4 @@
 - [x] compare react doc and web-component-doc wit AI and add missing.
 - [x] create a updated list of exposed css variable with AI.
 - [ ] jb-pin-input: preserve current value and reconcile form value when `charLength` changes dynamically.
+- [ ] define standard events for all web-components specially form elements to make sure all support same event map.
