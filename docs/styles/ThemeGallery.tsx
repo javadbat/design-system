@@ -16,8 +16,10 @@ import * as PaymentInputStyles from "../../modules/jb-payment-input/stories/Styl
 import * as PinInputStyles from "../../modules/jb-pin-input/stories/Styles.stories";
 import * as PopoverStyles from "../../modules/jb-popover/stories/Styles.stories";
 import * as QRCodeStyles from "../../modules/jb-qrcode/stories/Styles.stories";
+import * as RangeInputStyles from "../../modules/jb-range-input/stories/Styles.stories";
 import * as SelectStyles from "../../modules/jb-select/stories/Styles.stories";
 import * as SwitchStyles from "../../modules/jb-switch/stories/Styles.stories";
+import * as TabStyles from "../../modules/jb-tab/stories/Styles.stories";
 import * as TextareaStyles from "../../modules/jb-textarea/stories/Styles.stories";
 import * as TimeInputStyles from "../../modules/jb-time-input/stories/Styles.stories";
 import * as TimePickerStyles from "../../modules/jb-time-picker/stories/Styles.stories";
@@ -325,9 +327,11 @@ const componentStyles: ComponentStyleCollection[] = [
   { group: "Form Controls", label: "Payment Input", styles: composeStories(PaymentInputStyles) },
   { group: "Form Controls", label: "Checkbox", styles: composeStories(CheckboxStyles) },
   { group: "Form Controls", label: "Pin Input", styles: composeStories(PinInputStyles) },
+  { group: "Form Controls", label: "Range Input", styles: composeStories(RangeInputStyles) },
   { group: "Form Controls", label: "Select", styles: composeStories(SelectStyles) },
   { group: "Form Controls", label: "Switch", styles: composeStories(SwitchStyles) },
   { group: "Form Controls", label: "Textarea", styles: composeStories(TextareaStyles) },
+  { group: "Navigation", label: "Tabs", styles: composeStories(TabStyles) },
   { group: "Pickers", label: "Calendar", styles: composeStories(CalendarStyles) },
   { group: "Pickers", label: "Date Input", styles: composeStories(DateInputStyles) },
   { group: "Pickers", label: "Time Input", styles: composeStories(TimeInputStyles) },
