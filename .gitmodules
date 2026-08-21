@@ -127,3 +127,6 @@
 [submodule "modules/jb-color-input"]
 	path = modules/jb-color-input
 	url = https://github.com/javadbat/jb-color-input.git
+[submodule "modules/jb-tab"]
+	path = modules/jb-tab
+	url = https://github.com/javadbat/jb-tab.git
