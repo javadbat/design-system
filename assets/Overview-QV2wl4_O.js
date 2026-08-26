@@ -1,0 +1,5 @@
+import{i as e}from"./preload-helper-CT_b8DTk.js";import{t}from"./iframe-pq5aVzpF.js";import{f as n,j as r,n as i,y as a}from"./blocks-Ce2C8fJE.js";import{t as o}from"./mdx-react-shim-C5Zru5po.js";import{Basic as s,n as c,t as l}from"./JBTab.stories-DMSKqGdz.js";function u(e){let t={code:`code`,h1:`h1`,p:`p`,...r(),...e.components};return(0,f.jsxs)(f.Fragment,{children:[(0,f.jsx)(n,{of:l}),`
+`,(0,f.jsx)(t.h1,{id:`jbtab`,children:`JBTab`}),`
+`,(0,f.jsxs)(t.p,{children:[(0,f.jsx)(t.code,{children:`jb-tab`}),` coordinates a directly slotted trigger list with panels that may live anywhere beneath the same tab context. It supports nullable selection, duplicate panels, disabled triggers, horizontal and vertical keyboard navigation, and a moving indicator.`]}),`
+`,(0,f.jsx)(i,{of:s}),`
+`,(0,f.jsx)(t.p,{children:`See the package README for the full web-component, React, event, accessibility, styling, and animation APIs.`})]})}function d(e={}){let{wrapper:t}={...r(),...e.components};return t?(0,f.jsx)(t,{...e,children:(0,f.jsx)(u,{...e})}):u(e)}var f;e((()=>{f=t(),o(),a(),c()}))();export{d as default};
