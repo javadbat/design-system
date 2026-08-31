@@ -1,0 +1,5 @@
+import{i as e}from"./preload-helper-CT_b8DTk.js";import{t}from"./iframe-R8sYsw_T.js";import{f as n,j as r,n as i,o as a,y as o}from"./blocks-D8Klu8h2.js";import{t as s}from"./mdx-react-shim-D95ljHKT.js";import{RGB as c,n as l,t as u}from"./JBColorPicker.stories-C6Md1XOX.js";function d(e){let t={code:`code`,h1:`h1`,p:`p`,...r(),...e.components};return(0,p.jsxs)(p.Fragment,{children:[(0,p.jsx)(n,{of:u}),`
+`,(0,p.jsx)(t.h1,{id:`color-picker`,children:`Color Picker`}),`
+`,(0,p.jsxs)(t.p,{children:[(0,p.jsx)(t.code,{children:`jb-color-picker`}),` selects RGB and OKLCH colors without acting as a form input. It can be embedded in a popover or composed into a future `,(0,p.jsx)(t.code,{children:`jb-color-input`}),`.`]}),`
+`,(0,p.jsx)(i,{of:c}),`
+`,(0,p.jsx)(a,{of:c})]})}function f(e={}){let{wrapper:t}={...r(),...e.components};return t?(0,p.jsx)(t,{...e,children:(0,p.jsx)(d,{...e})}):d(e)}var p;e((()=>{p=t(),s(),o(),l()}))();export{f as default};
