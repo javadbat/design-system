@@ -107,6 +107,8 @@ Set document language and direction once at the application shell.
 
 For advanced locale control, use `jb-core/i18n`.
 
+For the stable styling contract and CSS-part naming rules, see the [CSS parts contract](./docs/css-parts-contract.md).
+
 ```js
 import { i18n } from "jb-core/i18n";
 

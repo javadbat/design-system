@@ -19,6 +19,10 @@
       "description": "Generate docs/component-list.md from config/package-list.ts and local package metadata.",
       "command": "deno run --allow-read --allow-write ./tasks/generate-package-catalog.ts"
     },
+    "check-consistency": {
+      "description": "Check JB naming conventions, package paths, manifests, and duplicate custom-element tags.",
+      "command": "deno run --allow-read ./tasks/check-consistency.ts"
+    },
     "build-package": {
       "description": "Build design-system packages using the published JSR builder package.",
       "command": "deno run --allow-run --allow-read --allow-write --allow-net --allow-env --allow-sys --allow-ffi jsr:@design-system/builder@0.0.12 build --path=./config/build-config.ts"

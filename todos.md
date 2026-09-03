@@ -14,3 +14,4 @@
 - [x] create a updated list of exposed css variable with AI.
 - [ ] jb-pin-input: preserve current value and reconcile form value when `charLength` changes dynamically.
 - [ ] define standard events for all web-components specially form elements to make sure all support same event map.
+- [ ] make events cancellable if original event is cancellable.
