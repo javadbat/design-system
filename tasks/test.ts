@@ -58,7 +58,7 @@ function parseOptions(args: string[]): TestOptions {
 
 function joinPath(...parts: string[]): string {
   return parts
-    .filter((part) => part.length > 0)
+    .filter(part => part.length > 0)
     .join("/")
     .replaceAll(/\/+/g, "/");
 }
@@ -73,7 +73,7 @@ async function collectTsConfigPaths(directory = ".", relativeDirectory = ""): Pr
       }
       const childDirectory = joinPath(directory, entry.name);
       const childRelativeDirectory = joinPath(relativeDirectory, entry.name);
-      configs.push(...await collectTsConfigPaths(childDirectory, childRelativeDirectory));
+      configs.push(...(await collectTsConfigPaths(childDirectory, childRelativeDirectory)));
       continue;
     }
 
@@ -86,16 +86,17 @@ async function collectTsConfigPaths(directory = ".", relativeDirectory = ""): Pr
 }
 
 function getCommand(name: string): string {
-  return Deno.build.os === "windows"
-    ? `node_modules/.bin/${name}.cmd`
-    : `node_modules/.bin/${name}`;
+  return Deno.build.os === "windows" ? `node_modules/.bin/${name}.cmd` : `node_modules/.bin/${name}`;
 }
 
 function getModulePath(packageName: string): string {
-  const packageEntry = packageCatalog.find((entry) => entry.name === packageName);
+  const packageEntry = packageCatalog.find(entry => entry.name === packageName);
 
   if (!packageEntry) {
-    const packageNames = packageCatalog.map((entry) => entry.name).sort().join(", ");
+    const packageNames = packageCatalog
+      .map(entry => entry.name)
+      .sort()
+      .join(", ");
     console.error(`Unknown module name: ${packageName}`);
     console.error(`Available modules: ${packageNames}`);
     Deno.exit(1);
@@ -131,9 +132,7 @@ async function runBiomeCheck(rootDirectory: string): Promise<void> {
 }
 
 async function runTypecheck(rootDirectory: string): Promise<void> {
-  const configs = (await collectTsConfigPaths(rootDirectory, rootDirectory)).sort((first, second) =>
-    first.localeCompare(second)
-  );
+  const configs = (await collectTsConfigPaths(rootDirectory, rootDirectory)).sort((first, second) => first.localeCompare(second));
 
   if (configs.length === 0) {
     console.log(`No tsconfig.json files found in ${rootDirectory}.`);
@@ -173,11 +172,21 @@ const modulePath = options.name ? getModulePath(options.name) : undefined;
 const rootDirectory = modulePath ?? ".";
 const storybookArgs = ["run", "--project", "storybook"];
 
+const hasPopoverTests = !modulePath || options.name === "jb-popover";
+if (hasPopoverTests) {
+  await runCommand("BUILD JB-POPOVER", Deno.execPath(), ["task", "build", "--name=jb-popover*"]);
+  await runCommand("BUILD DATE-INPUT INTEGRATION", Deno.execPath(), ["task", "build", "--name=jb-date-input"]);
+}
 await runBiomeCheck(rootDirectory);
 await runTypecheck(rootDirectory);
 
 if (!modulePath) {
   await runCommand("STORYBOOK TEST", getCommand("vitest"), storybookArgs);
+} else if (options.name === "jb-popover") {
+  await runCommand("JB-POPOVER STORIES", getCommand("vitest"), [...storybookArgs, `${modulePath}/stories/`]);
 } else {
   console.log("Skipping Storybook tests in scoped mode; run `deno task test-storybook` for the full interaction suite.");
+}
+if (hasPopoverTests) {
+  await runCommand("JB-POPOVER BROWSER TESTS", getCommand("vitest"), ["run", "--config", "modules/jb-popover/tests/vitest.config.ts"]);
 }
