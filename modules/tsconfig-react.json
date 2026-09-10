@@ -14,7 +14,7 @@
         "noLib": false,
         "esModuleInterop": false,
         "declaration": true,
-        "declarationDir": "./",
+        "outDir": "./",
         "declarationMap": false,
         "jsx": "react",
         "typeRoots" : ["../node_modules/@types", "./global.d.ts"],

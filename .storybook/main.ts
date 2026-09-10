@@ -21,10 +21,8 @@ const config: StorybookConfig = {
     "options": {}
   },
   typescript: {
-    reactDocgen: "react-docgen-typescript",
-    // reactDocgenTypescriptOptions: {
-    //   compilerOptions:{}
-    // },
+    // react-docgen-typescript requires the TypeScript 5/6 compiler API.
+    reactDocgen: "react-docgen",
   },
 };
 export default config;

@@ -140,6 +140,10 @@ Install dependencies:
 deno install
 ```
 
+Package typechecks and declaration builds use TypeScript 7.0.2. Run `deno task typecheck` to check every TypeScript project with the installed compiler; Deno's own embedded compiler is managed separately by Deno.
+
+Package tsconfigs use `outDir` instead of `declarationDir` so the native declaration generator can redirect intermediate output before bundling. Storybook uses `react-docgen` because `react-docgen-typescript` requires the TypeScript 5/6 API; automatic documentation of imported or inherited props may differ.
+
 Build packages:
 
 ```bash

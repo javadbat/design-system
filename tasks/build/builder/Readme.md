@@ -2,6 +2,8 @@
 
 this package use rolldown and typescript to bundle your packages for browser
 
+Declaration builds use TypeScript 7.0.2 through the `rolldown-plugin-dts` native `tsgo` generator and Oxc import resolver. Use `compilerOptions.outDir` in package tsconfigs instead of `declarationDir`: the generator redirects `outDir` to a temporary directory before bundling declarations.
+
 > this package is Developed for Bundling JB Design System packages build.
 
 here we can build PureJS, ReactJS and WebComponents modules and packages anyway in Deno ecosystem.

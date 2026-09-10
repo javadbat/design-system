@@ -183,7 +183,8 @@ export class WebComponentBuilder {
       plugins: [
         dts({
           emitDtsOnly: true,
-          resolver: 'tsc',
+          generator: 'tsgo',
+          resolver: 'oxc',
           tsconfig: module.tsConfigPath,
         }),
       ],
