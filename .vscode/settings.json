@@ -1,5 +1,9 @@
 {
   "eslint.enable": false,
+  // `corner-shape` (css-borders-4) is valid css but is not part of the css data
+  // shipped with the css/tailwind language services yet, so it is reported as an
+  // unknown property. remove this entry when https://github.com/microsoft/vscode-css/issues/44 is fixed.
+  "css.lint.validProperties": ["corner-shape"],
   "cSpell.words": [
     "Aban",
     "arabext",
