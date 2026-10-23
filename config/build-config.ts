@@ -62,6 +62,7 @@ const JBTab = await getBuildConfig(`modules/jb-tab`);
 const webComponentList: WebComponentBuildConfig[] = [
   ...JBCore.webComponents,
   ...JBValidation.webComponents,
+  ...JBLoading.webComponents,
   ...JBForm.webComponents,
   ...JBCheckbox.webComponents,
   ...JBInput.webComponents,
@@ -77,7 +78,6 @@ const webComponentList: WebComponentBuildConfig[] = [
   ...JBSearchbar.webComponents,
   ...JBTimePicker.webComponents,
   ...JBTimeInput.webComponents,
-  ...JBLoading.webComponents,
   ...JBPinInput.webComponents,
   ...JBPaymentInput.webComponents,
   ...JBMobileInput.webComponents,
@@ -99,6 +99,7 @@ const webComponentList: WebComponentBuildConfig[] = [
 const reactComponentList: ReactComponentBuildConfig[] = [
   ...JBCore.reactComponents,
   ...JBForm.reactComponents,
+  ...JBLoading.reactComponents,
   ...JBCheckbox.reactComponents,
   ...JBInput.reactComponents,
   ...JBButton.reactComponents,
@@ -112,7 +113,6 @@ const reactComponentList: ReactComponentBuildConfig[] = [
   ...JBSearchbar.reactComponents,
   ...JBTimePicker.reactComponents,
   ...JBTimeInput.reactComponents,
-  ...JBLoading.reactComponents,
   ...JBPinInput.reactComponents,
   ...JBPaymentInput.reactComponents,
   ...JBMobileInput.reactComponents,
